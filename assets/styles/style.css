@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway|&display=swap');
+
+
+/* Always set the map height explicitly to define the size of the div
+ * element that contains the map. */
+#map {
+  height: 100%;
+}
+/* Optional: Makes the sample page fill the window. */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.gm-style .controls {
+  font-size: 28px;  /* this adjusts the size of all the controls */
+
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px;
+  box-sizing: border-box;
+  border-radius: 2px;
+  cursor: pointer;
+  font-weight: 300;
+  height: 1em;
+  margin: 6px;
+  text-align: center;
+  user-select: none;
+  padding: 2px;
+  width: 1em;
+}
+.gm-style .controls button {
+  border: 0;
+  background-color: white;
+  color: rgba(0, 0, 0, 0.6);
+}
+.gm-style .controls button:hover {
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.gm-style .controls.zoom-control {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+}
+.gm-style .controls.zoom-control button {
+  font: 0.85em Arial;
+  margin: 1px;
+  padding: 0;
+}
+
+.gm-style .controls.maptype-control {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+}
+.gm-style .controls.maptype-control button {
+  display: inline-block;
+  font-size: 0.5em;
+  margin: 0 1px;
+  padding: 0 6px;
+}
+.gm-style .controls.maptype-control.maptype-control-is-map .maptype-control-map {
+  font-weight: 700;
+}
+.gm-style .controls.maptype-control.maptype-control-is-satellite .maptype-control-satellite {
+  font-weight: 700;
+}
+
+.gm-style .controls.fullscreen-control button {
+  display: block;
+  font-size: 1em;
+  height: 100%;
+  width: 100%
+}
+.gm-style .controls.fullscreen-control .fullscreen-control-icon {
+  border-style: solid;
+  height: 0.25em;
+  position:absolute;
+  width: 0.25em;
+}
+.gm-style .controls.fullscreen-control .fullscreen-control-icon.fullscreen-control-top-left {
+  border-width: 2px 0 0 2px;
+  left: 0.1em;
+  top: 0.1em;
+}
+.gm-style .controls.fullscreen-control.is-fullscreen .fullscreen-control-icon.fullscreen-control-top-left {
+  border-width: 0 2px 2px 0;
+}
+.gm-style .controls.fullscreen-control .fullscreen-control-icon.fullscreen-control-top-right {
+  border-width: 2px 2px 0 0;
+  right: 0.1em;
+  top: 0.1em;
+}
+.gm-style .controls.fullscreen-control.is-fullscreen .fullscreen-control-icon.fullscreen-control-top-right {
+  border-width: 0 0 2px 2px;
+}
+.gm-style .controls.fullscreen-control .fullscreen-control-icon.fullscreen-control-bottom-left {
+  border-width: 0 0 2px 2px;
+  left: 0.1em;
+  bottom: 0.1em;
+}
+.gm-style .controls.fullscreen-control.is-fullscreen .fullscreen-control-icon.fullscreen-control-bottom-left {
+  border-width: 2px 2px 0 0;
+}
+.gm-style .controls.fullscreen-control .fullscreen-control-icon.fullscreen-control-bottom-right {
+  border-width: 0 2px 2px 0;
+  right: 0.1em;
+  bottom: 0.1em;
+}
+.gm-style .controls.fullscreen-control.is-fullscreen .fullscreen-control-icon.fullscreen-control-bottom-right {
+  border-width: 2px 0 0 2px;
+}
+
+/* === FOOTER === */
+
+.fixed-footer {
+    grid-area: 6 / 1 / 7 / 7;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: rgba(13, 110, 139 , 0.75);
+    padding: 10px 0;
+    color: #ffffff;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    bottom: 0; /* Anchors Footer to the bottom of the display/viewport */
+} /* Fixed Footer Element: */
+
+/* === WHY?
+Section Styling
+'.section a', '.container', 'fixed-footer', and 'footer...' to create a consistent contact experience, and look-and-feel throughout the website.
+Create a clean look, that's easy to comprehend and use.
+=== */
+
+/* ---  Making the Navigation Links visible against the #999999 (grey) background of the Fixed Navigation --- */
+section a {
+  color: #ffffff;
+  text-decoration: none; /* Remove underline from links = HTML style="text-decoration:none" */
+}
+
+/* === Fixed Footer with Scrollable Body === */
+
+/* --- Fixed Footer with [display: grid] and [grid-template-columns: 1fr 1fr 1fr] to set Footer Elements in a row.  --- */
+
+.footer {
+  margin: 0;
+  text-align: center;
+}
+/* ---  Making the Navigation Links visible against the #999999 (grey) background of the Fixed Navigation --- */
+footer a {
+  color: #ffffff;
+  font-size: 110%;
+  padding: 0px 10px;
+  text-decoration: none; /* Remove underline from links = HTML style="text-decoration:none" */
+}
+
+footer a i:hover {
+    /* color: #30e0fc; */
+    /* zoom: 120%; */
+    transform: scale(1.5); /* transform: scale() works on all browsers. zoom: doesn't work on Firefox. Also, zoom: ruins the footer. */
+}
+
+/* --- Add padding to the Fontawesome icons for the Left and Right Footer elements. It keeps the icon layout consisten across smaller devices. --- */
+.fa-calendar,
+.fa-graduation-cap, .fa-location-arrow {
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+/* === WHY?
+Adding tool-tips to clarify the fixed-footer elements (and to show off a nifty and useful CSS 3 feature).
+=== */
+
+/* --- Tool-tip on Hover by Kevin Powell: https://www.youtube.com/watch?v=xoRbkm8XgfQ HTML <i ... tool-tip="Tool-tip Text" ... ></i> --- */
+i[tool-tip] {
+    position: relative;
+}
+
+i[tool-tip]::after {
+    content: attr(tool-tip);
+    display: block;
+    position: absolute;
+    background-color: rgb(13, 110, 139);
+    padding: 1em 2em;
+    color: white;
+    font-size: 0.75em;
+    bottom: 0;
+    left: -10px; /* Works on all tested displays (Chrome --> Inspect and FireFox RDM) and devices. The Tool-Tips are fully visible. */
+    white-space: normal;
+    transform: scale(0);
+    transition: transform ease-out 250ms, bottom ease-out 250ms;
+    font-family: 'Raleway', sans-serif;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    
+}
+
+i[tool-tip]:hover::after {
+    transform: scale(1);
+    bottom: 200%;
+}
