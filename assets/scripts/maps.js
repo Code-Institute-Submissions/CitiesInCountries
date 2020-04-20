@@ -18,8 +18,8 @@ JS: Create and call custom functions, ZoomControl, MapType Control, and FullScre
 */
 
 function initMap() {
-    var home = { lat: 53.274346, lng: -6.348835 }; // My home coords for centering the map, and for marking my home
-    var map = new google.maps.Map(document.getElementById("map"), {
+    let home = { lat: 53.274346, lng: -6.348835 }; // My home coords for centering the map, and for marking my home
+    let map = new google.maps.Map(document.getElementById("map"), {
         zoom: 6,
         center: home,
         disableDefaultUI: true,
@@ -28,7 +28,7 @@ function initMap() {
     const weatherInfo = `<div class="weather" id="weather"></div>`;
     const toolTipButtons = `<br><div class="modal__actions"><button class="btn btn--passive">Overview</button><button class="btn btn--success">Graphs</button></div>`;
 
-    var markersArray = [
+    let markersArray = [
         {
             coords: home,
             iconImage: '/assets/images/150px-IRL_Dublin_flag.svg.png',
@@ -60,12 +60,12 @@ function initMap() {
         }
     ];
 
-    for (var i = 0; i < markersArray.length; i++) {
+    for (let i = 0; i < markersArray.length; i++) {
         addMarker(markersArray[i]);
     }
 
     function addMarker(props) {
-        var marker = new google.maps.Marker({
+        let marker = new google.maps.Marker({
             position: props.coords,
             map: map,
             iconImage: props.iconImage,
@@ -81,7 +81,7 @@ function initMap() {
         // Check for Content for "tool-tip"
         if (props.content) {
             // Set Content for each Marker
-            var infoWindow = new google.maps.InfoWindow({
+            let infoWindow = new google.maps.InfoWindow({
                 content: props.content
             });
 
@@ -166,7 +166,7 @@ function initZoomControl(map) {
 }
 
 function initMapTypeControl(map) {
-    var mapTypeControlDiv = document.querySelector('.maptype-control');
+    let mapTypeControlDiv = document.querySelector('.maptype-control');
     document.querySelector('.maptype-control-map').onclick = function () {
         mapTypeControlDiv.classList.add('maptype-control-is-map');
         mapTypeControlDiv.classList.remove('maptype-control-is-satellite');
@@ -185,8 +185,8 @@ function initMapTypeControl(map) {
 }
 
 function initFullscreenControl(map) {
-    var elementToSendFullscreen = map.getDiv().firstChild;
-    var fullscreenControl = document.querySelector('.fullscreen-control');
+    let elementToSendFullscreen = map.getDiv().firstChild;
+    let fullscreenControl = document.querySelector('.fullscreen-control');
     map.controls[google.maps.ControlPosition.RIGHT_TOP].push(
         fullscreenControl);
 
