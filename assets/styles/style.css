@@ -15,6 +15,7 @@ body {
     padding: 0;
 }
 
+
 /* === WHY?
 To control the style of the Google Map navigation elements we replace the default controls.
 
@@ -145,11 +146,22 @@ JS: Create and call custom functions, ZoomControl, MapType Control, and FullScre
     border-width: 2px 0 0 2px;
 }
 
+
+/* === WHY?
+To create an appealing look-and-feel for the viewing of cities across the World on Google Maps, and provide easy-access to city overview, weather, and details (D3) while staying on the same page.
+
+=== WHAT?
+Create a Grid with responsive elements to suit mobiles, tablets, and desktops.
+
+=== HOW?
+HTML: Create the <div> elements for the map, markers, modals, and footer elements.
+CSS: Create  the layout for Google Maps, the Footer, and Modals.
+JS: Control Marker Tool-Tips, and Modals.
+*/
+
 .parent {
     height: 100%;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
     grid-column-gap: 0px;
     grid-row-gap: 0px;
     grid-template-columns: repeat(3, 1fr);
@@ -175,7 +187,7 @@ JS: Create and call custom functions, ZoomControl, MapType Control, and FullScre
         "map map map"
         "map map map"
         "footLeft footMid footRight";
-    /* Crazy, I know...though it makes perfect sense... */
+    /* Crazy, I know...though it makes perfect sense...and is visually appealing, and is easier to understand */
 }
 
 .map {
@@ -185,34 +197,28 @@ JS: Create and call custom functions, ZoomControl, MapType Control, and FullScre
     width: auto;
 }
 
-.footLeft {
-    grid-area: footLeft;
+.footLeft,
+.footMid,
+.footRight {
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
     display: grid;
     padding: 10px 0;
     position: relative;
     bottom: 0;
     background: rgb(13, 110, 139);
     color: #ffffff;
+}
+
+.footLeft {
+    grid-area: footLeft;
 }
 
 .footMid {
     grid-area: footMid;
-    display: grid;
-    padding: 10px 0;
-    position: relative;
-    bottom: 0;
-    background: rgb(13, 110, 139);
-    color: #ffffff;
 }
 
 .footRight {
     grid-area: footRight;
-    display: grid;
-    padding: 10px 0;
-    position: relative;
-    bottom: 0;
-    background: rgb(13, 110, 139);
-    color: #ffffff;
 }
 
 
@@ -290,10 +296,51 @@ i[tool-tip]::after {
     transition: transform ease-out 250ms, bottom ease-out 250ms;
     font-family: 'Raleway', sans-serif;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
 }
 
 i[tool-tip]:hover::after {
     transform: scale(1);
     bottom: 200%;
+}
+
+
+/* === MODAL === */
+/*  */
+
+/* === WHY?
+Section Styling
+'.section a', '.container', 'fixed-footer', and 'footer...' to create a consistent contact experience, and look-and-feel throughout the website.
+Create a clean look, that's easy to comprehend and use.
+=== */
+.modal {
+    position: fixed;
+    z-index: 100;
+    width: 80%;
+    top: 30vh;
+    left: 10%;
+    display: none;
+}
+
+.modal.visible {
+    display: block;
+    animation: fade-slide-in 0.3s ease-out forwards;
+}
+
+.modal .modal__title {
+    margin: 0;
+    padding: 1rem;
+    border-bottom: 1px solid #00329e;
+    background: #00329e;
+    color: white;
+    border-radius: 10px 10px 0 0;
+}
+
+.modal .modal__content {
+    padding: 1rem;
+}
+
+.modal .modal__actions {
+    padding: 1rem;
+    display: flex;
+    justify-content: flex-end;
 }
