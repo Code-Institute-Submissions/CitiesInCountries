@@ -103,12 +103,21 @@ function initMap() {
                         let nameValue = data['name'];
 
                         /* console.log(tempValue, descValue, nameValue); */
+                        if (document.getElementById("weather")) {
+                            let weatherID = document.getElementById("weather").id = "weather" + nameValue;
+                            document.getElementById(weatherID).innerHTML = tempValue + `° Celsius, ` + descValue;
+                            console.log("If: ", weatherID);
+                        } else {
+                            let weatherID = "weather" + nameValue;
+                            document.getElementById(weatherID).innerHTML = tempValue + `° Celsius, ` + descValue;
+                            console.log("Else :", weatherID);
+                        }
 
-                        let weatherID = document.getElementById("weather").id = "weather" + nameValue;
+                        /* let weatherID = document.getElementById("weather").id = "weather" + nameValue; */
 
                         /* console.log(weatherID); */
 
-                        document.getElementById(weatherID).innerHTML = tempValue + `° Celsius, ` + descValue;
+                        /* document.getElementById(weatherID).innerHTML = tempValue + `° Celsius, ` + descValue; */
 
                         /* console.log(marker.content, marker.position); */
                     })

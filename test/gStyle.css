@@ -52,6 +52,8 @@ JS: Create and call custom functions, ZoomControl, MapType Control, and FullScre
     /* Background of the navigation controls */
     color: #ffffff;
     /* Navigation control colour */
+    font-family: 'Raleway', sans-serif;
+    /* Consistent Font use on the website - Google: Map and Satellite naviagation elements */
 }
 
 .gm-style .controls button:hover {
@@ -66,7 +68,8 @@ JS: Create and call custom functions, ZoomControl, MapType Control, and FullScre
 }
 
 .gm-style .controls.zoom-control button {
-    font: 0.85em Arial;
+    font: 0.85em Raleway;
+    /* Consistent Font use on the website - Google: Zoom + - naviagation elements */
     margin: 1px;
     padding: 0;
 }
@@ -96,7 +99,7 @@ JS: Create and call custom functions, ZoomControl, MapType Control, and FullScre
     display: block;
     font-size: 1em;
     height: 100%;
-    width: 100%
+    width: 100%;
 }
 
 .gm-style .controls.fullscreen-control .fullscreen-control-icon {
@@ -144,6 +147,16 @@ JS: Create and call custom functions, ZoomControl, MapType Control, and FullScre
 
 .gm-style .controls.fullscreen-control.is-fullscreen .fullscreen-control-icon.fullscreen-control-bottom-right {
     border-width: 2px 0 0 2px;
+}
+
+
+.weather,
+.btn,
+.gm-style,
+.controls,
+p {
+    font-family: 'Raleway', sans-serif;
+    /* Consistent Font use on the website - Google Map, Tool-Tips, Controls and Text */
 }
 
 
