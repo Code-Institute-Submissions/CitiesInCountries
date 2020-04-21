@@ -152,12 +152,7 @@ function initMap() {
             "coord": {
                 "lon": -6.35, "lat": 53.27
             },
-            "weather": [{
-                "id": 801,
-                "main": "Clouds",
-                "description": "few clouds",
-                "icon": "02d"
-            }],
+            "weather": [{ "id": 801, "main": "Clouds", "description": "few clouds", "icon": "02d" }],
             "base": "stations",
             "main": {
                 "temp": 13.61,
