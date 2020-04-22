@@ -1,5 +1,27 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway|&display=swap');
 
+/* === WHY?
+':root' Make it easier to change colours and menu-speed later on.
+'*' To make sure I'm working off a "clean slate".
+'body' Provide a consistent font and colour experiennce throughout the website (look-and-feel).
+'.container' and 'showcase' creating a consistent look-and-feel.
+=== */
+
+/* --- Style Variables: Colours and Hamburger Menu-speed.--- */
+:root {
+    --primary-color: rgba(13, 110, 139, 0.75);
+    --overlay-color: rgba(13, 110, 139, 0.75);
+    /* Same color used throughout, except for modal background. */
+    --main-font-color: #ffffff;
+    --menu-speed: 0.75s;
+}
+
+/* --- "Reset!" and Set Basic Parameters  --- */
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
 
 /* Always set the map height explicitly to define the size of the div
  * element that contains the map. */
