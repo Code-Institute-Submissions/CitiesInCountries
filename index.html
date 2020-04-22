@@ -14,6 +14,7 @@
 </head>
 
 <body>
+    <div id="backdrop"></div>
     <div class="parent">
         <div class="map" id="map"></div>
         <!-- Hide controls until they are moved into the map. -->
@@ -86,6 +87,14 @@
             </div>
         </div>
     </div>
+    <aside class="modal card" id="add-modal">
+        <div class="modal__content">
+            <p>Modal Content Here!</p>
+        </div>
+        <div class="modal__actions">
+            <button class="button" id="close">Close</button>
+        </div>
+    </aside>
 </body>
 <!-- Load Google Map API and local maps.js here to ensure it loads after everything else. -->
 <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC63AOgIhSH-DxdfryU-v6kmGh04RbLjc0&callback=initMap" async

@@ -31,7 +31,7 @@ function initMap() {
     }); // Create a new Map and center on Home
 
     const weatherInfo = `<div class="weather" id="weather"></div>`;
-    const toolTipButtons = `<br><div class="modal__actions"><button class="btn btn--passive">Overview</button><button class="btn btn--success">Graphs</button></div>`;
+    const toolTipButtons = `<br><div class="modalActions"><button class="button" id="buttonOver">Overview</button><button class="buttton" id="buttonStats">Statistics</button></div>`;
 
     let markersArray = [
         {
@@ -111,12 +111,19 @@ function initMap() {
                         /* console.log(tempValue, descValue, nameValue); */
                         if (document.getElementById("weather")) {
                             let weatherID = document.getElementById("weather").id = "weather" + nameValue;
+                            let buttonIDOver = document.getElementById("buttonOver").id = "buttonOver" + nameValue;
+                            let buttonIDStats = document.getElementById("buttonStats").id = "buttonStats" + nameValue;
+                            overviewButton(buttonIDOver);
+                            statisticsButton(buttonIDStats);
+
                             document.getElementById(weatherID).innerHTML = tempValue + `° Celsius, ` + descValue + `, ` + airPressure + ` hPa`;
-                            console.log("If: ", weatherID);
+                            console.log("If: ", weatherID, buttonIDOver, buttonIDStats);
                         } else {
                             let weatherID = "weather" + nameValue;
+                            let buttonIDOver = "buttonOver" + nameValue;
+                            let buttonIDStats = "buttonStats" + nameValue;
                             document.getElementById(weatherID).innerHTML = tempValue + `° Celsius, ` + descValue + `, ` + airPressure + ` hPa`;
-                            console.log("Else :", weatherID);
+                            console.log("Else :", weatherID, buttonIDOver, buttonIDStats);
                         }
 
                         /* let weatherID = document.getElementById("weather").id = "weather" + nameValue; */
@@ -152,12 +159,7 @@ function initMap() {
             "coord": {
                 "lon": -6.35, "lat": 53.27
             },
-            "weather": [{
-                "id": 801,
-                "main": "Clouds",
-                "description": "few clouds",
-                "icon": "02d"
-            }],
+            "weather": [{ "id": 801, "main": "Clouds", "description": "few clouds", "icon": "02d" }],
             "base": "stations",
             "main": {
                 "temp": 13.61,
@@ -189,15 +191,15 @@ function initMap() {
 
 
     /* === WHY?
-    To control the style of the Google Map navigation elements we replace the default controls.
+        To control the style of the Google Map navigation elements we replace the default controls.
     
     === WHAT?
-    Google Maps API - Replacing Default Controls: https://developers.google.com/maps/documentation/javascript/examples/control-replacement
+        Google Maps API - Replacing Default Controls: https://developers.google.com/maps/documentation/javascript/examples/control-replacement
     
     === HOW?
-    HTML: Create the navigation elements with relevant classes and id's, to be referenced by CSS and modified via JS.
-    CSS: Style the Google Maps navigation elements, .gm-style... classes.
-    JS: Create and call custom functions, ZoomControl, MapType Control, and FullScreenControl.
+        HTML: Create the navigation elements with relevant classes and id's, to be referenced by CSS and modified via JS.
+        CSS: Style the Google Maps navigation elements, .gm-style... classes.
+        JS: Create and call custom functions, ZoomControl, MapType Control, and FullScreenControl.
     */
     initZoomControl(map);
     initMapTypeControl(map);
@@ -290,3 +292,61 @@ function exitFullscreen() {
         document.msCancelFullScreen();
     }
 }
+
+
+/* === WHY?
+    To allow the client/end-user to click on buttons for further details to better understand the city/town (Overview), as well as relevant statistics about the place (Statistics).
+
+    === WHAT?
+    D3 API - Graphs in Scalable Vector Graphics: https://github.com/d3/d3#installing
+
+    === HOW?
+    HTML: Create the navigation elements with relevant classes and id's, to be referenced by CSS and modified via JS.
+    CSS: Style the Google Maps navigation elements, .gm-style... classes.
+    JS: Create and call custom functions, ZoomControl, MapType Control, and FullScreenControl.
+*/
+
+const backdrop = document.getElementById("backdrop");
+
+const toggleBackdrop = () => {
+    backdrop.classList.toggle("visible");
+    console.log("Backdrop toggled");
+};
+
+const addModal = document.getElementById("add-modal");
+
+const toggleModal = () => {
+    addModal.classList.toggle("visible");
+    // toggleBackdrop();
+};
+
+let overviewButton = (buttonIDOver) => {
+    let buttonOverview = document.getElementById(buttonIDOver);
+
+    const overviewModalHandler = () => {
+        toggleBackdrop();
+        toggleModal();
+        console.log("Clicked on Overview Button", buttonIDOver);
+    }
+    buttonOverview.addEventListener("click", overviewModalHandler);
+};
+
+let statisticsButton = (buttonIDStats) => {
+    let buttonStats = document.getElementById(buttonIDStats);
+
+    const overviewModalHandler = () => {
+        toggleBackdrop();
+        toggleModal();
+        console.log("Clicked on Statistics Button", buttonIDStats);
+    }
+    buttonStats.addEventListener("click", overviewModalHandler);
+};
+
+let closeButton = document.getElementById("close");
+
+const closeButtonHandler = () => {
+    toggleModal();
+    toggleBackdrop();
+}
+
+closeButton.addEventListener("click", closeButtonHandler);
