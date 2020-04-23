@@ -11,8 +11,10 @@
 :root {
     --primary-color: rgba(13, 110, 139, 0.75);
     --overlay-color: rgba(13, 110, 139, 0.75);
+    --background-color: rgb(61, 148, 246);
+    /* rgb(13, 110, 139) rgb(76, 96, 155) rgb(170, 218, 255) rgb(61, 148, 246) */
     /* Same color used throughout, except for modal background. */
-    --main-font-color: #ffffff;
+    --main-font-color: rgb(255, 255, 255);
     --menu-speed: 0.75s;
 }
 
@@ -51,9 +53,9 @@ JS: Create and call custom functions, ZoomControl, MapType Control, and FullScre
 */
 
 .gm-style .controls {
-    font-size: 28px;
+    font-size: 36px;
     /* this adjusts the size of all the controls */
-    background-color: rgb(13, 110, 139);
+    background-color: var(--background-color);
     /* Border around the navigation controls */
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     box-sizing: border-box;
@@ -70,17 +72,22 @@ JS: Create and call custom functions, ZoomControl, MapType Control, and FullScre
 
 .gm-style .controls button {
     border: 0;
-    background-color: rgb(13, 110, 139);
+    background-color: var(--background-color);
     /* Background of the navigation controls */
-    color: #ffffff;
+    color: var(--main-font-color);
     /* Navigation control colour */
     font-family: 'Raleway', sans-serif;
     /* Consistent Font use on the website - Google: Map and Satellite naviagation elements */
 }
 
 .gm-style .controls button:hover {
-    color: #ffffff;
+    color: var(--main-font-color);
     transform: scale(1.5);
+}
+
+/* Added 'outline: none' to remove ugly click outline.  */
+.gm-style .controls button:focus {
+    outline: none;
 }
 
 .gm-style .controls.zoom-control {
@@ -178,6 +185,7 @@ JS: Create and call custom functions, ZoomControl, MapType Control, and FullScre
 .controls,
 p {
     font-family: 'Raleway', sans-serif;
+    margin-bottom: 10px;
     /* Consistent Font use on the website - Google Map, Tool-Tips, Controls and Text */
 }
 
@@ -240,8 +248,12 @@ JS: Control Marker Tool-Tips, and Modals.
     padding: 10px 0;
     position: relative;
     bottom: 0;
-    background: rgb(13, 110, 139);
-    color: #ffffff;
+    /* background: rgb(13, 110, 139); */
+    background: var(--background-color);
+    color: var(--main-font-color);
+    -webkit-box-shadow: 0px -6px 0px 0px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: 0px -6px 0px 0px rgba(0, 0, 0, 0.05);
+    box-shadow: 0px -6px 0px 0px rgba(0, 0, 0, 0.05);
 }
 
 .footLeft {
@@ -256,7 +268,6 @@ JS: Control Marker Tool-Tips, and Modals.
     grid-area: footRight;
 }
 
-
 /* === FOOTER === */
 /* Fixed Footer Element: */
 
@@ -268,7 +279,7 @@ Create a clean look, that's easy to comprehend and use.
 
 /* ---  Making the Navigation Links visible against the #999999 (grey) background of the Fixed Navigation --- */
 a {
-    color: #ffffff;
+    color: var(--main-font-color);
     text-decoration: none;
     /* Remove underline from links = HTML style="text-decoration:none" */
 }
@@ -284,7 +295,7 @@ a {
 
 /* ---  Making the Navigation Links visible against the #999999 (grey) background of the Fixed Navigation --- */
 a {
-    color: #ffffff;
+    color: var(--main-font-color);
     font-size: 110%;
     padding: 0px 10px;
     text-decoration: none;
@@ -319,9 +330,10 @@ i[tool-tip]::after {
     content: attr(tool-tip);
     display: block;
     position: absolute;
-    background-color: rgb(13, 110, 139);
+    /* background-color: rgb(13, 110, 139); */
+    background-color: var(--background-color);
     padding: 1em 2em;
-    color: white;
+    color: var(--main-font-color);
     font-size: 0.75em;
     bottom: 0;
     left: -10px;
@@ -365,43 +377,9 @@ Section Styling
 '.section a', '.container', 'fixed-footer', and 'footer...' to create a consistent contact experience, and look-and-feel throughout the website.
 Create a clean look, that's easy to comprehend and use.
 === */
-/* 
-.modal {
-    position: fixed;
-    z-index: 100;
-    width: 80%;
-    top: 30vh;
-    left: 10%;
-    display: none;
-}
-
-.modal.visible {
-    display: block;
-    animation: fade-slide-in 0.3s ease-out forwards;
-}
-
-.modal .modal__title {
-    margin: 0;
-    padding: 1rem;
-    border-bottom: 1px solid #00329e;
-    background: #00329e;
-    color: white;
-    border-radius: 10px 10px 0 0;
-}
-
-.modal .modal__content {
-    padding: 1rem;
-}
-
-.modal .modal__actions {
-    padding: 1rem;
-    display: flex;
-    justify-content: flex-end;
-}
-*/
 
 .card {
-    background: white;
+    background: var(--main-font-color);
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
 }
@@ -413,6 +391,7 @@ Create a clean look, that's easy to comprehend and use.
     top: 30vh;
     left: 10%;
     display: none;
+    font-family: Raleway, sans-serif;
 }
 
 .modal.visible {
@@ -425,12 +404,13 @@ Create a clean look, that's easy to comprehend and use.
     padding: 1rem;
     border-bottom: 1px solid #00329e;
     background: #00329e;
-    color: white;
+    color: var(--main-font-color);
     border-radius: 10px 10px 0 0;
 }
 
 .modal .modal__content {
     padding: 1rem;
+    font-family: inherit;
 }
 
 .modal .modal__actions {
@@ -442,4 +422,61 @@ Create a clean look, that's easy to comprehend and use.
 #add-modal .modal__content {
     display: flex;
     flex-direction: column;
+}
+
+hr {
+    width: 80%;
+    height: 2px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #666;
+    border: 0 none;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+
+/* === BUTTONS ===
+Using CSS Button Creator: https://cssbuttoncreator.com/ and some additional modification to get it "just right".
+Added 'outline: none' to remove ugly click outline.
+*/
+.button {
+    background: #3D94F6;
+    background-image: -webkit-linear-gradient(top, #3D94F6, #1E62D0);
+    background-image: -moz-linear-gradient(top, #3D94F6, #1E62D0);
+    background-image: -ms-linear-gradient(top, #3D94F6, #1E62D0);
+    background-image: -o-linear-gradient(top, #3D94F6, #1E62D0);
+    background-image: linear-gradient(to bottom, #3D94F6, #1E62D0);
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    color: #FFFFFF;
+    font-family: Raleway, sans-serif;
+    font-size: 12px;
+    font-weight: 100;
+    padding: 3px 10px;
+    text-shadow: 1px 1px 20px #000000;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+    margin-right: 10px;
+}
+
+.button:hover {
+    border: solid #337FED 1px;
+    background: #1E62D0;
+    background-image: -webkit-linear-gradient(top, #1E62D0, #3D94F6);
+    background-image: -moz-linear-gradient(top, #1E62D0, #3D94F6);
+    background-image: -ms-linear-gradient(top, #1E62D0, #3D94F6);
+    background-image: -o-linear-gradient(top, #1E62D0, #3D94F6);
+    background-image: linear-gradient(to bottom, #1E62D0, #3D94F6);
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    text-decoration: none;
+}
+
+.button:focus {
+    outline: none;
 }

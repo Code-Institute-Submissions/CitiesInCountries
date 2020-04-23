@@ -64,9 +64,9 @@ function initMap() {
         {
             coords: { lat: 55.9533, lng: -3.1883 },
             content: `<p>Edinburg, Scotland: 55.9533° N, 3.1883° W</p>${weatherInfo} ${toolTipButtons}`,
-            name: "Edinburg, Scotland",
-            overview: `<div class="overview" id="overview"></div>`,
-            d3: `<div class="d3" id="d3"></div>`
+            name: "Edinburgh, Scotland",
+            overview: `<div class="overview" id="overview">Edinburgh, Scotland - Overview</div>`,
+            d3: `<div class="d3" id="d3">Edinburgh, Scotland - D3</div>`
         },
         {
             coords: { lat: 1.3521, lng: 103.8198 },
@@ -135,15 +135,17 @@ function initMap() {
                             let weatherID = document.getElementById("weather").id = "weather" + nameValue;
                             let buttonIDOver = document.getElementById("buttonOver").id = "buttonOver" + nameValue;
                             let buttonIDStats = document.getElementById("buttonStats").id = "buttonStats" + nameValue;
-                            overviewButton(buttonIDOver);
-                            statisticsButton(buttonIDStats);
+                            document.getElementById(buttonIDOver).className = "button"; // "Q & D Fix" to ensure the buttons are styled correctly.
+                            document.getElementById(buttonIDStats).className = "button"; // "Q & D Fix" to ensure the buttons are styled correctly.
+                            configureButtonEventHandlers(buttonIDOver, buttonIDStats);
+                            //overviewButton(buttonIDOver);
+                            //statisticsButton(buttonIDStats);
 
                             document.getElementById(weatherID).innerHTML = tempValue + `° Celsius, ` + descValue + `, ` + airPressure + ` hPa`;
                         } else {
                             let weatherID = "weather" + nameValue;
-                            let buttonIDOver = "buttonOver" + nameValue;
-                            let buttonIDStats = "buttonStats" + nameValue;
                             document.getElementById(weatherID).innerHTML = tempValue + `° Celsius, ` + descValue + `, ` + airPressure + ` hPa`;
+                            // Update weather data dynamically after each "Mouseover" on Map Marker.
                         }
                     })
                     .catch(err => console.log(err));
@@ -182,7 +184,28 @@ function initMap() {
             addModal.classList.toggle("visible");
         };
 
-        let overviewButton = (buttonIDOver, name) => {
+        let configureButtonEventHandlers = (buttonIDOver, buttonIDStats) => {
+            let buttonOverview = document.getElementById(buttonIDOver);
+            let buttonStats = document.getElementById(buttonIDStats);
+
+            const overviewModalHandler = () => {
+                toggleBackdrop();
+                toggleModal();
+                document.getElementById("modal-content").innerHTML = `Overview: ${marker.name} ${marker.overview} ${marker.d3}`;
+                console.log("Clicked on Overview Button", buttonIDOver);
+            }
+            buttonOverview.addEventListener("click", overviewModalHandler);
+
+            const statisticsModalHandler = () => {
+                toggleBackdrop();
+                toggleModal();
+                document.getElementById("modal-content").innerHTML = "Stats... " + marker.name + " " + marker.overview + " " + marker.d3;
+                console.log("Clicked on Statistics Button", buttonIDStats);
+            }
+            buttonStats.addEventListener("click", statisticsModalHandler);
+        };
+ /*
+        let overviewButton = (buttonIDOver) => {
             let buttonOverview = document.getElementById(buttonIDOver);
 
             const overviewModalHandler = () => {
@@ -197,15 +220,15 @@ function initMap() {
         let statisticsButton = (buttonIDStats) => {
             let buttonStats = document.getElementById(buttonIDStats);
 
-            const overviewModalHandler = () => {
+            const statisticsModalHandler = () => {
                 toggleBackdrop();
                 toggleModal();
                 document.getElementById("modal-content").innerHTML = "Stats... " + marker.name;
                 console.log("Clicked on Statistics Button", buttonIDStats);
             }
-            buttonStats.addEventListener("click", overviewModalHandler);
+            buttonStats.addEventListener("click", statisticsModalHandler);
         };
-
+*/
         let closeButton = document.getElementById("close");
 
         const closeButtonHandler = () => {
