@@ -204,36 +204,87 @@ function initMap() {
             }
             buttonStats.addEventListener("click", statisticsModalHandler);
         };
- /*
-        let overviewButton = (buttonIDOver) => {
-            let buttonOverview = document.getElementById(buttonIDOver);
 
-            const overviewModalHandler = () => {
-                toggleBackdrop();
-                toggleModal();
-                document.getElementById("modal-content").innerHTML = "Overview... " + marker.name;
-                console.log("Clicked on Overview Button", buttonIDOver);
-            }
-            buttonOverview.addEventListener("click", overviewModalHandler);
-        };
+        // Footer: About Modal
+        let footerAboutIconClick = document.getElementById("fa-exclamation");
 
-        let statisticsButton = (buttonIDStats) => {
-            let buttonStats = document.getElementById(buttonIDStats);
+        const faAboutHandler = () => {
+            toggleBackdrop();
+            toggleModal();
+            // document.getElementById("add-modal").style.background = "rgb(196, 224, 255)";
+            document.getElementById("modal-content").innerHTML =
+                `<div><image src="/assets/images/MarkerTTModal.png" height="110" align="left" style="margin: 0px 10px 0px 0px"</> Please hover over the Goggle Map Markers, view the information, and click on the Overview and Statistics buttons for further details.</div>`;
+        }
+        footerAboutIconClick.addEventListener("click", faAboutHandler);
 
-            const statisticsModalHandler = () => {
-                toggleBackdrop();
-                toggleModal();
-                document.getElementById("modal-content").innerHTML = "Stats... " + marker.name;
-                console.log("Clicked on Statistics Button", buttonIDStats);
-            }
-            buttonStats.addEventListener("click", statisticsModalHandler);
-        };
-*/
+        // Footer: API Modal
+        let footerAPIIconClick = document.getElementById("fa-file-code-o");
+
+        const faAPIHandler = () => {
+            toggleBackdrop();
+            toggleModal();
+            // document.getElementById("add-modal").style.background = "rgb(196, 224, 255)";
+            document.getElementById("modal-content").innerHTML =
+                `<div><span><img src="/assets/images/GoogleMapsAPI.png" height="16"></></span><span><a href="https://developers.google.com/maps/documentation/javascript/tutorial" target="_target">Google Maps JavaScript API Description</a></span></div>
+            <div><span><img src="/assets/images/OpenWeatherAPI.jpeg" height="16"></></span><span><a href="https://openweathermap.org/api/one-call-api" target="_target">OpenWeather API Description</a></span></div>
+            <div><span><img src="/assets/images/D3API.jpeg" height="16"></></span><span><a href="https://github.com/d3/d3/blob/master/API.md" target="_target">D3 API Description</a></span></div>
+            <div><span><img src="/assets/images/EmailJSAPI.png" height="16"></></span><span><a href="https://www.emailjs.com/" target="_target">EmailJS API Description</a></span></div>`;
+        }
+        footerAPIIconClick.addEventListener("click", faAPIHandler);
+
+        // Footer: Code Snippets Modal
+        let footerCodeSnippetsIconClick = document.getElementById("fa-code");
+
+        const faCodeSnippetsHandler = () => {
+            toggleBackdrop();
+            toggleModal();
+            // document.getElementById("add-modal").style.background = "rgb(196, 224, 255)";
+            document.getElementById("modal-content").innerHTML =
+                `<div><span><i class="fa fa-code" id="fa-code" aria-hidden="true"></i></span><span><a href="https://www.youtube.com/watch?v=Zxf1mnP5zcw" target="_target">Google Maps API - Bill Traversy @ Traversy Media and Code Institute Walkthrough by Matt Rudge.</a></span></div>
+            <div><span><i class="fa fa-code" id="fa-code" aria-hidden="true"></i></span><span><a href="https://www.youtube.com/watch?v=GXrDEA3SIOQ&t=472s" target="_target">OpenWeather API - Shanjah Raj</a></span></div>
+            <div><span><i class="fa fa-code" id="fa-code" aria-hidden="true"></i></span><span><a href="https://www.udemy.com/course/build-data-uis-with-d3-firebase/" target="_target">Udemy Course on D3 and Firebase by the Net Nija (Shaun Pelling)</a></span></div>`;
+        }
+        footerCodeSnippetsIconClick.addEventListener("click", faCodeSnippetsHandler);
+
+        // Footer: Contact Form Modal
+        let footerContactFormIconClick = document.getElementById("fa-envelope-o");
+
+        const faContactFormHandler = () => {
+            toggleBackdrop();
+            toggleModal();
+            // document.getElementById("add-modal").style.background = "rgb(196, 224, 255)";
+            document.getElementById("modal-content").innerHTML =
+                `<div class="center-form">
+                <h4>Please get in touch!</h4>
+                    <form onsubmit="return sendMail(this);">
+                        <div><input type="text" size="35" name="name" class="form-control" id="fullname" placeholder="Name" required/><div>
+                        <div><input type="text" size="35" name="emailaddress" class="form-control" id="emailaddress" placeholder="Email" required/></div>
+                        <span><textarea rows="3" cols="35" name="projectsummary" class="form-control" id="projectsummary" placeholder="Your comments and thoughts." required></textarea></span>
+                        <div><button type="submit" value="send" class="button" id="contactsubmit">Send Project Request</button></div>
+                    </form>
+                </div>`;
+        }
+        footerContactFormIconClick.addEventListener("click", faContactFormHandler);
+
+        // Footer: Contact Modal
+        let footerContactIconClick = document.getElementById("fa-user");
+
+        const faContactHandler = () => {
+            toggleBackdrop();
+            toggleModal();
+            // document.getElementById("add-modal").style.background = "rgb(196, 224, 255)";
+            document.getElementById("modal-content").innerHTML =
+                "Please hover over the Goggle Map Markers, view the information, and click on the buttons for further details.";
+        }
+        footerContactIconClick.addEventListener("click", faContactHandler);
+
+        // Close Modal Button
         let closeButton = document.getElementById("close");
 
         const closeButtonHandler = () => {
             toggleModal();
             toggleBackdrop();
+            document.getElementById("add-modal").style.background = "white"; // Resetting the background modal colour to white.
         }
 
         closeButton.addEventListener("click", closeButtonHandler);
