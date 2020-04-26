@@ -225,10 +225,10 @@ function initMap() {
             toggleModal();
             // document.getElementById("add-modal").style.background = "rgb(196, 224, 255)";
             document.getElementById("modal-content").innerHTML =
-                `<div><span><img src="/assets/images/GoogleMapsAPI.png" height="16"></></span><span><a href="https://developers.google.com/maps/documentation/javascript/tutorial" target="_target">Google Maps JavaScript API Description</a></span></div>
-            <div><span><img src="/assets/images/OpenWeatherAPI.jpeg" height="16"></></span><span><a href="https://openweathermap.org/api/one-call-api" target="_target">OpenWeather API Description</a></span></div>
-            <div><span><img src="/assets/images/D3API.jpeg" height="16"></></span><span><a href="https://github.com/d3/d3/blob/master/API.md" target="_target">D3 API Description</a></span></div>
-            <div><span><img src="/assets/images/EmailJSAPI.png" height="16"></></span><span><a href="https://www.emailjs.com/" target="_target">EmailJS API Description</a></span></div>`;
+                `<div><span><img src="/assets/images/GoogleMapsAPI.png" height="16"></></span><span><a href="https://developers.google.com/maps/documentation/javascript/tutorial" target="_target">Google Maps JavaScript API Description - used to create the map and markers.</a></span></div>
+            <div><span><img src="/assets/images/OpenWeatherAPI.jpeg" height="16"></></span><span><a href="https://openweathermap.org/api/one-call-api" target="_target">OpenWeather API Description - used to add real-time weather information to  the marker tool-tips.</a></span></div>
+            <div><span><img src="/assets/images/D3API.jpeg" height="16"></></span><span><a href="https://github.com/d3/d3/blob/master/API.md" target="_target">D3 API Description - used to display dynamic graphs and statistics.</a></span></div>
+            <div><span><img src="/assets/images/EmailJSAPI.png" height="16"></></span><span><a href="https://www.emailjs.com/" target="_target">EmailJS API Description - used to enjoy user feedback to improve the website.</a></span></div>`;
         }
         footerAPIIconClick.addEventListener("click", faAPIHandler);
 
@@ -240,8 +240,8 @@ function initMap() {
             toggleModal();
             // document.getElementById("add-modal").style.background = "rgb(196, 224, 255)";
             document.getElementById("modal-content").innerHTML =
-                `<div><span><i class="fa fa-code" id="fa-code" aria-hidden="true"></i></span><span><a href="https://www.youtube.com/watch?v=Zxf1mnP5zcw" target="_target">Google Maps API - Bill Traversy @ Traversy Media and Code Institute Walkthrough by Matt Rudge.</a></span></div>
-            <div><span><i class="fa fa-code" id="fa-code" aria-hidden="true"></i></span><span><a href="https://www.youtube.com/watch?v=GXrDEA3SIOQ&t=472s" target="_target">OpenWeather API - Shanjah Raj</a></span></div>
+                `<div><span><i class="fa fa-code" id="fa-code" aria-hidden="true" color="196, 224, 255"></i></span><span><a href="https://www.youtube.com/watch?v=Zxf1mnP5zcw" target="_target">Google Maps API - Bill Traversy @ Traversy Media and Code Institute Walkthrough by Matt Rudge.</a></span></div>
+            <div><span><i class="fa fa-code" id="fa-code" aria-hidden="true"></i></span><span><a href="https://youtu.be/GXrDEA3SIOQ" target="_target">OpenWeather API - Shanjah Raj</a></span></div>
             <div><span><i class="fa fa-code" id="fa-code" aria-hidden="true"></i></span><span><a href="https://www.udemy.com/course/build-data-uis-with-d3-firebase/" target="_target">Udemy Course on D3 and Firebase by the Net Nija (Shaun Pelling)</a></span></div>`;
         }
         footerCodeSnippetsIconClick.addEventListener("click", faCodeSnippetsHandler);
@@ -257,8 +257,8 @@ function initMap() {
                 `<div class="center-form">
                 <h4>Please get in touch!</h4>
                     <form onsubmit="return sendMail(this);">
-                        <div><input type="text" size="35" name="name" class="form-control" id="fullname" placeholder="Name" required/><div>
-                        <div><input type="text" size="35" name="emailaddress" class="form-control" id="emailaddress" placeholder="Email" required/></div>
+                        <div><input type="text" name="name" class="form-control" id="fullname" placeholder="Name" required/><div>
+                        <div><input type="text" name="emailaddress" class="form-control" id="emailaddress" placeholder="Email" required/></div>
                         <span><textarea rows="3" cols="35" name="projectsummary" class="form-control" id="projectsummary" placeholder="Your comments and thoughts." required></textarea></span>
                         <div><button type="submit" value="send" class="button" id="contactsubmit">Send Project Request</button></div>
                     </form>

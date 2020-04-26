@@ -11,6 +11,12 @@
     <!-- Local Stylesheet: Style -->
     <link rel="stylesheet" href="gStyle.css">
     <title>Cities in Countries Data</title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("user_Dhpon4lpXiEEQEGFYwVco");
+        })();
+    </script>
 </head>
 
 <body>
@@ -75,6 +81,7 @@
                 <button class="button" id="close">Close</button>
             </div>
         </aside>
+        <script src="sendemail.js"></script>
 </body>
 <!-- Load Google Map API and local maps.js here to ensure it loads after everything else. -->
 <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC63AOgIhSH-DxdfryU-v6kmGh04RbLjc0&callback=initMap" async

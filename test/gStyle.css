@@ -288,6 +288,10 @@ a i:hover {
     font-size: 100%;
 }
 
+.modal #fa-code {
+    color: rgb(255, 0, 0);
+}
+
 /* === WHY?
 Adding tool-tips to clarify the fixed-footer elements (and to show off a nifty and useful CSS 3 feature).
 === */
@@ -441,4 +445,18 @@ Added 'outline: none' to remove ugly click outline.
 
 .button:focus {
     outline: none;
+}
+
+/*  === FORM === */
+input[type=text],
+textarea {
+    width: 100%;
+    padding: 2px 20px;
+    /* padding: 12px 20px; */
+    margin: 2px 0;
+    /* margin: 8px 0; */
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
 }
