@@ -213,7 +213,7 @@ function initMap() {
             toggleModal();
             // document.getElementById("add-modal").style.background = "rgb(196, 224, 255)";
             document.getElementById("modal-content").innerHTML =
-                `<div><image src="/assets/images/MarkerTTModal.png" height="110" align="left" style="margin: 0px 10px 0px 0px"</> Please hover over the Goggle Map Markers, view the information, and click on the Overview and Statistics buttons for further details.</div>`;
+                `<div><image src="/assets/images/MarkerTTModal.png" height="150" align="left" style="margin: 0px 10px 0px 0px"</> Please hover over the Goggle Map Markers, view the information, and click on the Overview and Statistics buttons for further details.</div>`;
         }
         footerAboutIconClick.addEventListener("click", faAboutHandler);
 
@@ -240,7 +240,8 @@ function initMap() {
             toggleModal();
             // document.getElementById("add-modal").style.background = "rgb(196, 224, 255)";
             document.getElementById("modal-content").innerHTML =
-                `<div><span><i class="fa fa-code" id="fa-code" aria-hidden="true" color="196, 224, 255"></i></span><span><a href="https://youtu.be/Zxf1mnP5zcw" target="_target">Google Maps API - Bill Traversy @ Traversy Media, and Code Institute walkthrough by Matt Rudge.</a></span></div>
+                `<div><span><i class="fa fa-code" id="fa-code" aria-hidden="true" color="196, 224, 255"></i></span><span><a href="https://codeinstitute.net/" target="_target">Google Maps API - Code Institute walkthrough by Matt Rudge.</a></span></div>
+            <div><span><i class="fa fa-code" id="fa-code" aria-hidden="true" color="196, 224, 255"></i></span><span><a href="https://youtu.be/Zxf1mnP5zcw" target="_target">Google Maps API - Bill Traversy @ Traversy Media.</a></span></div>
             <div><span><i class="fa fa-code" id="fa-code" aria-hidden="true"></i></span><span><a href="https://youtu.be/GXrDEA3SIOQ" target="_target">OpenWeather API - OpenWeather API JavaScript example and walkthrough by Shanjah Raj.</a></span></div>
             <div><span><i class="fa fa-code" id="fa-code" aria-hidden="true"></i></span><span><a href="https://www.udemy.com/course/build-data-uis-with-d3-firebase/" target="_target">Udemy Course on D3 & Firebase by Shaun Pelling.</a></span></div>
             <div><span><i class="fa fa-code" id="fa-code" aria-hidden="true"></i></span><span><a href="https://www.udemy.com/course-dashboard-redirect/?course_id=2508942" target="_target">Udemy Course on JavaScript the Complete Guide 2020 by Maximilian Schwarzmüller.</a></span></div>`;
@@ -259,7 +260,7 @@ function initMap() {
                 <h4>Please get in touch!</h4>
                     <form onsubmit="return sendMail(this);">
                         <div><input type="text" name="name" class="form-control" id="fullname" placeholder="Name" required/><div>
-                        <div><input type="text" name="emailaddress" class="form-control" id="emailaddress" placeholder="Email" required/></div>
+                        <div><input type="text" name="emailaddress" class="form-control" id="emailaddress" placeholder="Email: name@domain.com" required/></div>
                         <span><textarea rows="3" cols="35" name="projectsummary" class="form-control" id="projectsummary" placeholder="Your comments and thoughts." required></textarea></span>
                         <div><button type="submit" value="send" class="button" id="contactsubmit">Send Project Request</button></div>
                     </form>
