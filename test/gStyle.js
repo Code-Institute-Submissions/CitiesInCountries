@@ -262,8 +262,8 @@ function initMap() {
                     <form onsubmit="return sendMail(this);">
                         <div><input type="text" name="name" class="form-control" id="fullname" placeholder="Name" required/><div>
                         <div><input type="text" name="emailaddress" class="form-control" id="emailaddress" placeholder="Email: name@domain.com" required/></div>
-                        <span><textarea rows="3" cols="35" name="projectsummary" class="form-control" id="projectsummary" placeholder="Your comments and thoughts." required></textarea></span>
-                        <div><button type="submit" value="send" class="button" id="contactsubmit">Send Project Request</button></div>
+                        <span><textarea rows="3" cols="35" name="feedback" class="form-control" id="feedback" placeholder="Your comments and thoughts." required></textarea></span>
+                        <div><button type="submit" value="send" class="button" id="contactsubmit">Send Feedback</button></div>
                     </form>
                 </div>`;
         }

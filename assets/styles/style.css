@@ -364,7 +364,7 @@ Create a clean look, that's easy to comprehend and use.
     position: fixed;
     z-index: 100;
     width: 80%;
-    top: 20vh;
+    top: 10vh;
     left: 10%;
     display: none;
     font-family: Raleway, sans-serif;
