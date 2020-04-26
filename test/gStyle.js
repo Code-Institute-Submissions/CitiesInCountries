@@ -199,7 +199,8 @@ function initMap() {
             const statisticsModalHandler = () => {
                 toggleBackdrop();
                 toggleModal();
-                document.getElementById("modal-content").innerHTML = "Stats... " + marker.name + " " + marker.overview + " " + marker.d3;
+                document.getElementById("modal-content").innerHTML = `<h4>Statistics: ${marker.name}</h4><div class="canvas"></div><div>${marker.d3}`;
+                d3Stats();
                 console.log("Clicked on Statistics Button", buttonIDStats);
             }
             buttonStats.addEventListener("click", statisticsModalHandler);

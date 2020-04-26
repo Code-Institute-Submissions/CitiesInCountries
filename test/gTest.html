@@ -11,6 +11,7 @@
     <!-- Local Stylesheet: Style -->
     <link rel="stylesheet" href="gStyle.css">
     <title>Cities in Countries Data</title>
+    <!-- EmailJS Script for the Email Form -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
     <script type="text/javascript">
         (function () {
@@ -20,8 +21,10 @@
 </head>
 
 <body>
+    <!-- Backdrop for Modals (Footer and Map Markers) -->
     <div id="backdrop"></div>
     <div class="parent">
+        <!-- Google Maps Map placeholder and navigation controls to enable styling -->
         <div class="map" id="map"></div>
         <!-- Hide controls until they are moved into the map. -->
         <div style="display:none">
@@ -46,6 +49,7 @@
             </div>
         </div>
 
+        <!-- Fixed Footer Elements for Footer Modals -->
         <div class="footer  fixed-footer">
             <a href="#">
                 <i class="fa fa-exclamation" id="fa-exclamation" aria-hidden="true"></i>
@@ -73,6 +77,7 @@
             </a>
         </div>
 
+        <!-- Modal controlled by JavaScript for Map Marker and Footer Modals -->
         <aside class="modal card" id="add-modal">
             <div class="modal__content" id="modal-content">
                 <p>Modal Content Here!</p>
@@ -81,13 +86,48 @@
                 <button class="button" id="close">Close</button>
             </div>
         </aside>
+
+        <!-- EmailJS sendmail() -->
         <script src="sendemail.js"></script>
+
+        <!-- Google Firebase Firestore noSQL DB -->
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+        <!-- Add this line to access Firestore. Doesn't work otherwise...-->
+        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
+
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+                     https://firebase.google.com/docs/web/setup#available-libraries -->
+        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-analytics.js"></script>
+
+        <script>
+            // Your web app's Firebase configuration
+            var firebaseConfig = {
+                apiKey: "AIzaSyD-7m05xNy_mTbg_KH1VxoLeSp1YM4gfWM",
+                authDomain: "udemy-3d-firebase-48d1d.firebaseapp.com",
+                databaseURL: "https://udemy-3d-firebase-48d1d.firebaseio.com",
+                projectId: "udemy-3d-firebase-48d1d",
+                storageBucket: "udemy-3d-firebase-48d1d.appspot.com",
+                messagingSenderId: "260184459758",
+                appId: "1:260184459758:web:a69c4cb2087fa94f5be6ff",
+                measurementId: "G-RWQRBS2GS5"
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+            firebase.analytics();
+            const db = firebase.firestore(); // Added to refer to our Firestore
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.js"></script>
 </body>
 <!-- Load Google Map API and local maps.js here to ensure it loads after everything else. -->
 <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC63AOgIhSH-DxdfryU-v6kmGh04RbLjc0&callback=initMap" async
     defer></script> -->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDKoKXKgFfLTb9SNLk0QEq1FmnNJD3hSg&callback=initMap" async
     defer></script>
+
+<!-- Main JS Script -->
 <script src="gStyle.js" defer></script>
+<!-- D3 JS Script for Stats/Graphs -->
+<script src="d3Stats.js"></script>
 
 </html>

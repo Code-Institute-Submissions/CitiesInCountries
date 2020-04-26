@@ -64,9 +64,9 @@ function initMap() {
         {
             coords: { lat: 55.9533, lng: -3.1883 },
             content: `<p>Edinburg, Scotland: 55.9533° N, 3.1883° W</p>${weatherInfo} ${toolTipButtons}`,
-            name: "Edinburg, Scotland",
-            overview: `<div class="overview" id="overview"></div>`,
-            d3: `<div class="d3" id="d3"></div>`
+            name: "Edinburgh, Scotland",
+            overview: `<div class="overview" id="overview">Edinburgh, Scotland - Overview</div>`,
+            d3: `<div class="d3" id="d3">Edinburgh, Scotland - D3</div>`
         },
         {
             coords: { lat: 1.3521, lng: 103.8198 },
@@ -135,15 +135,17 @@ function initMap() {
                             let weatherID = document.getElementById("weather").id = "weather" + nameValue;
                             let buttonIDOver = document.getElementById("buttonOver").id = "buttonOver" + nameValue;
                             let buttonIDStats = document.getElementById("buttonStats").id = "buttonStats" + nameValue;
-                            overviewButton(buttonIDOver);
-                            statisticsButton(buttonIDStats);
+                            document.getElementById(buttonIDOver).className = "button"; // "Q & D Fix" to ensure the buttons are styled correctly.
+                            document.getElementById(buttonIDStats).className = "button"; // "Q & D Fix" to ensure the buttons are styled correctly.
+                            configureButtonEventHandlers(buttonIDOver, buttonIDStats);
+                            //overviewButton(buttonIDOver);
+                            //statisticsButton(buttonIDStats);
 
                             document.getElementById(weatherID).innerHTML = tempValue + `° Celsius, ` + descValue + `, ` + airPressure + ` hPa`;
                         } else {
                             let weatherID = "weather" + nameValue;
-                            let buttonIDOver = "buttonOver" + nameValue;
-                            let buttonIDStats = "buttonStats" + nameValue;
                             document.getElementById(weatherID).innerHTML = tempValue + `° Celsius, ` + descValue + `, ` + airPressure + ` hPa`;
+                            // Update weather data dynamically after each "Mouseover" on Map Marker.
                         }
                     })
                     .catch(err => console.log(err));
@@ -182,35 +184,110 @@ function initMap() {
             addModal.classList.toggle("visible");
         };
 
-        let overviewButton = (buttonIDOver, name) => {
+        let configureButtonEventHandlers = (buttonIDOver, buttonIDStats) => {
             let buttonOverview = document.getElementById(buttonIDOver);
-
-            const overviewModalHandler = () => {
-                toggleBackdrop();
-                toggleModal();
-                document.getElementById("modal-content").innerHTML = "Overview... " + marker.name;
-                console.log("Clicked on Overview Button", buttonIDOver);
-            }
-            buttonOverview.addEventListener("click", overviewModalHandler);
-        };
-
-        let statisticsButton = (buttonIDStats) => {
             let buttonStats = document.getElementById(buttonIDStats);
 
             const overviewModalHandler = () => {
                 toggleBackdrop();
                 toggleModal();
-                document.getElementById("modal-content").innerHTML = "Stats... " + marker.name;
+                document.getElementById("modal-content").innerHTML = `Overview: ${marker.name} ${marker.overview} ${marker.d3}`;
+                console.log("Clicked on Overview Button", buttonIDOver);
+            }
+            buttonOverview.addEventListener("click", overviewModalHandler);
+
+            const statisticsModalHandler = () => {
+                toggleBackdrop();
+                toggleModal();
+                document.getElementById("modal-content").innerHTML = `<h4>Statistics: ${marker.name}</h4><div class="canvas"></div><div>${marker.d3}`;
+                d3Stats();
                 console.log("Clicked on Statistics Button", buttonIDStats);
             }
-            buttonStats.addEventListener("click", overviewModalHandler);
+            buttonStats.addEventListener("click", statisticsModalHandler);
         };
 
+        // Footer: About Modal
+        let footerAboutIconClick = document.getElementById("fa-exclamation");
+
+        const faAboutHandler = () => {
+            toggleBackdrop();
+            toggleModal();
+            // document.getElementById("add-modal").style.background = "rgb(196, 224, 255)";
+            document.getElementById("modal-content").innerHTML =
+                `<div><image src="/assets/images/MarkerTTModal.png" height="150" align="left" style="margin: 0px 10px 0px 0px"</> Please hover over the Goggle Map Markers, view the information, and click on the Overview and Statistics buttons for further details.</div>`;
+        }
+        footerAboutIconClick.addEventListener("click", faAboutHandler);
+
+        // Footer: API Modal
+        let footerAPIIconClick = document.getElementById("fa-file-code-o");
+
+        const faAPIHandler = () => {
+            toggleBackdrop();
+            toggleModal();
+            // document.getElementById("add-modal").style.background = "rgb(196, 224, 255)";
+            document.getElementById("modal-content").innerHTML =
+                `<div><span><img src="/assets/images/GoogleMapsAPI.png" height="16"></></span><span><a href="https://developers.google.com/maps/documentation/javascript/tutorial" target="_target">Google Maps JavaScript API Description - to create the map and markers.</a></span></div>
+            <div><span><img src="/assets/images/OpenWeatherAPI.jpeg" height="16"></></span><span><a href="https://openweathermap.org/api/one-call-api" target="_target">OpenWeather API Description - adding real-time weather information to the marker tool-tips.</a></span></div>
+            <div><span><img src="/assets/images/D3API.jpeg" height="16"></></span><span><a href="https://github.com/d3/d3/blob/master/API.md" target="_target">D3 API Description - to display dynamic graphs and statistics.</a></span></div>
+            <div><span><img src="/assets/images/EmailJSAPI.png" height="16"></></span><span><a href="https://www.emailjs.com/" target="_target">EmailJS API Description - to enjoy user feedback to improve the website.</a></span></div>`;
+        }
+        footerAPIIconClick.addEventListener("click", faAPIHandler);
+
+        // Footer: Code Snippets Modal
+        let footerCodeSnippetsIconClick = document.getElementById("fa-code");
+
+        const faCodeSnippetsHandler = () => {
+            toggleBackdrop();
+            toggleModal();
+            // document.getElementById("add-modal").style.background = "rgb(196, 224, 255)";
+            document.getElementById("modal-content").innerHTML =
+                `<div><span><i class="fa fa-code" id="fa-code" aria-hidden="true" color="196, 224, 255"></i></span><span><a href="https://codeinstitute.net/" target="_target">Google Maps API - Code Institute walkthrough by Matt Rudge.</a></span></div>
+            <div><span><i class="fa fa-code" id="fa-code" aria-hidden="true" color="196, 224, 255"></i></span><span><a href="https://youtu.be/Zxf1mnP5zcw" target="_target">Google Maps API - Bill Traversy @ Traversy Media.</a></span></div>
+            <div><span><i class="fa fa-code" id="fa-code" aria-hidden="true"></i></span><span><a href="https://youtu.be/GXrDEA3SIOQ" target="_target">OpenWeather API - OpenWeather API JavaScript example and walkthrough by Shanjah Raj.</a></span></div>
+            <div><span><i class="fa fa-code" id="fa-code" aria-hidden="true"></i></span><span><a href="https://www.udemy.com/course/build-data-uis-with-d3-firebase/" target="_target">Udemy Course on D3 & Firebase by Shaun Pelling.</a></span></div>
+            <div><span><i class="fa fa-code" id="fa-code" aria-hidden="true"></i></span><span><a href="https://www.udemy.com/course-dashboard-redirect/?course_id=2508942" target="_target">Udemy Course on JavaScript the Complete Guide 2020 by Maximilian Schwarzmüller.</a></span></div>`;
+        }
+        footerCodeSnippetsIconClick.addEventListener("click", faCodeSnippetsHandler);
+
+        // Footer: Contact Form Modal
+        let footerContactFormIconClick = document.getElementById("fa-envelope-o");
+
+        const faContactFormHandler = () => {
+            toggleBackdrop();
+            toggleModal();
+            // document.getElementById("add-modal").style.background = "rgb(196, 224, 255)";
+            document.getElementById("modal-content").innerHTML =
+                `<div class="center-form">
+                <h4>Please get in touch!</h4>
+                    <form onsubmit="return sendMail(this);">
+                        <div><input type="text" name="name" class="form-control" id="fullname" placeholder="Name" required/><div>
+                        <div><input type="text" name="emailaddress" class="form-control" id="emailaddress" placeholder="Email: name@domain.com" required/></div>
+                        <span><textarea rows="3" cols="35" name="projectsummary" class="form-control" id="projectsummary" placeholder="Your comments and thoughts." required></textarea></span>
+                        <div><button type="submit" value="send" class="button" id="contactsubmit">Send Project Request</button></div>
+                    </form>
+                </div>`;
+        }
+        footerContactFormIconClick.addEventListener("click", faContactFormHandler);
+
+        // Footer: Contact Modal
+        let footerContactIconClick = document.getElementById("fa-user");
+
+        const faContactHandler = () => {
+            toggleBackdrop();
+            toggleModal();
+            // document.getElementById("add-modal").style.background = "rgb(196, 224, 255)";
+            document.getElementById("modal-content").innerHTML =
+                "Please hover over the Goggle Map Markers, view the information, and click on the buttons for further details.";
+        }
+        footerContactIconClick.addEventListener("click", faContactHandler);
+
+        // Close Modal Button
         let closeButton = document.getElementById("close");
 
         const closeButtonHandler = () => {
             toggleModal();
             toggleBackdrop();
+            document.getElementById("add-modal").style.background = "white"; // Resetting the background modal colour to white.
         }
 
         closeButton.addEventListener("click", closeButtonHandler);

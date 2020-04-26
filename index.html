@@ -10,12 +10,21 @@
         type="text/css">
     <!-- Local Stylesheet: Style -->
     <link rel="stylesheet" href="assets/styles/style.css">
-    <title>135 Cities in 33 Countries</title>
+    <title>Cities in Countries Data</title>
+    <!-- EmailJS Script for the Email Form -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("user_Dhpon4lpXiEEQEGFYwVco");
+        })();
+    </script>
 </head>
 
 <body>
+    <!-- Backdrop for Modals (Footer and Map Markers) -->
     <div id="backdrop"></div>
     <div class="parent">
+        <!-- Google Maps Map placeholder and navigation controls to enable styling -->
         <div class="map" id="map"></div>
         <!-- Hide controls until they are moved into the map. -->
         <div style="display:none">
@@ -40,67 +49,85 @@
             </div>
         </div>
 
-        <div class="fixed-footer footLeft">
-            <div class="footer">
-                <a href="https://naoisegaffney.github.io/Resume/index.html" target="_blank">
-                    <i class="fa fa-graduation-cap" aria-hidden="true" tool-tip="My Resumé"></i>
-                    <span class="sr-only">Professional Trainer and Coach</span>
-                </a>
+        <!-- Fixed Footer Elements for Footer Modals -->
+        <div class="footer  fixed-footer">
+            <a href="#">
+                <i class="fa fa-exclamation" id="fa-exclamation" aria-hidden="true"></i>
+                <span class="sr-only">About</span>
+            </a>
+
+            <a href="#">
+                <i class="fa fa-file-code-o" id="fa-file-code-o" aria-hidden="true"></i>
+                <span class="sr-only">API's</span>
+            </a>
+
+            <a href="#">
+                <i class="fa fa-code" id="fa-code" aria-hidden="true"></i>
+                <span class="sr-only">Code Snippets</span>
+            </a>
+
+            <a href="#">
+                <i class="fa fa-envelope-o" id="fa-envelope-o" aria-hidden="true"></i>
+                <span class="sr-only">Contact Form</span>
+            </a>
+
+            <a href="#">
+                <i class="fa fa-user" id="fa-user" aria-hidden="true"></i>
+                <span class="sr-only">My Resumé</span>
+            </a>
+        </div>
+
+        <!-- Modal controlled by JavaScript for Map Marker and Footer Modals -->
+        <aside class="modal card" id="add-modal">
+            <div class="modal__content" id="modal-content">
+                <p>Modal Content Here!</p>
             </div>
-        </div>
-        <div class="fixed-footer footMid">
-            <div class="footer">
-                <a href="tel:+353-87-9774499" target="_blank">
-                    <i class="fa fa-phone" aria-hidden="true" tool-tip="Call me!"></i>
-                    <span class="sr-only">Mobile</span>
-                </a>
-
-                <a href="https://wa.me/353879774499?text=Training%20and%20Development%20Opportunity" target="_blank">
-                    <i class="fa fa-whatsapp" aria-hidden="true" tool-tip="WhatsApp me!"></i>
-                    <span class="sr-only">WhatsApp</span>
-                </a>
-
-                <a href="mailto:naoise.gaff.gaffney@gmail.com" target="_blank">
-                    <i class="fa fa-envelope-o" aria-hidden="true" tool-tip="Email me!"></i>
-                    <span class="sr-only">Email</span>
-                </a>
-
-                <a href="https://www.linkedin.com/in/naoisegaffney/" target="_blank">
-                    <i class="fa fa-linkedin" aria-hidden="true" tool-tip="LinkedIn message me!"></i>
-                    <span class="sr-only">LinkedIn</span>
-                </a>
-
-                <a href="https://www.youtube.com/channel/UCR1HOr0lsu_v8th63-9Lkzg?view_as=subscriber" target="_blank">
-                    <i class="fa fa-youtube" aria-hidden="true" tool-tip="YouTube Work!"></i>
-                    <span class="sr-only">YouTube</span>
-                </a>
+            <div class="modal__actions">
+                <button class="button" id="close">Close</button>
             </div>
+        </aside>
 
-        </div>
-        <div class="footRight">
-            <div class="footer">
-                <a href="https://www.google.ie/maps/dir//6+Old+Court+Close,+Ballycullen,+Dublin+24,+Ireland/@53.2743642,-6.3531917,16z/data=!4m9!4m8!1m0!1m5!1m1!1s0x48670b256a47fabf:0x8b35e55d6a01ad4e!2m2!1d-6.3488143!2d53.2743643!3e0"
-                    target="_blank">
-                    <i class="fa fa-location-arrow" aria-hidden="true" tool-tip="Find me!"></i>
-                    <span class="sr-only">Google Maps</span>
-                </a>
-            </div>
-        </div>
-    </div>
-    <aside class="modal card" id="add-modal">
-        <div class="modal__content" id="modal-content">
-            <p>Modal Content Here!</p>
-        </div>
-        <div class="modal__actions">
-            <button class="button" id="close">Close</button>
-        </div>
-    </aside>
+        <!-- EmailJS sendmail() -->
+        <script src="assets/scripts/sendemail.js"></script>
+
+        <!-- Google Firebase Firestore noSQL DB -->
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+        <!-- Add this line to access Firestore. Doesn't work otherwise...-->
+        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
+
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+                     https://firebase.google.com/docs/web/setup#available-libraries -->
+        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-analytics.js"></script>
+
+        <script>
+            // Your web app's Firebase configuration
+            var firebaseConfig = {
+                apiKey: "AIzaSyD-7m05xNy_mTbg_KH1VxoLeSp1YM4gfWM",
+                authDomain: "udemy-3d-firebase-48d1d.firebaseapp.com",
+                databaseURL: "https://udemy-3d-firebase-48d1d.firebaseio.com",
+                projectId: "udemy-3d-firebase-48d1d",
+                storageBucket: "udemy-3d-firebase-48d1d.appspot.com",
+                messagingSenderId: "260184459758",
+                appId: "1:260184459758:web:a69c4cb2087fa94f5be6ff",
+                measurementId: "G-RWQRBS2GS5"
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+            firebase.analytics();
+            const db = firebase.firestore(); // Added to refer to our Firestore
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.js"></script>
 </body>
 <!-- Load Google Map API and local maps.js here to ensure it loads after everything else. -->
 <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC63AOgIhSH-DxdfryU-v6kmGh04RbLjc0&callback=initMap" async
     defer></script> -->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDKoKXKgFfLTb9SNLk0QEq1FmnNJD3hSg&callback=initMap" async
     defer></script>
+
+<!-- Main JS Script -->
 <script src="assets/scripts/maps.js" defer></script>
+<!-- D3 JS Script for Stats/Graphs -->
+<script src="assets/scripts/d3Stats.js"></script>
 
 </html>
