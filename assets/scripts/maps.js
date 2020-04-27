@@ -19,7 +19,6 @@
     CSS: Style the Google Maps navigation elements, .gm-style... classes.
     JS: Create and call custom functions, ZoomControl, MapType Control, and FullScreenControl.
 */
-
 function initMap() {
     let home = { lat: 53.274346, lng: -6.348835 }; // My home coords for centering the map, and for marking my home
     let map = new google.maps.Map(document.getElementById("map"), {
@@ -112,7 +111,7 @@ function initMap() {
                 content: props.content
             });
 
-            marker.addListener("mouseover", function () {
+            marker.addListener("mouseover", () => {
                 infoWindow.open(map, marker);
 
                 let markerString = String(marker.position); // Convert marker.position Object to String to manipulate the lat and lon for the OpenWeather API call.
@@ -152,8 +151,8 @@ function initMap() {
             });
 
             /* Added a timeout to give the user enough time to notice and click on the buttons */
-            marker.addListener("mouseout", function () {
-                setTimeout(function () {
+            marker.addListener("mouseout", () => {
+                setTimeout(() => {
                     infoWindow.close(map, marker);
                 }, 3000);
             });
@@ -192,7 +191,7 @@ function initMap() {
                 toggleBackdrop();
                 toggleModal();
                 document.getElementById("modal-content").innerHTML = `Overview: ${marker.name} ${marker.overview} ${marker.d3}`;
-                console.log("Clicked on Overview Button", buttonIDOver);
+                // console.log("Clicked on Overview Button", buttonIDOver);
             }
             buttonOverview.addEventListener("click", overviewModalHandler);
 
@@ -200,9 +199,9 @@ function initMap() {
                 toggleBackdrop();
                 toggleModal();
                 document.getElementById("modal-content").innerHTML = `<h4>Statistics: ${marker.name}</h4><div class="canvas"></div><div>${marker.d3}`;
-                let cityArray = marker.name.split(","); // Parse City name to d3Stats(cityArray[0]) parameterto access relevant Firebase Firestore Collection and Documents
+                let cityArray = marker.name.split(","); // Parse City name to d3Stats(cityArray[0]) parameter to access relevant Firebase Firestore Collection and Documents
                 d3Stats(cityArray[0]);
-                console.log("Clicked on Statistics Button", buttonIDStats);
+                // console.log("Clicked on Statistics Button", buttonIDStats);
             }
             buttonStats.addEventListener("click", statisticsModalHandler);
         };
@@ -231,7 +230,7 @@ function initMap() {
             <div><span><i class="fa fa-file-code-o" id="fa-file-code-o"></i></span><span><a href="https://openweathermap.org/api/one-call-api" target="_target">OpenWeather API Description - adding real-time weather information to the marker tool-tips.</a></span></div>
             <div><span><i class="fa fa-file-code-o" id="fa-file-code-o"></i></span><span><a href="https://github.com/d3/d3/blob/master/API.md" target="_target">D3 API Description - to display dynamic graphs and statistics.</a></span></div>
             <div><span><i class="fa fa-file-code-o" id="fa-file-code-o"></i></span><span><a href="https://www.emailjs.com/" target="_target">EmailJS API Description - to enjoy user feedback to improve the website.</a></span></div>
-            <div><span><i class="fa fa-file-code-o" id="fa-file-code-o"></i></span><span><a href="https://www.emailjs.com/" target="_target">"Built with Firebase &reg;" - to store and retrieve D3 and City data.</a></span></div>`;
+            <div><span><i class="fa fa-file-code-o" id="fa-file-code-o"></i></span><span><a href="https://firebase.google.com/" target="_target">"Built with Firebase &reg;" - to store and retrieve D3 and City data.</a></span></div>`;
         }
         footerAPIIconClick.addEventListener("click", faAPIHandler);
 
@@ -332,6 +331,7 @@ function initMap() {
         }
     */
 
+    // Calling Google Maps Navigational Controls for customisation of controls in Prod: mapControl.js, Dev/Test: gMaps.js
     initZoomControl(map);
     initMapTypeControl(map);
     initFullscreenControl(map);

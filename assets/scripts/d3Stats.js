@@ -60,7 +60,7 @@ function d3Stats(city) {
         .ticks(5)
         .tickFormat(d => d + " M");
 
-    const t = d3.transition().duration(5000);
+    const t = d3.transition().duration(3000);
 
 
     /* === D3 Update Function === === === === === === === === === === === */
