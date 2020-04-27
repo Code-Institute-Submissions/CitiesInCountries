@@ -200,7 +200,8 @@ function initMap() {
                 toggleBackdrop();
                 toggleModal();
                 document.getElementById("modal-content").innerHTML = `<h4>Statistics: ${marker.name}</h4><div class="canvas"></div><div>${marker.d3}`;
-                d3Stats();
+                let cityArray = marker.name.split(","); // Parse City name to d3Stats(cityArray[0]) parameterto access relevant Firebase Firestore Collection and Documents
+                d3Stats(cityArray[0]);
                 console.log("Clicked on Statistics Button", buttonIDStats);
             }
             buttonStats.addEventListener("click", statisticsModalHandler);
@@ -226,10 +227,11 @@ function initMap() {
             toggleModal();
             // document.getElementById("add-modal").style.background = "rgb(196, 224, 255)";
             document.getElementById("modal-content").innerHTML =
-                `<div><span><img src="/assets/images/GoogleMapsAPI.png" height="16"></></span><span><a href="https://developers.google.com/maps/documentation/javascript/tutorial" target="_target">Google Maps JavaScript API Description - to create the map and markers.</a></span></div>
-            <div><span><img src="/assets/images/OpenWeatherAPI.jpeg" height="16"></></span><span><a href="https://openweathermap.org/api/one-call-api" target="_target">OpenWeather API Description - adding real-time weather information to the marker tool-tips.</a></span></div>
-            <div><span><img src="/assets/images/D3API.jpeg" height="16"></></span><span><a href="https://github.com/d3/d3/blob/master/API.md" target="_target">D3 API Description - to display dynamic graphs and statistics.</a></span></div>
-            <div><span><img src="/assets/images/EmailJSAPI.png" height="16"></></span><span><a href="https://www.emailjs.com/" target="_target">EmailJS API Description - to enjoy user feedback to improve the website.</a></span></div>`;
+                `<div><span><i class="fa fa-file-code-o" id="fa-file-code-o"></i></span><span><a href="https://developers.google.com/maps/documentation/javascript/tutorial" target="_target">Google Maps JavaScript API Description - to create the map and markers.</a></span></div>
+            <div><span><i class="fa fa-file-code-o" id="fa-file-code-o"></i></span><span><a href="https://openweathermap.org/api/one-call-api" target="_target">OpenWeather API Description - adding real-time weather information to the marker tool-tips.</a></span></div>
+            <div><span><i class="fa fa-file-code-o" id="fa-file-code-o"></i></span><span><a href="https://github.com/d3/d3/blob/master/API.md" target="_target">D3 API Description - to display dynamic graphs and statistics.</a></span></div>
+            <div><span><i class="fa fa-file-code-o" id="fa-file-code-o"></i></span><span><a href="https://www.emailjs.com/" target="_target">EmailJS API Description - to enjoy user feedback to improve the website.</a></span></div>
+            <div><span><i class="fa fa-file-code-o" id="fa-file-code-o"></i></span><span><a href="https://www.emailjs.com/" target="_target">"Built with Firebase &reg;" - to store and retrieve D3 and City data.</a></span></div>`;
         }
         footerAPIIconClick.addEventListener("click", faAPIHandler);
 
@@ -241,11 +243,11 @@ function initMap() {
             toggleModal();
             // document.getElementById("add-modal").style.background = "rgb(196, 224, 255)";
             document.getElementById("modal-content").innerHTML =
-                `<div><span><i class="fa fa-code" id="fa-code" aria-hidden="true" color="196, 224, 255"></i></span><span><a href="https://codeinstitute.net/" target="_target">Google Maps API - Code Institute walkthrough by Matt Rudge.</a></span></div>
-            <div><span><i class="fa fa-code" id="fa-code" aria-hidden="true" color="196, 224, 255"></i></span><span><a href="https://youtu.be/Zxf1mnP5zcw" target="_target">Google Maps API - Bill Traversy @ Traversy Media.</a></span></div>
-            <div><span><i class="fa fa-code" id="fa-code" aria-hidden="true"></i></span><span><a href="https://youtu.be/GXrDEA3SIOQ" target="_target">OpenWeather API - OpenWeather API JavaScript example and walkthrough by Shanjah Raj.</a></span></div>
-            <div><span><i class="fa fa-code" id="fa-code" aria-hidden="true"></i></span><span><a href="https://www.udemy.com/course/build-data-uis-with-d3-firebase/" target="_target">Udemy Course on D3 & Firebase by Shaun Pelling.</a></span></div>
-            <div><span><i class="fa fa-code" id="fa-code" aria-hidden="true"></i></span><span><a href="https://www.udemy.com/course-dashboard-redirect/?course_id=2508942" target="_target">Udemy Course on JavaScript the Complete Guide 2020 by Maximilian Schwarzmüller.</a></span></div>`;
+                `<div><span><i class="fa fa-code" id="fa-code"></i></span><span><a href="https://codeinstitute.net/" target="_target">Google Maps API - Code Institute walkthrough by Matt Rudge.</a></span></div>
+            <div><span><i class="fa fa-code" id="fa-code"></i></span><span><a href="https://youtu.be/Zxf1mnP5zcw" target="_target">Google Maps API - Bill Traversy @ Traversy Media.</a></span></div>
+            <div><span><i class="fa fa-code" id="fa-code"></i></span><span><a href="https://youtu.be/GXrDEA3SIOQ" target="_target">OpenWeather API - OpenWeather API JavaScript example and walkthrough by Shanjah Raj.</a></span></div>
+            <div><span><i class="fa fa-code" id="fa-code"></i></span><span><a href="https://www.udemy.com/course/build-data-uis-with-d3-firebase/" target="_target">Udemy Course on D3 & Firebase by Shaun Pelling.</a></span></div>
+            <div><span><i class="fa fa-code" id="fa-code"></i></span><span><a href="https://www.udemy.com/course-dashboard-redirect/?course_id=2508942" target="_target">Udemy Course on JavaScript the Complete Guide 2020 by Maximilian Schwarzmüller.</a></span></div>`;
         }
         footerCodeSnippetsIconClick.addEventListener("click", faCodeSnippetsHandler);
 

@@ -11,10 +11,13 @@
 :root {
     --primary-color: rgba(13, 110, 139, 0.75);
     --overlay-color: rgba(13, 110, 139, 0.75);
-    --background-color: rgb(61, 148, 246);
+    /* --background-color: rgb(61, 148, 246); */
+    --background-color: rgb(255, 255, 255);
     /* rgb(13, 110, 139) rgb(76, 96, 155) rgb(170, 218, 255) rgb(61, 148, 246) */
     /* Same color used throughout, except for modal background. */
-    --main-font-color: rgb(255, 255, 255);
+    /* --main-font-color: rgb(255, 255, 255); */
+    --main-font-color: rgb(0, 0, 0);
+    --accent-color: rgb(61, 148, 246);
     --menu-speed: 0.75s;
 }
 
@@ -288,8 +291,9 @@ a i:hover {
     font-size: 100%;
 }
 
-.modal #fa-code {
-    color: rgb(255, 0, 0);
+.modal #fa-code,
+.modal #fa-file-code-o {
+    color: var(--accent-color);
 }
 
 /* === WHY?
@@ -354,7 +358,8 @@ Create a clean look, that's easy to comprehend and use.
 === */
 
 .card {
-    background: var(--main-font-color);
+    /* background: var(--main-font-color); */
+    background: var(--background-color);
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);

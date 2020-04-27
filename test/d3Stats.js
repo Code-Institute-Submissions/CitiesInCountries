@@ -8,7 +8,7 @@ Step3 : Call the update().
 
 const update = (data) => {
     // 1. Update scales (domains) if they rely on our data
-    y.domain([0,d3.max(data, d => d.orders)]);
+    y.domain([0,d3.max(data, d => d.population)]);
 
     // 2. Join updated data to elements
     const rects = graph.selectAll("rect").data(data;
@@ -25,15 +25,15 @@ const update = (data) => {
  */
 
 // Select the SVG element <div class="canvas"> to append SVG
-d3Stats();
+d3Stats;
 
-function d3Stats() {
+function d3Stats(city) {
     const svg = d3.select(".canvas")
         .append("svg")
         .attr("width", 200)
         .attr("height", 200);
     // Create margins and dimensions for our graph, for axis information
-    const margin = { top: 5, right: 5, bottom: 30, left: 40 };
+    const margin = { top: 5, right: 5, bottom: 40, left: 40 };
     const graphWidth = 200 - margin.left - margin.right;
     const graphHeight = 200 - margin.top - margin.bottom;
     const graph = svg.append("g")
@@ -57,13 +57,8 @@ function d3Stats() {
         .paddingOuter(0.2);
     const xAxis = d3.axisBottom(x);
     const yAxis = d3.axisLeft(y)
-        .ticks(3)
-        .tickFormat(d => d + " K");
-
-    xAxisGroup.selectAll("text")
-        .attr("transform", "rotate(-40)")
-        .attr("text-anchor", "end")
-        .attr("fill", "rgb(61, 148, 246)");
+        .ticks(5)
+        .tickFormat(d => d + " M");
 
     const t = d3.transition().duration(5000);
 
@@ -71,7 +66,7 @@ function d3Stats() {
     /* === D3 Update Function === === === === === === === === === === === */
     const update = (data) => {
         // D3 Update Step 1: Update scales (domains) if they rely on our data
-        y.domain([0, d3.max(data, d => d.orders)]);
+        y.domain([0, d3.max(data, d => d.population)]);
         x.domain(data.map(item => item.name));
         // D3 Update Step 2: Join the updated data array (JSON) to rects
         const rects = graph.selectAll("rect")
@@ -83,8 +78,8 @@ function d3Stats() {
             .attr("fill", "rgb(61, 148, 246)")
             .attr("x", d => x(d.name))
             .transition(t)
-            .attr("height", d => graphHeight - y(d.orders))
-            .attr("y", d => y(d.orders));
+            .attr("height", d => graphHeight - y(d.population))
+            .attr("y", d => y(d.population));
         // D3 Update Step 5: Append the enter selection to the DOM (outerHTML and innerHTML)
         rects.enter()
             .append("rect")
@@ -95,8 +90,8 @@ function d3Stats() {
             .attr("y", d => graphHeight)
             .transition(t)
             .attrTween("width", widthTween)
-            .attr("height", d => graphHeight - y(d.orders))
-            .attr("y", d => y(d.orders));
+            .attr("height", d => graphHeight - y(d.population))
+            .attr("y", d => y(d.population));
         // Call axes
         xAxisGroup.call(xAxis);
         yAxisGroup.call(yAxis);
@@ -104,7 +99,7 @@ function d3Stats() {
     // Get data from Firestore (previously a local JSON file) when a change  occurs, this onSnapshot() is triggered.
     let dataArray = [];
     // Firestore change listener triggers a dataArray[] update (added, modified, removed).
-    db.collection("dishes").onSnapshot(response => {
+    db.collection(city).onSnapshot(response => {
         //console.log(response.docChanges());
         // Cycling through every change that occurs in the database.
         response.docChanges().forEach(change => {
@@ -129,6 +124,12 @@ function d3Stats() {
             }
         });
         update(dataArray);
+
+        xAxisGroup.selectAll("text")
+            .attr("transform", "rotate(-20)")
+            .attr("text-anchor", "end")
+            .attr("fill", "rgb(61, 148, 246)");
+
     });
     // Tweens: timer to update attributes over time.
     const widthTween = (d) => {
