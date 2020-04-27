@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Firebase Firestore Test</title>
+</head>
+
+<body>
+    
+    <!-- Google Firebase Firestore noSQL DB -->
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+        <!-- Add this line to access Firestore. Doesn't work otherwise...-->
+        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
+
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+                     https://firebase.google.com/docs/web/setup#available-libraries -->
+        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-analytics.js"></script>
+
+        <script>
+            // Your web app's Firebase configuration
+            var firebaseConfig = {
+                apiKey: "AIzaSyD-7m05xNy_mTbg_KH1VxoLeSp1YM4gfWM",
+                authDomain: "udemy-3d-firebase-48d1d.firebaseapp.com",
+                databaseURL: "https://udemy-3d-firebase-48d1d.firebaseio.com",
+                projectId: "udemy-3d-firebase-48d1d",
+                storageBucket: "udemy-3d-firebase-48d1d.appspot.com",
+                messagingSenderId: "260184459758",
+                appId: "1:260184459758:web:a69c4cb2087fa94f5be6ff",
+                measurementId: "G-RWQRBS2GS5"
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+            firebase.analytics();
+            const db = firebase.firestore(); // Added to refer to our Firestore
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.js"></script>
+</body>
+
+<!-- Fiebase Firestore JS Script Test -->
+<script src="FireStoreTest.js"></script>
+
+</html>

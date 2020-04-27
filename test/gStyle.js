@@ -19,7 +19,6 @@
     CSS: Style the Google Maps navigation elements, .gm-style... classes.
     JS: Create and call custom functions, ZoomControl, MapType Control, and FullScreenControl.
 */
-
 function initMap() {
     let home = { lat: 53.274346, lng: -6.348835 }; // My home coords for centering the map, and for marking my home
     let map = new google.maps.Map(document.getElementById("map"), {
@@ -192,7 +191,7 @@ function initMap() {
                 toggleBackdrop();
                 toggleModal();
                 document.getElementById("modal-content").innerHTML = `Overview: ${marker.name} ${marker.overview} ${marker.d3}`;
-                console.log("Clicked on Overview Button", buttonIDOver);
+                // console.log("Clicked on Overview Button", buttonIDOver);
             }
             buttonOverview.addEventListener("click", overviewModalHandler);
 
@@ -202,7 +201,7 @@ function initMap() {
                 document.getElementById("modal-content").innerHTML = `<h4>Statistics: ${marker.name}</h4><div class="canvas"></div><div>${marker.d3}`;
                 let cityArray = marker.name.split(","); // Parse City name to d3Stats(cityArray[0]) parameterto access relevant Firebase Firestore Collection and Documents
                 d3Stats(cityArray[0]);
-                console.log("Clicked on Statistics Button", buttonIDStats);
+                // console.log("Clicked on Statistics Button", buttonIDStats);
             }
             buttonStats.addEventListener("click", statisticsModalHandler);
         };
@@ -332,6 +331,7 @@ function initMap() {
         }
     */
 
+    // Calling Google Maps Navigational Controls for customisation of controls in Prod: mapControl.js, Dev/Test: gMaps.js
     initZoomControl(map);
     initMapTypeControl(map);
     initFullscreenControl(map);
