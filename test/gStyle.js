@@ -25,8 +25,26 @@ function initMap() {
         zoom: 6,
         center: home,
         disableDefaultUI: true,
-    }); // Create a new Map and center on Home
+    }); // Create a new Map and centers on My Home (Firhouse, Dublin, Ireland).
 
+    // If browser supports geolocation, and the user accepts reading of location, then the map is centered on their current location. Otherwise My Home (Firhouse, Dublin, Ireland) is used.
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition((position) => {
+            let pos = { lat: position.coords.latitude, lng: position.coords.longitude };
+            map.setCenter(pos);
+        }, () => {
+            handleLocationError(true, map.getCenter());
+        });
+    } else {
+        // Browser doesn't support Geolocation
+        handleLocationError(false, map.getCenter());
+    }
+
+    function handleLocationError(browserHasGeolocation, pos) {
+        map.setCenter(home);
+    }
+    
+    // Set 2 HTML constants used by the Markers Toot-Tip: OpenWeather API, and 2 Buttons.
     const weatherInfo = `<div class="weather" id="weather"></div>`;
     const toolTipButtons = `<br><div class="modalActions"><button class="button" id="buttonOver">Overview</button><button class="buttton" id="buttonStats">Statistics</button></div>`;
 
