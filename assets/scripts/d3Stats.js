@@ -27,11 +27,11 @@ const update = (data) => {
 // Select the SVG element <div class="canvas"> to append SVG
 d3Stats;
 
-function d3Stats(city) {
+function d3Stats(city, width, height, tickFormat, fillColour) {
     const svg = d3.select(".canvas")
         .append("svg")
-        .attr("width", 200)
-        .attr("height", 200);
+        .attr("width", width)
+        .attr("height", height);
     // Create margins and dimensions for our graph, for axis information
     const margin = { top: 5, right: 5, bottom: 40, left: 40 };
     const graphWidth = 200 - margin.left - margin.right;
@@ -58,7 +58,7 @@ function d3Stats(city) {
     const xAxis = d3.axisBottom(x);
     const yAxis = d3.axisLeft(y)
         .ticks(5)
-        .tickFormat(d => d + " M");
+        .tickFormat(d => d + ` ${tickFormat}`);
 
     const t = d3.transition().duration(3000);
 
@@ -75,7 +75,7 @@ function d3Stats(city) {
         rects.exit().remove();
         // D3 Update Step 4: Add attrs to rects already in the DOM (innerHTML)
         rects.attr("width", x.bandwidth)
-            .attr("fill", "rgb(61, 148, 246)")
+            .attr("fill", fillColour)
             .attr("x", d => x(d.name))
             .transition(t)
             .attr("height", d => graphHeight - y(d.population))
@@ -85,7 +85,7 @@ function d3Stats(city) {
             .append("rect")
             .attr("width", 0)
             .attr("height", d => 0)
-            .attr("fill", "rgb(61, 148, 246)")
+            .attr("fill", fillColour)
             .attr("x", (d) => x(d.name))
             .attr("y", d => graphHeight)
             .transition(t)
@@ -128,7 +128,7 @@ function d3Stats(city) {
         xAxisGroup.selectAll("text")
             .attr("transform", "rotate(-20)")
             .attr("text-anchor", "end")
-            .attr("fill", "rgb(61, 148, 246)");
+            .attr("fill", fillColour);
 
     });
     // Tweens: timer to update attributes over time.

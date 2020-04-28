@@ -11,13 +11,8 @@
     <!-- Local Stylesheet: Style -->
     <link rel="stylesheet" href="gStyle.css">
     <title>Cities in Countries Data</title>
-    <!-- EmailJS Script for the Email Form -->
-    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
-    <script >
-        (function () {
-            emailjs.init("user_Dhpon4lpXiEEQEGFYwVco");
-        })();
-    </script>
+
+    <!-- Favicon, a gorgeous 'G' for Gaff/Gaffney/Google... -->
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
@@ -92,42 +87,52 @@
         </div>
     </aside>
 
-    <!-- EmailJS sendmail() -->
-    <script src="sendemail.js"></script>
-
-    <!-- Google Firebase Firestore noSQL DB -->
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
-    <!-- Add this line to access Firestore. Doesn't work otherwise...-->
-    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
-
-    <!-- TODO: Add SDKs for Firebase products that you want to use
-                     https://firebase.google.com/docs/web/setup#available-libraries -->
-    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-analytics.js"></script>
-
-    <script>
-        // Your web app's Firebase configuration
-        var firebaseConfig = {
-            apiKey: "AIzaSyD-7m05xNy_mTbg_KH1VxoLeSp1YM4gfWM",
-            authDomain: "udemy-3d-firebase-48d1d.firebaseapp.com",
-            databaseURL: "https://udemy-3d-firebase-48d1d.firebaseio.com",
-            projectId: "udemy-3d-firebase-48d1d",
-            storageBucket: "udemy-3d-firebase-48d1d.appspot.com",
-            messagingSenderId: "260184459758",
-            appId: "1:260184459758:web:a69c4cb2087fa94f5be6ff",
-            measurementId: "G-RWQRBS2GS5"
-        };
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-        firebase.analytics();
-        const db = firebase.firestore(); // Added to refer to our Firestore
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.js"></script>
 </body>
+
+<!-- EmailJS Script for the Email Form -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
+<script>
+    (function () {
+        emailjs.init("user_Dhpon4lpXiEEQEGFYwVco");
+    })();
+</script>
+
+<!-- EmailJS sendmail() -->
+<script src="sendemail.js"></script>
+
+<!-- Google Firebase Firestore noSQL DB -->
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+<!-- Add this line to access Firestore. Doesn't work otherwise...-->
+<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+                         https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-analytics.js"></script>
+
+<script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyD-7m05xNy_mTbg_KH1VxoLeSp1YM4gfWM",
+        authDomain: "udemy-3d-firebase-48d1d.firebaseapp.com",
+        databaseURL: "https://udemy-3d-firebase-48d1d.firebaseio.com",
+        projectId: "udemy-3d-firebase-48d1d",
+        storageBucket: "udemy-3d-firebase-48d1d.appspot.com",
+        messagingSenderId: "260184459758",
+        appId: "1:260184459758:web:a69c4cb2087fa94f5be6ff",
+        measurementId: "G-RWQRBS2GS5"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+    const db = firebase.firestore(); // Added to refer to our Firestore
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.js"></script>
 
 <!-- Load Google Map API and local maps.js here to ensure it loads after everything else. -->
 <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC63AOgIhSH-DxdfryU-v6kmGh04RbLjc0&callback=initMap" async defer></script> -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDKoKXKgFfLTb9SNLk0QEq1FmnNJD3hSg&callback=initMap" async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDKoKXKgFfLTb9SNLk0QEq1FmnNJD3hSg&callback=initMap" async
+    defer></script>
 <!-- Google Maps Navigation Controls JS Script -->
 <script src="gMaps.js" defer></script>
 <!-- Main JS Script -->

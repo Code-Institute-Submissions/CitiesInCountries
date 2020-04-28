@@ -1,8 +1,8 @@
 function sendMail(contactForm) {
-    emailjs.send("gmail", "resume_opportunity_contact_naoise_gaffney", {
+    emailjs.send("gmail", "website_feedback_form", {
         "from_name": contactForm.name.value,
         "from_email": contactForm.emailaddress.value,
-        "project_request": contactForm.projectsummary.value
+        "feedback": contactForm.feedback.value
     })
         .then(function (response) {
             console.log('SUCCESS!', response.status, response.text);

@@ -218,7 +218,8 @@ function initMap() {
                 toggleModal();
                 document.getElementById("modal-content").innerHTML = `<h4>Statistics: ${marker.name}</h4><div class="canvas"></div><div>${marker.d3}`;
                 let cityArray = marker.name.split(","); // Parse City name to d3Stats(cityArray[0]) parameter to access relevant Firebase Firestore Collection and Documents
-                d3Stats(cityArray[0], 200, 200, "M", "rgb(61, 148, 246)");
+                //d3Stats(cityArray[0], 200, 200, "M", "rgb(61, 148, 246)");
+                d3Stats(cityArray[0], 200, 200, "M", "rgb(233, 66, 53)");
                 // console.log("Clicked on Statistics Button", buttonIDStats);
             }
             buttonStats.addEventListener("click", statisticsModalHandler);
@@ -232,7 +233,8 @@ function initMap() {
             toggleModal();
             // document.getElementById("add-modal").style.background = "rgb(196, 224, 255)";
             document.getElementById("modal-content").innerHTML =
-                `<div><image src="/assets/images/MarkerTTModal.png" height="150" align="left" style="margin: 0px 10px 0px 0px"</> Please hover over the Goggle Map Markers, view the information, and click on the Overview and Statistics buttons for further details.</div>`;
+                `<div><image src="/assets/images/MarkerTTModal.png" height="150" align="left" style="margin: 0px 10px 0px 0px"</><p> Please hover over the Goggle Map Markers, view the information, and click on the buttons for further details.</p>
+                <p>If you accepted the browser's request to gelocate you, then this is  your map centre. Othwerwise it's the centre of my Universe in Firhouse, Dublin, Ireland.</p></div>`;
         }
         footerAboutIconClick.addEventListener("click", faAboutHandler);
 
@@ -296,7 +298,8 @@ function initMap() {
             toggleModal();
             // document.getElementById("add-modal").style.background = "rgb(196, 224, 255)";
             document.getElementById("modal-content").innerHTML =
-                "Please hover over the Goggle Map Markers, view the information, and click on the buttons for further details.";
+                `<p>Please hover over the Goggle Map Markers, view the information, and click on the buttons for further details.</p>
+                <p>If you accepted the browser's request to gelocate you, then this is  your map centre. Othwerwise it's the centre of my Universe in Firhouse, Dublin, Ireland.</p>`;
         }
         footerContactIconClick.addEventListener("click", faContactHandler);
 

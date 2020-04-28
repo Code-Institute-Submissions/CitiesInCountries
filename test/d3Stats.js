@@ -75,7 +75,7 @@ function d3Stats(city, width, height, tickFormat, fillColour) {
         rects.exit().remove();
         // D3 Update Step 4: Add attrs to rects already in the DOM (innerHTML)
         rects.attr("width", x.bandwidth)
-            .attr("fill", "rgb(61, 148, 246)")
+            .attr("fill", fillColour)
             .attr("x", d => x(d.name))
             .transition(t)
             .attr("height", d => graphHeight - y(d.population))
@@ -128,7 +128,7 @@ function d3Stats(city, width, height, tickFormat, fillColour) {
         xAxisGroup.selectAll("text")
             .attr("transform", "rotate(-20)")
             .attr("text-anchor", "end")
-            .attr("fill", "rgb(61, 148, 246)");
+            .attr("fill", fillColour);
 
     });
     // Tweens: timer to update attributes over time.
