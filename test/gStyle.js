@@ -553,7 +553,7 @@ function initMap() {
                 document.getElementById("modal-content").innerHTML = `<h4>Statistics: ${marker.name}</h4><div class="canvas"></div><div>${marker.d3}`;
                 let cityArray = marker.name.split(","); // Parse City name to d3Stats(cityArray[0]) parameter to access relevant Firebase Firestore Collection and Documents
                 //d3Stats(cityArray[0], 200, 200, "M", "rgb(61, 148, 246)");
-                d3Stats(cityArray[0], 200, 200, "M", "rgb(233, 66, 53)");
+                d3Stats(cityArray[0], 200, 200, "M", "rgb(0, 0, 0)");
                 // console.log("Clicked on Statistics Button", buttonIDStats);
             }
             buttonStats.addEventListener("click", statisticsModalHandler);
