@@ -503,11 +503,11 @@ function initMap() {
             });
 
             /* Added a timeout to give the user enough time to notice and click on the buttons */
-            /* marker.addListener("mouseout", () => {
+            marker.addListener("mouseout", () => {
                 setTimeout(() => {
                     infoWindow.close(map, marker);
                 }, 3000);
-            }); */
+            });
         };
 
 

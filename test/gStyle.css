@@ -18,6 +18,7 @@
     /* --main-font-color: rgb(255, 255, 255); */
     --main-font-color: rgb(0, 0, 0);
     --accent-color: rgb(61, 148, 246);
+    --linear-gradient: linear-gradient(0.25turn, rgba(63, 135, 166, 0.9), rgba(235, 248, 225, 0.9), rgba(246, 157, 60, 0.9));
 }
 
 /* --- "Reset!" and Set Basic Parameters  --- */
@@ -58,7 +59,7 @@ JS: Create and call custom functions, ZoomControl, MapType Control, and FullScre
     font-size: 36px;
     /* this adjusts the size of all the controls */
     background-color: var(--background-color);
-    background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);
+    background: var(--linear-gradient);
     /* Border around the navigation controls */
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     box-sizing: border-box;
@@ -85,7 +86,7 @@ JS: Create and call custom functions, ZoomControl, MapType Control, and FullScre
 
 .gm-style .controls button:hover {
     color: var(--main-font-color);
-    background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);
+    background: var(--linear-gradient);
     transform: scale(1.5);
 }
 
@@ -183,8 +184,10 @@ JS: Create and call custom functions, ZoomControl, MapType Control, and FullScre
 }
 
 /* Together with JS Styling this creates a linear background effect. */
-.gm-style, .gm-style-iw, .gm-style-iw-c {
-    background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);
+.gm-style,
+.gm-style-iw,
+.gm-style-iw-c {
+    background: var(--linear-gradient)
 }
 
 
@@ -258,7 +261,7 @@ JS: Control Marker Tool-Tips, and Modals.
     margin: 0;
     text-align: center;
     background: var(--background-color);
-    background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);
+    background: var(--linear-gradient);
     color: var(--main-font-color);
     -webkit-box-shadow: 0px -6px 20px 0px rgba(0, 0, 0, 0.19);
     -moz-box-shadow: 0px -6px 20px 0px rgba(0, 0, 0, 0.19);
@@ -372,7 +375,6 @@ Create a clean look, that's easy to comprehend and use.
     /* background: var(--main-font-color); */
     background: var(--background-color);
     border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -384,6 +386,8 @@ Create a clean look, that's easy to comprehend and use.
     left: 10%;
     display: none;
     font-family: Raleway, sans-serif;
+    background: var(--linear-gradient);
+    ;
 }
 
 .modal.visible {
@@ -488,7 +492,7 @@ Displays details without leaving the page, providing a clear and clean navigatio
 .cssmodal-dialog .cssmodal-content {
     margin: auto;
     /* background-color: rgba(8, 126, 161, 0.95); */
-    background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);
+    background: var(--linear-gradient);
     /* Making the white text easier to read againnst the white menu text behind the modal. */
     color: #ffffff;
     border-radius: 10px 10px 10px 10px;
