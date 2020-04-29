@@ -43,7 +43,7 @@ function initMap() {
     function handleLocationError(browserHasGeolocation, pos) {
         map.setCenter(home);
     }
-    
+
     // Set 2 HTML constants used by the Markers Toot-Tip: OpenWeather API, and 2 Buttons.
     const weatherInfo = `<div class="weather" id="weather"></div>`;
     const toolTipButtons = `<br><div class="modalActions"><button class="button" id="buttonOver">Overview</button><button class="buttton" id="buttonStats">Statistics</button></div>`;
@@ -96,6 +96,69 @@ function initMap() {
             coords: { lat: 59.3293, lng: 18.0686 },
             content: `<p>Stockholm, Sweden: 59.3293° N, 18.0686° E</p>${weatherInfo} ${toolTipButtons}`,
             name: "Stockholm, Sweden",
+            overview: `<div class="overview" id="overview"></div>`,
+            d3: `<div class="d3" id="d3"></div>`
+        },
+        {
+            coords: { lat: 59.9139, lng: 10.7522 },
+            content: `<p>Oslo, Norway: 59.9139° N, 10.7522° E</p>${weatherInfo} ${toolTipButtons}`,
+            name: "Oslo, Norway",
+            overview: `<div class="overview" id="overview"></div>`,
+            d3: `<div class="d3" id="d3"></div>`
+        },
+        {
+            coords: { lat: 55.6761, lng: 12.5683 },
+            content: `<p>Copenhagen, Denmark: 55.6761° N, 12.5683° E</p>${weatherInfo} ${toolTipButtons}`,
+            name: "Copenhagen, Denmark",
+            overview: `<div class="overview" id="overview"></div>`,
+            d3: `<div class="d3" id="d3"></div>`
+        },
+        {
+            coords: { lat: 60.1699, lng: 24.9384 },
+            content: `<p>Helsinki, Finland: 60.1699° N, 24.9384° E</p>${weatherInfo} ${toolTipButtons}`,
+            name: "Helsinki, Finland",
+            overview: `<div class="overview" id="overview"></div>`,
+            d3: `<div class="d3" id="d3"></div>`
+        },
+        {
+            coords: { lat: 59.4370, lng: 24.7536 },
+            content: `<p>Tallinn, Estonia: 59.4370° N, 24.7536° E</p>${weatherInfo} ${toolTipButtons}`,
+            name: "Tallinn, Estonia",
+            overview: `<div class="overview" id="overview"></div>`,
+            d3: `<div class="d3" id="d3"></div>`
+        },
+        {
+            coords: { lat: 56.9496, lng: 24.1052 },
+            content: `<p>Riga, Latvia: 56.9496° N, 24.1052° E</p>${weatherInfo} ${toolTipButtons}`,
+            name: "Riga, Latvia",
+            overview: `<div class="overview" id="overview"></div>`,
+            d3: `<div class="d3" id="d3"></div>`
+        },
+        {
+            coords: { lat: 54.6872, lng: 25.2797 },
+            content: `<p>Vilnius, Lithuania: 54.6872° N, 25.2797° E</p>${weatherInfo} ${toolTipButtons}`,
+            name: "Vilnius, Lithuania",
+            overview: `<div class="overview" id="overview"></div>`,
+            d3: `<div class="d3" id="d3"></div>`
+        },
+        {
+            coords: { lat: 52.2297, lng: 21.0122 },
+            content: `<p>Warsaw, Poland: 52.2297° N, 21.0122° E</p>${weatherInfo} ${toolTipButtons}`,
+            name: "Warsaw, Poland",
+            overview: `<div class="overview" id="overview"></div>`,
+            d3: `<div class="d3" id="d3"></div>`
+        },
+        {
+            coords: { lat: 50.0755, lng: 14.4378 },
+            content: `<p>Prague, Czechia: 50.0755° N, 14.4378° E</p>${weatherInfo} ${toolTipButtons}`,
+            name: "Prague, Czechia",
+            overview: `<div class="overview" id="overview"></div>`,
+            d3: `<div class="d3" id="d3"></div>`
+        },
+        {
+            coords: { lat: 64.1466, lng: -21.9426 },
+            content: `<p>Reykjavik, Iceland: 64.1466° N, 21.9426° W</p>${weatherInfo} ${toolTipButtons}`,
+            name: "Reykjavik, Iceland",
             overview: `<div class="overview" id="overview"></div>`,
             d3: `<div class="d3" id="d3"></div>`
         }
@@ -225,7 +288,7 @@ function initMap() {
             buttonStats.addEventListener("click", statisticsModalHandler);
         };
 
-        // Footer: About Modal
+        /* // Footer: About Modal
         let footerAboutIconClick = document.getElementById("fa-exclamation");
 
         const faAboutHandler = () => {
@@ -301,9 +364,9 @@ function initMap() {
                 `<p>Please hover over the Goggle Map Markers, view the information, and click on the buttons for further details.</p>
                 <p>If you accepted the browser's request to gelocate you, then this is  your map centre. Othwerwise it's the centre of my Universe in Firhouse, Dublin, Ireland.</p>`;
         }
-        footerContactIconClick.addEventListener("click", faContactHandler);
+        footerContactIconClick.addEventListener("click", faContactHandler); */
 
-        // Close Modal Button
+        /* // Close Modal Button
         let closeButton = document.getElementById("close");
 
         const closeButtonHandler = () => {
@@ -311,8 +374,15 @@ function initMap() {
             toggleBackdrop();
             document.getElementById("add-modal").style.background = "white"; // Resetting the background modal colour to white.
         }
+        closeButton.addEventListener("click", closeButtonHandler); */
 
-        closeButton.addEventListener("click", closeButtonHandler);
+
+        document.getElementById("close").onclick = () => { closeModal() };
+
+        const closeModal = () => {
+            toggleModal();
+            toggleBackdrop();
+        }
     };
 
     /* JSON returned from OpenWeather API Call for { lat: 53.274346, lng: -6.348835 } (Firhouse, Dublin, Ireland)
