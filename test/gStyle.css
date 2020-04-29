@@ -58,6 +58,7 @@ JS: Create and call custom functions, ZoomControl, MapType Control, and FullScre
     font-size: 36px;
     /* this adjusts the size of all the controls */
     background-color: var(--background-color);
+    background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);
     /* Border around the navigation controls */
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     box-sizing: border-box;
@@ -84,6 +85,7 @@ JS: Create and call custom functions, ZoomControl, MapType Control, and FullScre
 
 .gm-style .controls button:hover {
     color: var(--main-font-color);
+    background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);
     transform: scale(1.5);
 }
 
@@ -180,6 +182,11 @@ JS: Create and call custom functions, ZoomControl, MapType Control, and FullScre
     border-width: 2px 0 0 2px;
 }
 
+/* Together with JS Styling this creates a linear background effect. */
+.gm-style, .gm-style-iw, .gm-style-iw-c {
+    background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);
+}
+
 
 .weather,
 .btn,
@@ -251,6 +258,7 @@ JS: Control Marker Tool-Tips, and Modals.
     margin: 0;
     text-align: center;
     background: var(--background-color);
+    background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);
     color: var(--main-font-color);
     -webkit-box-shadow: 0px -6px 20px 0px rgba(0, 0, 0, 0.19);
     -moz-box-shadow: 0px -6px 20px 0px rgba(0, 0, 0, 0.19);
@@ -461,6 +469,7 @@ Displays details without leaving the page, providing a clear and clean navigatio
     width: 100%;
     height: 100%;
     overflow: auto;
+    background: rgba(0, 0, 0, 0.20);
 }
 
 /* Display the modal when targeted */
@@ -476,11 +485,13 @@ Displays details without leaving the page, providing a clear and clean navigatio
 }
 
 /* The modal's content */
-.cssmodal-dialog .modal-content {
+.cssmodal-dialog .cssmodal-content {
     margin: auto;
-    background-color: rgba(8, 126, 161, 0.95);
+    /* background-color: rgba(8, 126, 161, 0.95); */
+    background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);
     /* Making the white text easier to read againnst the white menu text behind the modal. */
     color: #ffffff;
+    border-radius: 10px 10px 10px 10px;
     position: relative;
     padding: 0;
     outline: 0;
