@@ -302,15 +302,19 @@ a i:hover {
     font-size: 100%;
 }
 
-.modal__content a:hover,
+/* .modal__content a:hover,
 .cssmodal-content a:hover {
-    font-weight: bold;
+    font-size: 120%;
 }
 
 .modal #fa-code,
 .modal #fa-file-code-o,
 .cssmodal #fa-code {
-    font-weight: bold;
+    font-size: 120%;
+} */
+
+.modal-link-text:hover {
+    font-size: 120%;
 }
 
 /* === WHY?
