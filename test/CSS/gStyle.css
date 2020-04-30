@@ -599,17 +599,26 @@ textarea {
     padding-right: 12px;
 }
 
+
+
 /* === Responsive Web Design - Mobile Devices First and Foremost === */
-/* --- Make sure that the JS Modal doesn't "hog the limelight, too much..." on displays with plenty of "Real Estate". --- */
-@media screen and (min-width: 600px) and (min-height: 600px) {
+/* --- Make sure that the JS Modal doesn't "hog the limelight, too much..." on displays with plenty of "Real Estate".
+Using a Modal CSS trick for the JS Modal to center the modal; .modal {} --- */
+@media screen and (min-width: 600px) /* and (min-height: 1000px) */ {
     .modal {
-        width: 60%;
-        left: 20%;
-        top: 30vh;
+        position: fixed;
+        width: fit-content;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
 
     .modal .modal__content {
         line-height: 1.6;
+    }
+
+    .cssmodal-dialog .cssmodal-content {
+        width: 70%;
     }
 
     .footer {
