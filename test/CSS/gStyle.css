@@ -17,7 +17,7 @@
     /* Same color used throughout, except for modal background. */
     /* --main-font-color: rgb(255, 255, 255); */
     --main-font-color: rgb(0, 0, 0);
-    --accent-color: rgb(61, 148, 246);
+    --accent-color: rgb(255, 0, 0);
     --linear-gradient: linear-gradient(0.25turn, rgba(63, 135, 166, 0.9), rgba(235, 248, 225, 0.9), rgba(246, 157, 60, 0.9));
 }
 
@@ -301,13 +301,15 @@ a i:hover {
     font-size: 100%;
 }
 
-.modal__content a:hover {
-    color: var(--accent-color);
+.modal__content a:hover,
+.cssmodal-content a:hover {
+    font-weight: bold;
 }
 
 .modal #fa-code,
-.modal #fa-file-code-o {
-    color: var(--accent-color);
+.modal #fa-file-code-o,
+.cssmodal #fa-code {
+    font-weight: bold;
 }
 
 /* === WHY?
@@ -398,8 +400,8 @@ Create a clean look, that's easy to comprehend and use.
 .modal .modal__title {
     margin: 0;
     padding: 1rem;
-    border-bottom: 1px solid #00329e;
-    background: #00329e;
+    border-bottom: 1px solid rgb(0, 50, 158);
+    background: rgb(0, 50, 158);
     color: var(--main-font-color);
     border-radius: 10px 10px 0 0;
 }
@@ -494,7 +496,7 @@ Displays details without leaving the page, providing a clear and clean navigatio
     /* background-color: rgba(8, 126, 161, 0.95); */
     background: var(--linear-gradient);
     /* Making the white text easier to read againnst the white menu text behind the modal. */
-    color: #ffffff;
+    color: var(--main-font-color);
     border-radius: 10px 10px 10px 10px;
     position: relative;
     padding: 0;
@@ -515,7 +517,7 @@ Displays details without leaving the page, providing a clear and clean navigatio
 }
 
 /* The button used to close the modal */
-.closebtn {
+/* .closebtn {
     text-decoration: none;
     float: right;
     font-size: 35px;
@@ -529,7 +531,7 @@ Displays details without leaving the page, providing a clear and clean navigatio
     text-decoration: none;
     cursor: pointer;
 }
-
+ */
 .cssmodal-container {
     padding: 10px 16px;
     text-align: left;
@@ -541,7 +543,7 @@ Using CSS Button Creator: https://cssbuttoncreator.com/ and some additional modi
 Added 'outline: none' to remove ugly click outline.
 */
 .button {
-    background: #3D94F6;
+    background: rgba(63, 135, 166, 1);
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
     border-radius: 20px;
@@ -559,7 +561,7 @@ Added 'outline: none' to remove ugly click outline.
 }
 
 .button:hover {
-    background: #1E62D0;
+    background: rgba(246, 157, 60, 1);
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
     border-radius: 20px;
