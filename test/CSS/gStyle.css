@@ -61,6 +61,7 @@ JS: Create and call custom functions, ZoomControl, MapType Control, and FullScre
     font-size: 36px;
     /* this adjusts the size of all the controls */
     background-color: var(--background-color);
+    background: var(--linear-gradient);
     /* Border around the navigation controls */
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     box-sizing: border-box;
