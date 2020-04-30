@@ -525,18 +525,56 @@ function initMap() {
         };
 
 
+        // let fetchCountry = (country) => {
+        //     fetch(`https://restcountries.eu/rest/v2/all`)
+        //     // fetch(`https://restcountries.eu/rest/v2/name/${country}`) // This is a lot slower than getting all countries?! = CACHING!!
+        //         .then(response => response.json())
+        //         .then(data => {
+        //             const findCountryObject = data.find(data => data.name === country);
+
+        //             console.log("Fetch: ", country);
+        //             let languages = "";
+
+        //             for (let i = 0; i < findCountryObject["languages"].length; i++) {
+        //                 if (i === (findCountryObject["languages"].length-1)) {
+        //                     languages += `${findCountryObject["languages"][i]["name"]}.`;
+        //                 } else {
+        //                     languages += `${findCountryObject["languages"][i]["name"]}, `;
+        //                 }
+        //                 // languages += `${findCountryObject["languages"][i]["name"]} `;
+        //             }
+
+        //             let currencies = "";
+
+        //             for (let i = 0; i < findCountryObject["currencies"].length; i++) {
+        //                 if (i === (findCountryObject["currencies"].length-1)) {
+        //                     currencies += `${findCountryObject["currencies"][i]["name"]}.`;    
+        //                 } else {
+        //                     currencies += `${findCountryObject["currencies"][i]["name"]}, `;
+        //                 }
+        //                 // currencies += `${findCountryObject["currencies"][i]["name"]} `;
+        //             }
+
+        //             document.querySelector("#flag").innerHTML = `<img src="${findCountryObject["flag"]}" width="150" style="border:2px solid black"></a>`;
+        //             document.querySelector("#overview").innerHTML = `<p>Native Name: "${findCountryObject["nativeName"]}" => ${findCountryObject["name"]} --> ${findCountryObject["subregion"]} --> ${findCountryObject["region"]}</p>
+        //         <p>Language(s): ${languages} - Currencie(s): ${currencies} - Calling Code: +${findCountryObject["callingCodes"][0]}</p>`;
+        //         }
+        //         )
+        //         .catch(err => console.log(err));
+        // };
+
         let fetchCountry = (country) => {
-            fetch(`https://restcountries.eu/rest/v2/all`)
-            // fetch(`https://restcountries.eu/rest/v2/name/${country}`) // This is a lot slower than getting all countries?!
+            fetch(`https://restcountries.eu/rest/v2/name/${country}`)
                 .then(response => response.json())
                 .then(data => {
-                    const findCountryObject = data.find(data => data.name === country);
+                    // const findCountryObject = data.find(data => data.name === country);
+                    const findCountryObject = data[0];
 
                     console.log("Fetch: ", country);
                     let languages = "";
 
                     for (let i = 0; i < findCountryObject["languages"].length; i++) {
-                        if (i === (findCountryObject["languages"].length-1)) {
+                        if (i === (findCountryObject["languages"].length - 1)) {
                             languages += `${findCountryObject["languages"][i]["name"]}.`;
                         } else {
                             languages += `${findCountryObject["languages"][i]["name"]}, `;
@@ -547,8 +585,8 @@ function initMap() {
                     let currencies = "";
 
                     for (let i = 0; i < findCountryObject["currencies"].length; i++) {
-                        if (i === (findCountryObject["currencies"].length-1)) {
-                            currencies += `${findCountryObject["currencies"][i]["name"]}.`;    
+                        if (i === (findCountryObject["currencies"].length - 1)) {
+                            currencies += `${findCountryObject["currencies"][i]["name"]}.`;
                         } else {
                             currencies += `${findCountryObject["currencies"][i]["name"]}, `;
                         }
