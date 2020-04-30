@@ -427,6 +427,20 @@ function initMap() {
             name: "Yerevan, Armenia",
             overview: `<div class="overview" id="overview"></div>`,
             d3: `<div class="d3" id="d3"></div>`
+        },
+        {
+            coords: { lat: 44.7866, lng: 20.4489 },
+            content: `<p>Belgrade, Serbia: 44.7866° N, 20.4489° E</p>${weatherInfo} ${toolTipButtons}`,
+            name: "Belgrade, Serbia",
+            overview: `<div class="overview" id="overview"></div>`,
+            d3: `<div class="d3" id="d3"></div>`
+        },
+        {
+            coords: { lat: 64.1814, lng: -51.6941 },
+            content: `<p>Nuuk, Greenland: 64.1814° N, 51.6941° W</p>${weatherInfo} ${toolTipButtons}`,
+            name: "Nuuk, Greenland",
+            overview: `<div class="overview" id="overview"></div>`,
+            d3: `<div class="d3" id="d3"></div>`
         }
     ];
     
@@ -458,7 +472,7 @@ function initMap() {
                 content: props.content
             });
 
-            marker.addListener("mouseover", () => {
+            marker.addListener("click", () => {
                 infoWindow.open(map, marker);
 
                 let markerString = String(marker.position); // Convert marker.position Object to String to manipulate the lat and lon for the OpenWeather API call.
