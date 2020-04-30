@@ -13,7 +13,7 @@ function sendMail(contactForm) {
             }, 5000);
         }, function (error) {
             // console.log('FAILED...', error);
-            document.querySelector("#sendmail-status").innerHTML = "Apologies, something went wrong. Please try again";
+            document.querySelector("#sendmail-status").innerHTML = "Apologies, something went wrong. Please try again.";
             setTimeout(() => {
                 document.querySelector("#sendmail-status").innerHTML = "";
             }, 5000);
