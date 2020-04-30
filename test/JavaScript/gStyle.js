@@ -530,7 +530,7 @@ function initMap() {
             // fetch(`https://restcountries.eu/rest/v2/name/${country}`) // This is a lot slower than getting all countries?!
                 .then(response => response.json())
                 .then(data => {
-                    // const findCountryObject = data.find(data => data.name === country);
+                    const findCountryObject = data.find(data => data.name === country);
 
                     console.log("Fetch: ", country);
                     let languages = "";
