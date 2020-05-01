@@ -49,7 +49,7 @@ function initMap() {
     let markersArray = [
         {
             coords: home,
-            iconImage: '/assets/images/150px-IRL_Dublin_flag.svg.png',
+            iconImage: '../../assets/images/150px-IRL_Dublin_flag.svg.png',
             content: `<h3>Dublin, Ireland</h3>${weatherInfo}<hr><p>6 Oldcourt Close, Ballycullen, D24 RHY2</p><p>Dublin, Ireland</p>${toolTipButtons}`,
             name: "Dublin, Ireland",
             overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
