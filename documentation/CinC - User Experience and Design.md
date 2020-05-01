@@ -60,15 +60,15 @@ The clean and clutter-free interface, the clear, concise, and concrete course ov
 Importance: UXD driven by business goals and user needs
 Viability/Feasibility: Can we build a solution given limited time and resources:
 
-
+![Importane versus Feasibility Table](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/OppImpFeas.png)
 
 For this initial sprint I'm concentrating on creating:
 
-* Online Presence
-* Portfolio of Work
+* European Capital Cities and Countries
+* Showcase Knowledge and Skills
 * Contacts and Social Links
 
-
+![Importance versus Feasibility](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/OppImpFeas2.png)
 
 ## Scope
 * Useful: Is it useful to clients? Is it useful to us?
@@ -83,28 +83,29 @@ For this initial sprint I'm concentrating on creating:
 ### Functional Requirements
 The Scenarios to Requirements:
 
-![Scope: Scenario --> Requirements](https://github.com/NaoiseGaffney/Professional-Training-Development/blob/master/docs/Scope.png)
+![Scope: Scenario --> Requirements](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/Functional%20Requirements.png)
 
 ### Content Requirements
-One background image to create an emotional response, together with a motivational message. Icons to support the text elements, for navigation, and for contact. Text to describe the courses, programmes, and coaching.
+A single pane of information using the well-known Google Map to entice people to click on the Map Markers. A common look-and-feel for all elements. Displaying correlated data from disparate data sources.
 
 ## Structure
-The website structure is a hierarchical one, with a simple and predictable structure. Navigating from one page to another is done via the hamburger-menu on the top-right corner. It's the only way to navigate the website.
+The website structure is a Dashboard, with a simple and predictable structure. No navigation is required, with the exception of the external links in the CSS Footer Modals.
 
 ### Interaction Design
-* The homepage (index.html) has an exciting background image and motivational message. On the top-right corner is the hamburger-bar for navigating the website, and the fixed footer at the bottom has FontAwesome icon links (occasional text) for resumé, location, and contact (social links). The `<section>` is scrollable when there is too much text to fit on the one page.
-* Navigating from the homepage (index.html) is done via the hamburger-menu on the top-right corner.
-	* A user clicks on one of the menu items
-		* Home (index.html)
-		* Organisations (organisations.html)
-		* Individuals (individuals.html)
-		* Programmes (programmes.html)
-* On any of the 3 pages (Organisations, Individuals, and Programmes):
-	* Two boxes with course, coaching, or programme opportunities are presented. Clicking on any one of the course links will provide a modal (pop-up) with additional details, links to Google Calendar, Google Maps, a closure 'x', and a 'Book Now!' button.
-* The fixed footer provides access to the FontAwesome icon links (occasional text) for resumé, location, and contact (social links). The links zoom-in (`transform: scale(1.5);`) during hover, and also provide a tool-tip with additional information.
+* The website enables Users, Collaborators and Employers the ability to view European city and country statistics in an informative and interactive way, all accessible via the single "Dashboard". "Navigation-less".
+* This website uses a Dashboard Information Architecture. Everything is accessible from the one page in the form of "pop-ups" (InfoWindows, JS and CSS Modals). No navigation within the website is required. All external links in the Fixed Footer CSS Modals ("pop-ups") open up in new tabs.
+* A user clicks on a Map Marker --> Tool-Tip wtih city, country, latitude and longitude are displayed (from the internal markersArray[]). The real-time weather is displayed (temperature, description, and air pressure) for the location (from the OpenWeather API). The 2 buttons:
+	* Overview Buttton => displays the flag, native name, regional information, official languages, currencies, and calling code (real-time from the REST Countries API). Closed via the Close Button (JS EventListener and CSS).
+	* Statistics Button => displays a population graph (real-time and updated automaically upon DB change by the D3 API using data from the noSQL Firebase Firestore), and further information related to the country (real-time from the REST Countries API). Closed via the Close Button (JS EventListener and CSS).
+* The Fixed Footer provides links to a CSS Modal. The Fixed footer FontAwesome icons zoom-in (`transform: scale (1.5)`) when hovered over (inviting the User to click on them):
+	* About => description of the website, and instructions on how to navigate it, while also describing the other CSS Modals. Closed via the Close Button (HTML and CSS).
+	* API's => a list of links to the API's used for this website. Closed via the Close Button (HTML and CSS).
+	* Code Snippets => a list of links to the Code Snippets, Courses and Walkthroughs used to gain the knowledge to apply the skills to create this website. Closed via the Close Button (HTML and CSS).
+	* Contact Form => a feedback form, allowing Users to provide feedback and suggestions on improvements. The form requires all fields to be filled in, and a valid e-mail address format is used, before submitting the form. On success, the Modal is updated with a "Thank you!" message, and on failure, an "Apology message" (EmailJS API). Closed via the Close Button (HTML and CSS).
+	* About Me => links to my work and sites related to what I've done as a student at the Code Institute. Closed via the Close Button (HTML and CSS).
 
 ### Information Design
-Information Architecture: Hierarchical
+Information Architecture: Dashboard
 
 ![Information Architecture](https://github.com/NaoiseGaffney/Professional-Training-Development/blob/master/docs/Information%20Architecture.png)
 
@@ -114,16 +115,16 @@ Navigation Design: Intuitive navigation and completion of tasks
 Information Design: Skeleton Layout (Mock-up)
 
 ### Interface Design
-The website shares a common and recognisable look-and-feel, with the same background image, hamburger-menu, fixed footer with links, and colour scheme.
+The website shares a common and recognisable look-and-feel, with the same linear-gradient colour scheme, Raleway font, imagery (FontAwesome, Flags and D3 Graphs), and footer links.
 
-The fixed footer elements are easily recognisable and understood, even more so thanks to the tool-tip on hover.
+The fixed footer elements are easily recognisable and understood.
 
-Navigating is easy, there's only one simple choice, the top-right hamburger-menu.
+Navigating is easy, there's only one simple choice, the Dashboard, clicking on Google Map Markers, InfoWindow buttons, modals, and footer links.
 
 ### Navigation Design
-Internal website navigation is provided by the top-right hamburger-menu and is a feature across the website.
+Internal website navigation is simple, it's all displayed on a single Dashboard.
 
-External navigation, such as for the links on the fixed footer at the bottom of all pages, open up in new tabs (`target="_blank"`) or relevant applications associated to the functions.
+External navigation, such as for the links on the fixed footer at the bottom of the page, open up in new tabs (`target="_blank"`).
 
 ### Information Design
 Wireframe Diagrams:

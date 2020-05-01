@@ -67,7 +67,7 @@ There are three main actors/roles that use the services provided by the website:
 
 The User Experience and Design MarkDown document covers the 5 planes in detail:
 
-[User Experience and Design MarkDown](https://github.com/NaoiseGaffney/Professional-Training-Development/blob/master/docs/User%20Experience%20and%20Design.md)
+[User Experience and Design MarkDown](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/CinC%20-%20User%20Experience%20and%20Design.md)
 
 Balsamiq wireframes and mockups of the website (simplified views, and not complete representations):
 
@@ -239,42 +239,22 @@ HTML:
 The "Error: Attribute tool-tip not allowed on element i at this point." errors are not important as the tool-tip function is best attached to the FontAwesome icons to provide the required functionality.
 
 ## Deployment
-For this project a combination of Repl-it~ and GitPod were originally used, then for the sake of speed, stability, and ease-of-use I moved over to Visual Studio Code for coding, and using the Source Code Management provider with git to synch (stage, commit, synch) my updates to GitHub.
-
-I initially used Repl.it~ for testing and trialing new ideas and features, and GitHub/GitPod for the main stable development environment. I had issues with both Repl.it~ and GitPod which made development testing an annoyance. Repl.it~ freezes from time to time, and updates the development environment (losing connectivity) in mid-work. GitHub/GitPod can take several minutes in the worst instances to update the changes made to either HMTL or CSS files, and at times the preview didn't display the background image used for this project (worked in a separate tab).
+For this project I Visual Studio Code for coding, and using the Source Code Management provider with git to synch (stage, commit, synch) my updates to GitHub.
 
 Visual Studio Code is the development platform of choice from now on, together with GitHub for deployment and GitPages for publishing.
 
 I'm working off of the same main branch on GitHub, though I have a staging environment on DropBox for Visual Studio Code.
 
-When initially using Repl.it~ I did nothing beyond using the built-in features to save, deploy, and publish the website.
-
-When using GitHub/GitPod I perform the following steps:
-
-* Testing and Development
-	* In the terminal I ran: `python3 -m http.server` to start the web server.
-	* Clicked on Open Browser for port 8000 to view the web pages.
-	* The preview browser doesn't show the background image, though shows all the updates immediately.
-* Deployment
-	* In the terminal I ran:
-		* `git add .` to track all new and modified files from the working directory to the staging area.
-		* `git commit -m "Relevant text goes here..."` to save all staged changes, along with a brief description from the user, in a “commit” to the local repository.
-		* `git push` to push changes in the local repository to the GitHub.
-* Publishing
-	* [Project Repository](https://github.com/NaoiseGaffney/Professional-Training-Development)
-		* Click on Settings. Scroll down to GitHub Pages.
-		* Under Source click on the Select Source button, and select 'master branch'.
-		* After a couple of minutes a message above Source says the following: "Your site is published at https://naoisegaffney.github.io/Professional-Training-Development/".
-		* Click on the link to access the published website: [Professional Training and Development](https://naoisegaffney.github.io/Professional-Training-Development/)
-
 Local deployment is performed in Visual Studio Code to the local LiveServer Web Server.
 
 When using Visual Studio Code with GitHub I perform the following steps:
 
+Development (Code Snippets and API Examples) --> Test --> Production, with frequent testing cycles. Final QA is performed using Selenium IDE in the Production environment. Running the website via HTML and CSS Validators to clean up the code, making sure it's compliant. Using Chrome Devtools to run Coverage on the website to ensure all CSS code is used, and used appropriately.
+
 * Testing and Development
 	* As I work in Visual Studio Code and make changes in any code, as soon as I save the changes the LiveServer Web Server automatically updates the browser to show the changes.
-	* I use separate versions for testing and development.
-		* Testing consists of trying new features and functions as snippets first, then in the current code, and when all works well the code is transferred to my main development environment.
+	* I use separate versions for Development, Testing and Production.
+		* Testing consists of trying new features and functions as snippets first (code snippets and API examples), then in the current Test code, and when all works well the code is transferred to my main Production environment.
 * Deployment
 	* To track all new and modified files from the working directory to the staging area.
 		* Click on Source Control (branch-icon on the left of the screen).
@@ -287,11 +267,11 @@ When using Visual Studio Code with GitHub I perform the following steps:
 		* Click on Source Control (branch-icon on the left of the screen).
 		* Click on More Actions... (...) and click on 'Commit All'
 * Publishing
-	* Go to (click on link) [Project Repository](https://github.com/NaoiseGaffney/Professional-Training-Development)
+	* Go to (click on link) [Project Repository](https://github.com/NaoiseGaffney/CitiesInCountries)
 		* Click on Settings. Scroll down to GitHub Pages.
 		* Under Source click on the Select Source button, and select 'master branch'.
 		* After a couple of minutes a message above Source says the following: "Your site is published at https://naoisegaffney.github.io/Professional-Training-Development/".
-		* Click on the link to access the published website: [Professional Training and Development](https://naoisegaffney.github.io/Professional-Training-Development/)
+		* Click on the link to access the published website: [Cities in Countries Data](https://naoisegaffney.github.io/CitiesInCountries/)
 
 ## Credits
 ![GaffCo Consulting Logo](https://github.com/NaoiseGaffney/Professional-Training-Development/blob/master/docs/GaffCo%20-%20Background.png)
@@ -303,12 +283,12 @@ GaffCo Consulting - [Naoise Gaffney: naoise.gaff.gaffney@gmail.com](mailto:naois
 Code Institute Mentor - [GitHub: 5pence - Spencer Barriball](https://github.com/5pence)
 
 ### Content
-- [GitHub: Project Repository](https://github.com/NaoiseGaffney/Professional-Training-Development)
-- [Website: Professional Training and Development](https://naoisegaffney.github.io/Professional-Training-Development/)
+- [GitHub: Project Repository](https://github.com/NaoiseGaffney/CitiesInCountries)
+- [Website: Professional Training and Development](https://naoisegaffney.github.io/CitiesInCountries/)
 
 ### Media
-* [Pixabay Free Images: Mountains](https://cdn.pixabay.com/photo/2019/01/27/22/32/mountains-3959204_1280.jpg)
-	* Using this image as the background image throughout the website.
+* [REST Countries](https://restcountries.eu/)
+	* Using flag images from this REST Countries API (SVG images).
 * [FontAwesome CDN](https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css)
 	* Using FontAwesome font icons to add visual elements to key website features, making the website memorable and easier to navigate.
 
