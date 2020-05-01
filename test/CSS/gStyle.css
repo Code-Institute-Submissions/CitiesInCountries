@@ -390,12 +390,13 @@ Create a clean look, that's easy to comprehend and use.
     position: fixed;
     z-index: 100;
     width: 80%;
-    top: 10vh;
+    top: 5vh;
     left: 10%;
     display: none;
     font-family: Raleway, sans-serif;
     background: var(--linear-gradient);
-    ;
+    overflow-y: auto;
+    max-height: 90vh;
 }
 
 .modal.visible {
@@ -438,6 +439,10 @@ hr {
     border: 0 none;
     margin-top: 5px;
     margin-bottom: 5px;
+}
+
+.flag, svg {
+    margin-top: 5px;
 }
 
 

@@ -82,8 +82,8 @@ function initMap() {
             coords: { lat: 55.9533, lng: -3.1883 },
             content: `<p>Edinburg, Scotland: 55.9533° N, 3.1883° W</p>${weatherInfo} ${toolTipButtons}`,
             name: "Edinburgh, Scotland",
-            overview: `<div class="overview" id="overview">Edinburgh, Scotland - Overview</div>`,
-            d3: `<div class="d3" id="d3">Edinburgh, Scotland - D3</div>`
+            overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+            d3: `<div class="d3" id="d3"></div>`
         },
         {
             coords: { lat: 1.3521, lng: 103.8198 },
@@ -665,16 +665,71 @@ function initMap() {
                     .then(data => {
                         findCountryObject = data.find(data => data.name === country);
                         console.log(findCountryObject);
-                        doStuff("Fetch");
+                        doStuff("Fetch from fetchCountry()");
                         displayCountry(country);
                     })
             } else {
                 console.log(findCountryObject);
-                doStuff("Local");
+                doStuff("Local from fetchCountry()");
                 displayCountry(country);
             };
         };
 
+
+        let displayStats = (country) => {
+
+            /* switch (country) {
+                case "England":
+                    country = "United Kingdom of Great Britain and Northern Ireland";
+                    break;
+                case "Czechia":
+                    country = "Czech Republic";
+                    break;
+                case "Wales":
+                    country = "...";
+                    break;
+                case "Scotland":
+                    country = "...";
+                    break;
+                case "Northern Ireland":
+                    country = "...";
+                    break;
+                default:
+                    break;
+            } */
+
+            console.log("Fetch displayStats: ", country);
+            let borders = "";
+
+            for (let i = 0; i < findCountryObject["borders"].length; i++) {
+                if (i === (findCountryObject["borders"].length - 1)) {
+                    borders += `${findCountryObject["borders"][i]}.`;
+                } else {
+                    borders += `${findCountryObject["borders"][i]}, `;
+                }
+                // languages += `${findCountryObject["languages"][i]["name"]} `;
+            }
+            document.querySelector("#d3").innerHTML = `<p>Population: "${findCountryObject["population"]}", Area: ${findCountryObject["area"]} km<sup>2</sup></p>
+                <p>Bordering Countrie(s): ${borders}</p><p>Gini Coefficient: ${findCountryObject["gini"]}, this is a measurement of inequality. The lower the better. Most European countries have a Gini Coefficient below 30.</p>`;
+        };
+        
+        let fetchStats = (country) => {
+            console.log(Object.keys(findCountryObject).length);
+            if ((Object.keys(findCountryObject).length) === 0) {
+                fetch(`https://restcountries.eu/rest/v2/all`)
+                    .then(data => data.json())
+                    .then(data => {
+                        findCountryObject = data.find(data => data.name === country);
+                        console.log(findCountryObject);
+                        doStuff("Fetch from fetchStats()");
+                        displayStats(country);
+                    })
+            } else {
+                console.log(findCountryObject);
+                doStuff("Local from fetchStats()");
+                displayStats(country);
+            };
+        };
 
         /* === WHY?
             To allow the client/end-user to click on buttons for further details to better understand the city/town (Overview), as well as relevant statistics about the place (Statistics).
@@ -719,9 +774,10 @@ function initMap() {
                 toggleBackdrop();
                 toggleModal();
                 document.getElementById("modal-content").innerHTML = `<h4>Statistics: ${marker.name}</h4><div class="canvas"></div><div>${marker.d3}`;
-                let cityArray = marker.name.split(","); // Parse City name to d3Stats(cityArray[0]) parameter to access relevant Firebase Firestore Collection and Documents
+                let cityArray = marker.name.split(", "); // Parse City name to d3Stats(cityArray[0]) parameter to access relevant Firebase Firestore Collection and Documents
                 //d3Stats(cityArray[0], 200, 200, "M", "rgb(61, 148, 246)");
                 d3Stats(cityArray[0], 200, 200, "M", "rgb(0, 0, 0)");
+                fetchStats(cityArray[1]);
                 // console.log("Clicked on Statistics Button", buttonIDStats);
             }
             buttonStats.addEventListener("click", statisticsModalHandler);
