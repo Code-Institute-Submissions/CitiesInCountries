@@ -1,51 +1,65 @@
-var countryObject;
+let findCountryObject = {};
 
-let findCountryObjectFunction = (country) => {
-    const countryObject = data.find(data => data.name === country);
+let doStuff = (message) => {
+    console.log(message);
+};
 
-    console.log("Fetch: ", country);
-    let languages = "";
+let fetchCountry = (country) => {
+    console.log(Object.keys(findCountryObject).length);
+    if ((Object.keys(findCountryObject).length) === 0)  {
+        fetch(`https://restcountries.eu/rest/v2/all`)
+        .then(data => data.json())
+        .then(data =>{
+            findCountryObject = data.find(data => data.name === country);
+            console.log(findCountryObject);
+            doStuff("Fetch");
+        })
+    } else {
+        console.log(findCountryObject);
+        doStuff("Local");
+    };
+};
 
-    for (let i = 0; i < countryObject["languages"].length; i++) {
-        if (i === (countryObject["languages"].length - 1)) {
-            languages += `${countryObject["languages"][i]["name"]}.`;
-        } else {
-            languages += `${countryObject["languages"][i]["name"]}, `;
-        }
-        // languages += `${findCountryObject["languages"][i]["name"]} `;
-    }
-
-    let currencies = "";
-
-    for (let i = 0; i < countryObject["currencies"].length; i++) {
-        if (i === (countryObject["currencies"].length - 1)) {
-            currencies += `${countryObject["currencies"][i]["name"]}.`;
-        } else {
-            currencies += `${countryObject["currencies"][i]["name"]}, `;
-        }
-        // currencies += `${findCountryObject["currencies"][i]["name"]} `;
-    }
-
-    console.log(`<img src="${countryObject["flag"]}" width="150" style="border:2px solid black"></a>`);
-    console.log(`<p>Native Name: "${countryObject["nativeName"]}" => ${countryObject["name"]} --> ${countryObject["subregion"]} --> ${countryObject["region"]}</p><p>Language(s): ${languages} - Currencie(s): ${currencies} - Calling Code: +${countryObject["callingCodes"][0]}</p>`);
-
-}
-
-
-let fetchCountry = () => {
+fetchCountry("Ireland");
+console.log(findCountryObject);
+/*
     fetch(`https://restcountries.eu/rest/v2/all`)
+        // fetch(`https://restcountries.eu/rest/v2/name/${country}`) // This is a lot slower than getting all countries?! = CACHING!!
         .then(response => response.json())
         .then(data => {
-            // const findCountryObject = data.find(data => data.name === country);
-            countryObject = data;
+            const findCountryObject = data.find(data => data.name === country);
+
+            console.log("Fetch: ", country);
+            let languages = "";
+
+            for (let i = 0; i < findCountryObject["languages"].length; i++) {
+                if (i === (findCountryObject["languages"].length - 1)) {
+                    languages += `${findCountryObject["languages"][i]["name"]}.`;
+                } else {
+                    languages += `${findCountryObject["languages"][i]["name"]}, `;
+                }
+                // languages += `${findCountryObject["languages"][i]["name"]} `;
+            }
+
+            let currencies = "";
+
+            for (let i = 0; i < findCountryObject["currencies"].length; i++) {
+                if (i === (findCountryObject["currencies"].length - 1)) {
+                    currencies += `${findCountryObject["currencies"][i]["name"]}.`;
+                } else {
+                    currencies += `${findCountryObject["currencies"][i]["name"]}, `;
+                }
+                // currencies += `${findCountryObject["currencies"][i]["name"]} `;
+            }
+
+            document.querySelector("#flag").innerHTML = `<img src="${findCountryObject["flag"]}" width="150" style="border:2px solid black"></a>`;
+            document.querySelector("#overview").innerHTML = `<p>Native Name: "${findCountryObject["nativeName"]}" => ${findCountryObject["name"]} --> ${findCountryObject["subregion"]} --> ${findCountryObject["region"]}</p>
+                <p>Language(s): ${languages} - Currencie(s): ${currencies} - Calling Code: +${findCountryObject["callingCodes"][0]}</p>`;
         }
         )
         .catch(err => console.log(err));
-};
+}; */
 
-
-console.log(fetchCountry());
-console.log(findCountryObjectFunction("Ireland"));
 
 
 /* Fetch All Countries */
