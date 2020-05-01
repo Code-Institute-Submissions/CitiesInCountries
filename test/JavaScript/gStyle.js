@@ -25,6 +25,12 @@ function initMap() {
         disableDefaultUI: true,
     }); // Create a new Map and centers on My Home (Firhouse, Dublin, Ireland).
 
+    /* To ensure the correct loading of Google Maps.
+    To avoid an "Uncaught (in promise) pd {message: "initMap is not a function", name: "InvalidValueError"...}"
+    This only works with the 'async' attribute ADDED, and the 'defer' attribute REMOVED from maps.googleapis.com... JS Script.
+    */
+    google.maps.event.addDomListener(window, "load", initMap);
+
     // If browser supports geolocation, and the user accepts reading of location, then the map is centered on their current location. Otherwise My Home (Firhouse, Dublin, Ireland) is used.
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition((position) => {

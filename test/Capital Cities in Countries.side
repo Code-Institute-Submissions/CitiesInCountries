@@ -1,0 +1,1461 @@
+{
+  "id": "01aedb0a-6283-4dc5-9b76-b45f2dae51eb",
+  "version": "2.0",
+  "name": "Capital Cities in Countries",
+  "url": "https://naoisegaffney.github.io/CitiesInCountries/",
+  "tests": [{
+    "id": "9850fe58-2dc7-42c2-91c9-2c0131fe9be9",
+    "name": "001 - User accesses dashboard, uses the Google Map Navigational Controls (geolocation allowed)",
+    "commands": [{
+      "id": "972950af-bf52-407d-be29-8b2e1547e3df",
+      "comment": "",
+      "command": "open",
+      "target": "https://naoisegaffney.github.io/CitiesInCountries/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ed6d6aa4-c4b9-4adf-a47d-cbc1dc908664",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1920x1019",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "eb0a22e7-6862-424b-8ecd-fe59f1244ab7",
+      "comment": "",
+      "command": "click",
+      "target": "css=.gm-style > div > div:nth-child(3)",
+      "targets": [
+        ["css=.gm-style > div > div:nth-child(3)", "css:finder"],
+        ["xpath=//div[@id='map']/div/div/div/div[3]", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/div/div/div[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1a073e65-4d53-46fb-b12c-781ecba74653",
+      "comment": "",
+      "command": "click",
+      "target": "css=.maptype-control-satellite",
+      "targets": [
+        ["css=.maptype-control-satellite", "css:finder"],
+        ["xpath=//div[@id='map']/div/div/div[7]/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Satellite')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1eca1d22-07a7-4241-933c-95717b5cded1",
+      "comment": "",
+      "command": "click",
+      "target": "css=.maptype-control-map",
+      "targets": [
+        ["css=.maptype-control-map", "css:finder"],
+        ["xpath=//div[@id='map']/div/div/div[7]/button", "xpath:idRelative"],
+        ["xpath=//div[7]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Map')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "24869b2c-670b-4a40-8bd0-ca17dc3323b7",
+      "comment": "",
+      "command": "click",
+      "target": "css=.fullscreen-control > button",
+      "targets": [
+        ["css=.fullscreen-control > button", "css:finder"],
+        ["xpath=//div[@id='map']/div/div/div[8]/button", "xpath:idRelative"],
+        ["xpath=//div[8]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d08aee07-4acb-459f-b481-83fc23d4a881",
+      "comment": "",
+      "command": "click",
+      "target": "css=.fullscreen-control-bottom-left",
+      "targets": [
+        ["css=.fullscreen-control-bottom-left", "css:finder"],
+        ["xpath=//div[@id='map']/div/div/div[8]/button/span[3]", "xpath:idRelative"],
+        ["xpath=//span[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b985c0c2-2aad-4907-98f7-90a2eb29cb55",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.fullscreen-control-bottom-left",
+      "targets": [
+        ["css=.fullscreen-control-bottom-left", "css:finder"],
+        ["xpath=//div[@id='map']/div/div/div[8]/button/span[3]", "xpath:idRelative"],
+        ["xpath=//span[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a815f904-db0e-4985-b77c-32b15027276a",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "css=.fullscreen-control-bottom-left",
+      "targets": [
+        ["css=.fullscreen-control-bottom-left", "css:finder"],
+        ["xpath=//div[@id='map']/div/div/div[8]/button/span[3]", "xpath:idRelative"],
+        ["xpath=//span[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "337c9ce6-0af8-4fdb-8405-932aeefceb59",
+      "comment": "",
+      "command": "click",
+      "target": "css=.zoom-control-out",
+      "targets": [
+        ["css=.zoom-control-out", "css:finder"],
+        ["xpath=//div[@id='map']/div/div/div[9]/button[2]", "xpath:idRelative"],
+        ["xpath=//div[9]/button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'−')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a1a6dff2-0b9d-44c5-8f87-c097b31ec317",
+      "comment": "",
+      "command": "click",
+      "target": "css=.zoom-control-out",
+      "targets": [
+        ["css=.zoom-control-out", "css:finder"],
+        ["xpath=//div[@id='map']/div/div/div[9]/button[2]", "xpath:idRelative"],
+        ["xpath=//div[9]/button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'−')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "6746543b-b88b-4d18-90de-be47d2002306",
+      "comment": "",
+      "command": "click",
+      "target": "css=.zoom-control-out",
+      "targets": [
+        ["css=.zoom-control-out", "css:finder"],
+        ["xpath=//div[@id='map']/div/div/div[9]/button[2]", "xpath:idRelative"],
+        ["xpath=//div[9]/button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'−')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "4342f5df-8f3e-4d94-b247-c6474b4375b7",
+      "comment": "",
+      "command": "click",
+      "target": "css=.zoom-control-out",
+      "targets": [
+        ["css=.zoom-control-out", "css:finder"],
+        ["xpath=//div[@id='map']/div/div/div[9]/button[2]", "xpath:idRelative"],
+        ["xpath=//div[9]/button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'−')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f44b7fc1-5c02-4ae7-8ee8-f5b3e69c4f5a",
+      "comment": "",
+      "command": "click",
+      "target": "css=.zoom-control-out",
+      "targets": [
+        ["css=.zoom-control-out", "css:finder"],
+        ["xpath=//div[@id='map']/div/div/div[9]/button[2]", "xpath:idRelative"],
+        ["xpath=//div[9]/button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'−')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "bafd5534-e834-4688-bc10-564a8ec5fc37",
+      "comment": "",
+      "command": "click",
+      "target": "css=.zoom-control-in",
+      "targets": [
+        ["css=.zoom-control-in", "css:finder"],
+        ["xpath=//div[@id='map']/div/div/div[9]/button", "xpath:idRelative"],
+        ["xpath=//div[9]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'+')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "818f3f1b-cbe1-4d4f-9088-0db3e9ef789b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.zoom-control-in",
+      "targets": [
+        ["css=.zoom-control-in", "css:finder"],
+        ["xpath=//div[@id='map']/div/div/div[9]/button", "xpath:idRelative"],
+        ["xpath=//div[9]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'+')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "69f139b8-4f95-4452-ab64-0c32b1b4549d",
+      "comment": "",
+      "command": "click",
+      "target": "css=.zoom-control-in",
+      "targets": [
+        ["css=.zoom-control-in", "css:finder"],
+        ["xpath=//div[@id='map']/div/div/div[9]/button", "xpath:idRelative"],
+        ["xpath=//div[9]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'+')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "df6328d8-f7e6-48d8-8c6e-cfc1f8fcee2d",
+      "comment": "",
+      "command": "click",
+      "target": "css=.zoom-control-in",
+      "targets": [
+        ["css=.zoom-control-in", "css:finder"],
+        ["xpath=//div[@id='map']/div/div/div[9]/button", "xpath:idRelative"],
+        ["xpath=//div[9]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'+')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "22d24737-69a8-4c7c-be79-767d8eb57ef3",
+      "comment": "",
+      "command": "click",
+      "target": "css=.zoom-control-in",
+      "targets": [
+        ["css=.zoom-control-in", "css:finder"],
+        ["xpath=//div[@id='map']/div/div/div[9]/button", "xpath:idRelative"],
+        ["xpath=//div[9]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'+')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "9b023dbd-0cc8-4beb-83f1-4f2d79d2d742",
+    "name": "002 - User accesses dashboard, uses the Fixed Footer links to CSS Modals (geolocation allowed)",
+    "commands": [{
+      "id": "fdc25614-61d9-4888-a572-d8a756dcc0bf",
+      "comment": "",
+      "command": "open",
+      "target": "https://naoisegaffney.github.io/CitiesInCountries/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f62265ed-d075-42b1-8ba7-b25aadbb56ad",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1920x1019",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "dbd94341-9758-4d4b-9a3d-302c93de6d9e",
+      "comment": "",
+      "command": "click",
+      "target": "id=fa-exclamation",
+      "targets": [
+        ["id=fa-exclamation", "id"],
+        ["css=#fa-exclamation", "css:finder"],
+        ["xpath=//i[@id='fa-exclamation']", "xpath:attributes"],
+        ["xpath=//i", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "222aa7a4-0cad-4a5a-b8a3-3beecc85f072",
+      "comment": "",
+      "command": "click",
+      "target": "css=div:nth-child(1) > p:nth-child(2) > .button:nth-child(1)",
+      "targets": [
+        ["css=div:nth-child(1) > p:nth-child(2) > .button:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='id01']/div/div/div/div/p[2]/button", "xpath:idRelative"],
+        ["xpath=//p[2]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Overview')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "9d49b952-ce98-4cfa-91ec-c577f2858d7d",
+      "comment": "",
+      "command": "click",
+      "target": "css=.button:nth-child(2)",
+      "targets": [
+        ["css=.button:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='id01']/div/div/div/div/p[2]/button[2]", "xpath:idRelative"],
+        ["xpath=//p[2]/button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Statistics')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b9c66037-1754-49c7-b8f3-6752d6ec87c2",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Close",
+      "targets": [
+        ["linkText=Close", "linkText"],
+        ["css=.cssmodal-container > p:nth-child(2) > .button", "css:finder"],
+        ["xpath=//a[contains(text(),'Close')]", "xpath:link"],
+        ["xpath=//div[@id='id01']/div/div/div/p/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '#')])[6]", "xpath:href"],
+        ["xpath=//p/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Close')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "15cfdd8b-a990-47f3-bac2-d9704780dfdc",
+      "comment": "",
+      "command": "click",
+      "target": "id=fa-file-code-o",
+      "targets": [
+        ["id=fa-file-code-o", "id"],
+        ["css=#fa-file-code-o", "css:finder"],
+        ["xpath=//i[@id='fa-file-code-o']", "xpath:attributes"],
+        ["xpath=//a[2]/i", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5e9abaa3-d5dc-4bc5-8a12-b1d2ccea04b8",
+      "comment": "",
+      "command": "click",
+      "target": "css=#id02 div:nth-child(1) > .modal-link-text",
+      "targets": [
+        ["css=#id02 div:nth-child(1) > .modal-link-text", "css:finder"],
+        ["xpath=//a[contains(text(),'Google Maps JavaScript API Description - to\n                                create the map and markers.')]", "xpath:link"],
+        ["xpath=//div[@id='id02']/div/div/div/div/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'https://developers.google.com/maps/documentation/javascript/tutorial')]", "xpath:href"],
+        ["xpath=//section/div[2]/div/div/div/div/a", "xpath:position"]
+      ],
+      "value": "",
+      "opensWindow": true,
+      "windowHandleName": "win3084",
+      "windowTimeout": 2000
+    }, {
+      "id": "ccf2e3f1-675f-45ab-a742-9a14a5abd48d",
+      "comment": "",
+      "command": "storeWindowHandle",
+      "target": "root",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7030388a-689d-48c6-a6df-9d5fd37d7655",
+      "comment": "",
+      "command": "selectWindow",
+      "target": "handle=${win3084}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6153e33a-184d-4163-8870-bb507ec8a53c",
+      "comment": "",
+      "command": "selectWindow",
+      "target": "handle=${root}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5c946db7-d5a5-440b-a604-8bc62d3b56c0",
+      "comment": "",
+      "command": "click",
+      "target": "css=#id02 div:nth-child(2) > .modal-link-text",
+      "targets": [
+        ["css=#id02 div:nth-child(2) > .modal-link-text", "css:finder"],
+        ["xpath=//a[contains(text(),'OpenWeather API Description - adding real-time weather\n                                information to the marker tool-tips.')]", "xpath:link"],
+        ["xpath=//div[@id='id02']/div/div/div/div[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'https://openweathermap.org/api/one-call-api')]", "xpath:href"],
+        ["xpath=//section/div[2]/div/div/div/div[2]/a", "xpath:position"]
+      ],
+      "value": "",
+      "opensWindow": true,
+      "windowHandleName": "win3238",
+      "windowTimeout": 2000
+    }, {
+      "id": "f7afa0fd-ea1a-4169-b4b0-159c5bc4414d",
+      "comment": "",
+      "command": "selectWindow",
+      "target": "handle=${win3238}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8c963662-a51b-4406-91b4-2c808dc8e9f6",
+      "comment": "",
+      "command": "selectWindow",
+      "target": "handle=${root}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8569d4b5-9731-4f6b-8796-4410f40e235d",
+      "comment": "",
+      "command": "click",
+      "target": "css=#id02 div:nth-child(3) > .modal-link-text",
+      "targets": [
+        ["css=#id02 div:nth-child(3) > .modal-link-text", "css:finder"],
+        ["xpath=//a[contains(text(),'D3 API Description - to display dynamic graphs and\n                                statistics.')]", "xpath:link"],
+        ["xpath=//div[@id='id02']/div/div/div/div[3]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'https://github.com/d3/d3/blob/master/API.md')]", "xpath:href"],
+        ["xpath=//div/div/div[3]/a", "xpath:position"]
+      ],
+      "value": "",
+      "opensWindow": true,
+      "windowHandleName": "win4490",
+      "windowTimeout": 2000
+    }, {
+      "id": "17d5db63-bbc9-43fb-af9a-3c366bd24e9a",
+      "comment": "",
+      "command": "selectWindow",
+      "target": "handle=${win4490}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8541d5f0-0f91-461a-80bd-ec0f98785389",
+      "comment": "",
+      "command": "selectWindow",
+      "target": "handle=${root}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3fd76321-6438-4b1d-87e7-c14c056bcca7",
+      "comment": "",
+      "command": "click",
+      "target": "css=#id02 div:nth-child(4) > .modal-link-text",
+      "targets": [
+        ["css=#id02 div:nth-child(4) > .modal-link-text", "css:finder"],
+        ["xpath=//a[contains(text(),'EmailJS API\n                                Description - to enjoy user feedback to improve the website.')]", "xpath:link"],
+        ["xpath=//div[@id='id02']/div/div/div/div[4]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'https://www.emailjs.com/')]", "xpath:href"],
+        ["xpath=//div[4]/a", "xpath:position"]
+      ],
+      "value": "",
+      "opensWindow": true,
+      "windowHandleName": "win6940",
+      "windowTimeout": 2000
+    }, {
+      "id": "65e5833e-5e33-40dc-91ec-4797d221508a",
+      "comment": "",
+      "command": "selectWindow",
+      "target": "handle=${win6940}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a152feac-29f4-41c0-a8fb-2b4850e04125",
+      "comment": "",
+      "command": "selectWindow",
+      "target": "handle=${root}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "973f06d7-a318-4d66-84d3-1f5c0a5c1622",
+      "comment": "",
+      "command": "click",
+      "target": "css=#id02 div:nth-child(5) > .modal-link-text",
+      "targets": [
+        ["css=#id02 div:nth-child(5) > .modal-link-text", "css:finder"],
+        ["xpath=//a[contains(text(),'\"Built with\n                                Firebase ®\" - to store and retrieve D3 and City data.')]", "xpath:link"],
+        ["xpath=//div[@id='id02']/div/div/div/div[5]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'https://firebase.google.com/')]", "xpath:href"],
+        ["xpath=//div[5]/a", "xpath:position"]
+      ],
+      "value": "",
+      "opensWindow": true,
+      "windowHandleName": "win7990",
+      "windowTimeout": 2000
+    }, {
+      "id": "8c9a61aa-a1d5-4371-83dd-e9eb7d3bbdf2",
+      "comment": "",
+      "command": "selectWindow",
+      "target": "handle=${win7990}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "fea2c117-d246-43f1-ac9f-fe771cb8ac67",
+      "comment": "",
+      "command": "selectWindow",
+      "target": "handle=${root}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0d280dc4-09bf-4364-b460-ecc3061fbe5b",
+      "comment": "",
+      "command": "click",
+      "target": "css=div:nth-child(6) > .modal-link-text",
+      "targets": [
+        ["css=div:nth-child(6) > .modal-link-text", "css:finder"],
+        ["xpath=//a[contains(text(),'REST Countries\n                                EU API Description - Global Country data for Overview and Statistics Modals.')]", "xpath:link"],
+        ["xpath=//div[@id='id02']/div/div/div/div[6]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'https://restcountries.eu/')]", "xpath:href"],
+        ["xpath=//div[6]/a", "xpath:position"]
+      ],
+      "value": "",
+      "opensWindow": true,
+      "windowHandleName": "win5666",
+      "windowTimeout": 2000
+    }, {
+      "id": "ed73a31e-33dc-4ad6-879e-13ecf16fb2b9",
+      "comment": "",
+      "command": "selectWindow",
+      "target": "handle=${win5666}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "656bf2aa-c68b-4307-b7cf-68a2322d667e",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=img",
+      "targets": [
+        ["css=img", "css:finder"],
+        ["xpath=//img[@alt='Build Status']", "xpath:img"],
+        ["xpath=//img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a467842c-041a-4492-84e8-725d9f2a5185",
+      "comment": "",
+      "command": "selectWindow",
+      "target": "handle=${root}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "68dc3aec-5d50-4790-85ed-215b896db33b",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Close",
+      "targets": [
+        ["linkText=Close", "linkText"],
+        ["css=p:nth-child(7) > .button", "css:finder"],
+        ["xpath=(//a[contains(text(),'Close')])[2]", "xpath:link"],
+        ["xpath=//div[@id='id02']/div/div/div/p/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '#')])[7]", "xpath:href"],
+        ["xpath=//div[2]/div/div/div/p/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "09c9b7e7-b29e-4948-84ed-58b483ef60b8",
+      "comment": "",
+      "command": "click",
+      "target": "id=fa-code",
+      "targets": [
+        ["id=fa-code", "id"],
+        ["css=#fa-code", "css:finder"],
+        ["xpath=//i[@id='fa-code']", "xpath:attributes"],
+        ["xpath=//a[3]/i", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ee4bf308-f24a-4b5f-86c0-9fb90c35c76d",
+      "comment": "",
+      "command": "click",
+      "target": "css=#id03 div:nth-child(1) > .modal-link-text",
+      "targets": [
+        ["css=#id03 div:nth-child(1) > .modal-link-text", "css:finder"],
+        ["xpath=//a[contains(text(),'Google Maps\n                                API - Code Institute walkthrough by Matt Rudge.')]", "xpath:link"],
+        ["xpath=//div[@id='id03']/div/div/div/div/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'https://codeinstitute.net/')]", "xpath:href"],
+        ["xpath=//div[3]/div/div/div/div/a", "xpath:position"]
+      ],
+      "value": "",
+      "opensWindow": true,
+      "windowHandleName": "win2573",
+      "windowTimeout": 2000
+    }, {
+      "id": "50a8068b-02f8-436a-b346-389d35b5683b",
+      "comment": "",
+      "command": "selectWindow",
+      "target": "handle=${win2573}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1a287c4c-491b-4d1f-936a-084a1f7fa9c7",
+      "comment": "",
+      "command": "selectWindow",
+      "target": "handle=${root}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "94c0f00e-5bf5-4046-b1bb-5d825bcd6728",
+      "comment": "",
+      "command": "click",
+      "target": "css=#id03 div:nth-child(2) > .modal-link-text",
+      "targets": [
+        ["css=#id03 div:nth-child(2) > .modal-link-text", "css:finder"],
+        ["xpath=//a[contains(text(),'Google Maps\n                                API - Bill Traversy @ Traversy Media.')]", "xpath:link"],
+        ["xpath=//div[@id='id03']/div/div/div/div[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'https://youtu.be/Zxf1mnP5zcw')]", "xpath:href"],
+        ["xpath=//div[3]/div/div/div/div[2]/a", "xpath:position"]
+      ],
+      "value": "",
+      "opensWindow": true,
+      "windowHandleName": "win325",
+      "windowTimeout": 2000
+    }, {
+      "id": "42802d8a-e1bb-4109-b5b5-548352a41317",
+      "comment": "",
+      "command": "selectWindow",
+      "target": "handle=${win325}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d3de16e3-a672-47e6-83d0-35b537cfc7bb",
+      "comment": "",
+      "command": "selectWindow",
+      "target": "handle=${root}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d5cc2924-1ce6-44dd-9e46-e333713f8748",
+      "comment": "",
+      "command": "click",
+      "target": "css=#id03 div:nth-child(3) > .modal-link-text",
+      "targets": [
+        ["css=#id03 div:nth-child(3) > .modal-link-text", "css:finder"],
+        ["xpath=//a[contains(text(),'OpenWeather\n                                API - OpenWeather API JavaScript example and walkthrough by Shanjah Raj.')]", "xpath:link"],
+        ["xpath=//div[@id='id03']/div/div/div/div[3]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'https://youtu.be/GXrDEA3SIOQ')]", "xpath:href"],
+        ["xpath=//div[3]/div/div/div/div[3]/a", "xpath:position"]
+      ],
+      "value": "",
+      "opensWindow": true,
+      "windowHandleName": "win337",
+      "windowTimeout": 2000
+    }, {
+      "id": "a1256468-dc6f-46d4-8ce7-0086ea98cb73",
+      "comment": "",
+      "command": "selectWindow",
+      "target": "handle=${win337}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f67864e2-9047-46b7-8eff-6f124af5104d",
+      "comment": "",
+      "command": "selectWindow",
+      "target": "handle=${root}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0ec80d28-7106-44d5-9e25-33bff11bb1c2",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Udemy Course on D3 & Firebase by Shaun Pelling.",
+      "targets": [
+        ["linkText=Udemy Course on D3 & Firebase by Shaun Pelling.", "linkText"],
+        ["css=#id03 div:nth-child(4) > .modal-link-text", "css:finder"],
+        ["xpath=//a[contains(text(),'Udemy Course on D3 & Firebase by Shaun Pelling.')]", "xpath:link"],
+        ["xpath=//div[@id='id03']/div/div/div/div[4]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'https://www.udemy.com/course/build-data-uis-with-d3-firebase/')]", "xpath:href"],
+        ["xpath=//div[3]/div/div/div/div[4]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Udemy Course on D3 & Firebase by Shaun Pelling.')]", "xpath:innerText"]
+      ],
+      "value": "",
+      "opensWindow": true,
+      "windowHandleName": "win6037",
+      "windowTimeout": 2000
+    }, {
+      "id": "fa0166aa-7ea7-453c-974a-d73dec29e561",
+      "comment": "",
+      "command": "selectWindow",
+      "target": "handle=${win6037}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "aec31643-bc5d-4fee-a2b9-29bdf2f4914b",
+      "comment": "",
+      "command": "selectWindow",
+      "target": "handle=${root}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "bf531246-92d4-4208-8723-642400cf0a7c",
+      "comment": "",
+      "command": "click",
+      "target": "css=#id03 div:nth-child(5) > .modal-link-text",
+      "targets": [
+        ["css=#id03 div:nth-child(5) > .modal-link-text", "css:finder"],
+        ["xpath=//a[contains(text(),'Udemy Course on JavaScript the Complete Guide\n                                2020 by Maximilian Schwarzmüller.')]", "xpath:link"],
+        ["xpath=//div[@id='id03']/div/div/div/div[5]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'https://www.udemy.com/course-dashboard-redirect/?course_id=2508942')]", "xpath:href"],
+        ["xpath=//div[3]/div/div/div/div[5]/a", "xpath:position"]
+      ],
+      "value": "",
+      "opensWindow": true,
+      "windowHandleName": "win4350",
+      "windowTimeout": 2000
+    }, {
+      "id": "8aa0fdf6-6ec5-4821-b4fe-f098d7ed4cc7",
+      "comment": "",
+      "command": "selectWindow",
+      "target": "handle=${win4350}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3edcb332-c342-465b-90c7-6eb71bce6bda",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,0)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7137d384-3dfc-4348-9a5d-75ccc4c907f2",
+      "comment": "",
+      "command": "selectWindow",
+      "target": "handle=${root}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "691e99a5-7286-47f4-a49e-bbed9a936476",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Close",
+      "targets": [
+        ["linkText=Close", "linkText"],
+        ["css=p:nth-child(6) > .button", "css:finder"],
+        ["xpath=(//a[contains(text(),'Close')])[3]", "xpath:link"],
+        ["xpath=//div[@id='id03']/div/div/div/p/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '#')])[8]", "xpath:href"],
+        ["xpath=//div[3]/div/div/div/p/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "70f019f4-6370-40ea-bc10-739110081ab7",
+      "comment": "",
+      "command": "click",
+      "target": "id=fa-envelope-o",
+      "targets": [
+        ["id=fa-envelope-o", "id"],
+        ["css=#fa-envelope-o", "css:finder"],
+        ["xpath=//i[@id='fa-envelope-o']", "xpath:attributes"],
+        ["xpath=//a[4]/i", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8cd6bea1-d20d-450d-b74e-cc0293acad23",
+      "comment": "",
+      "command": "click",
+      "target": "id=contactsubmit",
+      "targets": [
+        ["id=contactsubmit", "id"],
+        ["css=#contactsubmit", "css:finder"],
+        ["xpath=//button[@id='contactsubmit']", "xpath:attributes"],
+        ["xpath=//form[@id='feedbackform']/div/div/div[2]/button", "xpath:idRelative"],
+        ["xpath=//div[2]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "aad94324-37a2-4c83-936c-9430c6042030",
+      "comment": "",
+      "command": "click",
+      "target": "id=fullname",
+      "targets": [
+        ["id=fullname", "id"],
+        ["name=name", "name"],
+        ["css=#fullname", "css:finder"],
+        ["xpath=//input[@id='fullname']", "xpath:attributes"],
+        ["xpath=//form[@id='feedbackform']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d18fd9a7-19c3-4ca2-a56e-13adf739394a",
+      "comment": "",
+      "command": "type",
+      "target": "id=fullname",
+      "targets": [
+        ["id=fullname", "id"],
+        ["name=name", "name"],
+        ["css=#fullname", "css:finder"],
+        ["xpath=//input[@id='fullname']", "xpath:attributes"],
+        ["xpath=//form[@id='feedbackform']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "Naoise Gaffney"
+    }, {
+      "id": "2b624109-695f-45cf-95ae-635ede29ade1",
+      "comment": "",
+      "command": "type",
+      "target": "id=emailaddress",
+      "targets": [
+        ["id=emailaddress", "id"],
+        ["name=emailaddress", "name"],
+        ["css=#emailaddress", "css:finder"],
+        ["xpath=//input[@id='emailaddress']", "xpath:attributes"],
+        ["xpath=//form[@id='feedbackform']/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/div/input", "xpath:position"]
+      ],
+      "value": "naoise.gaff.gaffney@gmail.com"
+    }, {
+      "id": "d014f435-49bc-4b47-86c9-e80e073f0ad2",
+      "comment": "",
+      "command": "click",
+      "target": "id=feedback",
+      "targets": [
+        ["id=feedback", "id"],
+        ["name=feedback", "name"],
+        ["css=#feedback", "css:finder"],
+        ["xpath=//textarea[@id='feedback']", "xpath:attributes"],
+        ["xpath=//form[@id='feedbackform']/div/div/span/textarea", "xpath:idRelative"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e139af97-878c-46fb-ac01-c8f6c0b1e11a",
+      "comment": "",
+      "command": "type",
+      "target": "id=feedback",
+      "targets": [
+        ["id=feedback", "id"],
+        ["name=feedback", "name"],
+        ["css=#feedback", "css:finder"],
+        ["xpath=//textarea[@id='feedback']", "xpath:attributes"],
+        ["xpath=//form[@id='feedbackform']/div/div/span/textarea", "xpath:idRelative"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": "Selenium IDE Automated Testing."
+    }, {
+      "id": "df5df28d-7559-4259-a474-68f4239fbbfc",
+      "comment": "",
+      "command": "click",
+      "target": "id=contactsubmit",
+      "targets": [
+        ["id=contactsubmit", "id"],
+        ["css=#contactsubmit", "css:finder"],
+        ["xpath=//button[@id='contactsubmit']", "xpath:attributes"],
+        ["xpath=//form[@id='feedbackform']/div/div/div[2]/button", "xpath:idRelative"],
+        ["xpath=//div[2]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "38b09023-6a64-42bc-8d81-6eb295e4705c",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Close",
+      "targets": [
+        ["linkText=Close", "linkText"],
+        ["css=p:nth-child(3) > .button", "css:finder"],
+        ["xpath=(//a[contains(text(),'Close')])[4]", "xpath:link"],
+        ["xpath=//div[@id='id04']/div/div/div/div/p/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '#')])[9]", "xpath:href"],
+        ["xpath=//div[4]/div/div/div/div/p/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f969becb-be63-4cf0-bc1f-6ad746a2b68b",
+      "comment": "",
+      "command": "click",
+      "target": "id=fa-user",
+      "targets": [
+        ["id=fa-user", "id"],
+        ["css=a > #fa-user", "css:finder"],
+        ["xpath=//i[@id='fa-user']", "xpath:attributes"],
+        ["xpath=//a[5]/i", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b0d28d35-7eb3-4fe2-a736-9c9fa7717544",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=My Resumé.",
+      "targets": [
+        ["linkText=My Resumé.", "linkText"],
+        ["css=#id05 div:nth-child(1) > .modal-link-text", "css:finder"],
+        ["xpath=//a[contains(text(),'My Resumé.')]", "xpath:link"],
+        ["xpath=//div[@id='id05']/div/div/div/div/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'https://naoisegaffney.github.io/Resume/index.html')]", "xpath:href"],
+        ["xpath=//div[5]/div/div/div/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'My Resumé.')]", "xpath:innerText"]
+      ],
+      "value": "",
+      "opensWindow": true,
+      "windowHandleName": "win2835",
+      "windowTimeout": 2000
+    }, {
+      "id": "c8c2c455-67ea-4a93-9956-b2fecb37cb0b",
+      "comment": "",
+      "command": "selectWindow",
+      "target": "handle=${win2835}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "279f188a-ea45-4998-9403-471d0ac531e6",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.logo",
+      "targets": [
+        ["css=.logo", "css:finder"],
+        ["xpath=//a[contains(@href, 'index.html')]", "xpath:href"],
+        ["xpath=//a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "60ec44e8-1940-4dd3-b889-9d88d5a92d93",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "css=.logo",
+      "targets": [
+        ["css=.logo", "css:finder"],
+        ["xpath=//a[contains(@href, 'index.html')]", "xpath:href"],
+        ["xpath=//a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ce7c99d9-3a9c-431b-b358-04dc8cf5794b",
+      "comment": "",
+      "command": "selectWindow",
+      "target": "handle=${root}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "bde3b79e-392a-41f5-b79d-a20c6bea0fa0",
+      "comment": "",
+      "command": "click",
+      "target": "css=#id05 div:nth-child(2) > .modal-link-text",
+      "targets": [
+        ["css=#id05 div:nth-child(2) > .modal-link-text", "css:finder"],
+        ["xpath=//a[contains(text(),'My\n                                GitHub.')]", "xpath:link"],
+        ["xpath=//div[@id='id05']/div/div/div/div[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'https://github.com/NaoiseGaffney')]", "xpath:href"],
+        ["xpath=//div[5]/div/div/div/div[2]/a", "xpath:position"]
+      ],
+      "value": "",
+      "opensWindow": true,
+      "windowHandleName": "win3422",
+      "windowTimeout": 2000
+    }, {
+      "id": "41430aae-ce69-4896-82c7-7a4f4c55a875",
+      "comment": "",
+      "command": "selectWindow",
+      "target": "handle=${win3422}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "31ffc399-612e-46bb-86f4-b3719e714ccc",
+      "comment": "",
+      "command": "selectWindow",
+      "target": "handle=${root}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9bd0cc87-f722-427e-83f1-57f246f61816",
+      "comment": "",
+      "command": "click",
+      "target": "css=#id05 div:nth-child(3) > .modal-link-text",
+      "targets": [
+        ["css=#id05 div:nth-child(3) > .modal-link-text", "css:finder"],
+        ["xpath=//div[@id='id05']/div/div/div/div[3]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'https://github.com/NaoiseGaffney/CitiesInCountries')]", "xpath:href"],
+        ["xpath=//div[5]/div/div/div/div[3]/a", "xpath:position"]
+      ],
+      "value": "",
+      "opensWindow": true,
+      "windowHandleName": "win4612",
+      "windowTimeout": 2000
+    }, {
+      "id": "6612eb73-5bbd-47c0-936b-0b271f82bb3c",
+      "comment": "",
+      "command": "selectWindow",
+      "target": "handle=${win4612}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "dea6e5ca-899d-4b7f-8304-a21a9a08cc51",
+      "comment": "",
+      "command": "selectWindow",
+      "target": "handle=${root}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c5ce0214-c856-47a9-b0c3-b03f288ce623",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=GaffCo Consulting Professional Communication Competence.",
+      "targets": [
+        ["linkText=GaffCo Consulting Professional Communication Competence.", "linkText"],
+        ["css=#id05 div:nth-child(4) > .modal-link-text", "css:finder"],
+        ["xpath=//a[contains(text(),'GaffCo Consulting Professional Communication Competence.')]", "xpath:link"],
+        ["xpath=//div[@id='id05']/div/div/div/div[4]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'https://ptd--gaffco.repl.co/index.html')]", "xpath:href"],
+        ["xpath=//div[5]/div/div/div/div[4]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'GaffCo Consulting Professional Communication Competence.')]", "xpath:innerText"]
+      ],
+      "value": "",
+      "opensWindow": true,
+      "windowHandleName": "win2792",
+      "windowTimeout": 2000
+    }, {
+      "id": "e7f04577-3c26-44d3-b11a-53dd9ec77a5a",
+      "comment": "",
+      "command": "selectWindow",
+      "target": "handle=${win2792}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "873e4a6f-b775-4197-ba7e-39ee90b563d1",
+      "comment": "",
+      "command": "selectWindow",
+      "target": "handle=${root}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4479516a-2d6b-4a14-9f2b-f153706174f1",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Close",
+      "targets": [
+        ["linkText=Close", "linkText"],
+        ["css=p:nth-child(5) > .button", "css:finder"],
+        ["xpath=(//a[contains(text(),'Close')])[5]", "xpath:link"],
+        ["xpath=//div[@id='id05']/div/div/div/p/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '#')])[10]", "xpath:href"],
+        ["xpath=//div[5]/div/div/div/p/a", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "fce0667f-1458-4a63-b7d2-814b7b3380e7",
+    "name": "003 - User accesses dashboard, clicks on the Google Map Markers, and InfoWindow Buttons for some cities (geolocation allowed)",
+    "commands": [{
+      "id": "1affd6c4-cb7d-4bcf-9d30-941f900636c9",
+      "comment": "",
+      "command": "open",
+      "target": "https://naoisegaffney.github.io/CitiesInCountries/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "28c7efaa-4c8f-4c2b-a3dd-32a4e7a6e93d",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1920x1019",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "276a6077-d9f9-4094-87bf-08c7c2db1d02",
+      "comment": "",
+      "command": "click",
+      "target": "css=div:nth-child(3) > div:nth-child(56) > img",
+      "targets": [
+        ["css=div:nth-child(3) > div:nth-child(56) > img", "css:finder"],
+        ["xpath=//div[@id='map']/div/div/div/div[3]/div/div[3]/div[56]/img", "xpath:idRelative"],
+        ["xpath=//div[3]/div[56]/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ef86732c-1f26-4a63-aaf7-c68aac4a42b6",
+      "comment": "",
+      "command": "click",
+      "target": "id=buttonOverFirhouse",
+      "targets": [
+        ["id=buttonOverFirhouse", "id"],
+        ["css=#buttonOverFirhouse", "css:finder"],
+        ["xpath=//button[@id='buttonOverFirhouse']", "xpath:attributes"],
+        ["xpath=//div[@id='map']/div/div/div/div[3]/div/div[4]/div/div/div/div/div/div/div[2]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Overview')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a2437a4b-4254-435a-9fb3-e2e6d5e94211",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "id=buttonOverFirhouse",
+      "targets": [
+        ["id=buttonOverFirhouse", "id"],
+        ["css=#buttonOverFirhouse", "css:finder"],
+        ["xpath=//button[@id='buttonOverFirhouse']", "xpath:attributes"],
+        ["xpath=//div[@id='map']/div/div/div/div[3]/div/div[4]/div/div/div/div/div/div/div[2]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Overview')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "059cffd6-b609-4836-aae0-9f6ef6e157a6",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "id=buttonOverFirhouse",
+      "targets": [
+        ["id=buttonOverFirhouse", "id"],
+        ["css=#buttonOverFirhouse", "css:finder"],
+        ["xpath=//button[@id='buttonOverFirhouse']", "xpath:attributes"],
+        ["xpath=//div[@id='map']/div/div/div/div[3]/div/div[4]/div/div/div/div/div/div/div[2]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Overview')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "0e1cb2db-cd52-4d28-97cb-a5b345d371a0",
+      "comment": "",
+      "command": "click",
+      "target": "id=close",
+      "targets": [
+        ["id=close", "id"],
+        ["css=#close", "css:finder"],
+        ["xpath=//button[@id='close']", "xpath:attributes"],
+        ["xpath=//aside[@id='add-modal']/div[2]/button", "xpath:idRelative"],
+        ["xpath=//aside/div[2]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Close')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d103ed30-5a84-4a9e-bc58-f68de9305f61",
+      "comment": "",
+      "command": "click",
+      "target": "css=div:nth-child(3) > div:nth-child(56) > img",
+      "targets": [
+        ["css=div:nth-child(3) > div:nth-child(56) > img", "css:finder"],
+        ["xpath=//div[@id='map']/div/div/div/div[3]/div/div[3]/div[56]/img", "xpath:idRelative"],
+        ["xpath=//div[3]/div[56]/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e2a79b00-1397-4010-accc-02e900debe4e",
+      "comment": "",
+      "command": "click",
+      "target": "id=buttonStatsFirhouse",
+      "targets": [
+        ["id=buttonStatsFirhouse", "id"],
+        ["css=#buttonStatsFirhouse", "css:finder"],
+        ["xpath=//button[@id='buttonStatsFirhouse']", "xpath:attributes"],
+        ["xpath=//div[@id='map']/div/div/div/div[3]/div/div[4]/div/div/div/div/div/div/div[2]/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Statistics')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "675dc7c8-5895-4220-9623-433f9ba62726",
+      "comment": "",
+      "command": "click",
+      "target": "id=close",
+      "targets": [
+        ["id=close", "id"],
+        ["css=#close", "css:finder"],
+        ["xpath=//button[@id='close']", "xpath:attributes"],
+        ["xpath=//aside[@id='add-modal']/div[2]/button", "xpath:idRelative"],
+        ["xpath=//aside/div[2]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Close')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2bf05292-8e91-4791-99bb-50be4d4119b4",
+      "comment": "",
+      "command": "click",
+      "target": "css=#gmimap15 > area",
+      "targets": [
+        ["css=#gmimap15 > area", "css:finder"],
+        ["xpath=//map[@id='gmimap15']/area", "xpath:idRelative"],
+        ["xpath=//div[16]/map/area", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c085100a-0b71-454f-90bb-ce535842f63e",
+      "comment": "",
+      "command": "click",
+      "target": "id=buttonOverSaint-Merri",
+      "targets": [
+        ["id=buttonOverSaint-Merri", "id"],
+        ["css=#buttonOverSaint-Merri", "css:finder"],
+        ["xpath=//button[@id='buttonOverSaint-Merri']", "xpath:attributes"],
+        ["xpath=//div[@id='map']/div/div/div/div[3]/div/div[4]/div/div/div/div/div/div/div[2]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Overview')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "781228b2-fe00-4dd1-8361-6ab262869e11",
+      "comment": "",
+      "command": "click",
+      "target": "id=close",
+      "targets": [
+        ["id=close", "id"],
+        ["css=#close", "css:finder"],
+        ["xpath=//button[@id='close']", "xpath:attributes"],
+        ["xpath=//aside[@id='add-modal']/div[2]/button", "xpath:idRelative"],
+        ["xpath=//aside/div[2]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Close')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "de16619a-cf76-4021-b296-675b733a2f40",
+      "comment": "",
+      "command": "click",
+      "target": "css=#gmimap15 > area",
+      "targets": [
+        ["css=#gmimap15 > area", "css:finder"],
+        ["xpath=//map[@id='gmimap15']/area", "xpath:idRelative"],
+        ["xpath=//div[16]/map/area", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4352cbee-c25f-46c2-b566-e103003d7fce",
+      "comment": "",
+      "command": "click",
+      "target": "id=buttonStatsSaint-Merri",
+      "targets": [
+        ["id=buttonStatsSaint-Merri", "id"],
+        ["css=#buttonStatsSaint-Merri", "css:finder"],
+        ["xpath=//button[@id='buttonStatsSaint-Merri']", "xpath:attributes"],
+        ["xpath=//div[@id='map']/div/div/div/div[3]/div/div[4]/div/div/div/div/div/div/div[2]/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Statistics')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "7974fff2-3d29-43f2-962d-d9d257646878",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "id=buttonStatsSaint-Merri",
+      "targets": [
+        ["id=buttonStatsSaint-Merri", "id"],
+        ["css=#buttonStatsSaint-Merri", "css:finder"],
+        ["xpath=//button[@id='buttonStatsSaint-Merri']", "xpath:attributes"],
+        ["xpath=//div[@id='map']/div/div/div/div[3]/div/div[4]/div/div/div/div/div/div/div[2]/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Statistics')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "232f16b0-f6f6-47fa-9e40-781a51baa580",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "id=buttonStatsSaint-Merri",
+      "targets": [
+        ["id=buttonStatsSaint-Merri", "id"],
+        ["css=#buttonStatsSaint-Merri", "css:finder"],
+        ["xpath=//button[@id='buttonStatsSaint-Merri']", "xpath:attributes"],
+        ["xpath=//div[@id='map']/div/div/div/div[3]/div/div[4]/div/div/div/div/div/div/div[2]/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Statistics')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e087fc8b-8426-4938-8bdd-e97c1d7231c8",
+      "comment": "",
+      "command": "click",
+      "target": "id=close",
+      "targets": [
+        ["id=close", "id"],
+        ["css=#close", "css:finder"],
+        ["xpath=//button[@id='close']", "xpath:attributes"],
+        ["xpath=//aside[@id='add-modal']/div[2]/button", "xpath:idRelative"],
+        ["xpath=//aside/div[2]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Close')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d31678fb-426d-4a61-bd0c-97498f331388",
+      "comment": "",
+      "command": "click",
+      "target": "css=#gmimap0 > area",
+      "targets": [
+        ["css=#gmimap0 > area", "css:finder"],
+        ["xpath=//map[@id='gmimap0']/area", "xpath:idRelative"],
+        ["xpath=//area", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "661ba024-6a28-4af2-8b9f-f00204e0fbf2",
+      "comment": "",
+      "command": "click",
+      "target": "id=buttonOverAbbey Wood",
+      "targets": [
+        ["id=buttonOverAbbey Wood", "id"],
+        ["css=#buttonOverAbbey\\ Wood", "css:finder"],
+        ["xpath=//button[@id='buttonOverAbbey Wood']", "xpath:attributes"],
+        ["xpath=//div[@id='map']/div/div/div/div[3]/div/div[4]/div/div/div/div/div/div/div[2]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Overview')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a77b244b-9945-4f03-9ce4-4f2fb9f98725",
+      "comment": "",
+      "command": "click",
+      "target": "id=close",
+      "targets": [
+        ["id=close", "id"],
+        ["css=#close", "css:finder"],
+        ["xpath=//button[@id='close']", "xpath:attributes"],
+        ["xpath=//aside[@id='add-modal']/div[2]/button", "xpath:idRelative"],
+        ["xpath=//aside/div[2]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Close')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "248ba8e7-59ad-4848-ab8a-17be2d2c9a24",
+      "comment": "",
+      "command": "click",
+      "target": "css=#gmimap0 > area",
+      "targets": [
+        ["css=#gmimap0 > area", "css:finder"],
+        ["xpath=//map[@id='gmimap0']/area", "xpath:idRelative"],
+        ["xpath=//area", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "22a621d9-4db6-4e9a-bbf8-9df18ce3ee38",
+      "comment": "",
+      "command": "click",
+      "target": "id=buttonStatsAbbey Wood",
+      "targets": [
+        ["id=buttonStatsAbbey Wood", "id"],
+        ["css=#buttonStatsAbbey\\ Wood", "css:finder"],
+        ["xpath=//button[@id='buttonStatsAbbey Wood']", "xpath:attributes"],
+        ["xpath=//div[@id='map']/div/div/div/div[3]/div/div[4]/div/div/div/div/div/div/div[2]/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Statistics')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "84db2873-6afa-4d2a-9fad-725661828fc7",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "id=buttonStatsAbbey Wood",
+      "targets": [
+        ["id=buttonStatsAbbey Wood", "id"],
+        ["css=#buttonStatsAbbey\\ Wood", "css:finder"],
+        ["xpath=//button[@id='buttonStatsAbbey Wood']", "xpath:attributes"],
+        ["xpath=//div[@id='map']/div/div/div/div[3]/div/div[4]/div/div/div/div/div/div/div[2]/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Statistics')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "83c21dba-3373-4a74-be21-0dc483fbbf93",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "id=buttonStatsAbbey Wood",
+      "targets": [
+        ["id=buttonStatsAbbey Wood", "id"],
+        ["css=#buttonStatsAbbey\\ Wood", "css:finder"],
+        ["xpath=//button[@id='buttonStatsAbbey Wood']", "xpath:attributes"],
+        ["xpath=//div[@id='map']/div/div/div/div[3]/div/div[4]/div/div/div/div/div/div/div[2]/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Statistics')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "29fb934e-403c-4000-b99e-6cff2f9b5c54",
+      "comment": "",
+      "command": "click",
+      "target": "id=close",
+      "targets": [
+        ["id=close", "id"],
+        ["css=#close", "css:finder"],
+        ["xpath=//button[@id='close']", "xpath:attributes"],
+        ["xpath=//aside[@id='add-modal']/div[2]/button", "xpath:idRelative"],
+        ["xpath=//aside/div[2]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Close')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "eb1ddfa2-be7e-41ee-8941-5f334d45cde1",
+      "comment": "",
+      "command": "click",
+      "target": "css=#gmimap16 > area",
+      "targets": [
+        ["css=#gmimap16 > area", "css:finder"],
+        ["xpath=//map[@id='gmimap16']/area", "xpath:idRelative"],
+        ["xpath=//div[17]/map/area", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "edbe7ebc-6940-48dd-b04a-126f894346f2",
+      "comment": "",
+      "command": "click",
+      "target": "id=buttonOverArrondissement Brussel-Hoofdstad",
+      "targets": [
+        ["id=buttonOverArrondissement Brussel-Hoofdstad", "id"],
+        ["css=#buttonOverArrondissement\\ Brussel-Hoofdstad", "css:finder"],
+        ["xpath=//button[@id='buttonOverArrondissement Brussel-Hoofdstad']", "xpath:attributes"],
+        ["xpath=//div[@id='map']/div/div/div/div[3]/div/div[4]/div/div/div/div/div/div/div[2]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Overview')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "61fe68a4-6168-453c-8100-deb299aa7055",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "id=buttonOverArrondissement Brussel-Hoofdstad",
+      "targets": [
+        ["id=buttonOverArrondissement Brussel-Hoofdstad", "id"],
+        ["css=#buttonOverArrondissement\\ Brussel-Hoofdstad", "css:finder"],
+        ["xpath=//button[@id='buttonOverArrondissement Brussel-Hoofdstad']", "xpath:attributes"],
+        ["xpath=//div[@id='map']/div/div/div/div[3]/div/div[4]/div/div/div/div/div/div/div[2]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Overview')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1595010d-6cc0-4008-a3fa-848858a00006",
+      "comment": "",
+      "command": "click",
+      "target": "id=close",
+      "targets": [
+        ["id=close", "id"],
+        ["css=#close", "css:finder"],
+        ["xpath=//button[@id='close']", "xpath:attributes"],
+        ["xpath=//aside[@id='add-modal']/div[2]/button", "xpath:idRelative"],
+        ["xpath=//aside/div[2]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Close')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b2e03480-725d-4477-bf73-218366c126b5",
+      "comment": "",
+      "command": "click",
+      "target": "css=#gmimap16 > area",
+      "targets": [
+        ["css=#gmimap16 > area", "css:finder"],
+        ["xpath=//map[@id='gmimap16']/area", "xpath:idRelative"],
+        ["xpath=//div[17]/map/area", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f913d9e2-1306-4b12-a4d7-f774de46d0e5",
+      "comment": "",
+      "command": "click",
+      "target": "id=buttonStatsArrondissement Brussel-Hoofdstad",
+      "targets": [
+        ["id=buttonStatsArrondissement Brussel-Hoofdstad", "id"],
+        ["css=#buttonStatsArrondissement\\ Brussel-Hoofdstad", "css:finder"],
+        ["xpath=//button[@id='buttonStatsArrondissement Brussel-Hoofdstad']", "xpath:attributes"],
+        ["xpath=//div[@id='map']/div/div/div/div[3]/div/div[4]/div/div/div/div/div/div/div[2]/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Statistics')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b3d38015-135c-4514-9b60-c04e05dbb1b2",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "id=buttonStatsArrondissement Brussel-Hoofdstad",
+      "targets": [
+        ["id=buttonStatsArrondissement Brussel-Hoofdstad", "id"],
+        ["css=#buttonStatsArrondissement\\ Brussel-Hoofdstad", "css:finder"],
+        ["xpath=//button[@id='buttonStatsArrondissement Brussel-Hoofdstad']", "xpath:attributes"],
+        ["xpath=//div[@id='map']/div/div/div/div[3]/div/div[4]/div/div/div/div/div/div/div[2]/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Statistics')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1ce29d67-9d7e-4608-8faf-bf9a67dabbac",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "id=buttonStatsArrondissement Brussel-Hoofdstad",
+      "targets": [
+        ["id=buttonStatsArrondissement Brussel-Hoofdstad", "id"],
+        ["css=#buttonStatsArrondissement\\ Brussel-Hoofdstad", "css:finder"],
+        ["xpath=//button[@id='buttonStatsArrondissement Brussel-Hoofdstad']", "xpath:attributes"],
+        ["xpath=//div[@id='map']/div/div/div/div[3]/div/div[4]/div/div/div/div/div/div/div[2]/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Statistics')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "cadb3c3e-48dc-49e2-a278-c39b79ab7bf1",
+      "comment": "",
+      "command": "click",
+      "target": "id=close",
+      "targets": [
+        ["id=close", "id"],
+        ["css=#close", "css:finder"],
+        ["xpath=//button[@id='close']", "xpath:attributes"],
+        ["xpath=//aside[@id='add-modal']/div[2]/button", "xpath:idRelative"],
+        ["xpath=//aside/div[2]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Close')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "0baa278e-c98c-4735-9c1a-618b1714f584",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": []
+  }],
+  "urls": ["https://naoisegaffney.github.io/", "https://naoisegaffney.github.io/CitiesInCountries/"],
+  "plugins": []
+}
