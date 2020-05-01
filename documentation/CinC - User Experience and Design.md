@@ -130,7 +130,7 @@ Wireframe Diagrams:
 ### Visual Design
 [Capital Cities in Countries Data](https://naoisegaffney.github.io/CitiesInCountries/)
 
-![Screenshot of the main page (index.html)](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/images/CinCDashboard.png)
+![Screenshot of the main page (index.html)](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/Information%20Architecture.png)
 
 A responsive website using only HTML 5 and CSS 3 to provide Training and Development and Coaching opportunities to organisations and individuals.
 
