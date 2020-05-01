@@ -90,7 +90,7 @@ The features of the "Dashboard":
 * The website/webpage loads, creates a Google Map with Markers for each European capital city and centres the map on Firhouse, Dublin, Ireland. The browser requests access to the User's geolocation. If accepted, the map is recentred on the geolocation, otherwise it remains centred to the default location.
 * The background uses a linear gradient that is used for all key elements of the website adding to a common look-and-feel (background (html, body), footer, navigational controls, and JS/CSS Modals). With a slight transparancy and shadow it gives the JS/CSS Modals a curved look.
 
-![Google Map Marker InfoWindow](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/images/Google%20Map%20Marker%20InfoWindow.png)
+![Google Map Marker InfoWindow](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/Google%20Map%20Marker%20InfoWindow.png)
 
 * Each map marker is clickable, revealing a Google InfoWindow ("pop-up") with the Capital City, Country, Latitude and Longitude (static internal Array[]), the current weather (real-time from the OpenWeather API: temperature, description, and air pressure). The 2 buttons:
 	* Overview Buttton => displays the flag, native name, regional information, official languages, currencies, and calling code (real-time from the REST Countries API). Closed via the Close Button (JS EventListener and CSS).
