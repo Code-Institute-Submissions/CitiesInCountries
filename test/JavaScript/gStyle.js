@@ -762,7 +762,7 @@ function initMap() {
             const overviewModalHandler = () => {
                 toggleBackdrop();
                 toggleModal();
-                document.getElementById("modal-content").innerHTML = `Overview: ${marker.name} ${marker.overview} ${marker.d3}`;
+                document.getElementById("modal-content").innerHTML = `<h4>Overview: ${marker.name}</h4> ${marker.overview}`;
                 let cityArray = marker.name.split(", "); // Parse City name to fetchCountry(cityArray[1]) parameter to access Country Data.
                 fetchCountry(cityArray[1]);
                 // console.log("Clicked on Overview Button", buttonIDOver);
