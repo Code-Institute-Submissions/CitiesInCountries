@@ -73,12 +73,7 @@ For this initial sprint I'm concentrating on creating:
 ## Scope
 * Useful: Is it useful to clients? Is it useful to us?
 	* Yes, on both accounts.
-		* Clients and collaborators see the value provided in terms of a broad range of Training and Development and Coaching opportunities.
-		* This enables me to reach a broader and global clientele that I would struggle to reach without an Internet presence such as this website.
-* Sellable: Could we sell this if we had it?
-	* Yes, all courses and coaching are available now.
-* Buildable: Can we build this, affordably?
-	* Yes, using HTML 5 and CSS 3. All the content is readily available.
+		* Collaborators and Employers can ascertain my potential as a programmer. I get an opportunity to showcase my new knowledge and skills.
 
 ### Functional Requirements
 The Scenarios to Requirements:
@@ -107,7 +102,7 @@ The website structure is a Dashboard, with a simple and predictable structure. N
 ### Information Design
 Information Architecture: Dashboard
 
-![Information Architecture](https://github.com/NaoiseGaffney/Professional-Training-Development/blob/master/docs/Information%20Architecture.png)
+![Information Architecture](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/Information%20Architecture.png)
 
 ## Skeleton
 Interface Design: The best arrangement and visual presentation of the elements
@@ -139,11 +134,9 @@ Wireframe Diagrams:
 
 ## Surface
 ### Visual Design
-"Organisations Achieve Greater Value through Professionally Coached Employees" - GaffCo Consulting Professional Communication Competence
+[Capital Cities in Countries Data](https://naoisegaffney.github.io/CitiesInCountries/)
 
-[Professional Training and Development](https://naoisegaffney.github.io/Professional-Training-Development/index.html)
-
-![Screenshot of the main page (index.html)](https://github.com/NaoiseGaffney/Professional-Training-Development/blob/master/docs/Screenshot%202020-03-30%2000.46.02.png)
+![Screenshot of the main page (index.html)](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/images/CinCDashboard.png)
 
 A responsive website using only HTML 5 and CSS 3 to provide Training and Development and Coaching opportunities to organisations and individuals.
 

@@ -4,7 +4,7 @@
 
 [Capital Cities in Countries Data](https://naoisegaffney.github.io/CitiesInCountries/)
 
-![Screenshot of the main page (index.html)](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/images/CinCDashboard.png)
+![Screenshot of the main page (index.html)](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/CinCDashboard.png)
 
 A responsive and interactive website using HTML 5, CSS 3, and JavaScript to provide an informative overview of Cities and Countries in Europe (expanded in future to include the World) through Google Map Markers, with Modals (“pop-ups”) providing place details and statistics.
 
@@ -65,15 +65,9 @@ There are three main actors/roles that use the services provided by the website:
 	* As an Employer I want to review the GitHub documentation to determine whether the owner (Naoise Gaffney) has good Software Development Practices, to employ him to further my business.
 	* As an Employer, I want to contact the owner (Naoise Gaffney) to discuss the details of hiring or contracting him for design and development work.
 
-The User Experience and Design MarkDown document covers the 5 planes in detail:
+The User Experience and Design MarkDown document covers the 5 planes in detail, and contains the Balsamiq wireframes and mockups of the website (simplified views, and not complete representations).
 
 [User Experience and Design MarkDown](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/CinC%20-%20User%20Experience%20and%20Design.md)
-
-Balsamiq wireframes and mockups of the website (simplified views, and not complete representations):
-
-[Large Wireframe Diagrams of the Website](https://github.com/NaoiseGaffney/Professional-Training-Development/blob/master/docs/User-Centric%20Front-End%20Development%20Project%201.pdf)
-
-[Small Wireframe Diagrams with Notes (Use Cases) of the Website](https://github.com/NaoiseGaffney/Professional-Training-Development/blob/master/docs/User-Centric%20Front-End%20Development%20Project%201%20-%20Includes%20Notes.pdf)
 
 ## Solution
 ### Features
@@ -88,7 +82,7 @@ This website uses a Dashboard Information Architecture. Everything is accessible
 
 This is a layered website making use of 3 dimensions (x, y, z). The background colour is a linear gradient, the same linear gradient is used throughout the website to enhance the common look-and-feel. The Google Map is at the bottom (`z-index: 1`). The Fixed Footer is visually "on top" of the Google Map though with the same z-index (`z-index: 1`). The backdrop (grey transparent background that toggles when either a JS or a CSS Modal is activated) is on top of the Google Map and Fixed Footer (`z-index: 2`), and stops any clicking on elements "behind" the backdrop. The CSS Modals are on top of the backdrop. (`z-index: 4`), and the JS Modals are on top of everything else (`z-index: 100`).
 
-[User Walkthrough Video - an Overview](https://youtu.be/YxqJtqwyjEs)
+[User Walkthrough Video - an Overview](https://www.dropbox.com/s/ynb6myith810x8c/CinC%20Walkthrough%20-%201080P.mov?dl=0)
 
 #### Existing Features
 The features of the "Dashboard":
@@ -96,7 +90,9 @@ The features of the "Dashboard":
 * The website/webpage loads, creates a Google Map with Markers for each European capital city and centres the map on Firhouse, Dublin, Ireland. The browser requests access to the User's geolocation. If accepted, the map is recentred on the geolocation, otherwise it remains centred to the default location.
 * The background uses a linear gradient that is used for all key elements of the website adding to a common look-and-feel (background (html, body), footer, navigational controls, and JS/CSS Modals). With a slight transparancy and shadow it gives the JS/CSS Modals a curved look.
 
-* Each map marker is clickable, revealing a Google InfoWindow ("pop-up") ![Google Map Marker InfoWindow](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/images/Google%20Map%20Marker%20InfoWindow.png) with the Capital City, Country, Latitude and Longitude (static internal Array[]), the current weather (real-time from the OpenWeather API: temperature, description, and air pressure). The 2 buttons:
+![Google Map Marker InfoWindow](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/images/Google%20Map%20Marker%20InfoWindow.png)
+
+* Each map marker is clickable, revealing a Google InfoWindow ("pop-up") with the Capital City, Country, Latitude and Longitude (static internal Array[]), the current weather (real-time from the OpenWeather API: temperature, description, and air pressure). The 2 buttons:
 	* Overview Buttton => displays the flag, native name, regional information, official languages, currencies, and calling code (real-time from the REST Countries API). Closed via the Close Button (JS EventListener and CSS).
 	* Statistics Button => displays a population graph (real-time and updated automaically upon DB change by the D3 API using data from the noSQL Firebase Firestore), and further information related to the country (real-time from the REST Countries API). Closed via the Close Button (JS EventListener and CSS).
 
@@ -210,10 +206,8 @@ The following combination of software and hardware is used for all manual tests:
 * Safari on MacOSX (MacBook Pro) for laptop/large display testing.
 * Physical devices: Samsung Galaxy Note 10+ 5G with Chrome, Samsung Browser and Firefox. Apple iPhone 8 with Chrome and Safari.
 
-[Test Case Walkthrough Video - A Summary](https://youtu.be/w1bz3HG6KsE)
-
 ### Testing Criteria
-The Acceptance Criteria are a compressed (simplified) version of the Use Cases described under section Processes --> UX:
+The Acceptance Criteria are a compressed (simplified) version of the Use Cases described under section Processes --> UX.
 
 ### Testing Notes
 All devices and formats are tested in both portrait and landscape mode. The website is responsive and supports all tested browsers.
@@ -225,18 +219,10 @@ A couple of things to note:
 
 ### HTML and CSS Validation
 HTML Validation: [](https://validator.w3.org/nu/)
+![HTML Validated](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/HTML%20Validation.png)
+
 CSS Validation: [](https://jigsaw.w3.org/css-validator/#validate_by_input)
-
-CSS Check! :-)
-
-HTML:
-
-* index.html: Error: Attribute tool-tip not allowed on element i at this point.
-* organisations.html: Error: Attribute tool-tip not allowed on element i at this point.
-* individuals.html: Error: Attribute tool-tip not allowed on element i at this point.
-* programmes.html: Error: Attribute tool-tip not allowed on element i at this point.
-
-The "Error: Attribute tool-tip not allowed on element i at this point." errors are not important as the tool-tip function is best attached to the FontAwesome icons to provide the required functionality.
+![CSS Validated](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/CSS%20Validation.png)
 
 ## Deployment
 For this project I Visual Studio Code for coding, and using the Source Code Management provider with git to synch (stage, commit, synch) my updates to GitHub.
@@ -293,22 +279,13 @@ Code Institute Mentor - [GitHub: 5pence - Spencer Barriball](https://github.com/
 	* Using FontAwesome font icons to add visual elements to key website features, making the website memorable and easier to navigate.
 
 ### Acknowledgements
-The inspiration for the project comes from my current role as a Trainer, Facilitator, and Coach. I need an on-line presence with an ability to position and prove my valuable services to clients and collaborators.
+The inspiration for the project comes from my current role as a learner at the Code Institute. I wanted to broaden my programming horizons, challenge myself, and provide some idea of my potential as a prorammer.
 
-This is my first milestone project for the Diploma in Full Stack Development at the Code Institute, User Centric Frontend Development Milestone Project, using only HTML 5 and CSS 3. It's optional to use a framework such as Bootstrap 4. I've opted for a simpler approach using Flexbox and Grid Layout. It aids in cementing the fundamentals in HTML 5 and CSS 3.
+This is my second milestone project for the Diploma in Full Stack Development at the Code Institute. I find that the milestone projects are excellent in getting me to understand the concepts covered during the course, while giving me an opportunity to fail, and fail fast, and in the process learn something new.
 
-Please see the Technology section for detailed attributions regarding CSS features and functions that I've used from numerous knowledgeable and skilled individuals and organisations. All code, HTML and CSS contains ample comments with attributions to the above-mentioned sources. All QQI Course Aims are copied from [Quality and Qualifications Ireland](https://www.qqi.ie/) course descriptions.
+Please see the Technology section for detailed attributions regarding CSS and JavaScript features and functions that I've used from numerous knowledgeable and skilled individuals and organisations. All code, HTML, CSS, and JavaScript contains ample comments with attributions to the above-mentioned sources.
 
-The Diploma in Full Stack Development provides a great foundation of tools and technologies used to work as a professional developer. It's a case of being a Jack-of-All-Trades, and a Master of None (or Some). It's up to each developer to expand upon the knowledge and skills acquired during the course through additional self-study of elements covered as a part of the course as well as other frameworks, languages, tools, methodologies,  processes, and solutions. This milestone project gave me the opportunity to solidify my new knowledge on layout using Flexbox and Grid, styling using CSS 3, and new cool CSS features such as:
-
-* [CSS Before and After pseudo elements explained - part two: the content property by Kevin Powell](https://www.youtube.com/watch?v=xoRbkm8XgfQ)
-	* Using the hover tool-tip function for the fixed footer FontAwesome icons: resumé, social and contact links, and location.
-* [Pure CSS Hamburger Menu & Overlay by Traversy Media](https://www.youtube.com/watch?v=DZg6UfS5zYg)
-	* Using the described hamburger menu function for my menu.
-* [Target Modal from W3Schools](https://www.w3schools.com/cssref/tryit.asp?filename=trycss3_target_modal)
-	* Using this modal function for my course details.
-
-Thank you Kevin Powell, Bill Traversy, and W3Schools for giving me opportunities to expand my knowledge and skills in CSS 3!
+The Diploma in Full Stack Development provides a great foundation of tools and technologies used to work as a professional developer. It's a case of being a Jack-of-All-Trades, and a Master of None (or Some). It's up to each developer to expand upon the knowledge and skills acquired during the course through additional self-study of elements covered as a part of the course as well as other frameworks, languages, tools, methodologies,  processes, and solutions.
 
 Thank you Code Institute for allowing me on this journey in life!
 
