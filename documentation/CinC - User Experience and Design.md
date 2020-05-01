@@ -132,7 +132,7 @@ Wireframe Diagrams:
 
 ![Screenshot of the main page (index.html)](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/Information%20Architecture.png)
 
-A responsive website using only HTML 5 and CSS 3 to provide Training and Development and Coaching opportunities to organisations and individuals.
+A responsive website using HTML 5, CSS 3, JavaScript and a number of API's to provide an informative and interactive website.
 
 ## Acknowledgements
 * [FREE PDF: Elements of User Experience Design by Jesse James Garrett (second edition 2010)](https://www.academia.edu/33276128/The_Elements_of_User_Experience_-_Jesse_James_Garrett)
