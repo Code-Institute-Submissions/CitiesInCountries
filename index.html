@@ -5,14 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- FontAwesome Icon Fonts: Principle of combining images and text for best effect and attention. -->
+
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
         type="text/css">
-    <!-- Local Stylesheet: Style -->
+
     <link rel="stylesheet" href="../CitiesInCountries/assets/styles/style.css">
     <title>Cities in Countries Data</title>
 
-    <!-- Favicon, a gorgeous 'G' for Gaff/Gaffney/Google... -->
     <link rel="apple-touch-icon" sizes="180x180" href="../CitiesInCountries/assets/images/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="../CitiesInCountries/assets/images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../CitiesInCountries/assets/images/favicon-16x16.png">
@@ -20,12 +19,9 @@
 </head>
 
 <body>
-    <!-- Backdrop for Modals (Footer and Map Markers) -->
     <div id="backdrop"></div>
     <div class="parent">
-        <!-- GOOGLE MAPS HTML: Google Maps Map placeholder and navigation controls to enable styling -->
         <div class="map" id="map"></div>
-        <!-- Hide controls until they are moved into the map. -->
         <div style="display:none">
             <div class="controls zoom-control">
                 <button class="zoom-control-in" title="Zoom In">+</button>
@@ -48,7 +44,6 @@
             </div>
         </div>
 
-        <!-- Fixed Footer Elements for Footer Modals -->
         <div class="footer  fixed-footer">
             <a href="#id01">
                 <i class="fa fa-exclamation" id="fa-exclamation" aria-hidden="true"></i>
@@ -198,7 +193,7 @@
             <div class="cssmodal-dialog">
                 <div class="cssmodal-content">
                     <header class="cssmodal-container">
-                        <h3><i class="fa fa-user" id="fa-user" aria-hidden="true"></i>
+                        <h3><i class="fa fa-user" id="fa-user-css-modal" aria-hidden="true"></i>
                             <span class="sr-only">Naoise Olof Seán Gaffney</span>&nbsp;&nbsp;&nbsp;Naoise Olof Seán
                             Gaffney</h3>
                     </header>
@@ -221,7 +216,6 @@
 
     </section>
 
-    <!-- Modal controlled by JavaScript for Map Marker and Footer Modals -->
     <aside class="modal card" id="add-modal">
         <div class="modal__content" id="modal-content">
             <p>Modal Content Here!</p>
@@ -230,10 +224,7 @@
             <button class="button" id="close" onclick="closeModal()">Close</button>
         </div>
     </aside>
-
-</body>
-
-<!-- EmailJS Script for the Email Form -->
+    
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
 <script>
     (function () {
@@ -241,21 +232,13 @@
     })();
 </script>
 
-<!-- EmailJS sendmail() -->
 <script src="../CitiesInCountries/assets/scripts/sendemail.js"></script>
 
-<!-- Google Firebase Firestore noSQL DB -->
-<!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
-<!-- Add this line to access Firestore. Doesn't work otherwise...-->
 <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
-
-<!-- TODO: Add SDKs for Firebase products that you want to use
-                         https://firebase.google.com/docs/web/setup#available-libraries -->
 <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-analytics.js"></script>
 
 <script>
-    // Your web app's Firebase configuration
     var firebaseConfig = {
         apiKey: "AIzaSyD-7m05xNy_mTbg_KH1VxoLeSp1YM4gfWM",
         authDomain: "udemy-3d-firebase-48d1d.firebaseapp.com",
@@ -266,20 +249,18 @@
         appId: "1:260184459758:web:a69c4cb2087fa94f5be6ff",
         measurementId: "G-RWQRBS2GS5"
     };
-    // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
     firebase.analytics();
-    const db = firebase.firestore(); // Added to refer to our Firestore
+    const db = firebase.firestore();
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.js"></script>
 
-<!-- Load Google Map API and local maps.js here to ensure it loads after everything else. -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDKoKXKgFfLTb9SNLk0QEq1FmnNJD3hSg&callback=initMap" async></script>
-<!-- Google Maps Navigation Controls JS Script -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDKoKXKgFfLTb9SNLk0QEq1FmnNJD3hSg&callback=initMap"
+    async></script>
+
 <script src="../CitiesInCountries/assets/scripts/mapControls.js" defer></script>
-<!-- Main JS Script -->
 <script src="../CitiesInCountries/assets/scripts/maps.js" defer></script>
-<!-- D3 JS Script for Stats/Graphs -->
 <script src="../CitiesInCountries/assets/scripts/d3Stats.js"></script>
+</body>
 
 </html>
