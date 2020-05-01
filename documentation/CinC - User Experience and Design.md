@@ -123,14 +123,7 @@ External navigation, such as for the links on the fixed footer at the bottom of 
 
 ### Information Design
 Wireframe Diagrams:
-
-![Homepage: index.html](https://github.com/NaoiseGaffney/Professional-Training-Development/blob/master/docs/Training%20and%20Development%20Services.png)
-
-![Organisations: organisations.html](https://github.com/NaoiseGaffney/Professional-Training-Development/blob/master/docs/Organisations.png)
-
-![Individuals: individuals.html](https://github.com/NaoiseGaffney/Professional-Training-Development/blob/master/docs/Individuals.png)
-
-![Programmes: programmes.html](https://github.com/NaoiseGaffney/Professional-Training-Development/blob/master/docs/Programmes.png)
+![Cities in Countries](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/CinC%20Wireframe.png)
 
 ## Surface
 ### Visual Design
