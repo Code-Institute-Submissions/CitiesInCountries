@@ -1,12 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway|&display=swap');
 
-/* === WHY?
-':root' Make it easier to change colours and menu-speed later on.
-'*' To make sure I'm working off a "clean slate".
-'body' Provide a consistent font and colour experiennce throughout the website (look-and-feel).
-'.container' and 'showcase' creating a consistent look-and-feel.
-=== */
-
 /* --- "Reset!" and Set Basic Parameters  --- */
 * {
     margin: 0;
@@ -14,13 +7,12 @@
     border: 0;
 }
 
-/* Always set the map height explicitly to define the size of the div
- * element that contains the map. */
+/* Always set the map height explicitly to define the size of the <div> element that contains the Google Map. */
 #map {
     height: 100%;
 }
 
-/* Optional: Makes the Google Map page fill the window. */
+/* Makes the Google Map page fill the window. */
 html,
 body {
     height: 100%;
@@ -183,7 +175,8 @@ p {
 
 
 /* === WHY?
-To create an appealing look-and-feel for the viewing of cities across the World on Google Maps, and provide easy-access to city overview, weather, and details (D3) while staying on the same page.
+To create an appealing look-and-feel for the viewing of cities across the World on Google Maps,
+and provide easy-access to city overview, weather, and details (D3) while staying on the same page.
 
 === WHAT?
 Create a Grid with responsive elements to suit mobiles, tablets, and desktops.
@@ -246,18 +239,21 @@ JS: Control Marker Tool-Tips, and Modals.
     box-shadow: 0px -6px 20px 0px rgba(0, 0, 0, 0.19);
 }
 
+
+
 /* === FOOTER === */
-/* Fixed Footer Element: */
-
 /* === WHY?
-Section Styling
-'.section a', '.container', 'fixed-footer', and 'footer...' to create a consistent contact experience, and look-and-feel throughout the website.
-Create a clean look, that's easy to comprehend and use.
-=== */
+Section Styling: to create a consistent contact experience, and look-and-feel throughout the website. Create a clean look, that's easy to comprehend and use.
 
-/* === Fixed Footer with Scrollable Body === */
+=== WHAT?
+Style the Fixed Footer in the same style as the rest of the website.
 
-/* ---  Making the Navigation Links visible against the #999999 (grey) background of the Fixed Navigation --- */
+=== HOW?
+HTML: Create the CSS Modal content for the footer footer elements.
+CSS: Style the links (<a href...>) for the whole website.
+JS: n/a.
+*/
+
 a {
     color: rgb(0, 0, 0);
     font-size: 110%;
@@ -278,8 +274,8 @@ a i:hover {
     font-size: 130%;
 }
 
-/* === BACKDROP === */
 
+/* === BACKDROP === */
 #backdrop {
     position: fixed;
     width: 100%;
@@ -297,15 +293,11 @@ a i:hover {
     pointer-events: all;
 }
 
+
 /* === JS MODAL === */
-/*  */
-
 /* === WHY?
-Section Styling
-'.section a', '.container', 'fixed-footer', and 'footer...' to create a consistent contact experience, and look-and-feel throughout the website.
-Create a clean look, that's easy to comprehend and use.
+Displays details without leaving the page, providing a clear and clean navigation option.
 === */
-
 .card {
     background: rgb(255, 255, 255);
     border-radius: 10px;
@@ -377,10 +369,6 @@ svg {
 /* === WHY?
 Displays details without leaving the page, providing a clear and clean navigation option.
 === */
-
-/* === Course Details Upon Click === */
-/* --- From https://www.w3schools.com/cssref/tryit.asp?filename=trycss3_target_modal --- */
-/* Add animation (Chrome, Safari, Opera) */
 @-webkit-keyframes example {
     from {
         top: -100px;

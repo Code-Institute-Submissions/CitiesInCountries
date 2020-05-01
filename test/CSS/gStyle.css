@@ -192,7 +192,7 @@ JS: Create and call custom functions, ZoomControl, MapType Control, and FullScre
     background: var(--linear-gradient)
 }
 
-
+/* Consistent Font use on the website - Google Map, Tool-Tips, Controls and Text */
 .weather,
 .btn,
 .gm-style,
@@ -200,7 +200,6 @@ JS: Create and call custom functions, ZoomControl, MapType Control, and FullScre
 p {
     font-family: 'Raleway', sans-serif;
     margin-bottom: 10px;
-    /* Consistent Font use on the website - Google Map, Tool-Tips, Controls and Text */
 }
 
 
@@ -441,7 +440,8 @@ hr {
     margin-bottom: 5px;
 }
 
-.flag, svg {
+.flag,
+svg {
     margin-top: 5px;
 }
 
