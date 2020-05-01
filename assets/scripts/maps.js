@@ -49,8 +49,7 @@ function initMap() {
     let markersArray = [
         {
             coords: home,
-            iconImage: '../CitiesInCountries/assets/images/150px-IRL_Dublin_flag.svg.png',
-            content: `<h3>Dublin, Ireland</h3>${weatherInfo}<hr><p>6 Oldcourt Close, Ballycullen, D24 RHY2</p><p>Dublin, Ireland</p>${toolTipButtons}`,
+            content: `<p>Dublin, Ireland: 53.3498° N, 6.2603° W</p>${weatherInfo} ${toolTipButtons}`,
             name: "Dublin, Ireland",
             overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
             d3: `<div class="d3" id="d3"></div>`
@@ -458,7 +457,6 @@ function initMap() {
                         let nameValue = data["name"];
 
                         if (document.getElementById("weather")) {
-                            /* Together with CSS Styling this creates a linear background effect. */
                             document.querySelector(".gm-style-iw-d").className = "";
                             document.querySelector(".gm-style-iw-c").style = "padding: 12px";
 
@@ -491,7 +489,6 @@ function initMap() {
         let findCountryObject = {};
 
         let displayCountry = (country) => {
-            console.log("Fetch: ", country);
             let languages = "";
 
             for (let i = 0; i < findCountryObject["languages"].length; i++) {
@@ -517,31 +514,21 @@ function initMap() {
                 <p>Language(s): ${languages} - Currencie(s): ${currencies} - Calling Code: +${findCountryObject["callingCodes"][0]}</p>`;
         };
 
-        let doStuff = (message) => {
-            console.log(message);
-        };
-
         let fetchCountry = (country) => {
-            console.log(Object.keys(findCountryObject).length);
             if ((Object.keys(findCountryObject).length) === 0) {
                 fetch(`https://restcountries.eu/rest/v2/all`)
                     .then(data => data.json())
                     .then(data => {
                         findCountryObject = data.find(data => data.name === country);
-                        console.log(findCountryObject);
-                        doStuff("Fetch from fetchCountry()");
                         displayCountry(country);
                     })
             } else {
-                console.log(findCountryObject);
-                doStuff("Local from fetchCountry()");
                 displayCountry(country);
             };
         };
 
 
         let displayStats = (country) => {
-            console.log("Fetch displayStats: ", country);
             let borders = "";
 
             for (let i = 0; i < findCountryObject["borders"].length; i++) {
@@ -556,19 +543,14 @@ function initMap() {
         };
 
         let fetchStats = (country) => {
-            console.log(Object.keys(findCountryObject).length);
             if ((Object.keys(findCountryObject).length) === 0) {
                 fetch(`https://restcountries.eu/rest/v2/all`)
                     .then(data => data.json())
                     .then(data => {
                         findCountryObject = data.find(data => data.name === country);
-                        console.log(findCountryObject);
-                        doStuff("Fetch from fetchStats()");
                         displayStats(country);
                     })
             } else {
-                console.log(findCountryObject);
-                doStuff("Local from fetchStats()");
                 displayStats(country);
             };
         };
@@ -607,7 +589,6 @@ function initMap() {
                 document.getElementById("modal-content").innerHTML = `<h4>Overview: ${marker.name}</h4> ${marker.overview}`;
                 let cityArray = marker.name.split(", ");
                 fetchCountry(cityArray[1]);
-                console.log("Overview Button:  ", cityArray[1]);
             }
             buttonOverview.addEventListener("click", overviewModalHandler);
 
