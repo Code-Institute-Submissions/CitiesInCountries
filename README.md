@@ -191,7 +191,7 @@ A list of the languages, frameworks, libraries, and other tools used for this pr
 ### Technological Design Decision
 Opted for a Dashboard Information Architecture as it's the easiest for a User to use, though not always to design and develop for.
 
-Grid Layouts and Flexbox are used for the layout of the Dashboard. To further my understaning and skill development, I've opted for vanilla HTML 5 and CSS 3, as opposed to using one of many frameworks. I also opted for vanilla JavaScript as far as I can manage, however, I use D3 to create the real-time dynamic population graphs. I do this to ensure I fully(?) understand the workings before embarking on simplification by using frameworks. jQuery is not necessary for this project as JavaScript has the same functions built-in, however, in future jQuery is good for more complex uses (not required for this simple design).
+Grid Layouts and Flexbox are used for the layout of the Dashboard. To further my understaning and skill development, I've opted for vanilla HTML 5 and CSS 3, as opposed to using one of many frameworks. I also opted for vanilla JavaScript as far as I can manage, however, I use D3 to create the real-time dynamic population graphs. I do this to ensure I understand the workings before embarking on simplification by using frameworks. jQuery is not necessary for this project as JavaScript has the same functions built-in, however, in future jQuery is good for more complex uses (not required for this simple design).
 
 Using GitHub as a repository and GitPages for publishing the website is an easy choice to make, as it works well and is easy to use.
 
