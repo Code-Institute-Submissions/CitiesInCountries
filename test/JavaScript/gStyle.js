@@ -876,7 +876,7 @@ function initMap() {
             toggleModal();
             toggleBackdrop();
         }
-    };
+    }
 
     /* JSON returned from OpenWeather API Call for { lat: 53.274346, lng: -6.348835 } (Firhouse, Dublin, Ireland)
     https://api.openweathermap.org/data/2.5/weather?lat=53.274346&lon=-6.348835&units=metric&appid=4788a47d724b35cf9cc4e281a1893b4c
@@ -920,3 +920,4 @@ function initMap() {
     initMapTypeControl(map);
     initFullscreenControl(map);
 }
+

@@ -1,5 +1,5 @@
 /* === WHY?
-    To provide an informaive overview of Cities and Countries in Europe (expanded in future to include the World) tthrough Google Map Markers.
+    To provide an informative overview of Cities and Countries in Europe (expanded in future to include the World) through Google Map Markers.
     Map Marker -- 'click' --> Tool-tip -- 'click' Overview Button --> Overview Modal || 'click Statistics Button' --> Graphs...
 
 
