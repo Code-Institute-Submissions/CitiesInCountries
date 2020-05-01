@@ -1,8 +1,8 @@
-# Cities in Countries Data
+# Capital Cities in Countries Data
 
 "The important thing is to not stop questioning. Curiosity has its own reason for existing." - Einstein
 
-[Professional Training and Development](https://naoisegaffney.github.io/Professional-Training-Development/index.html)
+[Capital Cities in Countries Data](https://naoisegaffney.github.io/CitiesInCountries/)
 
 ![Screenshot of the main page (index.html)](https://github.com/NaoiseGaffney/Professional-Training-Development/blob/master/docs/Screenshot%202020-03-30%2000.46.02.png)
 
@@ -11,6 +11,10 @@ A responsive and interactive website using HTML 5, CSS 3, and JavaScript to prov
 ## Business
 ### External Users' Goals
 Users interested in looking at succinct information about European (global expansion planned) Capitals and Countries easily accessible and clearly displayed on a "Dashboard".
+
+Collaborators wanting to ensure I'm a good business partner and have the right skills and aptitude.
+
+Employers wanting to improve their on-line presence with Front-End design and development, and Full Stack Development, by hiring me or contracting my services.
 
 ### Site Owner's Goals
 The site has potential to become much more informative and interactive. It serves as a proof-of-concept of presenting dynamic data from disparate sources in a cohesive and simple display.
@@ -51,15 +55,15 @@ There are three main actors/roles that use the services provided by the website:
 	* As an Interested User, I want to see what data sources are used to drive the website, and also the .
 	* As an Interested User, I want to contact the owner (Naoise Gaffney) to discuss the details of providing a Full Stack Solution so that I can provide on-line services to my Clients and End-Users.
 
-* As a Collaborator, I want to work with the owner (Naoise Gaffney) so that we can provide Full Stack Development solutions for Clients to fruther their needs and our financial safety.
+* As a Collaborator, I want to work with the owner (Naoise Gaffney) so that we can provide Full Stack Development solutions for Clients to further their needs and our financial safety.
 	* As a Collaborator, I want to satisfy my curiosity about European Cities and Countries, access information and simple statistics about each to further my interests and satisfy my curiosity.
 	* As a Collaborator, I want to review the code on GitHub to determine the relevant skills the owner (Naoise Gaffney) has for a potential future collaboration to drive business.
 	* As a Collaborator, I want to contact the owner (Naoise Gaffney) to discuss the details of the potential for a collaboration so that I can plan the continued development of my business for my Clients.
 
-* As an individual, I want to improve my professional skills so that I can perform better on-the-job.
-	* As an individual, I want to view the coaching opportunities provided by GaffCo Consulting so that I can improve my professional skills.
-	* As an individual, I want to book the relevant coaching opportunities provided by GaffCo Consulting so that I can improve my professional skills.
-	* As an individual, I want to contact the owner (Naoise Gaffney) to discuss the details of the coaching opportunities so that I can improve my professional skills.
+* As an Employer, I want to determine the usability and real-world application as well as the layout and visual impact of the website, to determine whether the owner (Naoise Gaffney) has the aptitude for Front-End design to employ him to further my business.
+	* As an Employer, I want to determine whether the Code Quality on GitHub is proof that the owner (Naoise Gaffney) has the aptitude for Front-End/Full Stack development to employ him to further my business.
+	* As an Employer I want to review the GitHub documentation to determine whether the owner (Naoise Gaffney) has good Software Development Practices, to employ him to further my business.
+	* As an Employer, I want to contact the owner (Naoise Gaffney) to discuss the details of hiring or contracting him for design and development work.
 
 The User Experience and Design MarkDown document covers the 5 planes in detail:
 
@@ -74,13 +78,15 @@ Balsamiq wireframes and mockups of the website (simplified views, and not comple
 ## Solution
 ### Features
 
-The website enables clients (corporate and individuals) and collaborators to view and book training and coaching opportunities to suit their training and development needs.
+The website enables Users, Collaborators and Employers the ability to view European city and country statistics in an informative and interactive way, all accessible via the single "Dashboard". "Navigation-less".
 
-The website provides the owner with a global on-line presence, and an ability to position and prove the value of the training and development services provided.
+The website provides the owner with a global on-line presence, and an ability to position and prove the value of the Front-End design and development skills acquired as a student at the Code Institute.
 
-The website provides multiple communication channels, enabling both direct and indirect communication between clients, collaborators, and owner.
+The website displays data from a multitude of disparate sources, a noSQL Database (Firebase Firestore), and multiple API's (Google Maps, OpenWeather, D3, EmailJS, REST Countries), a static internal array, and links them to each European capital city.
 
-This is a layered website making use of 3 dimensions (x, y, z). The background image or colour in the Safari browser is at the bottom (`z-index: -1`). The fixed footer is on top of the background and scrollable text. The hamburger-menu and menu items are on top of the background and fixed footer (`z-index: 1` and `z-index: 2`). The course detail modal is on top of everything, closest to the user (`z-index: 4`).
+This website uses a Dashboard Information Architecture. Everything is accessible from the one page in the form of "pop-ups" (InfoWindows, JS and CSS Modals). No navigation within the website is required. All external links in the Fixed Footer CSS Modals ("pop-ups") open up in new tabs.
+
+This is a layered website making use of 3 dimensions (x, y, z). The background colour is a linear gradient, the same linear gradient is used throughout the website to enhance the common look-and-feel. The Google Map is at the bottom (`z-index: 1`). The Fixed Footer is visually "on top" of the Google Map though with the same z-index (`z-index: 1`). The backdrop (grey transparent background that toggles when either a JS or a CSS Modal is activated) is on top of the Google Map and Fixed Footer (`z-index: 2`), and stops any clicking on elements "behind" the backdrop. The CSS Modals are on top of the backdrop. (`z-index: 4`), and the JS Modals are on top of everything else (`z-index: 100`).
 
 [User Walkthrough Video - an Overview](https://youtu.be/YxqJtqwyjEs)
 
