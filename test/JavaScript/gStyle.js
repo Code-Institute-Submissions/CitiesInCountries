@@ -59,8 +59,8 @@ function initMap() {
         },
         {
             coords: { lat: 51.5074, lng: 0.1278 },
-            content: `<p>London, England: 51.5074° N, 0.1278°</p>${weatherInfo} ${toolTipButtons}`,
-            name: "London, England",
+            content: `<p>London, United Kingdom of Great Britain and Northern Ireland: 51.5074° N, 0.1278°</p>${weatherInfo} ${toolTipButtons}`,
+            name: "London, United Kingdom of Great Britain and Northern Ireland",
             overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
             d3: `<div class="d3" id="d3"></div>`
         },
@@ -150,8 +150,8 @@ function initMap() {
         },
         {
             coords: { lat: 50.0755, lng: 14.4378 },
-            content: `<p>Prague, Czechia: 50.0755° N, 14.4378° E</p>${weatherInfo} ${toolTipButtons}`,
-            name: "Prague, Czechia",
+            content: `<p>Prague, Czech Republic: 50.0755° N, 14.4378° E</p>${weatherInfo} ${toolTipButtons}`,
+            name: "Prague, Czech Republic",
             overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
             d3: `<div class="d3" id="d3"></div>`
         },
@@ -241,8 +241,8 @@ function initMap() {
         },
         {
             coords: { lat: 41.9029, lng: 12.4534 },
-            content: `<p>Vatican City, Vatican City: 41.9029° N, 12.4534° E</p>${weatherInfo} ${toolTipButtons}`,
-            name: "Vatican City, Vatican City",
+            content: `<p>Vatican City, Holy See: 41.9029° N, 12.4534° E</p>${weatherInfo} ${toolTipButtons}`,
+            name: "Vatican City, Holy See",
             overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
             d3: `<div class="d3" id="d3"></div>`
         },
@@ -492,6 +492,10 @@ function initMap() {
 
                         /* console.log(tempValue, descValue, nameValue); */
                         if (document.getElementById("weather")) {
+                            /* Together with CSS Styling this creates a linear background effect. */
+                            document.querySelector(".gm-style-iw-d").className = "";
+                            document.querySelector(".gm-style-iw-c").style = "padding: 12px";
+
                             let weatherID = document.getElementById("weather").id = "weather" + nameValue;
                             let buttonIDOver = document.getElementById("buttonOver").id = "buttonOver" + nameValue;
                             let buttonIDStats = document.getElementById("buttonStats").id = "buttonStats" + nameValue;
@@ -500,10 +504,6 @@ function initMap() {
                             configureButtonEventHandlers(buttonIDOver, buttonIDStats);
                             //overviewButton(buttonIDOver);
                             //statisticsButton(buttonIDStats);
-                            /* Together with CSS Styling this creates a linear background effect. */
-                            document.querySelector(".gm-style-iw-d").className = "";
-                            document.querySelector(".gm-style-iw-c").style = "padding: 12px";
-
                             document.getElementById(weatherID).innerHTML = tempValue + `° Celsius, ` + descValue + `, ` + airPressure + ` hPa`;
                         } else {
                             let weatherID = "weather" + nameValue;
@@ -604,6 +604,27 @@ function initMap() {
         let findCountryObject = {};
 
         let displayCountry = (country) => {
+
+            /* switch (country) {
+                case "England":
+                    country = "United Kingdom of Great Britain and Northern Ireland";
+                    break;
+                case "Czechia":
+                    country = "Czech Republic";
+                    break;
+                case "Wales":
+                    country = "...";
+                    break;
+                case "Scotland":
+                    country = "...";
+                    break;
+                case "Northern Ireland":
+                    country = "...";
+                    break;
+                default:
+                    break;
+            } */
+
             console.log("Fetch: ", country);
             let languages = "";
 
