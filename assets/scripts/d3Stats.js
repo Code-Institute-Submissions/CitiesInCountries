@@ -49,8 +49,6 @@ function d3Stats(city, width, height, tickFormat, fillColour) {
     const y = d3.scaleLinear()
         .range([graphHeight, 0]);
     // Map Object to an Array of items (in this case names)
-    // .domain(data.map(item => item.name)) -->
-    // ["veg soup", "veg curry", "veg pasta", "veg surprise"]
     const x = d3.scaleBand()
         .range([0, graphWidth])
         .paddingInner(0.2)

@@ -1,18 +1,16 @@
 /* === WHY?
-    To place map markers of places I've travelled to in both business and pleasure, giving the audience of what I've done, where, and why.
-    Map Marker -- 'hover' --> Tool-tip -- 'click' --> Overview Modal -- 'click Detail Button' --> Detail Modal || 'click D3 Button' --> Graphs...
+    To provide an informaive overview of Cities and Countries in Europe (expanded in future to include the World) tthrough Google Map Markers.
+    Map Marker -- 'click' --> Tool-tip -- 'click' Overview Button --> Overview Modal || 'click Statistics Button' --> Graphs...
 
 
 === WHAT?
     Google Maps API - Bill Traversy @ Traversy Media: https://www.youtube.com/watch?v=Zxf1mnP5zcw and Code Institute Walkthrough by Matt Rudge.
-    Added several Locations/Markers with iconImage, and Content ("tool-tips")
-    Added Mouseover and Mouseout as it's user-friendly and performs nicer than Click
-    Saving Click for JS Modal (Code Institute Milestone Project II)
+    Added several Locations/Markers with iconImage, and Content ("tool-tips").
 
     OpenWeather API - Shanjah Raj: https://www.youtube.com/watch?v=GXrDEA3SIOQ&t=472s and OpenWeather API Doc: https://openweathermap.org/api/one-call-api?gclid=Cj0KCQjws_r0BRCwARIsAMxfDRiC6VCy8j0Jlfc27LsuhT9RbEdMJu3T0d9Z12oRrBRMFemuwWGUKIMaAj5DEALw_wcB
     Using Lat Lon from marker.position Object converted to String, formatted, and converted to an Array used by the fetch-then-catch Promise.
 
-    D3 API - 
+    D3 API - get city and counyr population data from a Firebase Firesore (noSQL DB) to display it in the JS Modals.
 
 === HOW?
     HTML: Create the navigation elements with relevant classes and id's, to be referenced by CSS and modified via JS.
@@ -710,7 +708,7 @@ function initMap() {
                 // languages += `${findCountryObject["languages"][i]["name"]} `;
             }
             document.querySelector("#d3").innerHTML = `<p>Population: "${findCountryObject["population"]}", Area: ${findCountryObject["area"]} km<sup>2</sup></p>
-                <p>Bordering Countrie(s): ${borders}</p><p>Gini Coefficient: ${findCountryObject["gini"]}, this is a measurement of inequality. The lower the better. Most European countries have a Gini Coefficient below 30.</p>`;
+                <p>Bordering Countrie(s): ${borders}</p><p>Gini Coefficient: ${findCountryObject["gini"]}, this is a measurement of inequality. The lower the better. Most European countries have a Gini Coefficient below 35.</p>`;
         };
         
         let fetchStats = (country) => {

@@ -9,7 +9,7 @@
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
         type="text/css">
     <!-- Local Stylesheet: Style -->
-    <link rel="stylesheet" href="assets/styles/style.css">
+    <link rel="stylesheet" href="/assets/styles/style.css">
     <title>Cities in Countries Data</title>
 
     <!-- Favicon, a gorgeous 'G' for Gaff/Gaffney/Google... -->
@@ -40,42 +40,183 @@
             </div>
             <div class="controls fullscreen-control">
                 <button title="Toggle Fullscreen">
-                    <div class="fullscreen-control-icon fullscreen-control-top-left"></div>
-                    <div class="fullscreen-control-icon fullscreen-control-top-right"></div>
-                    <div class="fullscreen-control-icon fullscreen-control-bottom-left"></div>
-                    <div class="fullscreen-control-icon fullscreen-control-bottom-right"></div>
+                    <span class="fullscreen-control-icon fullscreen-control-top-left"></span>
+                    <span class="fullscreen-control-icon fullscreen-control-top-right"></span>
+                    <span class="fullscreen-control-icon fullscreen-control-bottom-left"></span>
+                    <span class="fullscreen-control-icon fullscreen-control-bottom-right"></span>
                 </button>
             </div>
         </div>
 
         <!-- Fixed Footer Elements for Footer Modals -->
         <div class="footer  fixed-footer">
-            <a href="#">
+            <a href="#id01">
                 <i class="fa fa-exclamation" id="fa-exclamation" aria-hidden="true"></i>
                 <span class="sr-only">About</span>
             </a>
 
-            <a href="#">
+            <a href="#id02">
                 <i class="fa fa-file-code-o" id="fa-file-code-o" aria-hidden="true"></i>
                 <span class="sr-only">API's</span>
             </a>
 
-            <a href="#">
+            <a href="#id03">
                 <i class="fa fa-code" id="fa-code" aria-hidden="true"></i>
                 <span class="sr-only">Code Snippets</span>
             </a>
 
-            <a href="#">
+            <a href="#id04">
                 <i class="fa fa-envelope-o" id="fa-envelope-o" aria-hidden="true"></i>
                 <span class="sr-only">Contact Form</span>
             </a>
 
-            <a href="#">
+            <a href="#id05">
                 <i class="fa fa-user" id="fa-user" aria-hidden="true"></i>
-                <span class="sr-only">My Resumé</span>
+                <span class="sr-only">Naoise Olof Seán Gaffney</span>
             </a>
         </div>
     </div>
+
+    <section>
+        <div id="id01" class="cssmodal">
+            <div class="cssmodal-dialog">
+                <div class="cssmodal-content">
+                    <header class="cssmodal-container">
+                        <h3><i class="fa fa-exclamation" id="fa-exclamation-css-modal" aria-hidden="true"></i>
+                            <span class="sr-only">About</span>&nbsp;&nbsp;&nbsp;About</h3>
+                    </header>
+                    <div class="cssmodal-container">
+                        <div>
+                            <p>Please click on the Google Map Markers - <img src="/assets/images/GoogleMapMarker.png"
+                                    width="10" alt="Google Map Marker"> - for information on the Capital City of your
+                                choice.</p>
+                            <p>Click on the Overview button &nbsp; <button class="button">Overview</button>for Country
+                                details, and click on the Statistics button &nbsp; <button
+                                    class="button">Statistics</button>for simple statistics.</p>
+                            <p>The Footer links are: About - <i class="fa fa-exclamation" aria-hidden="true"></i>
+                                <span class="sr-only">About</span> - which is this modal, API's - <i
+                                    class="fa fa-file-code-o" aria-hidden="true"></i><span class="sr-only">API's</span>
+                                - providing links to the descriptions of the API's used on this website to provide data
+                                and functionality, Code Snippets - <i class="fa fa-code" aria-hidden="true"></i>
+                                <span class="sr-only">Code Snippets</span> - providing links to tutorials and courses
+                                with knowledge and skills used on this website, Contact Form - <i
+                                    class="fa fa-envelope-o" aria-hidden="true"></i>
+                                <span class="sr-only">Contact Form</span> - to provide greatly appreciated feedback, and
+                                About Me - <i class="fa fa-location-arrow" aria-hidden="true"></i> - to view my Resumé,
+                                GitHub, and GaffCo for professional communication competence!</p>
+                        </div>
+                        <p style="text-align:right"><a href="#" class="button">Close</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="id02" class="cssmodal">
+            <div class="cssmodal-dialog">
+                <div class="cssmodal-content">
+                    <header class="cssmodal-container">
+                        <h3><i class="fa fa-file-code-o" id="fa-file-code-o-css-modal" aria-hidden="true"></i>
+                            <span class="sr-only">API's</span>&nbsp;&nbsp;&nbsp;Application Programming Interfaces</h3>
+                    </header>
+                    <div class="cssmodal-container">
+                        <div><a href="https://developers.google.com/maps/documentation/javascript/tutorial"
+                                target="_blank" class="modal-link-text">Google Maps JavaScript API Description - to
+                                create the map and markers.</a></div>
+                        <div><a href="https://openweathermap.org/api/one-call-api" target="_blank"
+                                class="modal-link-text">OpenWeather API Description - adding real-time weather
+                                information to the marker tool-tips.</a></div>
+                        <div><a href="https://github.com/d3/d3/blob/master/API.md" target="_blank"
+                                class="modal-link-text">D3 API Description - to display dynamic graphs and
+                                statistics.</a></div>
+                        <div><a href="https://www.emailjs.com/" target="_blank" class="modal-link-text">EmailJS API
+                                Description - to enjoy user feedback to improve the website.</a></div>
+                        <div><a href="https://firebase.google.com/" target="_blank" class="modal-link-text">"Built with
+                                Firebase &reg;" - to store and retrieve D3 and City data.</a></div>
+                        <div><a href="https://restcountries.eu/" target="_blank" class="modal-link-text">REST Countries
+                                EU API Description - Global Country data for Overview and Statistics Modals.</a></div>
+                        <p style="text-align:right"><a href="#" class="button">Close</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="id03" class="cssmodal">
+            <div class="cssmodal-dialog">
+                <div class="cssmodal-content">
+                    <header class="cssmodal-container">
+                        <h3><i class="fa fa-code" id="fa-code-css-modal" aria-hidden="true"></i>
+                            <span class="sr-only">Code Snippets</span>&nbsp;&nbsp;&nbsp;Code Snippets</h3>
+                    </header>
+                    <div class="cssmodal-container">
+                        <div><a href="https://codeinstitute.net/" target="_blank" class="modal-link-text">Google Maps
+                                API - Code Institute walkthrough by Matt Rudge.</a></div>
+                        <div><a href="https://youtu.be/Zxf1mnP5zcw" target="_blank" class="modal-link-text">Google Maps
+                                API - Bill Traversy @ Traversy Media.</a></div>
+                        <div><a href="https://youtu.be/GXrDEA3SIOQ" target="_blank" class="modal-link-text">OpenWeather
+                                API - OpenWeather API JavaScript example and walkthrough by Shanjah Raj.</a></div>
+                        <div><a href="https://www.udemy.com/course/build-data-uis-with-d3-firebase/" target="_blank"
+                                class="modal-link-text">Udemy Course on D3 & Firebase by Shaun Pelling.</a></div>
+                        <div><a href="https://www.udemy.com/course-dashboard-redirect/?course_id=2508942"
+                                target="_blank" class="modal-link-text">Udemy Course on JavaScript the Complete Guide
+                                2020 by Maximilian Schwarzmüller.</a></div>
+                        <p style="text-align:right"><a href="#" class="button">Close</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="id04" class="cssmodal">
+            <div class="cssmodal-dialog">
+                <div class="cssmodal-content">
+                    <header class="cssmodal-container">
+                        <h3><i class="fa fa-envelope-o" id="fa-envelope-o-css-modal" aria-hidden="true"></i>
+                            <span class="sr-only">Contact Form</span>&nbsp;&nbsp;&nbsp;Contact Form</h3>
+                    </header>
+                    <div class="cssmodal-container">
+                        <div class="center-form">
+                            <h4>Please get in touch!</h4>
+                            <form onsubmit="return sendMail(this);" id="feedbackform">
+                                <div><input type="text" name="name" class="form-control" id="fullname"
+                                        placeholder="Name" required />
+                                    <div>
+                                        <div><input type="text" name="emailaddress" class="form-control"
+                                                id="emailaddress" placeholder="Email: name@domain.com" required /></div>
+                                        <span><textarea rows="3" cols="35" name="feedback" class="form-control"
+                                                id="feedback" placeholder="Your comments and thoughts."
+                                                required></textarea></span>
+                                        <div><button type="submit" value="send" class="button" id="contactsubmit">Send
+                                                Feedback</button>
+                                            <p style="text-align: center;" id="sendmail-status"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <p style="text-align:right"><a href="#" class="button">Close</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="id05" class="cssmodal">
+            <div class="cssmodal-dialog">
+                <div class="cssmodal-content">
+                    <header class="cssmodal-container">
+                        <h3><i class="fa fa-user" id="fa-user" aria-hidden="true"></i>
+                            <span class="sr-only">Naoise Olof Seán Gaffney</span>&nbsp;&nbsp;&nbsp;Naoise Olof Seán
+                            Gaffney</h3>
+                    </header>
+                    <div class="cssmodal-container">
+                        <div><a href="https://naoisegaffney.github.io/Resume/index.html" target="_blank"
+                                class="modal-link-text">My Resumé.</a></div>
+                        <div><a href="https://github.com/NaoiseGaffney" target="_blank" class="modal-link-text">My
+                                GitHub.</a></div>
+                        <div><a href="https://ptd--gaffco.repl.co/index.html" target="_blank"
+                                class="modal-link-text">GaffCo Consulting Professional Communication Competence.</a>
+                        </div>
+                        <p style="text-align:right"><a href="#" class="button">Close</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
 
     <!-- Modal controlled by JavaScript for Map Marker and Footer Modals -->
     <aside class="modal card" id="add-modal">
@@ -83,7 +224,7 @@
             <p>Modal Content Here!</p>
         </div>
         <div class="modal__actions">
-            <button class="button" id="close">Close</button>
+            <button class="button" id="close" onclick="closeModal()">Close</button>
         </div>
     </aside>
 
@@ -98,7 +239,7 @@
 </script>
 
 <!-- EmailJS sendmail() -->
-<script src="assets/scripts/sendemail.js"></script>
+<script src="/assets/scripts/sendemail.js"></script>
 
 <!-- Google Firebase Firestore noSQL DB -->
 <!-- The core Firebase JS SDK is always required and must be listed first -->
@@ -130,14 +271,13 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.js"></script>
 
 <!-- Load Google Map API and local maps.js here to ensure it loads after everything else. -->
-<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC63AOgIhSH-DxdfryU-v6kmGh04RbLjc0&callback=initMap" async defer></script> -->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDKoKXKgFfLTb9SNLk0QEq1FmnNJD3hSg&callback=initMap" async
     defer></script>
 <!-- Google Maps Navigation Controls JS Script -->
-<script src="assets/scripts/mapControls.js" defer></script>
+<script src="/assets/scripts/mapControls.js" defer></script>
 <!-- Main JS Script -->
-<script src="assets/scripts/maps.js" defer></script>
+<script src="/assets/scripts/maps.js" defer></script>
 <!-- D3 JS Script for Stats/Graphs -->
-<script src="assets/scripts/d3Stats.js"></script>
+<script src="/assets/scripts/d3Stats.js"></script>
 
 </html>

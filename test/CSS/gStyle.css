@@ -609,7 +609,7 @@ textarea {
 /* === Responsive Web Design - Mobile Devices First and Foremost === */
 /* --- Make sure that the JS Modal doesn't "hog the limelight, too much..." on displays with plenty of "Real Estate".
 Using a Modal CSS trick for the JS Modal to center the modal; .modal {} --- */
-@media screen and (min-width: 600px) /* and (min-height: 1000px) */ {
+@media screen and (min-width: 600px) and (min-height: 600px) {
     .modal {
         position: fixed;
         width: fit-content;
