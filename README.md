@@ -91,17 +91,16 @@ This is a layered website making use of 3 dimensions (x, y, z). The background c
 [User Walkthrough Video - an Overview](https://youtu.be/YxqJtqwyjEs)
 
 #### Existing Features
-These features are shared across all web pages on the website:
+The features of the "Dashboard":
 
-- Right-top Hamburger-menu: allows users to select the most suitable training and development, and coaching opportunity by having them click on the hamburger-menu and subsequent menu choice (Home, Organisations, Individuals, Programmes).
-- Fixed footer - Professional Trainer and Coach: allows users to read my resumé to add to the websites credibility ("been there, done that, and have the t-shirt") by clicking on the graduation-cap or text link or tool-tip.
-- Fixed footer - Copyright 2020 GaffCo Consulting: allows users to navigate to my "training centre (home)" by clicking on the location-arrow or text link or tool-tip.
-- Fixed footer - Mobile (phone-call): allows users to call me on their mobile or via Skype for Business (if installed) to talk to me about training and development, and coaching, by clicking on the FontAwesome phone icon.
-- Fixed footer - WhatsApp (message): allows users to WhatsApp message me on their mobile or laptop/desktop (if installed) to message me about training and development, and coaching, by clicking on the FontAwesome WhatsApp icon.
-- Fixed footer - Email (message): allows users to Email me on their mobile or laptop/desktop (if mailto: is linked) to message me about training and development, and coaching, by clicking on the FontAwesome Email icon.
-- Fixed footer - LinkedIn (website --> message): allows users to send me a LinkedIn message about training and development, and coaching, by clicking on the FontAwesome LinkedIn icon.
-
-The Fixed footer FontAwesome icons zoom-in (`transform: scale (1.5)`) when hovered over, while also featuring a tool-tip (`i[tool-tip]`) to provide additional information. This is shared across all web pages on the website.
+* The website/webpage loads, creates a Google Map with Markers for each European capital city and centres the map on Firhouse, Dublin, Ireland. The browser requests access to the User's geolocation. If accepted, the map is recentred on the geolocation, otherwise it remains centred to the default location.
+* Each map marker is clickable, revealing a Google InfoWindow ("pop-up") 
+* The Fixed Footer provides links to a CSS Modal. The Fixed footer FontAwesome icons zoom-in (`transform: scale (1.5)`) when hovered over (inviting the User to click on them):
+	* About => description of the website, and instructions on how to navigate it, while also describing the other CSS Modals.
+	* API's => a list of links to the API's used for this website.
+	* Code Snippets => a list of links to the Code Snippets, Courses and Walkthroughs used to gain the knowledge to apply the skills to create this website.
+	* Contact Form => a feedback form, allowing Users to provide feedback and suggestions on improvements. The form requires all fields to be filled in, and a valid e-mail address format is used, before submitting the form. On success, the Modal is updated with a "Thank you!" message, and on failure, an "Apology message".
+	* About Me => links to my work and sites related to what I've done as a student at the Code Institute.
 
 These features are unique or different on the web pages across the website:
 
