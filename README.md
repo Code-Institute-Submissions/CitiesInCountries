@@ -94,54 +94,29 @@ This is a layered website making use of 3 dimensions (x, y, z). The background c
 The features of the "Dashboard":
 
 * The website/webpage loads, creates a Google Map with Markers for each European capital city and centres the map on Firhouse, Dublin, Ireland. The browser requests access to the User's geolocation. If accepted, the map is recentred on the geolocation, otherwise it remains centred to the default location.
-* Each map marker is clickable, revealing a Google InfoWindow ("pop-up") 
+* The background uses a linear gradient that is used for all key elements of the website adding to a common look-and-feel (background (html, body), footer, navigational controls, and JS/CSS Modals). With a slight transparancy and shadow it gives the JS/CSS Modals a curved look.
+
+* Each map marker is clickable, revealing a Google InfoWindow ("pop-up") ![Google Map Marker InfoWindow](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/images/Google%20Map%20Marker%20InfoWindow.png) with the Capital City, Country, Latitude and Longitude (static internal Array[]), the current weather (real-time from the OpenWeather API: temperature, description, and air pressure). The 2 buttons:
+	* Overview Buttton => displays the flag, native name, regional information, official languages, currencies, and calling code (real-time from the REST Countries API). Closed via the Close Button (JS EventListener and CSS).
+	* Statistics Button => displays a population graph (real-time and updated automaically upon DB change by the D3 API using data from the noSQL Firebase Firestore), and further information related to the country (real-time from the REST Countries API). Closed via the Close Button (JS EventListener and CSS).
+
 * The Fixed Footer provides links to a CSS Modal. The Fixed footer FontAwesome icons zoom-in (`transform: scale (1.5)`) when hovered over (inviting the User to click on them):
-	* About => description of the website, and instructions on how to navigate it, while also describing the other CSS Modals.
-	* API's => a list of links to the API's used for this website.
-	* Code Snippets => a list of links to the Code Snippets, Courses and Walkthroughs used to gain the knowledge to apply the skills to create this website.
-	* Contact Form => a feedback form, allowing Users to provide feedback and suggestions on improvements. The form requires all fields to be filled in, and a valid e-mail address format is used, before submitting the form. On success, the Modal is updated with a "Thank you!" message, and on failure, an "Apology message".
-	* About Me => links to my work and sites related to what I've done as a student at the Code Institute.
-
-These features are unique or different on the web pages across the website:
-
-The [Homepage: index.html](https://naoisegaffney.github.io/Professional-Training-Development/index.html) provides the following features:
-
-- Background image: Emotional image of success after a hard run - sets the tone of the website, "You too will be equally successful and elated after attending our courses!"
-- Motivational mission statement "Organisations Achieve Greater Value through Professionally Coached Employees" - sets the tone of the website stating of a fact, the real reason users are visiting this website.
-
-The [Organisations page: organisations.html](https://naoisegaffney.github.io/Professional-Training-Development/organisations.html) provides the following features:
-
-- Organisations: allow users to know they're on the Organisations page, and presents them with two menus, one for Professional Courses and the other for QQI Courses.
-	- Organisations H1 with FontAwesome fa-sitemap icon makes it clear on which page the user is on.
-	- Professional Courses Flex Div provides the relevant clickable course options.
-	- QQI Courses Flex Div provides the relevant clickable courses.
-- Clickable Course Links: allows users to view course details, dates, and training location, by clicking on each link/course item.
-- Course Modal: allows users to view course details and either book a course or close the modal by clicking on the 'Book Now!' button or the closing 'x'.
-
-The [Individuals page: individuals.html](https://naoisegaffney.github.io/Professional-Training-Development/individuals.html) provides the following features:
-
-- Individuals: allow users to know they're on the Individuals page, and presents them with two menus, one for Professional Skills Coaching and the other for Specific Coaching Occasions.
-	- Individuals H1 with FontAwesome fa-user icon makes it clear on which page the user is on.
-	- Professional Skills Coaching Flex Div provides the relevant clickable course options.
-	- Specific Coaching Occasions Flex Div provides the relevant clickable courses.
-- Clickable Course Links: allows users to view course details, dates, and training location, by clicking on each link/course item.
-- Course Modal: allows users to view course details and either book a course or close the modal by clicking on the 'Book Now!' button or the closing 'x'.
-
-The [Programmes page: programmes.html](https://naoisegaffney.github.io/Professional-Training-Development/programmes.html) provides the following features:
-
-- Individuals: allow users to know they're on the Individuals page, and presents them with two menus, one for Professional Skills Coaching and the other for Specific Coaching Occasions.
-	- Individuals H1 with FontAwesome fa-user icon makes it clear on which page the user is on.
-	- Professional Skills Coaching Flex Div provides the relevant clickable course options.
-	- Specific Coaching Occasions Flex Div provides the relevant clickable courses.
-- Clickable Course Links: allows users to view course details, dates, and training location, by clicking on each link/course item.
-- Course Modal: allows users to view course details and either book a course or close the modal by clicking on the 'Book Now!' button or the closing 'x'.
+	* About => description of the website, and instructions on how to navigate it, while also describing the other CSS Modals. Closed via the Close Button (HTML and CSS).
+	* API's => a list of links to the API's used for this website. Closed via the Close Button (HTML and CSS).
+	* Code Snippets => a list of links to the Code Snippets, Courses and Walkthroughs used to gain the knowledge to apply the skills to create this website. Closed via the Close Button (HTML and CSS).
+	* Contact Form => a feedback form, allowing Users to provide feedback and suggestions on improvements. The form requires all fields to be filled in, and a valid e-mail address format is used, before submitting the form. On success, the Modal is updated with a "Thank you!" message, and on failure, an "Apology message" (EmailJS API). Closed via the Close Button (HTML and CSS).
+	* About Me => links to my work and sites related to what I've done as a student at the Code Institute. Closed via the Close Button (HTML and CSS).
 
 #### Features Left to Implement
-- 'Book Now!' button function (JS) or --> Form (JS/Python 3).
-- Additional depth of detail for each course, for example Planned Learning Outcomes.
-- Client, Collaborator, and Individual Testimonials to increase credibility and trust.
-- Blog/Vlog to sell visions, ideas, possibilities of value to the users, with examples of course and coaching work (2 to 3-minute snippets).
-- The design decision is to rely on simple Flexbox and Grid Layouts, rather than relying on a framework such as Bootstrap 4, and still maintain a responsive web design. In future I may stick to solely to Grid with the `minmax()` function to ensure a responsive web design, or venture further into Bootstrap 4 territory. I've left the Grid layout defined in style.css as-is for future additions.
+* Additional dynamic and real-time data in the Overview and Statistics Modals.
+* Make the D3 Graphs (Statistics Modals) interactive ("clickable") and data-driven.
+* Internal: move static data (city and country array) to the Firebase Firestore or MongoDB.
+* Add Map Markers and dynamic data for all the Capital Cities and Countries in the World.
+* Nice-to-have: allow the user to change the theme, by selecting from a number of predefined themes (dark, light, funky...).
+* Start with a destination form asking for permission to use the Browser's geolocation function, or allow the User to enter a city to centre the map on, or use the default of Firhouse, Dublin, Ireland.
+* As in all development projects, there is always room for continuous improvement.
+	* Given the fact that I've had "to fight" the Google Map JS scripts when styling the Google Map Markers InfoWindows, I would rewrite that part using full customisation (own code), however, I was not aware of all of the challenges I'd be facing on this project. It's a fabulous learning experience. :-)
+	* I'd break out some of the functions in initMap() to make this more modular and scalable.
 
 ## Technology
 
@@ -152,11 +127,13 @@ A list of the languages, frameworks, libraries, and other tools used for this pr
 	* The project uses HTML 5 to create the content.
 * [CSS 3 CSS - Snapshot 2018 W3C Working Group Note, 22 January 2019](https://www.w3.org/TR/css-2018/)
 	* The project uses CSS 3 to style the content and provide the layout.
+* [ECMAScript&reg; 2015 Language Specification](http://www.ecma-international.org/ecma-262/6.0/)
+	* The project uses JavaScript, based on the ECMAScript language specification and implemented by numerous browser vendors. As a general rule, I read the implementation of this at [MDN web docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript).
 
 ### Development and Staging Platforms and Environments
 * [GitHub / GitPod /Git / GitHub Pages](https://github.com/)
 	* The project uses GitHub:
-		* GitPod to create and edit the project files (HTML 5 and CSS 3).
+		* GitPod to create and edit the project files (HTML 5, CSS 3, and JavaScript).
 		* Git to add, commit, and push the project files to GitHub.
 		* GitHub Pages turns GitHub Repositories into Websites.
 * [Code Institute GitPod Full Template](https://github.com/Code-Institute-Org/gitpod-full-template)
@@ -164,7 +141,7 @@ A list of the languages, frameworks, libraries, and other tools used for this pr
 * [DropBox](https://www.dropbox.com/)
 	* Using DropBox as a staging area for Visual Studio Code, and synching this with GitHub.
 * [Visual Studio Code](https://code.visualstudio.com/)
-	* Code writing and staging. Went over to Visual Studio Code for improved coding ease, performance, and stability (used Repl-it~ and GitHub first).
+	* Code writing and staging. Use Visual Studio Code for Dev (Code Snippets), Test (fully-functioning), and Production (pushed to GitHub, and published on GitPages).
 * [LiveServer for Visual Code Studio](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
 	* This is the local Web Server used for development and testing, running as an add-on to Visual Studio Code.
 
@@ -179,14 +156,8 @@ A list of the languages, frameworks, libraries, and other tools used for this pr
 	* Using this font in different sizes for all text.
 * [FontAwesome CDN](https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css)
 	* Using FontAwesome font icons to add visual elements to key website features, making the website memorable and easier to navigate.
-* [Pixabay Free Images: Mountains](https://cdn.pixabay.com/photo/2019/01/27/22/32/mountains-3959204_1280.jpg)
-	* Using this image as the background image throughout the website.
-* [CSS Before and After pseudo elements explained - part two: the content property by Kevin Powell](https://www.youtube.com/watch?v=xoRbkm8XgfQ)
-	* Using the hover tool-tip function for the fixed footer FontAwesome icons: resumé, social and contact links, and location.
-* [Pure CSS Hamburger Menu & Overlay by Traversy Media](https://www.youtube.com/watch?v=DZg6UfS5zYg)
-	* Using the described hamburger menu function for my menu.
-* [Target Modal from W3Schools](https://www.w3schools.com/cssref/tryit.asp?filename=trycss3_target_modal)
-	* Using this modal function for my course details.
+* [CSS Modal from W3Schools](https://www.w3schools.com/cssref/tryit.asp?filename=trycss3_target_modal)
+	* Using this modal function for my Fixed Footer links.
 
 ### General Knowledge and Hours of Reading
 * [Website: CSS Tricks](https://css-tricks.com/)
@@ -197,13 +168,32 @@ A list of the languages, frameworks, libraries, and other tools used for this pr
 	* Read parts of this eBook to better understand Git.
 * [FREE PDF: Elements of User Experience Design by Jesse James Garrett (second edition 2010)](https://www.academia.edu/33276128/The_Elements_of_User_Experience_-_Jesse_James_Garrett)
 	* User experience design makes sure the aesthetic and functional aspects of an element works in the context of the rest of the website.
+* Udemy Courses:
+	* [Udemy Course on JavaScript the Complete Guide 2020 by Maximilian Schwarzmüller](https://www.udemy.com/course-dashboard-redirect/?course_id=2508942)
+	* [Udemy Course on D3 & Firebase by Shaun Pelling](https://www.udemy.com/course/build-data-uis-with-d3-firebase/)
+* Code Snippet examples and walkthroughs:
+	* [Google Maps API - Code Institute walkthrough by Matt Rudge](https://codeinstitute.net/)
+	* [Google Maps API - Bill Traversy @ Traversy Media](https://youtu.be/Zxf1mnP5zcw)
+	* [OpenWeather API - OpenWeather API JavaScript example and walkthrough by Shanjah Raj](https://youtu.be/GXrDEA3SIOQ)
+* API Documentation:
+	* [Google Maps JavaScript API Description - to create the map and markers](https://developers.google.com/maps/documentation/javascript/tutorial)
+	* [OpenWeather API Description - adding real-time weather information to the marker tool-tips](https://openweathermap.org/api/one-call-api)
+	* [D3 API Description - to display dynamic graphs and statistics](https://github.com/d3/d3/blob/master/API.md)
+	* [EmailJS API Description - to enjoy user feedback to improve the website](https://www.emailjs.com/)
+	* [REST Countries EU API Description - Global Country data for Overview and Statistics Modals](https://restcountries.eu/)
+* noSQL Database:
+	* ["Built with Firebase &reg;" - to store and retrieve D3 and City data](https://firebase.google.com/)
 
 ### Elixir of Life
 * [Strong Black French Press Coffee](https://www.youtube.com/watch?v=st571DYYTR8)
 	* Keeps me alert and on-schedule; keeps me going through the night. This is the secret source of my programming-powers. :-)
 
 ### Technological Design Decision
-The design decision is to rely on simple Flexbox and Grid Layouts, rather than relying on a framework such as Bootstrap 4, and still maintain a responsive web design. In future I may stick solely to Grid with the `minmax()` function to ensure a responsive web design, or venture into Bootstrap 4 territory.
+Opted for a Dashboard Information Architecture as it's the easiest for a User to use, though not always to design and develop for.
+
+Grid Layouts and Flexbox are used for the layout of the Dashboard. To further my understaning and skill development, I've opted for vanilla HTML 5 and CSS 3, as opposed to using one of many frameworks. I also opted for vanilla JavaScript as far as I can manage, however, I use D3 to create the real-time dynamic population graphs. I do this to ensure I fully(?) understand the workings before embarking on simplification by using frameworks. jQuery is not necessary for this project as JavaScript has the same functions built-in, however, in future jQuery is good for more complex uses (not required for this simple design).
+
+Using GitHub as a repository and GitPages for publishing the website is an easy choice to make, as it works well and is easy to use.
 
 ## Testing
 ### Manual Testing Technology
