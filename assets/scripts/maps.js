@@ -63,34 +63,6 @@ function initMap() {
             d3: `<div class="d3" id="d3"></div>`
         },
         {
-            coords: { lat: 54.5973, lng: -5.9301 },
-            content: `<p>Belfast, Northern Ireland: 54.5973° N, 5.9301° W</p>${weatherInfo} ${toolTipButtons}`,
-            name: "Belfast, Northern Ireland",
-            overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
-            d3: `<div class="d3" id="d3"></div>`
-        },
-        {
-            coords: { lat: 51.4816, lng: -3.1791 },
-            content: `<p>Cardiff, Wales: 51.4816° N, 3.1791° W</p>${weatherInfo} ${toolTipButtons}`,
-            name: "Cardiff, Wales",
-            overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
-            d3: `<div class="d3" id="d3"></div>`
-        },
-        {
-            coords: { lat: 55.9533, lng: -3.1883 },
-            content: `<p>Edinburg, Scotland: 55.9533° N, 3.1883° W</p>${weatherInfo} ${toolTipButtons}`,
-            name: "Edinburgh, Scotland",
-            overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
-            d3: `<div class="d3" id="d3"></div>`
-        },
-        {
-            coords: { lat: 1.3521, lng: 103.8198 },
-            content: `<p>Singapore, Singapore: 1.3521° N, 103.8198° E</p>${weatherInfo} ${toolTipButtons}`,
-            name: "Singapore, Singapore",
-            overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
-            d3: `<div class="d3" id="d3"></div>`
-        },
-        {
             coords: { lat: 59.3293, lng: 18.0686 },
             content: `<p>Stockholm, Sweden: 59.3293° N, 18.0686° E</p>${weatherInfo} ${toolTipButtons}`,
             name: "Stockholm, Sweden",
