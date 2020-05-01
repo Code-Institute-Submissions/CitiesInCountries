@@ -198,8 +198,10 @@ Using GitHub as a repository and GitPages for publishing the website is an easy 
 ## Testing
 ### Automated Testing Technology
 Automated testing is performed using:
+
 * [Selenium IDE](https://www.selenium.dev/selenium-ide/) - the Chrome and Firefox extensions.
-* 
+* [Cities in Countries Test File](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/test/Capital%20Cities%20in%20Countries.side)
+
 ### Manual Testing Technology
 The following combination of software and hardware is used for all manual tests:
 
@@ -219,7 +221,7 @@ All devices and formats are tested in both portrait and landscape mode. The webs
 A couple of things to note:
 
 * On the smallest devices (Galaxy S5 and Apple iPhone 5) some of the JS and CSS Modals go outside of the viewing area. The JS and CSS Modals are scrollable:  `.modal { overflow-y: auto; max-height: 90vh; }`.
-* To ensure the correct loading of Google Maps, and to avoid the occasional "Uncaught (in promise) pd {message: "initMap is not a function", name: "InvalidValueError"...}" both the `async` and `defer` attributes ADDED to the Google Map JS script tag in index.html (gTest.html). I think a rewrite of the initMap() is required, using async/wait or a callback.
+* To ensure the correct loading of Google Maps, and to avoid the occasional "Uncaught (in promise) pd {message: "initMap is not a function", name: "InvalidValueError"...}" both the `async` and `defer` attributes ADDED to the Google Map JS script tag in index.html (gTest.html). I think a rewrite of the initMap() is required.
 
 ### HTML and CSS Validation
 HTML Validation: [](https://validator.w3.org/nu/)
