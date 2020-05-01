@@ -4,7 +4,7 @@
 
 [Capital Cities in Countries Data](https://naoisegaffney.github.io/CitiesInCountries/)
 
-![Screenshot of the main page (index.html)](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/CinCDashboard.png)
+![Screenshot of the main page (index.html)](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/images/CinCDashboard.png)
 
 A responsive and interactive website using HTML 5, CSS 3, and JavaScript to provide an informative overview of Cities and Countries in Europe (expanded in future to include the World) through Google Map Markers, with Modals (“pop-ups”) providing place details and statistics.
 
@@ -67,11 +67,7 @@ There are three main actors/roles that use the services provided by the website:
 
 The User Experience and Design MarkDown document covers the 5 planes in detail, and contains the Balsamiq wireframes and mockups of the website (simplified views, and not complete representations).
 
-<<<<<<< HEAD
 [User Experience and Design MarkDown](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/CinC%20-%20User%20Experience%20and%20Design.md)
-=======
-[User Experience and Design MarkDown](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/CinC%20-%20User%20Experience%20and%20Design.md) Contains the Balsamiq wireframes and mockups of the website (simplified views, and not complete representations).
->>>>>>> Documentation: CinC Walkthrough video. Nearing completion of README.md.
 
 ## Solution
 ### Features
@@ -86,11 +82,7 @@ This website uses a Dashboard Information Architecture. Everything is accessible
 
 This is a layered website making use of 3 dimensions (x, y, z). The background colour is a linear gradient, the same linear gradient is used throughout the website to enhance the common look-and-feel. The Google Map is at the bottom (`z-index: 1`). The Fixed Footer is visually "on top" of the Google Map though with the same z-index (`z-index: 1`). The backdrop (grey transparent background that toggles when either a JS or a CSS Modal is activated) is on top of the Google Map and Fixed Footer (`z-index: 2`), and stops any clicking on elements "behind" the backdrop. The CSS Modals are on top of the backdrop. (`z-index: 4`), and the JS Modals are on top of everything else (`z-index: 100`).
 
-<<<<<<< HEAD
 [User Walkthrough Video - an Overview](https://www.dropbox.com/s/ynb6myith810x8c/CinC%20Walkthrough%20-%201080P.mov?dl=0)
-=======
-[User Walkthrough Video - an Overview]()
->>>>>>> Documentation: CinC Walkthrough video. Nearing completion of README.md.
 
 #### Existing Features
 The features of the "Dashboard":
@@ -98,11 +90,7 @@ The features of the "Dashboard":
 * The website/webpage loads, creates a Google Map with Markers for each European capital city and centres the map on Firhouse, Dublin, Ireland. The browser requests access to the User's geolocation. If accepted, the map is recentred on the geolocation, otherwise it remains centred to the default location.
 * The background uses a linear gradient that is used for all key elements of the website adding to a common look-and-feel (background (html, body), footer, navigational controls, and JS/CSS Modals). With a slight transparancy and shadow it gives the JS/CSS Modals a curved look.
 
-<<<<<<< HEAD
-![Google Map Marker InfoWindow](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/Google%20Map%20Marker%20InfoWindow.png)
-=======
 ![Google Map Marker InfoWindow](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/images/Google%20Map%20Marker%20InfoWindow.png)
->>>>>>> Documentation: CinC Walkthrough video. Nearing completion of README.md.
 
 * Each map marker is clickable, revealing a Google InfoWindow ("pop-up") with the Capital City, Country, Latitude and Longitude (static internal Array[]), the current weather (real-time from the OpenWeather API: temperature, description, and air pressure). The 2 buttons:
 	* Overview Buttton => displays the flag, native name, regional information, official languages, currencies, and calling code (real-time from the REST Countries API). Closed via the Close Button (JS EventListener and CSS).
