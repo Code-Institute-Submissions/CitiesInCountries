@@ -219,7 +219,7 @@ All devices and formats are tested in both portrait and landscape mode. The webs
 A couple of things to note:
 
 * On the smallest devices (Galaxy S5 and Apple iPhone 5) some of the JS and CSS Modals go outside of the viewing area. The JS and CSS Modals are scrollable:  `.modal { overflow-y: auto; max-height: 90vh; }`.
-* To ensure the correct loading of Google Maps, and to avoid the occasional "Uncaught (in promise) pd {message: "initMap is not a function", name: "InvalidValueError"...}" in the maps.js file this is added to the initMap(), a blocking function: `google.maps.event.addDomListener(window, "load", initMap);` and the `async` attribute ADDED while the `defer` attribute is REMOVED to ensure the Googla Map loads correctly. Without the blocking function, and with both the `async` and `defer` attributes set, the error will occur once in 10 page loads. With the blocking function and both the `async` and `defer` atttributes set, the page won't load at all. The caveat is that the page takes a little longer to load.  There may well be a better way to resolve this, though I don't (yet) know how.
+* To ensure the correct loading of Google Maps, and to avoid the occasional "Uncaught (in promise) pd {message: "initMap is not a function", name: "InvalidValueError"...}" both the `async` and `defer` attributes ADDED to the Google Map JS script tag in index.html (gTest.html). I think a rewrite of the initMap() is required, using async/wait or a callback.
 
 ### HTML and CSS Validation
 HTML Validation: [](https://validator.w3.org/nu/)
