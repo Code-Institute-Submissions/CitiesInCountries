@@ -580,7 +580,7 @@ function initMap() {
                 }
             }
             document.querySelector("#d3").innerHTML = `<p>Population: "${findCountryObject["population"]}", Area: ${findCountryObject["area"]} km<sup>2</sup></p>
-                <p>Bordering Countrie(s): ${borders}</p><p>Gini Coefficient: ${findCountryObject["gini"]}, this is a measurement of inequality. The lower the better. Most European countries have a Gini Coefficient below 35.</p>`;
+                <p>Bordering Countrie(s): ${borders}</p><p>Gini Coefficient: ${findCountryObject["gini"]}, this is a measurement of inequality. The lower the better (< 35).</p>`;
         };
 
         let fetchStats = (country) => {
