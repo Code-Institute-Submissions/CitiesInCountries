@@ -212,14 +212,16 @@ All devices and formats are tested in both portrait and landscape mode. The webs
 A couple of things to note:
 
 * On the smallest devices (Galaxy S5 and Apple iPhone 5) some of the JS and CSS Modals go outside of the viewing area. The JS and CSS Modals are scrollable:  `.modal { overflow-y: auto; max-height: 90vh; }`.
-* To ensure the correct loading of Google Maps, and to avoid the occasional "Uncaught (in promise) pd {message: "initMap is not a function", name: "InvalidValueError"...}" both the `async` and `defer` attributes ADDED to the Google Map JS script tag in index.html (gTest.html). I think a rewrite of the initMap() is required.
+* To ensure the correct loading of Google Maps, and to avoid the occasional "Uncaught (in promise) pd {message: "initMap is not a function", name: "InvalidValueError"...}" both the `async` and `defer` attributes ADDED to the Google Map JS script tag in index.html (gTest.html), and `<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDKoKXKgFfLTb9SNLk0QEq1FmnNJD3hSg&callback=initMap" async defer></script>` is loaded last of all JS Scripts in index.html (gTest.html). I think a rewrite of my code is required.
 
-### HTML and CSS Validation
-HTML Validation: [](https://validator.w3.org/nu/)
+### HTML, CSS, and JS Validation
+[HTML Validation](https://validator.w3.org/nu/)
 ![HTML Validated](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/HTML%20Validation.png)
 
-CSS Validation: [](https://jigsaw.w3.org/css-validator/#validate_by_input)
+[CSS Validation](https://jigsaw.w3.org/css-validator/#validate_by_input)
 ![CSS Validated](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/CSS%20Validation.png)
+
+[JavaScript Validation](https://jshint.com/)
 
 ## Deployment
 For this project I Visual Studio Code for coding, and using the Source Code Management provider with git to synch (stage, commit, synch) my updates to GitHub.
