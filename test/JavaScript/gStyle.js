@@ -55,8 +55,7 @@ function initMap() {
     let markersArray = [
         {
             coords: home,
-            iconImage: '../../assets/images/150px-IRL_Dublin_flag.svg.png',
-            content: `<h3>Dublin, Ireland</h3>${weatherInfo}<hr><p>6 Oldcourt Close, Ballycullen, D24 RHY2</p><p>Dublin, Ireland</p>${toolTipButtons}`,
+            content: `<p>Dublin, Ireland: 53.3498° N, 6.2603° W</p>${weatherInfo} ${toolTipButtons}`,
             name: "Dublin, Ireland",
             overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
             d3: `<div class="d3" id="d3"></div>`
@@ -67,7 +66,7 @@ function initMap() {
             name: "London, United Kingdom of Great Britain and Northern Ireland",
             overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
             d3: `<div class="d3" id="d3"></div>`
-        },
+        }/* ,
         {
             coords: { lat: 54.5973, lng: -5.9301 },
             content: `<p>Belfast, Northern Ireland: 54.5973° N, 5.9301° W</p>${weatherInfo} ${toolTipButtons}`,
@@ -95,7 +94,7 @@ function initMap() {
             name: "Singapore, Singapore",
             overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
             d3: `<div class="d3" id="d3"></div>`
-        },
+        } */,
         {
             coords: { lat: 59.3293, lng: 18.0686 },
             content: `<p>Stockholm, Sweden: 59.3293° N, 18.0686° E</p>${weatherInfo} ${toolTipButtons}`,
@@ -515,17 +514,21 @@ function initMap() {
                             document.querySelector(".gm-style-iw-c").style = "padding: 12px";
                             document.getElementById(weatherID).innerHTML = tempValue + `° Celsius, ` + descValue + `, ` + airPressure + ` hPa`;
                             // Update weather data dynamically after each "Mouseover" on Map Marker.
-                        }
+                        }                  
                     })
                     .catch(err => console.log(err));
+
+                setTimeout(() => {
+                    infoWindow.close(map, marker);
+                }, 3000); 
             });
 
             /* Added a timeout to give the user enough time to notice and click on the buttons */
-            marker.addListener("mouseout", () => {
+            /* marker.addListener("mouseout", () => {
                 setTimeout(() => {
                     infoWindow.close(map, marker);
                 }, 3000);
-            });
+            }); */
         };
 
 
@@ -926,4 +929,3 @@ function initMap() {
     initMapTypeControl(map);
     initFullscreenControl(map);
 }
-
