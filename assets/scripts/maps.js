@@ -462,7 +462,6 @@ function initMap() {
         let findCountryObject = {};
 
         let displayCountry = (country) => {
-            console.log("Fetch: ", country);
             let languages = "";
 
             for (let i = 0; i < findCountryObject.languages.length; i++) {
@@ -478,7 +477,6 @@ function initMap() {
             for (let i = 0; i < findCountryObject.currencies.length; i++) {
                 if (i === (findCountryObject.currencies.length - 1)) {
                     currencies += `${findCountryObject.currencies[i].name}.`;
-                    console.log(findCountryObject.currencies[i].name);
                 } else {
                     currencies += `${findCountryObject.currencies[i].name}, `;
                 }
@@ -490,7 +488,6 @@ function initMap() {
         };
 
         let fetchCountry = (country) => {
-            console.log(Object.keys(findCountryObject).length);
             if ((Object.keys(findCountryObject).length) === 0) {
                 fetch(`https://restcountries.eu/rest/v2/all`)
                     .then(data => data.json())
@@ -505,7 +502,6 @@ function initMap() {
 
 
         let displayStats = (country) => {
-            console.log("Fetch displayStats: ", country);
             let borders = "";
 
             for (let i = 0; i < findCountryObject.borders.length; i++) {
@@ -520,7 +516,6 @@ function initMap() {
         };
 
         let fetchStats = (country) => {
-            console.log(Object.keys(findCountryObject).length);
             if ((Object.keys(findCountryObject).length) === 0) {
                 fetch(`https://restcountries.eu/rest/v2/all`)
                     .then(data => data.json())
