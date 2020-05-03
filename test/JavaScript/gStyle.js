@@ -1,7 +1,25 @@
-/*
-=== WHY?
+/* ================================================= */
+
+/* === WHY?
+    To provide an informaive overview of Cities and Countries in Europe (expanded in future to include the World) tthrough Google Map Markers.
+    Map Marker -- 'click' --> Tool-tip -- 'click' Overview Button --> Overview Modal || 'click Statistics Button' --> Graphs...
+
+
 === WHAT?
+    Google Maps API - Bill Traversy @ Traversy Media: https://www.youtube.com/watch?v=Zxf1mnP5zcw and Code Institute Walkthrough by Matt Rudge.
+    Added several Locations/Markers with iconImage, and Content ("tool-tips").
+
+    OpenWeather API - Shanjah Raj: https://www.youtube.com/watch?v=GXrDEA3SIOQ&t=472s and OpenWeather API Doc: https://openweathermap.org/api/one-call-api?gclid=Cj0KCQjws_r0BRCwARIsAMxfDRiC6VCy8j0Jlfc27LsuhT9RbEdMJu3T0d9Z12oRrBRMFemuwWGUKIMaAj5DEALw_wcB
+    Using Lat Lon from marker.position Object converted to String, formatted, and converted to an Array used by the fetch-then-catch Promise.
+
+    D3 API - get city and counyr population data from a Firebase Firesore (noSQL DB) to display it in the JS Modals.
+
+    REST Countries API - get country infomrational and statistics to populate the Map Marker InfoWindow JS Overview and Statistics Modals.
+
 === HOW?
+    HTML: Create the navigation elements with relevant classes and id's, to be referenced by CSS and modified via JS.
+    CSS: Style the Google Maps navigation elements, .gm-style... classes.
+    JS: Create and call custom functions, ZoomControl, MapType Control, and FullScreenControl.
 */
 
 /* Global markersArray[] accessed by all functions */
@@ -405,21 +423,7 @@ function initMap() {
         disableDefaultUI: true,
     }); // Create a new Map and centers on My Home (Firhouse, Dublin, Ireland).
 
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition((position) => {
-            let pos = { lat: position.coords.latitude, lng: position.coords.longitude };
-            map.setCenter(pos);
-        }, () => {
-            handleLocationError(true, map.getCenter());
-        });
-    } else {
-        // Browser doesn't support Geolocation
-        handleLocationError(false, map.getCenter());
-    }
-
-    function handleLocationError(browserHasGeolocation, pos) {
-        map.setCenter(home);
-    }
+    getCurrentLocation(map, home);
 
 
     /* for (let i = 0; i < markersArray.length; i++) {
@@ -453,7 +457,6 @@ function initMap() {
             });
 
             marker.addListener("click", () => {
-                infoWindow.open(map, marker);
 
                 let markerString = String(marker.position); // Convert marker.position Object to String to manipulate the lat and lon for the OpenWeather API call.
                 markerString = markerString.replace(/[() ]/g, "");  // Remove whitespace and parenthesis () from markerString: (lat, lon).
@@ -502,6 +505,7 @@ function initMap() {
                 setTimeout(() => {
                     infoWindow.close(map, marker);
                 }, 3000);
+                infoWindow.open(map, marker);
             });
         }
 
@@ -643,3 +647,21 @@ function initMap() {
     initMapTypeControl(map);
     initFullscreenControl(map);
 }
+
+const getCurrentLocation = (map, home) => {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition((position) => {
+            let pos = { lat: position.coords.latitude, lng: position.coords.longitude };
+            map.setCenter(pos);
+        }, () => {
+            handleLocationError(true, map.getCenter());
+        });
+    }
+    else {
+        // Browser doesn't support Geolocation
+        handleLocationError(false, map.getCenter());
+    }
+    function handleLocationError(browserHasGeolocation, pos) {
+        map.setCenter(home);
+    }
+};
