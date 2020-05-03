@@ -67,7 +67,7 @@ There are three main actors/roles that use the services provided by the website:
 
 The User Experience and Design MarkDown document covers the 5 planes in detail, and contains the Balsamiq wireframes and mockups of the website (simplified views, and not complete representations).
 
-[User Experience and Design MarkDown](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/CinC%20-%20User%20Experience%20and%20Design.md{:target="_blank"})
+[User Experience and Design MarkDown](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/CinC%20-%20User%20Experience%20and%20Design.md)
 
 ## Solution
 ### Features
@@ -82,7 +82,7 @@ This website uses a Dashboard Information Architecture. Everything is accessible
 
 This is a layered website making use of 3 dimensions (x, y, z). The background colour is a linear gradient, the same linear gradient is used throughout the website to enhance the common look-and-feel. The Google Map is at the bottom (`z-index: 1`). The Fixed Footer is visually "on top" of the Google Map though with the same z-index (`z-index: 1`). The backdrop (grey transparent background that toggles when either a JS or a CSS Modal is activated) is on top of the Google Map and Fixed Footer (`z-index: 2`), and stops any clicking on elements "behind" the backdrop. The CSS Modals are on top of the backdrop. (`z-index: 4`), and the JS Modals are on top of everything else (`z-index: 100`).
 
-[User Walkthrough Video - an Overview](https://www.dropbox.com/s/ynb6myith810x8c/CinC%20Walkthrough%20-%201080P.mov?dl=0{:target="_blank"})
+[User Walkthrough Video - an Overview](https://www.dropbox.com/s/ynb6myith810x8c/CinC%20Walkthrough%20-%201080P.mov?dl=0)
 
 #### Existing Features
 The features of the "Dashboard":
