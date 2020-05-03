@@ -368,7 +368,16 @@ let markersArray = [
     }
 ];
 
-
+let script = document.createElement("script");
+document.addEventListener("DOMContentLoaded", () => {
+    document.head.appendChild(script);
+    script.addEventListener("load", () => {
+        //script has loaded
+        console.log("script has loaded");
+        initMap();
+    });
+});
+script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyBDKoKXKgFfLTb9SNLk0QEq1FmnNJD3hSg`;
 
 function initMap() {
     let home = { lat: 53.274346, lng: -6.348835 };
