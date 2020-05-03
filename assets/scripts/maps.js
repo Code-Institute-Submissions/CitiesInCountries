@@ -372,8 +372,6 @@ let script = document.createElement("script");
 document.addEventListener("DOMContentLoaded", () => {
     document.head.appendChild(script);
     script.addEventListener("load", () => {
-        //script has loaded
-        console.log("script has loaded");
         initMap();
     });
 });

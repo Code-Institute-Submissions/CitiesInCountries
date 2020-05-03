@@ -67,7 +67,7 @@ There are three main actors/roles that use the services provided by the website:
 
 The User Experience and Design MarkDown document covers the 5 planes in detail, and contains the Balsamiq wireframes and mockups of the website (simplified views, and not complete representations).
 
-[User Experience and Design MarkDown](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/CinC%20-%20User%20Experience%20and%20Design.md)
+[User Experience and Design MarkDown](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/CinC%20-%20User%20Experience%20and%20Design.md{:target="_blank"})
 
 ## Solution
 ### Features
@@ -82,7 +82,7 @@ This website uses a Dashboard Information Architecture. Everything is accessible
 
 This is a layered website making use of 3 dimensions (x, y, z). The background colour is a linear gradient, the same linear gradient is used throughout the website to enhance the common look-and-feel. The Google Map is at the bottom (`z-index: 1`). The Fixed Footer is visually "on top" of the Google Map though with the same z-index (`z-index: 1`). The backdrop (grey transparent background that toggles when either a JS or a CSS Modal is activated) is on top of the Google Map and Fixed Footer (`z-index: 2`), and stops any clicking on elements "behind" the backdrop. The CSS Modals are on top of the backdrop. (`z-index: 4`), and the JS Modals are on top of everything else (`z-index: 100`).
 
-[User Walkthrough Video - an Overview](https://www.dropbox.com/s/ynb6myith810x8c/CinC%20Walkthrough%20-%201080P.mov?dl=0)
+[User Walkthrough Video - an Overview](https://www.dropbox.com/s/ynb6myith810x8c/CinC%20Walkthrough%20-%201080P.mov?dl=0{:target="_blank"})
 
 #### Existing Features
 The features of the "Dashboard":
@@ -215,13 +215,54 @@ A couple of things to note:
 * To ensure the correct loading of Google Maps, and to avoid the occasional "Uncaught (in promise) pd {message: "initMap is not a function", name: "InvalidValueError"...}" both the `async` and `defer` attributes ADDED to the Google Map JS script tag in index.html (gTest.html), and `<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDKoKXKgFfLTb9SNLk0QEq1FmnNJD3hSg&callback=initMap" async defer></script>` is loaded last of all JS Scripts in index.html (gTest.html). I think a rewrite of my code is required.
 
 ### HTML, CSS, and JS Validation
+#### HTML
 [HTML Validation](https://validator.w3.org/nu/)
+
 ![HTML Validated](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/HTML%20Validation.png)
 
+[HTML Validation Link for the website](https://validator.w3.org/nu/?doc=https%3A%2F%2Fnaoisegaffney.github.io%2FCitiesInCountries%2F)
+
+#### CSS
 [CSS Validation](https://jigsaw.w3.org/css-validator/#validate_by_input)
+
 ![CSS Validated](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/CSS%20Validation.png)
 
+[CSS Validation Link for the website](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fnaoisegaffney.github.io%2FCitiesInCountries%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+
+#### JavaScript
 [JavaScript Validation](https://jshint.com/)
+
+No errors. A number of "false positives" on undefined variables.
+
+Metrics:
+> There are 31 functions in this file.
+> 
+> Function with the largest signature take 2 arguments, while the median is 1.
+> 
+> Largest function has 19 statements in it, while the median is 2.
+> 
+> The most complex function has a cyclomatic complexity value of 5 while the median is 1.
+
+Six undefined variables. (false positives):
+> 402	google
+> 
+> 432	google
+> 
+> 451	google
+> 
+> 461	markerStringArray
+> 
+> 465	markerStringArray
+> 
+> 465	markerStringArray
+> 
+> 627	d3Stats
+> 
+> 642	initZoomControl
+> 
+> 643	initMapTypeControl
+> 
+> 644	initFullscreenControl
 
 ## Deployment
 For this project I Visual Studio Code for coding, and using the Source Code Management provider with git to synch (stage, commit, synch) my updates to GitHub.
