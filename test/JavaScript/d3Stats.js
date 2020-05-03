@@ -125,7 +125,7 @@ const d3Stats = (city, width, height, tickFormat, fillColour) => {
         update(dataArray);
 
         xAxisGroup.selectAll("text")
-            .attr("transform", "rotate(-20)")
+            .attr("transform", "rotate(-10)")
             .attr("text-anchor", "end")
             .attr("fill", fillColour);
 
