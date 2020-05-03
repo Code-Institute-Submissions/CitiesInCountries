@@ -25,7 +25,6 @@ const update = (data) => {
  */
 
 // Select the SVG element <div class="canvas"> to append SVG
-d3Stats;
 
 function d3Stats(city, width, height, tickFormat, fillColour) {
     const svg = d3.select(".canvas")
