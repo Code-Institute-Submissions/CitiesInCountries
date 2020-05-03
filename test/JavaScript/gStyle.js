@@ -376,7 +376,26 @@ let markersArray = [
     }
 ];
 
+/*
+To finally (?) resolve the occasional "Uncaught..." error common to loading Google Maps, I control the loading of the '<script></script>' here.
+Courtesy of "Prof3ssorSt3v3": https://gist.github.com/prof3ssorSt3v3/e0e07e0fd0b293d043d4ff2504fc847b
 
+Removed the loading of the Google Map Script file from the HTML file, to dynamically create and load it here --> updating the HTML file.
+Also removed the '&callback=initMap' from the URL, calling 'initMap()' from here instead. No need for the 'async', nor  'defer' attributes either.
+
+We create the '<script>' element in index.html (gTest.html). We listen to the DOM, to make sure it's fully loaded. We load the Google Map JS Script:
+'<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDKoKXKgFfLTb9SNLk0QEq1FmnNJD3hSg"></script>'. We call 'initMap()'.
+*/
+let script = document.createElement("script");
+document.addEventListener("DOMContentLoaded", () => {
+    document.head.appendChild(script);
+    script.addEventListener("load", () => {
+        //script has loaded
+        console.log("script has loaded");
+        initMap();
+        });
+    });
+    script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyBDKoKXKgFfLTb9SNLk0QEq1FmnNJD3hSg`;
 
 function initMap() {
     let home = { lat: 53.274346, lng: -6.348835 }; // My home coords for centering the map, and for marking my home
@@ -403,9 +422,11 @@ function initMap() {
     }
 
 
-    for (let i = 0; i < markersArray.length; i++) {
+    /* for (let i = 0; i < markersArray.length; i++) {
         addMarker(markersArray[i]);
-    }
+    } */
+
+    markersArray.map(markerArrayItem => {addMarker(markerArrayItem);});
 
     function addMarker(props) {
         let marker = new google.maps.Marker({
