@@ -221,8 +221,8 @@ let markersArray = [
     },
     {
         coords: { lat: 41.9981, lng: 21.4254 },
-        content: `<p>Skopje, Republic of Macedonia: 41.9981° N, 21.4254° E</p>${weatherInfo} ${toolTipButtons}`,
-        name: "Skopje, Republic of Macedonia",
+        content: `<p>Skopje, Macedonia (the former Yugoslav Republic of): 41.9981° N, 21.4254° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Skopje, Macedonia (the former Yugoslav Republic of)",
         overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
         d3: `<div class="d3" id="d3"></div>`
     },
