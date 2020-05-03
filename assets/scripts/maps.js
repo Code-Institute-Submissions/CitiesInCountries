@@ -385,20 +385,7 @@ function initMap() {
         disableDefaultUI: true,
     });
 
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition((position) => {
-            let pos = { lat: position.coords.latitude, lng: position.coords.longitude };
-            map.setCenter(pos);
-        }, () => {
-            handleLocationError(true, map.getCenter());
-        });
-    } else {
-        handleLocationError(false, map.getCenter());
-    }
-
-    function handleLocationError(browserHasGeolocation, pos) {
-        map.setCenter(home);
-    }
+    getCurrentLocation(map, home);
 
 
     for (let i = 0; i < markersArray.length; i++) {
@@ -426,7 +413,6 @@ function initMap() {
             });
 
             marker.addListener("click", () => {
-                infoWindow.open(map, marker);
 
                 let markerString = String(marker.position);
                 markerString = markerString.replace(/[() ]/g, "");
@@ -463,6 +449,7 @@ function initMap() {
                 setTimeout(() => {
                     infoWindow.close(map, marker);
                 }, 3000);
+                infoWindow.open(map, marker);
             });
         }
 
@@ -494,16 +481,16 @@ function initMap() {
                 <p>Language(s): ${languages} - Currencie(s): ${currencies} - Calling Code: +${findCountryObject.callingCodes[0]}</p>`;
         };
 
-        let fetchCountry = (country) => {
+        let fetchCountry = (country, functionCall) => {
             if ((Object.keys(findCountryObject).length) === 0) {
                 fetch(`https://restcountries.eu/rest/v2/all`)
                     .then(data => data.json())
                     .then(data => {
                         findCountryObject = data.find(data => data.name === country);
-                        displayCountry(country);
+                        functionCall(country);
                     });
             } else {
-                displayCountry(country);
+                functionCall(country);
             }
         };
 
@@ -522,18 +509,6 @@ function initMap() {
                 <p>Bordering Countrie(s): ${borders}</p><p>Gini Coefficient: ${findCountryObject.gini}, this is a measurement of inequality. The lower the better (< 35).</p>`;
         };
 
-        let fetchStats = (country) => {
-            if ((Object.keys(findCountryObject).length) === 0) {
-                fetch(`https://restcountries.eu/rest/v2/all`)
-                    .then(data => data.json())
-                    .then(data => {
-                        findCountryObject = data.find(data => data.name === country);
-                        displayStats(country);
-                    });
-            } else {
-                displayStats(country);
-            }
-        };
 
         const backdrop = document.getElementById("backdrop");
 
@@ -556,7 +531,7 @@ function initMap() {
                 toggleModal();
                 document.getElementById("modal-content").innerHTML = `<h4>Overview: ${marker.name}</h4> ${marker.overview}`;
                 let cityArray = marker.name.split(", ");
-                fetchCountry(cityArray[1]);
+                fetchCountry(cityArray[1], displayCountry);
             };
             buttonOverview.addEventListener("click", overviewModalHandler);
 
@@ -566,7 +541,7 @@ function initMap() {
                 document.getElementById("modal-content").innerHTML = `<h4>Statistics: ${marker.name}</h4><div class="canvas"></div><div>${marker.d3}`;
                 let cityArray = marker.name.split(", ");
                 d3Stats(cityArray[0], 200, 200, "M", "rgb(0, 0, 0)");
-                fetchStats(cityArray[1]);
+                fetchCountry(cityArray[1], displayStats);
             };
             buttonStats.addEventListener("click", statisticsModalHandler);
         };
@@ -583,3 +558,20 @@ function initMap() {
     initMapTypeControl(map);
     initFullscreenControl(map);
 }
+
+const getCurrentLocation = (map, home) => {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition((position) => {
+            let pos = { lat: position.coords.latitude, lng: position.coords.longitude };
+            map.setCenter(pos);
+        }, () => {
+            handleLocationError(true, map.getCenter());
+        });
+    }
+    else {
+        handleLocationError(false, map.getCenter());
+    }
+    function handleLocationError(browserHasGeolocation, pos) {
+        map.setCenter(home);
+    }
+};
