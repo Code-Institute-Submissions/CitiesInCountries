@@ -408,29 +408,27 @@ let script = document.createElement("script");
 document.addEventListener("DOMContentLoaded", () => {
     document.head.appendChild(script);
     script.addEventListener("load", () => {
-        //script has loaded
-        console.log("script has loaded");
         initMap();
-        });
     });
-    script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyBDKoKXKgFfLTb9SNLk0QEq1FmnNJD3hSg`;
+});
+script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyBDKoKXKgFfLTb9SNLk0QEq1FmnNJD3hSg`;
 
 function initMap() {
-    let home = { lat: 53.274346, lng: -6.348835 }; // My home coords for centering the map, and for marking my home
+    let home = { lat: 53.274346, lng: -6.348835 };
     let map = new google.maps.Map(document.getElementById("map"), {
         zoom: 6,
         center: home,
         disableDefaultUI: true,
-    }); // Create a new Map and centers on My Home (Firhouse, Dublin, Ireland).
+    });
 
     getCurrentLocation(map, home);
 
 
-    /* for (let i = 0; i < markersArray.length; i++) {
+    for (let i = 0; i < markersArray.length; i++) {
         addMarker(markersArray[i]);
-    } */
+    }
 
-    markersArray.map(markerArrayItem => {addMarker(markerArrayItem);});
+    // markersArray.map(markerArrayItem => { addMarker(markerArrayItem); });
 
     function addMarker(props) {
         let marker = new google.maps.Marker({
@@ -443,61 +441,45 @@ function initMap() {
             d3: props.d3
         });
 
-        // Check for separate icon for this marker (see if iconImage exists)
         if (props.iconImage) {
-            // Set iconImage
             marker.setIcon(props.iconImage);
         }
 
-        // Check for Content for "tool-tip"
         if (props.content) {
-            // Set Content for each Marker
             let infoWindow = new google.maps.InfoWindow({
                 content: props.content
             });
 
             marker.addListener("click", () => {
 
-                let markerString = String(marker.position); // Convert marker.position Object to String to manipulate the lat and lon for the OpenWeather API call.
-                markerString = markerString.replace(/[() ]/g, "");  // Remove whitespace and parenthesis () from markerString: (lat, lon).
-                /* markerString = markerString.split(" ").join(""); // Remove whitespace in middle of markerString: lat, lon. */
-                markerStringArray = markerString.split(","); // Split the String into an Array to provide the OpenWeather API call correctly formatted lat and lon.
-
-                /* console.log(markerString, markerStringArray); */
+                let markerString = String(marker.position);
+                markerString = markerString.replace(/[() ]/g, "");
+                markerStringArray = markerString.split(",");
 
                 fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${markerStringArray[0]}&lon=${markerStringArray[1]}&units=metric&appid=4788a47d724b35cf9cc4e281a1893b4c`)
                     .then(response => response.json())
                     .then(data => {
-                        /* let tempValue = parseInt(data["main"]["temp"]);
-                        let descValue = data["weather"][0]["description"];
-                        let airPressure = data["main"]["pressure"];
-                        let nameValue = data["name"]; */
                         let tempValue = parseInt(data.main.temp);
                         let descValue = data.weather[0].description;
                         let airPressure = data.main.pressure;
                         let nameValue = data.name;
 
-                        /* console.log(tempValue, descValue, nameValue); */
                         if (document.getElementById("weather")) {
-                            /* Together with CSS Styling this creates a linear background effect. */
                             document.querySelector(".gm-style-iw-d").className = "";
                             document.querySelector(".gm-style-iw-c").style = "padding: 12px";
 
                             let weatherID = document.getElementById("weather").id = "weather" + nameValue;
                             let buttonIDOver = document.getElementById("buttonOver").id = "buttonOver" + nameValue;
                             let buttonIDStats = document.getElementById("buttonStats").id = "buttonStats" + nameValue;
-                            document.getElementById(buttonIDOver).className = "button"; // "Q & D Fix" to ensure the buttons are styled correctly.
-                            document.getElementById(buttonIDStats).className = "button"; // "Q & D Fix" to ensure the buttons are styled correctly.
+                            document.getElementById(buttonIDOver).className = "button";
+                            document.getElementById(buttonIDStats).className = "button";
                             configureButtonEventHandlers(buttonIDOver, buttonIDStats);
-                            //overviewButton(buttonIDOver);
-                            //statisticsButton(buttonIDStats);
                             document.getElementById(weatherID).innerHTML = tempValue + `° Celsius, ` + descValue + `, ` + airPressure + ` hPa`;
                         } else {
                             let weatherID = "weather" + nameValue;
                             document.querySelector(".gm-style-iw-d").className = "";
                             document.querySelector(".gm-style-iw-c").style = "padding: 12px";
                             document.getElementById(weatherID).innerHTML = tempValue + `° Celsius, ` + descValue + `, ` + airPressure + ` hPa`;
-                            // Update weather data dynamically after each "Mouseover" on Map Marker.
                         }
                     })
                     .catch(err => console.log(err));
@@ -512,7 +494,6 @@ function initMap() {
         let findCountryObject = {};
 
         let displayCountry = (country) => {
-            console.log("Fetch: ", country);
             let languages = "";
 
             for (let i = 0; i < findCountryObject.languages.length; i++) {
@@ -528,7 +509,6 @@ function initMap() {
             for (let i = 0; i < findCountryObject.currencies.length; i++) {
                 if (i === (findCountryObject.currencies.length - 1)) {
                     currencies += `${findCountryObject.currencies[i].name}.`;
-                    console.log(findCountryObject.currencies[i].name);
                 } else {
                     currencies += `${findCountryObject.currencies[i].name}, `;
                 }
@@ -539,31 +519,21 @@ function initMap() {
                 <p>Language(s): ${languages} - Currencie(s): ${currencies} - Calling Code: +${findCountryObject.callingCodes[0]}</p>`;
         };
 
-        let doStuff = (message) => {
-            console.log(message);
-        };
-
-        let fetchCountry = (country) => {
-            console.log(Object.keys(findCountryObject).length);
+        let fetchCountry = (country, functionCall) => {
             if ((Object.keys(findCountryObject).length) === 0) {
                 fetch(`https://restcountries.eu/rest/v2/all`)
                     .then(data => data.json())
                     .then(data => {
                         findCountryObject = data.find(data => data.name === country);
-                        console.log(findCountryObject);
-                        doStuff("Fetch from fetchCountry()");
-                        displayCountry(country);
+                        functionCall(country);
                     });
             } else {
-                console.log(findCountryObject);
-                doStuff("Local from fetchCountry()");
-                displayCountry(country);
+                functionCall(country);
             }
         };
 
 
         let displayStats = (country) => {
-            console.log("Fetch displayStats: ", country);
             let borders = "";
 
             for (let i = 0; i < findCountryObject.borders.length; i++) {
@@ -577,23 +547,6 @@ function initMap() {
                 <p>Bordering Countrie(s): ${borders}</p><p>Gini Coefficient: ${findCountryObject.gini}, this is a measurement of inequality. The lower the better (< 35).</p>`;
         };
 
-        let fetchStats = (country) => {
-            console.log(Object.keys(findCountryObject).length);
-            if ((Object.keys(findCountryObject).length) === 0) {
-                fetch(`https://restcountries.eu/rest/v2/all`)
-                    .then(data => data.json())
-                    .then(data => {
-                        findCountryObject = data.find(data => data.name === country);
-                        console.log(findCountryObject);
-                        doStuff("Fetch from fetchStats()");
-                        displayStats(country);
-                    });
-            } else {
-                console.log(findCountryObject);
-                doStuff("Local from fetchStats()");
-                displayStats(country);
-            }
-        };
 
         const backdrop = document.getElementById("backdrop");
 
@@ -615,10 +568,8 @@ function initMap() {
                 toggleBackdrop();
                 toggleModal();
                 document.getElementById("modal-content").innerHTML = `<h4>Overview: ${marker.name}</h4> ${marker.overview}`;
-                let cityArray = marker.name.split(", "); // Parse City name to fetchCountry(cityArray[1]) parameter to access Country Data.
-                fetchCountry(cityArray[1]);
-                // console.log("Clicked on Overview Button", buttonIDOver);
-                console.log("Overview Button:  ", cityArray[1]);
+                let cityArray = marker.name.split(", ");
+                fetchCountry(cityArray[1], displayCountry);
             };
             buttonOverview.addEventListener("click", overviewModalHandler);
 
@@ -626,11 +577,9 @@ function initMap() {
                 toggleBackdrop();
                 toggleModal();
                 document.getElementById("modal-content").innerHTML = `<h4>Statistics: ${marker.name}</h4><div class="canvas"></div><div>${marker.d3}`;
-                let cityArray = marker.name.split(", "); // Parse City name to d3Stats(cityArray[0]) parameter to access relevant Firebase Firestore Collection and Documents
-                //d3Stats(cityArray[0], 200, 200, "M", "rgb(61, 148, 246)");
+                let cityArray = marker.name.split(", ");
                 d3Stats(cityArray[0], 200, 200, "M", "rgb(0, 0, 0)");
-                fetchStats(cityArray[1]);
-                // console.log("Clicked on Statistics Button", buttonIDStats);
+                fetchCountry(cityArray[1], displayStats);
             };
             buttonStats.addEventListener("click", statisticsModalHandler);
         };
@@ -658,7 +607,6 @@ const getCurrentLocation = (map, home) => {
         });
     }
     else {
-        // Browser doesn't support Geolocation
         handleLocationError(false, map.getCenter());
     }
     function handleLocationError(browserHasGeolocation, pos) {
