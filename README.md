@@ -235,34 +235,34 @@ A couple of things to note:
 No errors. A number of "false positives" on undefined variables.
 
 Metrics:
-> There are 31 functions in this file.
+> There are 26 functions in this file.
 > 
 > Function with the largest signature take 2 arguments, while the median is 1.
 > 
-> Largest function has 19 statements in it, while the median is 2.
+> Largest function has 17 statements in it, while the median is 2.
 > 
 > The most complex function has a cyclomatic complexity value of 5 while the median is 1.
 
 Six undefined variables. (false positives):
-> 402	google
+> 418	google
 > 
-> 432	google
+> 434	google
 > 
-> 451	google
+> 449	google
 > 
-> 461	markerStringArray
+> 457	markerStringArray
 > 
-> 465	markerStringArray
+> 459	markerStringArray
 > 
-> 465	markerStringArray
+> 459	markerStringArray
 > 
-> 627	d3Stats
+> 586	d3Stats
 > 
-> 642	initZoomControl
+> 600	initZoomControl
 > 
-> 643	initMapTypeControl
+> 601	initMapTypeControl
 > 
-> 644	initFullscreenControl
+> 602	initFullscreenControl
 
 ## Deployment
 For this project I Visual Studio Code for coding, and using the Source Code Management provider with git to synch (stage, commit, synch) my updates to GitHub.

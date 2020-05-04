@@ -542,7 +542,9 @@ function initMap() {
                 }
             }
 
-            if (findCountryObject.gini === null) {findCountryObject.gini = "None"};
+            if (findCountryObject.gini === null) {
+                findCountryObject.gini = "None";
+            }
             findCountryObject.population = findCountryObject.population.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ');
             findCountryObject.area = findCountryObject.area.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ');
 
@@ -614,5 +616,5 @@ const getCurrentLocation = (map, home) => {
     }
     const handleLocationError = (browserHasGeolocation, pos) => {
         map.setCenter(home);
-    }
+    };
 };
