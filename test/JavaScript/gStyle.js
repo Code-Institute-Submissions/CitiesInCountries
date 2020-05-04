@@ -541,6 +541,11 @@ function initMap() {
                     borders += `${findCountryObject.borders[i]}, `;
                 }
             }
+
+            if (findCountryObject.gini === null) {findCountryObject.gini = "None"};
+            findCountryObject.population = findCountryObject.population.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ');
+            findCountryObject.area = findCountryObject.area.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ');
+
             document.querySelector("#d3").innerHTML = `<p>Population: "${findCountryObject.population}", Area: ${findCountryObject.area} km<sup>2</sup></p>
                 <p>Bordering Countrie(s): ${borders}</p><p>Gini Coefficient: ${findCountryObject.gini}, this is a measurement of inequality. The lower the better (< 35).</p>`;
         };
