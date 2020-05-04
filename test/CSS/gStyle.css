@@ -86,11 +86,10 @@ JS: Create and call custom functions, ZoomControl, MapType Control, and FullScre
     /* Consistent Font use on the website - Google: Map and Satellite naviagation elements */
 }
 
-/* .gm-style .controls button:hover {
+.gm-style .controls button:active {
     color: var(--main-font-color);
     background: var(--linear-gradient);
-    transform: scale(1.5);
-} */
+}
 
 /* Added 'outline: none' to remove ugly click outline.  */
 .gm-style .controls button:focus {
