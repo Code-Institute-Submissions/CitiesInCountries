@@ -388,9 +388,8 @@ Create a clean look, that's easy to comprehend and use.
 .modal {
     position: fixed;
     z-index: 100;
-    width: 80%;
+    width: 100%;
     top: 5vh;
-    left: 10%;
     display: none;
     font-family: Raleway, sans-serif;
     background: var(--linear-gradient);
@@ -515,7 +514,7 @@ Displays details without leaving the page, providing a clear and clean navigatio
     padding: 0;
     outline: 0;
     text-align: justify;
-    width: 80%;
+    width: 100%;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     z-index: 4;
     /* Place on top of fixed footer and hamburger-menu. Means it's scrollable and visible over all other layers. */

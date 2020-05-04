@@ -415,11 +415,23 @@ script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyBDKoKXKgFfLTb9SN
 
 function initMap() {
     let home = { lat: 53.274346, lng: -6.348835 };
+    let EUROPE_BOUNDS = {
+        north: 71.24,
+        south: 34.21,
+        west: -63,
+        east: 88,
+    };
+
     let map = new google.maps.Map(document.getElementById("map"), {
         zoom: 6,
         center: home,
         disableDefaultUI: true,
+        restriction: {
+            latLngBounds: EUROPE_BOUNDS,
+            strictBounds: false,
+        },
     });
+
 
     getCurrentLocation(map, home);
 
