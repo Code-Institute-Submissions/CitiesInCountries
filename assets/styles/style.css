@@ -59,12 +59,6 @@ JS: Create and call custom functions, ZoomControl, MapType Control, and FullScre
     font-family: 'Raleway', sans-serif;
 }
 
-.gm-style .controls button:hover {
-    color: rgb(0, 0, 0);
-    background: linear-gradient(0.25turn, rgba(63, 135, 166, 0.9), rgba(235, 248, 225, 0.9), rgba(246, 157, 60, 0.9));
-    transform: scale(1.5);
-}
-
 .gm-style .controls button:focus {
     outline: none;
 }
