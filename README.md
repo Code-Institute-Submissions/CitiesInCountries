@@ -111,6 +111,10 @@ The features of the "Dashboard":
 	* Given the fact that I've had "to fight" the Google Map JS scripts when styling the Google Map Markers InfoWindows, I would rewrite that part using full customisation (own code), however, I was not aware of all of the challenges I'd be facing on this project. It's a fabulous learning experience. :-)
 	* I'd break out some of the functions in initMap() to make this more modular and scalable.
 
+### Code
+
+[Code Documentation and Walkthrough]()
+
 ## Technology
 
 A list of the languages, frameworks, libraries, and other tools used for this project.
