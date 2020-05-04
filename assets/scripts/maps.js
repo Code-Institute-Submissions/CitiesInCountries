@@ -1,3 +1,9 @@
+/**
+ * WHY?
+ * WHAT?
+ * HOW?
+ * 
+ */
 const weatherInfo = `<div class="weather" id="weather"></div>`;
 const toolTipButtons = `<br><div class="modalActions"><button class="button" id="buttonOver">Overview</button><button class="buttton" id="buttonStats">Statistics</button></div>`;
 

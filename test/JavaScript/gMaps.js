@@ -42,7 +42,7 @@ function initMapTypeControl(map) {
         mapTypeControlDiv);
 }
 
-function initFullscreenControl(map) {
+/* function initFullscreenControl(map) {
     let elementToSendFullscreen = map.getDiv().firstChild;
     let fullscreenControl = document.querySelector('.fullscreen-control');
     map.controls[google.maps.ControlPosition.RIGHT_TOP].push(
@@ -97,4 +97,4 @@ function exitFullscreen() {
     } else if (document.msCancelFullScreen) {
         document.msCancelFullScreen();
     }
-}
+} */
