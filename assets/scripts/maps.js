@@ -566,7 +566,6 @@ function initMap() {
 
     initZoomControl(map);
     initMapTypeControl(map);
-    initFullscreenControl(map);
 }
 
 const getCurrentLocation = (map, home) => {

@@ -7,7 +7,7 @@
 === HOW?
     HTML: Create the navigation elements with relevant classes and id's, to be referenced by CSS and modified via JS.
     CSS: Style the Google Maps navigation elements, .gm-style... classes.
-    JS: Create and call custom functions, ZoomControl, MapType Control, and FullScreenControl.
+    JS: Create and call custom functions, ZoomControl, and MapType Control.
 */
 
 // Called from the main JS Script: maps.js in Prod, and gStyle.js in Dev/Test.
@@ -40,61 +40,4 @@ function initMapTypeControl(map) {
 
     map.controls[google.maps.ControlPosition.TOP_CENTER].push(
         mapTypeControlDiv);
-}
-
-function initFullscreenControl(map) {
-    let elementToSendFullscreen = map.getDiv().firstChild;
-    let fullscreenControl = document.querySelector('.fullscreen-control');
-    map.controls[google.maps.ControlPosition.RIGHT_TOP].push(
-        fullscreenControl);
-
-    fullscreenControl.onclick = function () {
-        if (isFullscreen(elementToSendFullscreen)) {
-            exitFullscreen();
-        } else {
-            requestFullscreen(elementToSendFullscreen);
-        }
-    };
-
-    document.onwebkitfullscreenchange =
-        document.onmsfullscreenchange =
-        document.onmozfullscreenchange =
-        document.onfullscreenchange = function () {
-            if (isFullscreen(elementToSendFullscreen)) {
-                fullscreenControl.classList.add('is-fullscreen');
-            } else {
-                fullscreenControl.classList.remove('is-fullscreen');
-            }
-        };
-}
-
-function isFullscreen(element) {
-    return (document.fullscreenElement ||
-        document.webkitFullscreenElement ||
-        document.mozFullScreenElement ||
-        document.msFullscreenElement) == element;
-}
-
-function requestFullscreen(element) {
-    if (element.requestFullscreen) {
-        element.requestFullscreen();
-    } else if (element.webkitRequestFullScreen) {
-        element.webkitRequestFullScreen();
-    } else if (element.mozRequestFullScreen) {
-        element.mozRequestFullScreen();
-    } else if (element.msRequestFullScreen) {
-        element.msRequestFullScreen();
-    }
-}
-
-function exitFullscreen() {
-    if (document.exitFullscreen) {
-        document.exitFullscreen();
-    } else if (document.webkitExitFullscreen) {
-        document.webkitExitFullscreen();
-    } else if (document.mozCancelFullScreen) {
-        document.mozCancelFullScreen();
-    } else if (document.msCancelFullScreen) {
-        document.msCancelFullScreen();
-    }
 }
