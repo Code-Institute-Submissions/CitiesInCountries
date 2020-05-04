@@ -464,10 +464,10 @@ function initMap() {
                         let airPressure = data.main.pressure;
                         let nameValue = data.name;
 
-                        if (document.getElementById("weather")) {
-                            document.querySelector(".gm-style-iw-d").className = "";
-                            document.querySelector(".gm-style-iw-c").style = "padding: 12px";
+                        document.querySelector(".gm-style-iw-d").className = "";
+                        document.querySelector(".gm-style-iw-c").style = "padding: 12px";
 
+                        if (document.getElementById("weather")) {
                             let weatherID = document.getElementById("weather").id = "weather" + nameValue;
                             let buttonIDOver = document.getElementById("buttonOver").id = "buttonOver" + nameValue;
                             let buttonIDStats = document.getElementById("buttonStats").id = "buttonStats" + nameValue;
@@ -477,8 +477,6 @@ function initMap() {
                             document.getElementById(weatherID).innerHTML = tempValue + `° Celsius, ` + descValue + `, ` + airPressure + ` hPa`;
                         } else {
                             let weatherID = "weather" + nameValue;
-                            document.querySelector(".gm-style-iw-d").className = "";
-                            document.querySelector(".gm-style-iw-c").style = "padding: 12px";
                             document.getElementById(weatherID).innerHTML = tempValue + `° Celsius, ` + descValue + `, ` + airPressure + ` hPa`;
                         }
                     })
@@ -609,7 +607,7 @@ const getCurrentLocation = (map, home) => {
     else {
         handleLocationError(false, map.getCenter());
     }
-    function handleLocationError(browserHasGeolocation, pos) {
+    const handleLocationError = (browserHasGeolocation, pos) => {
         map.setCenter(home);
     }
 };

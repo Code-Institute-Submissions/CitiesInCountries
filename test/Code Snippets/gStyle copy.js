@@ -424,11 +424,11 @@ function initMap() {
     getCurrentLocation(map, home);
 
 
-    /* for (let i = 0; i < markersArray.length; i++) {
+    for (let i = 0; i < markersArray.length; i++) {
         addMarker(markersArray[i]);
-    } */
+    }
 
-    markersArray.map(markerArrayItem => { addMarker(markerArrayItem); });
+    // markersArray.map(markerArrayItem => { addMarker(markerArrayItem); });
 
     function addMarker(props) {
         let marker = new google.maps.Marker({
@@ -456,41 +456,71 @@ function initMap() {
                 markerString = markerString.replace(/[() ]/g, "");
                 markerStringArray = markerString.split(",");
 
-                fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${markerStringArray[0]}&lon=${markerStringArray[1]}&units=metric&appid=4788a47d724b35cf9cc4e281a1893b4c`)
-                    .then(response => response.json())
-                    .then(data => {
-                        let tempValue = parseInt(data.main.temp);
-                        let descValue = data.weather[0].description;
-                        let airPressure = data.main.pressure;
-                        let nameValue = data.name;
-
-                        if (document.getElementById("weather")) {
-                            document.querySelector(".gm-style-iw-d").className = "";
-                            document.querySelector(".gm-style-iw-c").style = "padding: 12px";
-
-                            let weatherID = document.getElementById("weather").id = "weather" + nameValue;
-                            let buttonIDOver = document.getElementById("buttonOver").id = "buttonOver" + nameValue;
-                            let buttonIDStats = document.getElementById("buttonStats").id = "buttonStats" + nameValue;
-                            document.getElementById(buttonIDOver).className = "button";
-                            document.getElementById(buttonIDStats).className = "button";
-                            configureButtonEventHandlers(buttonIDOver, buttonIDStats);
-                            document.getElementById(weatherID).innerHTML = tempValue + `° Celsius, ` + descValue + `, ` + airPressure + ` hPa`;
-                        } else {
-                            let weatherID = "weather" + nameValue;
-                            document.querySelector(".gm-style-iw-d").className = "";
-                            document.querySelector(".gm-style-iw-c").style = "padding: 12px";
-                            document.getElementById(weatherID).innerHTML = tempValue + `° Celsius, ` + descValue + `, ` + airPressure + ` hPa`;
-                        }
-                    })
-                    .catch(err => console.log(err));
-
+                fetchWeather(infoWindow);
+                infoWindow.open(map, marker);
                 setTimeout(() => {
                     infoWindow.close(map, marker);
                 }, 3000);
-                infoWindow.open(map, marker);
             });
         }
 
+        const fetchWeather = (infoWindow) => {
+            fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${markerStringArray[0]}&lon=${markerStringArray[1]}&units=metric&appid=4788a47d724b35cf9cc4e281a1893b4c`)
+                .then(response => response.json())
+                .then(data => {
+                    let tempValue = parseInt(data.main.temp);
+                    let descValue = data.weather[0].description;
+                    let airPressure = data.main.pressure;
+                    let nameValue = data.name;
+                    document.querySelector(".gm-style-iw-d").className = "";
+                    document.querySelector(".gm-style-iw-c").style = "padding: 12px";
+                    populateMapMarkerToolTip(nameValue, tempValue, descValue, airPressure);
+                })
+                .catch(err => console.log(err));
+        };
+
+        const populateMapMarkerToolTip = (nameValue, tempValue, descValue, airPressure) => {
+            if (document.getElementById("weather")) {
+                let weatherID = document.getElementById("weather").id = "weather" + nameValue;
+                let buttonIDOver = document.getElementById("buttonOver").id = "buttonOver" + nameValue;
+                let buttonIDStats = document.getElementById("buttonStats").id = "buttonStats" + nameValue;
+                document.getElementById(buttonIDOver).className = "button";
+                document.getElementById(buttonIDStats).className = "button";
+                configureButtonEventHandlers(buttonIDOver, buttonIDStats);
+                document.getElementById(weatherID).innerHTML = tempValue + `° Celsius, ` + descValue + `, ` + airPressure + ` hPa`;
+            }
+            else {
+                let weatherID = "weather" + nameValue;
+                document.getElementById(weatherID).innerHTML = tempValue + `° Celsius, ` + descValue + `, ` + airPressure + ` hPa`;
+            }
+        };
+
+        let configureButtonEventHandlers = (buttonIDOver, buttonIDStats) => {
+            let buttonOverview = document.getElementById(buttonIDOver);
+            let buttonStats = document.getElementById(buttonIDStats);
+
+            const overviewModalHandler = () => {
+                toggleBackdrop();
+                toggleModal();
+                document.getElementById("modal-content").innerHTML = `<h4>Overview: ${marker.name}</h4> ${marker.overview}`;
+                let cityArray = marker.name.split(", ");
+                fetchCountry(cityArray[1], displayCountry);
+            };
+            buttonOverview.addEventListener("click", overviewModalHandler);
+
+            const statisticsModalHandler = () => {
+                toggleBackdrop();
+                toggleModal();
+                document.getElementById("modal-content").innerHTML = `<h4>Statistics: ${marker.name}</h4><div class="canvas"></div><div>${marker.d3}`;
+                let cityArray = marker.name.split(", ");
+                d3Stats(cityArray[0], 200, 200, "M", "rgb(0, 0, 0)");
+                fetchCountry(cityArray[1], displayStats);
+            };
+            buttonStats.addEventListener("click", statisticsModalHandler);
+        };
+
+
+        
         let findCountryObject = {};
 
         let displayCountry = (country) => {
@@ -560,30 +590,6 @@ function initMap() {
             addModal.classList.toggle("visible");
         };
 
-        let configureButtonEventHandlers = (buttonIDOver, buttonIDStats) => {
-            let buttonOverview = document.getElementById(buttonIDOver);
-            let buttonStats = document.getElementById(buttonIDStats);
-
-            const overviewModalHandler = () => {
-                toggleBackdrop();
-                toggleModal();
-                document.getElementById("modal-content").innerHTML = `<h4>Overview: ${marker.name}</h4> ${marker.overview}`;
-                let cityArray = marker.name.split(", ");
-                fetchCountry(cityArray[1], displayCountry);
-            };
-            buttonOverview.addEventListener("click", overviewModalHandler);
-
-            const statisticsModalHandler = () => {
-                toggleBackdrop();
-                toggleModal();
-                document.getElementById("modal-content").innerHTML = `<h4>Statistics: ${marker.name}</h4><div class="canvas"></div><div>${marker.d3}`;
-                let cityArray = marker.name.split(", ");
-                d3Stats(cityArray[0], 200, 200, "M", "rgb(0, 0, 0)");
-                fetchCountry(cityArray[1], displayStats);
-            };
-            buttonStats.addEventListener("click", statisticsModalHandler);
-        };
-
         document.getElementById("close").onclick = () => { closeModal(); };
 
         const closeModal = () => {
@@ -609,7 +615,7 @@ const getCurrentLocation = (map, home) => {
     else {
         handleLocationError(false, map.getCenter());
     }
-    function handleLocationError(browserHasGeolocation, pos) {
+    const handleLocationError = (browserHasGeolocation, pos) => {
         map.setCenter(home);
-    }
+    };
 };
