@@ -29,6 +29,8 @@ A responsive and interactive website using HTML 5, CSS 3, and JavaScript to prov
 * [Surface Plane](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/CinC%20-%20User%20Experience%20and%20Design.md#surface)
 * [Acknowledgements](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/CinC%20-%20User%20Experience%20and%20Design.md#acknowledgements)
 
+[Testing Details (Full Report)]()
+
 [Document: Code Documentation and Walkthrough](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/Code%20Documentation%20and%20Walkthrough.md)
 
 
@@ -76,7 +78,7 @@ There are three main actors/roles that use the services provided by the website:
 
 * User - UC 1 - Overview and Statistics: As an Interested User, I want to satisfy my curiosity about European Cities and Countries, access information and simple statistics about each to further my interests and satisfy my curiosity.
 	* User - UC 2 - Feedback Form: As an Interested User, I want to provide feedback to the creator, to suggest improvements and further data to add, to improve the website and subsequently the Users' experience of the website.
-	* User - UC 3 - CSS Modals: As an Interested User, I want to see what data sources are used to drive the website, and also the .
+	* User - UC 3 - CSS Modals: As an Interested User, I want to see what data sources are used to drive the website.
 	* User - UC 4 - Contact: As an Interested User, I want to contact the owner (Naoise Gaffney) to discuss the details of providing a Full Stack Solution so that I can provide on-line services to my Clients and End-Users.
 
 * Collaborator - UC 5 - Contact: As a Collaborator, I want to work with the owner (Naoise Gaffney) so that we can provide Full Stack Development solutions for Clients to further their needs and our financial safety.
@@ -217,15 +219,9 @@ Grid Layouts and Flexbox are used for the layout of the Dashboard. To further my
 Using GitHub as a repository and GitPages for publishing the website is an easy choice to make, as it works well and is easy to use.
 
 ## Testing
-### Automated Testing Technology
 ![Software Testing](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/Software%20Testing%20-%20Simplified.png)
 
-Automated testing is performed using:
-
-* [Selenium IDE](https://www.selenium.dev/selenium-ide/) - the Chrome and Firefox extensions.
-* [Cities in Countries Test File](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/test/Capital%20Cities%20in%20Countries.side)
-
-### Manual Testing Technology
+### Manual Testing Technology - Unit, Integration, and System Testing
 The following combination of software and hardware is used for all manual tests:
 
 * Chrome on MacOSX (MacBook Pro) for both laptop/large display and mobile devices (inspect --> responsive).
@@ -233,8 +229,104 @@ The following combination of software and hardware is used for all manual tests:
 * Safari on MacOSX (MacBook Pro) for laptop/large display testing.
 * Physical devices: Samsung Galaxy Note 10+ 5G with Chrome, Samsung Browser and Firefox. Apple iPhone 8 with Chrome and Safari.
 
-### Testing Criteria
-The Acceptance Criteria are a compressed (simplified) version of the Use Cases described under section Processes --> UX.
+### Automated Testing Technology - Acceptance (System) Testing
+Automated testing is performed using:
+
+* [Selenium IDE](https://www.selenium.dev/selenium-ide/) - the Chrome and Firefox extensions.
+* [Cities in Countries Test File](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/test/Capital%20Cities%20in%20Countries.side)
+
+### Testing Criteria - Automated Tests Using Selenium IDE
+The Acceptance Criteria is based on the Use Cases described under section Processes --> UX, with the exception of tests 001 to 003 that are general features testing.
+
+[Testing Details (Full Report)]()
+
+1. 001 - Features and Functions Overview - Google Maps (geoLocation accepted)
+> Running '001 - Features and Functions Overview Google Maps (geoLocation accepted)' 22:12:14
+> 
+> '001 - Features and Functions Overview - Google Maps (geoLocation accepted)' completed successfully
+
+2. 002 - Features and Functions Overview - Fixed Footer and CSS Modals (geoLocation accepted)
+> Running '002 - Features and Functions Overview - Fixed Footer and CSS Modals (geoLocation accepted)' 22:12:44
+> 
+> '002 - Features and Functions Overview - Fixed Footer and CSS Modals (geoLocation accepted)' completed successfully
+
+3. 003 - Features and Functions Overview - Samples (geoLocation accepted)
+> Running '003 - Features and Functions Overview - Samples (geoLocation accepted)'
+22:15:37
+> 
+> '003 - Features and Functions Overview - Samples (geoLocation accepted)' completed successfully
+
+4. 004 - User - UC 1 - Overview and Statistics (geoLocation already accepted)
+> Running '004 - User - UC 1 - Overview and Statistics (geoLocation already accepted)'. 22:16:11
+> 
+> '004 - User - UC 1 - Overview and Statistics (geoLocation already accepted) (1)' completed successfully
+
+5. 005 - User - UC 2 - Feedback Form (geoLocation already accepted)
+> Running '005 - User - UC 2 - Feedback Form (geoLocation already accepted)'
+22:16:52
+> 
+> '005 - User - UC 2 - Feedback Form (geoLocation already accepted)' completed successfully
+
+6. 006 - User - UC 3 - CSS Modals (geoLocation already accepted)
+> Running '006 - User - UC 3 - CSS Modals (geoLocation already accepted)'
+22:17:23
+> 
+> '006 - User - UC 3 - CSS Modals (geoLocation already accepted)' completed successfully
+
+7. 007 - User - UC 4 - Contact (geoLocation already accepted)
+> Running '007 - User - UC 4 - Contact (geoLocation already accepted)'
+22:17:50
+> 
+> '007 - User - UC 4 - Contact (geoLocation already accepted)' completed successfully
+22:18:28
+
+8. 008 - Collaborator - UC 5 - Contact (geoLocation already accepted)
+> Running '008 - Collaborator - UC 5 - Contact (geoLocation already accepted)'
+22:18:34
+> 
+> '008 - Collaborator - UC 5 - Contact (geoLocation already accepted)' completed successfully
+
+9. 009 - Collaborator - UC 6 - Overview and Statistics (geoLocation already accepted)
+> Running '009 - Collaborator - UC 6 - Overview and Statistics (geoLocation already accepted)'
+22:19:21
+> 
+> '009 - Collaborator - UC 6 - Overview and Statistics (geoLocation already accepted)' completed successfully
+
+10. 010 - Collaborator - UC 7 - GitHub Project II (geoLocation already accepted)
+> Running '010 - Collaborator - UC 7 - GitHub Project II (geoLocation already accepted)'
+22:19:43
+> 
+> '010 - Collaborator - UC 7 - GitHub Project II (geoLocation already accepted)' completed successfully
+
+11. 011 - Collaborator - UC 8 - Feedback Form (geoLocation already accepted)
+> Running '011 - Collaborator - UC 8 - Feedback Form (geoLocation already accepted)'
+22:20:18
+> 
+> '011 - Collaborator - UC 8 - Feedback Form (geoLocation already accepted)' completed successfully
+
+12. 012 - Employer - UC 9 - Overview and Statistics (geoLocation already accepted)
+> Running '012 - Employer - UC 9 - Overview and Statistics (geoLocation already accepted)'
+22:20:49
+> 
+> '012 - Employer - UC 9 - Overview and Statistics (geoLocation already accepted)' completed successfully
+
+13. 013 - Employer - UC 10 - GitHub Project II (geoLocation already accepted)
+> Running '013 - Employer - UC 10 - GitHub Project II (geoLocation already accepted)'
+22:23:55
+> 
+> '013 - Employer - UC 10 - GitHub Project II (geoLocation already accepted)' completed successfully
+
+14. 014 - Employer - UC 11 - GitHub Project MarkDown Documents (geoLocation already accepted)
+> Running '014 - Employer - UC 11 - GitHub Project MarkDown Documents (geoLocation already accepted)'
+22:24:25
+> 
+> '014 - Employer - UC 11 - GitHub Project MarkDown Documents (geoLocation already accepted)' completed successfully
+
+15. 015 - Employer - UC 12 - Feedback Form (geoLocation already accepted)
+> Running '015 - Employer - UC 12 - Feedback Form (geoLocation already accepted)'
+22:24:46
+> 
+> '015 - Employer - UC 12 - Feedback Form (geoLocation already accepted)' completed successfully
 
 ### Testing Notes
 All devices and formats are tested in both portrait and landscape mode. The website is responsive and supports all tested browsers.
