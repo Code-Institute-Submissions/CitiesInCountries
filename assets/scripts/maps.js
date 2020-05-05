@@ -574,13 +574,13 @@ const getCurrentLocation = (map, home) => {
             let pos = { lat: position.coords.latitude, lng: position.coords.longitude };
             map.setCenter(pos);
         }, () => {
-            handleLocationError(true, map.getCenter());
+            handleLocationError();
         });
     }
     else {
-        handleLocationError(false, map.getCenter());
+        handleLocationError();
     }
-    const handleLocationError = (browserHasGeolocation, pos) => {
+    const handleLocationError = () => {
         map.setCenter(home);
     };
 };

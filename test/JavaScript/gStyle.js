@@ -491,7 +491,7 @@ function initMap() {
 
         let findCountryObject = {};
 
-        let displayCountry = (country) => {
+        let displayCountry = () => {
             let languages = "";
 
             for (let i = 0; i < findCountryObject.languages.length; i++) {
@@ -523,15 +523,15 @@ function initMap() {
                     .then(data => data.json())
                     .then(data => {
                         findCountryObject = data.find(data => data.name === country);
-                        functionCall(country);
+                        functionCall();
                     });
             } else {
-                functionCall(country);
+                functionCall();
             }
         };
 
 
-        let displayStats = (country) => {
+        let displayStats = () => {
             let borders = "";
 
             for (let i = 0; i < findCountryObject.borders.length; i++) {
@@ -608,13 +608,13 @@ const getCurrentLocation = (map, home) => {
             let pos = { lat: position.coords.latitude, lng: position.coords.longitude };
             map.setCenter(pos);
         }, () => {
-            handleLocationError(true, map.getCenter());
+            handleLocationError();
         });
     }
     else {
-        handleLocationError(false, map.getCenter());
+        handleLocationError();
     }
-    const handleLocationError = (browserHasGeolocation, pos) => {
+    const handleLocationError = () => {
         map.setCenter(home);
     };
 };
