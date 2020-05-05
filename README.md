@@ -8,10 +8,26 @@
 
 A responsive and interactive website using HTML 5, CSS 3, and JavaScript to provide an informative overview of Cities and Countries in Europe (expanded in future to include the World) through Google Map Markers, with Modals (“pop-ups”) providing place details and statistics.
 
-### Table of Contents
+## Table of Contents
 [README.md (this document) - Capital Cities in Countries Data](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/README.md)
 
+* [Business](https://github.com/NaoiseGaffney/CitiesInCountries#business)
+* [Processes](https://github.com/NaoiseGaffney/CitiesInCountries#processes)
+* [Solution](https://github.com/NaoiseGaffney/CitiesInCountries#solution)
+* [Technology](https://github.com/NaoiseGaffney/CitiesInCountries#technology)
+* [Testing](https://github.com/NaoiseGaffney/CitiesInCountries#testing)
+* [Deployment](https://github.com/NaoiseGaffney/CitiesInCountries#deployment)
+* [Credits](https://github.com/NaoiseGaffney/CitiesInCountries#credits)
+
 [User Experience and Design MarkDown](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/CinC%20-%20User%20Experience%20and%20Design.md)
+
+* [User Experience and User Design - 5 Planes](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/CinC%20-%20User%20Experience%20and%20Design.md#user-experience-and-user-design---5-planes)
+* [Strategy Plane](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/CinC%20-%20User%20Experience%20and%20Design.md#strategy)
+* [Scope Plane](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/CinC%20-%20User%20Experience%20and%20Design.md#scope)
+* [Structure Plane](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/CinC%20-%20User%20Experience%20and%20Design.md#structure)
+* [Skeleton Plane](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/CinC%20-%20User%20Experience%20and%20Design.md#skeleton)
+* [Surface Plane](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/CinC%20-%20User%20Experience%20and%20Design.md#surface)
+* [Acknowledgements](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/CinC%20-%20User%20Experience%20and%20Design.md#acknowledgements)
 
 [Code Documentation and Walkthrough]()
 
