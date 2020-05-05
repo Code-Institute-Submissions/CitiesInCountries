@@ -267,10 +267,6 @@ a i:hover {
     font-size: 100%;
 }
 
-.modal-link-text:hover {
-    font-size: 130%;
-}
-
 
 /* === BACKDROP === */
 #backdrop {
@@ -400,7 +396,6 @@ Displays details without leaving the page, providing a clear and clean navigatio
     width: 100%;
     height: 100%;
     overflow: auto;
-    background: rgba(0, 0, 0, 0.20);
 }
 
 /* Display the modal when targeted */
@@ -437,6 +432,10 @@ Displays details without leaving the page, providing a clear and clean navigatio
 .cssmodal-container {
     padding: 10px 16px;
     text-align: left;
+}
+
+.modal-link-text:active {
+    color: rgb(255, 255, 255);
 }
 
 
