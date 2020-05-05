@@ -60,8 +60,8 @@ JS: Create and call custom functions, ZoomControl, MapType Control, and FullScre
 }
 
 .gm-style .controls button:active {
-    color: var(--main-font-color);
-    background: var(--linear-gradient);
+    color: rgb(0, 0, 0);
+    background: linear-gradient(0.25turn, rgba(63, 135, 166, 0.9), rgba(235, 248, 225, 0.9), rgba(246, 157, 60, 0.9));
 }
 
 .gm-style .controls button:focus {
@@ -157,7 +157,7 @@ JS: Create and call custom functions, ZoomControl, MapType Control, and FullScre
 
 .gm-style-iw,
 .gm-style-iw-c {
-    background: var(--linear-gradient)
+    background: linear-gradient(0.25turn, rgba(63, 135, 166, 0.9), rgba(235, 248, 225, 0.9), rgba(246, 157, 60, 0.9));
 }
 
 /* Consistent Font use on the website - Google Map, Tool-Tips, Controls and Text */
