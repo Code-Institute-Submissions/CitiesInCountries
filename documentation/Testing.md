@@ -221,6 +221,8 @@ The Acceptance Criteria is based on the Use Cases described under section Proces
 > 82. click on linkText=Close OK 22:14:42
 > 
 > '002 - Features and Functions Overview - Fixed Footer and CSS Modals (geoLocation accepted)' completed successfully
+> 
+> ![Contact Form E-mail](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/GT%202%20Email.png)
 
 3. 003 - Features and Functions Overview - Samples (geoLocation accepted)
 Running '003 - Features and Functions Overview - Samples (geoLocation accepted)'
@@ -312,6 +314,8 @@ Running '005 - User - UC 2 - Feedback Form (geoLocation already accepted)'
 > 10. click on linkText=Close OK 22:17:09
 > 
 > '005 - User - UC 2 - Feedback Form (geoLocation already accepted)' completed successfully
+> 
+> ![Contact Form E-mail](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/UC%202%20Email.png)
 
 6. 006 - User - UC 3 - CSS Modals (geoLocation already accepted)
 Running '006 - User - UC 3 - CSS Modals (geoLocation already accepted)'
@@ -391,8 +395,9 @@ Running '007 - User - UC 4 - Contact (geoLocation already accepted)'
 > 
 > 22. click on linkText=Close OK 22:18:27
 > 
-> '007 - User - UC 4 - Contact (geoLocation already accepted)' completed successfully
-22:18:28
+> '007 - User - UC 4 - Contact (geoLocation already accepted)' completed successfully 22:18:28
+> 
+> ![Contact Form E-mail](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/UC%204%20Email.png)
 
 8. 008 - Collaborator - UC 5 - Contact (geoLocation already accepted)
 Running '008 - Collaborator - UC 5 - Contact (geoLocation already accepted)'
@@ -446,6 +451,8 @@ Running '008 - Collaborator - UC 5 - Contact (geoLocation already accepted)'
 > 24. click on linkText=Close OK 22:19:15
 > 
 > '008 - Collaborator - UC 5 - Contact (geoLocation already accepted)' completed successfully
+> 
+> ![Contact Form E-mail](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/UC%205%20Email.png)
 
 9. 009 - Collaborator - UC 6 - Overview and Statistics (geoLocation already accepted)
 Running '009 - Collaborator - UC 6 - Overview and Statistics (geoLocation already accepted)'
@@ -533,6 +540,8 @@ Running '011 - Collaborator - UC 8 - Feedback Form (geoLocation already accepted
 > 12. click on linkText=Close OK 22:20:39
 > 
 > '011 - Collaborator - UC 8 - Feedback Form (geoLocation already accepted)' completed successfully
+> 
+> ![Contact Form E-mail](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/UC%208%20Email.png)
 
 12. 012 - Employer - UC 9 - Overview and Statistics (geoLocation already accepted)
 Running '012 - Employer - UC 9 - Overview and Statistics (geoLocation already accepted)'
@@ -647,3 +656,5 @@ Running '015 - Employer - UC 12 - Feedback Form (geoLocation already accepted)'
 > 13. click on linkText=Close OK 22:25:09
 > 
 > '015 - Employer - UC 12 - Feedback Form (geoLocation already accepted)' completed successfully
+> 
+> ![Contact Form E-mail](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/UC%2012%20Email.png)
