@@ -218,6 +218,8 @@ Using GitHub as a repository and GitPages for publishing the website is an easy 
 
 ## Testing
 ### Automated Testing Technology
+![Software Testing](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/Software%20Testing%20-%20Simplified.png)
+
 Automated testing is performed using:
 
 * [Selenium IDE](https://www.selenium.dev/selenium-ide/) - the Chrome and Firefox extensions.
@@ -260,7 +262,7 @@ A couple of things to note:
 #### JavaScript
 [JavaScript Validation](https://jshint.com/)
 
-No errors. A number of "false positives" on undefined variables.
+No errors. A number of "false positives" on undefined variables. They are either JS functions and objects called in external JS files such as from Google or my own D3 for Graphs. `markerStringArray` is used to create the URL link for the OpenWeather API `fetch()`.
 
 Metrics:
 > There are 26 functions in this file.
@@ -300,6 +302,8 @@ I'm working off of the same main branch on GitHub, though I have a staging envir
 Local deployment is performed in Visual Studio Code to the local LiveServer Web Server.
 
 When using Visual Studio Code with GitHub I perform the following steps:
+
+![Development & Testing Cycle](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/Development%20Cycle%20-%20Simplified.png)
 
 Development (Code Snippets and API Examples) --> Test --> Production, with frequent testing cycles. Final QA is performed using Selenium IDE in the Production environment. Running the website via HTML and CSS Validators to clean up the code, making sure it's compliant. Using Chrome Devtools to run Coverage on the website to ensure all CSS code is used, and used appropriately.
 
