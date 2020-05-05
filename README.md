@@ -321,7 +321,7 @@ Development (Code Snippets and API Examples) --> Test --> Production, with frequ
 		* Enter a short description in the text box and press Enter.
 	* To push changes in the local repository to the GitHub.
 		* Click on Source Control (branch-icon on the left of the screen).
-		* Click on More Actions... (...) and click on 'Commit All'
+		* Click on More Actions... (...) and click on 'Push' or 'Sync'.
 * Publishing
 	* Go to (click on link) [Project Repository](https://github.com/NaoiseGaffney/CitiesInCountries)
 		* Click on Settings. Scroll down to GitHub Pages.
@@ -340,7 +340,7 @@ Code Institute Mentor - [GitHub: 5pence - Spencer Barriball](https://github.com/
 
 ### Content
 - [GitHub: Project Repository](https://github.com/NaoiseGaffney/CitiesInCountries)
-- [Website: Professional Training and Development](https://naoisegaffney.github.io/CitiesInCountries/)
+- [Website: Cities in Countries](https://naoisegaffney.github.io/CitiesInCountries/)
 
 ### Media
 * [REST Countries](https://restcountries.eu/)
