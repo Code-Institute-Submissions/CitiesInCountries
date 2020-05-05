@@ -389,6 +389,7 @@ function initMap() {
         zoom: 6,
         center: home,
         disableDefaultUI: true,
+        backgroundColor: "none",
     });
 
     getCurrentLocation(map, home);
