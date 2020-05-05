@@ -8,6 +8,14 @@
 
 A responsive and interactive website using HTML 5, CSS 3, and JavaScript to provide an informative overview of Cities and Countries in Europe (expanded in future to include the World) through Google Map Markers, with Modals (“pop-ups”) providing place details and statistics.
 
+### Table of Contents
+[README.md (this document) - Capital Cities in Countries Data](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/README.md)
+
+[User Experience and Design MarkDown](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/CinC%20-%20User%20Experience%20and%20Design.md)
+
+[Code Documentation and Walkthrough]()
+
+
 ## Business
 ### External Users' Goals
 Users interested in looking at succinct information about European (global expansion planned) Capitals and Countries easily accessible and clearly displayed on a "Dashboard".
