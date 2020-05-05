@@ -3,14 +3,6 @@
 
 ## Testing Criteria
 
-### Manual Testing Technology - Unit, Integration, and System Testing
-The following combination of software and hardware is used for all manual tests:
-
-* Chrome on MacOSX (MacBook Pro) for both laptop/large display and mobile devices (inspect --> responsive).
-* Firefox Developer Edition on MacOSX (MacBook Pro) for both laptop/large displays and mobile devices (Web Developer Tools --> Responsive Design Mode).
-* Safari on MacOSX (MacBook Pro) for laptop/large display testing.
-* Physical devices: Samsung Galaxy Note 10+ 5G with Chrome, Samsung Browser and Firefox. Apple iPhone 8 with Chrome and Safari.
-
 ### Automated Testing Technology - Acceptance (System) Testing
 ![Software Testing](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/Software%20Testing%20-%20Simplified.png)
 
