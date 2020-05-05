@@ -155,13 +155,6 @@ JS: Create and call custom functions, ZoomControl, MapType Control, and FullScre
     border-width: 2px 0 0 2px;
 }
 
-/* Together with JS Styling this creates a linear background effect. */
-.gm-style,
-.gm-style-iw,
-.gm-style-iw-c {
-    background: linear-gradient(0.25turn, rgba(63, 135, 166, 0.9), rgba(235, 248, 225, 0.9), rgba(246, 157, 60, 0.9))
-}
-
 /* Consistent Font use on the website - Google Map, Tool-Tips, Controls and Text */
 .weather,
 .btn,

@@ -83,9 +83,10 @@ JS: Create and call custom functions, ZoomControl, MapType Control, and FullScre
     color: var(--main-font-color);
     /* Navigation control colour */
     font-family: 'Raleway', sans-serif;
-    /* Consistent Font use on the website - Google: Map and Satellite naviagation elements */
+    /* Consistent Font use on the website - Google: Map and Satellite naviagation elements. */
 }
 
+/* Changed from 'button:hover' to 'button:active' as it works better for mobile devices (the hover "freezes" on mobile devices). */
 .gm-style .controls button:active {
     color: var(--main-font-color);
     background: var(--linear-gradient);
@@ -185,11 +186,11 @@ JS: Create and call custom functions, ZoomControl, MapType Control, and FullScre
 }
 
 /* Together with JS Styling this creates a linear background effect. */
-.gm-style,
+/* .gm-style,
 .gm-style-iw,
 .gm-style-iw-c {
     background: var(--linear-gradient)
-}
+} */
 
 /* Consistent Font use on the website - Google Map, Tool-Tips, Controls and Text */
 .weather,
