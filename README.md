@@ -74,20 +74,20 @@ The website follows a dashboard Information Architecture and all elements and da
 
 There are three main actors/roles that use the services provided by the website: Interested User, Collaborator, and Employer.
 
-* As an Interested User, I want to satisfy my curiosity about European Cities and Countries, access information and simple statistics about each to further my interests and satisfy my curiosity.
-	* As an Interested User, I want to provide feedback to the creator, to suggest improvements and further data to add, to improve the website and subsequently the Users' experience of the website.
-	* As an Interested User, I want to see what data sources are used to drive the website, and also the .
-	* As an Interested User, I want to contact the owner (Naoise Gaffney) to discuss the details of providing a Full Stack Solution so that I can provide on-line services to my Clients and End-Users.
+* User - UC 1 - Overview and Statistics: As an Interested User, I want to satisfy my curiosity about European Cities and Countries, access information and simple statistics about each to further my interests and satisfy my curiosity.
+	* User - UC 2 - Feedback Form: As an Interested User, I want to provide feedback to the creator, to suggest improvements and further data to add, to improve the website and subsequently the Users' experience of the website.
+	* User - UC 3 - CSS Modals: As an Interested User, I want to see what data sources are used to drive the website, and also the .
+	* User - UC 4 - Contact: As an Interested User, I want to contact the owner (Naoise Gaffney) to discuss the details of providing a Full Stack Solution so that I can provide on-line services to my Clients and End-Users.
 
-* As a Collaborator, I want to work with the owner (Naoise Gaffney) so that we can provide Full Stack Development solutions for Clients to further their needs and our financial safety.
-	* As a Collaborator, I want to satisfy my curiosity about European Cities and Countries, access information and simple statistics about each to further my interests and satisfy my curiosity.
-	* As a Collaborator, I want to review the code on GitHub to determine the relevant skills the owner (Naoise Gaffney) has for a potential future collaboration to drive business.
-	* As a Collaborator, I want to contact the owner (Naoise Gaffney) to discuss the details of the potential for a collaboration so that I can plan the continued development of my business for my Clients.
+* Collaborator - UC 5 - Contact: As a Collaborator, I want to work with the owner (Naoise Gaffney) so that we can provide Full Stack Development solutions for Clients to further their needs and our financial safety.
+	* Collaborator - UC 6 - Overview and Statistics: As a Collaborator, I want to satisfy my curiosity about European Cities and Countries, access information and simple statistics about each to further my interests and satisfy my curiosity.
+	* Collaborator - UC 7 - GitHub Project II: As a Collaborator, I want to review the code on GitHub to determine the relevant skills the owner (Naoise Gaffney) has for a potential future collaboration to drive business.
+	* Collaborator - UC 8 - Feedback Form: As a Collaborator, I want to contact the owner (Naoise Gaffney) to discuss the details of the potential for a collaboration so that I can plan the continued development of my business for my Clients.
 
-* As an Employer, I want to determine the usability and real-world application as well as the layout and visual impact of the website, to determine whether the owner (Naoise Gaffney) has the aptitude for Front-End design to employ him to further my business.
-	* As an Employer, I want to determine whether the Code Quality on GitHub is proof that the owner (Naoise Gaffney) has the aptitude for Front-End/Full Stack development to employ him to further my business.
-	* As an Employer I want to review the GitHub documentation to determine whether the owner (Naoise Gaffney) has good Software Development Practices, to employ him to further my business.
-	* As an Employer, I want to contact the owner (Naoise Gaffney) to discuss the details of hiring or contracting him for design and development work.
+* Employer - UC 9 - Overview and Statistics: As an Employer, I want to determine the usability and real-world application as well as the layout and visual impact of the website, to determine whether the owner (Naoise Gaffney) has the aptitude for Front-End design to employ him to further my business.
+	* Employer - UC 10 - GitHub Project II: As an Employer, I want to determine whether the Code Quality on GitHub is proof that the owner (Naoise Gaffney) has the aptitude for Front-End/Full Stack development to employ him to further my business.
+	* Employer - UC 11 - GitHub Project MarkDown Documents: As an Employer I want to review the GitHub documentation to determine whether the owner (Naoise Gaffney) has good Software Development Practices, to employ him to further my business.
+	* Employer - UC 12 - Feedback Form: As an Employer, I want to contact the owner (Naoise Gaffney) to discuss the details of hiring or contracting him for design and development work.
 
 The User Experience and Design MarkDown document covers the 5 planes in detail, and contains the Balsamiq wireframes and mockups of the website (simplified views, and not complete representations).
 

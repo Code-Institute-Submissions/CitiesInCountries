@@ -419,10 +419,10 @@ function initMap() {
         zoom: 6,
         center: home,
         disableDefaultUI: true,
+        backgroundColor: "none",
     });
 
     getCurrentLocation(map, home);
-
 
     for (let i = 0; i < markersArray.length; i++) {
         addMarker(markersArray[i]);
