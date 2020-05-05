@@ -312,9 +312,6 @@ a i:hover {
     font-size: 120%;
 } */
 
-.modal-link-text:hover {
-    font-size: 130%;
-}
 
 /* === WHY?
 Adding tool-tips to clarify the fixed-footer elements (and to show off a nifty and useful CSS 3 feature).
@@ -526,6 +523,12 @@ Displays details without leaving the page, providing a clear and clean navigatio
     animation-name: example;
     animation-duration: 0.5s;
 }
+
+.modal-link-text:active {
+    /* font-size: 130%; */
+    color: rgb(255, 255, 255);
+}
+
 
 /* The button used to close the modal */
 /* .closebtn {
