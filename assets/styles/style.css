@@ -155,6 +155,11 @@ JS: Create and call custom functions, ZoomControl, MapType Control, and FullScre
     border-width: 2px 0 0 2px;
 }
 
+.gm-style-iw,
+.gm-style-iw-c {
+    background: var(--linear-gradient)
+}
+
 /* Consistent Font use on the website - Google Map, Tool-Tips, Controls and Text */
 .weather,
 .btn,

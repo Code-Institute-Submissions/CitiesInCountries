@@ -431,6 +431,9 @@ function initMap() {
                         let airPressure = data.main.pressure;
                         let nameValue = data.name;
 
+                        document.querySelector(".gm-style-iw-d").className = "";
+                        document.querySelector(".gm-style-iw-c").style = "padding: 12px";
+
                         if (document.getElementById("weather")) {
                             let weatherID = document.getElementById("weather").id = "weather" + nameValue;
                             let buttonIDOver = document.getElementById("buttonOver").id = "buttonOver" + nameValue;
