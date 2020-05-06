@@ -1,9 +1,14 @@
 # Code Documentation and Walkthrough
+This document is a code walkthrough covering the three languages HTML, CSS, and JavaScript, and how they provide the features & functions of the website as well as how they relate to the General Cases and Use Cases described in README.md and Testing.md.
+
+Features & Functions section covers the code from the three languages, HTML, CSS, and JavScript and how they relate to the "Why?", "What?", and "How?" of each feature & function of the website. Each section links the feature & function to one or more General Cases and/or Use Cases described in README.md and Testing.md.
+
+The "</> HTML", ".css{} CSS", and "(Js)" sections provide an overview of the code files and external sources used for this website.
 
 ## Features & Functions
 
 ### Geo-Location, Google Map and Navigational Controls
-#### Geo-Location: ![First loading of the website]()
+#### Geo-Location: ![First loading of the website, Geo-Location](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/1.%20Geo-Location.png)
 Why? - The User requires only to accept the browser's request for the current location to have the map centre on their current location. This is their starting point for exploring the map marker InfoWindows to acquire information regarding European capital cities and countries.
 
 Use Case cross-reference ([please see main README.md for details](https://github.com/NaoiseGaffney/CitiesInCountries#processes)):
@@ -37,7 +42,7 @@ const getCurrentLocation = (map, home) => {
 };
 ```
 
-#### Google Map: ![]()
+#### Google Map: ![Google Map Dashboard](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/3.%20Google%20Map%20and%20Navigational%20Controls.png)
 Why? - Google Map is used to provide Map Markers with information about European capital cities and countries. The Map is the key display upon which further InfoViews and Modals are used to provide further details for the User to acquire basic knowledge of cities and countries.
 
 Use Case cross-reference ([please see main README.md for details](https://github.com/NaoiseGaffney/CitiesInCountries#processes)):
@@ -46,15 +51,56 @@ Use Case cross-reference ([please see main README.md for details](https://github
 
 What? - Google Map JavaScript API is used to create the Google Map, Navigational Controls, and Map Markers (together with an internal `markersArray[]`).
 
+A Grid Layout, together with Flexbox is used on this website. The Grid Layout described below uses `grid-template-areas` as they're easy to understand and use (visually clear). The Map area uses 3 columns x 19 rows.
+
 Background is set to `linear-gradient(0.25turn, rgba(63, 135, 166, 0.9), rgba(235, 248, 225, 0.9), rgba(246, 157, 60, 0.9));` which is the same used throughout the website to create a common look-and-feel.
 
-How? - These code snippets are taken from the Google Map JavaScript API documentation, and are used by the Code Institute and Bill Traversy walkthroughs. index.html has the map placeholder in `<div class="map" id="map"></div>` to display the map from maps.js, and styled by style.css. The linear-gradient background is enabled by the `backgroundColor: "none",` in initMap() and the `background: linear-gradient(0.25turn, rgba(63, 135, 166, 0.9), rgba(235, 248, 225, 0.9), rgba(246, 157, 60, 0.9));` in style.css of `html, body {...}`.
+How? - Some of the code snippets are taken from the Google Map JavaScript API documentation, and are used by the Code Institute and Bill Traversy walkthroughs. index.html has the map placeholder in `<div class="map" id="map"></div>` to display the map from maps.js, and styled by style.css. The linear-gradient background is enabled by the `backgroundColor: "none",` in initMap() and the `background: linear-gradient(0.25turn, rgba(63, 135, 166, 0.9), rgba(235, 248, 225, 0.9), rgba(246, 157, 60, 0.9));` in style.css of `html, body {...}`.
 
 [Production Code: index.html](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/index.html)
 
 `<div class="map" id="map"></div>`
 
 [Production Code: style.css](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/styles/style.css)
+
+```
+.parent {
+    height: 100%;
+    display: grid;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(20, 1fr);
+    grid-template-areas:
+        "map map map"
+        "map map map"
+        "map map map"
+        "map map map"
+        "map map map"
+        "map map map"
+        "map map map"
+        "map map map"
+        "map map map"
+        "map map map"
+        "map map map"
+        "map map map"
+        "map map map"
+        "map map map"
+        "map map map"
+        "map map map"
+        "map map map"
+        "map map map"
+        "map map map"
+        "footer  footer footer";
+}
+
+.map {
+    grid-area: map;
+    display: grid;
+    height: auto;
+    width: auto;
+}
+```
 
 ```
 #map {
@@ -95,7 +141,38 @@ Use Case cross-reference ([please see main README.md for details](https://github
 
 What? - Customised, based off of Google Maps JavaScript API example for customised navigation controls, and styled using CSS.
 
-How? - These code snippets are taken from the Google Maps JavaScript API documenation, and modified to suit my website. Index.html has the HTML tags for the Navigational Controls. These are styled by the CSS code which is from Google and modified to suit the website look-and-feel. Maps.js calls on the 2 functions in mapsControls.js, `function initZoomControl(map)` controls the zoom controls (+ and - buttons on the mid-right of the viewport). `function initMapTypeControl(map)` controls the map type selection, of Satellite or Map.
+How? - These code snippets are taken from the Google Maps JavaScript API documenation, and modified to suit my website. Index.html has the HTML tags for the Navigational Controls. These are styled by the CSS code which is from Google and modified to suit the website look-and-feel. Maps.js calls on the 2 functions in mapsControls.js, `function initZoomControl(map)` controls the zoom controls (+ and - buttons on the mid-right of the viewport). `function initMapTypeControl(map)` controls the map type selection, of Satellite or Map. The button borders and click status are set by `box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);`.
+
+One key point to note, as documented under [Testing Notes](https://github.com/NaoiseGaffney/CitiesInCountries#testing-notes) in README.md and Testing.md, is that the `.gm-style .controls button:hover` causes a feature "freeze" on mobile devices when clicking on the controls. Changing to `.gm-style .controls button:active` (`:active`) works fine across all devices. Styling the button to include the same linear-gradient when clicked as is used throughout the website, and a colour-change from black to white when clicked:
+
+```
+.gm-style .controls button:active {
+    color: rgb(0, 0, 0);
+    background: linear-gradient(0.25turn, rgba(63, 135, 166, 0.9), rgba(235, 248, 225, 0.9), rgba(246, 157, 60, 0.9));
+}
+
+```
+The Raleway font is used as the only font on the website as it's easy to read and pleasing to the eye:
+
+```
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Raleway', sans-serif;
+    background: linear-gradient(0.25turn, rgba(63, 135, 166, 0.9), rgba(235, 248, 225, 0.9), rgba(246, 157, 60, 0.9));
+}
+...
+.weather,
+.btn,
+.gm-style,
+.controls,
+p {
+    font-family: 'Raleway', sans-serif;
+    margin-bottom: 10px;
+}
+```
 
 [Production Code: index.html](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/index.html)
 
@@ -303,11 +380,126 @@ function initMapTypeControl(map) {
 }
 ```
 
+### Fixed Footer and CSS Modals
+#### Fixed Footer ![]()
+Why? - Provide Users an unobtrusive fixed footer with a scrollable Google Map and CSS Modals to provide additional information regarding the use of the website (probably not required), links to the API's and Code Snipptes used to the benefit of collaborating developers and employers, as well as a Contact Form to engage with me and a credibility modal ("Ego-page").
+
 Use Case cross-reference ([please see main README.md for details](https://github.com/NaoiseGaffney/CitiesInCountries#processes)):
 
-* All General Cases and Use Cases (0 to 15).
+* 002 - Features and Functions Overview - Fixed Footer and CSS Modals (geoLocation accepted)
+* 005 - User - UC 2 - Feedback Form (geoLocation already accepted)
+* 006 - User - UC 3 - CSS Modals (geoLocation already accepted)
+* 007 - User - UC 4 - Contact (geoLocation already accepted)
+* 008 - Collaborator - UC 5 - Contact (geoLocation already accepted)
+* 010 - Collaborator - UC 7 - GitHub Project II (geoLocation already accepted)
+* 011 - Collaborator - UC 8 - Feedback Form (geoLocation already accepted)
+* 013 - Employer - UC 10 - GitHub Project II (geoLocation already accepted)
+* 014 - Employer - UC 11 - GitHub Project MarkDown Documents (geoLocation already accepted)
+* 015 - Employer - UC 12 - Feedback Form (geoLocation already accepted)
 
-### Fixed Footer and CSS Modals
+What? - CSS Modals with an About Modal describing how to navigate and use the website, an API Modal providing links to the API documentation of the API's used on this project/website, a Code Snipped Modal with links to resources and courses used to further my knowledge and skills to create this website, a Contact Form Modal for Users to engage with me, and a Credibility Modal to gain an understanding of who I am and wirth links to the Code Institute Milestone Projects.
+
+How? -
+
+A Grid Layout, together with Flexbox is used on this website. The Grid Layout described below uses `grid-template-areas` as they're easy to understand and use (visually clear). The Fixed Footer area uses 3 columns x 1 row.
+
+[Production Code: index.html](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/index.html)
+
+```
+<div class="footer  fixed-footer">
+            <a href="#id01">
+                <i class="fa fa-exclamation" id="fa-exclamation" aria-hidden="true"></i>
+                <span class="sr-only">About</span>
+            </a>
+
+            <a href="#id02">
+                <i class="fa fa-file-code-o" id="fa-file-code-o" aria-hidden="true"></i>
+                <span class="sr-only">API's</span>
+            </a>
+
+            <a href="#id03">
+                <i class="fa fa-code" id="fa-code" aria-hidden="true"></i>
+                <span class="sr-only">Code Snippets</span>
+            </a>
+
+            <a href="#id04">
+                <i class="fa fa-envelope-o" id="fa-envelope-o" aria-hidden="true"></i>
+                <span class="sr-only">Contact Form</span>
+            </a>
+
+            <a href="#id05">
+                <i class="fa fa-user" id="fa-user" aria-hidden="true"></i>
+                <span class="sr-only">Naoise Olof Seán Gaffney</span>
+            </a>
+        </div>
+```
+
+[Prodcution Code: style.css](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/styles/style.css)
+
+```
+.parent {
+    height: 100%;
+    display: grid;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(20, 1fr);
+    grid-template-areas:
+        "map map map"
+        "map map map"
+        "map map map"
+        "map map map"
+        "map map map"
+        "map map map"
+        "map map map"
+        "map map map"
+        "map map map"
+        "map map map"
+        "map map map"
+        "map map map"
+        "map map map"
+        "map map map"
+        "map map map"
+        "map map map"
+        "map map map"
+        "map map map"
+        "map map map"
+        "footer  footer footer";
+}
+...
+.footer {
+    display: inline-block;
+    grid-area: footer;
+    padding: 10px 0;
+    position: relative;
+    bottom: 0;
+    margin: 0;
+    text-align: center;
+    background: linear-gradient(0.25turn, rgba(63, 135, 166, 0.9), rgba(235, 248, 225, 0.9), rgba(246, 157, 60, 0.9));
+    color: rgb(0, 0, 0);
+    -webkit-box-shadow: 0px -6px 20px 0px rgba(0, 0, 0, 0.19);
+    -moz-box-shadow: 0px -6px 20px 0px rgba(0, 0, 0, 0.19);
+    box-shadow: 0px -6px 20px 0px rgba(0, 0, 0, 0.19);
+}
+...
+a {
+    color: rgb(0, 0, 0);
+    font-size: 110%;
+    padding: 0px 10px;
+    text-decoration: none;
+}
+
+a i:hover {
+    transform: scale(1.5);
+}
+```
+
+#### CSS Modals
+Why? -
+What? -
+How? -
+
+
 ### Google Map Markers
 ### Google Map Marker InfoWindows and Content
 ### JS Overview Modal
