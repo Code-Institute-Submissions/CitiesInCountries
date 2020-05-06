@@ -381,7 +381,7 @@ function initMapTypeControl(map) {
 ```
 
 ### Fixed Footer and CSS Modals
-#### Fixed Footer ![]()
+#### Fixed Footer ![Fixed Footer](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/4.%20Fixed%20Footer.png)
 Why? - Provide Users an unobtrusive fixed footer with a scrollable Google Map and CSS Modals to provide additional information regarding the use of the website (probably not required), links to the API's and Code Snipptes used to the benefit of collaborating developers and employers, as well as a Contact Form to engage with me and a credibility modal ("Ego-page").
 
 Use Case cross-reference ([please see main README.md for details](https://github.com/NaoiseGaffney/CitiesInCountries#processes)):
@@ -399,11 +399,20 @@ Use Case cross-reference ([please see main README.md for details](https://github
 
 What? - CSS Modals with an About Modal describing how to navigate and use the website, an API Modal providing links to the API documentation of the API's used on this project/website, a Code Snipped Modal with links to resources and courses used to further my knowledge and skills to create this website, a Contact Form Modal for Users to engage with me, and a Credibility Modal to gain an understanding of who I am and wirth links to the Code Institute Milestone Projects.
 
-How? -
+How? - A Grid Layout, together with Flexbox is used on this website. The Grid Layout described below uses `grid-template-areas` as they're easy to understand and use (visually clear). The Fixed Footer area uses 3 columns x 1 row.
 
-A Grid Layout, together with Flexbox is used on this website. The Grid Layout described below uses `grid-template-areas` as they're easy to understand and use (visually clear). The Fixed Footer area uses 3 columns x 1 row.
+FontAwesome icons are used for the Fixed Footer links. Styling of the Fixed Footer with the linear-gradient feature and Raleway font.
+
+Grid Layout for the Fixed Footer with the same linear-gradient used throughout the website, the Raleway Font, and 3D shadow giving the website a 3D look-and-feel.
+
+The FontAwesome Fixed Footer links are styled by `a {...}` and `a i:hover` zooming in on the icons when hovered over to make them stand out as clickable elements.
 
 [Production Code: index.html](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/index.html)
+
+```
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+```
 
 ```
 <div class="footer  fixed-footer">
@@ -494,11 +503,71 @@ a i:hover {
 }
 ```
 
-#### CSS Modals
+#### CSS Modals - Overview
 Why? -
+
+Use Case cross-reference ([please see main README.md for details](https://github.com/NaoiseGaffney/CitiesInCountries#processes)):
+
+* 
+
 What? -
+
 How? -
 
+#### CSS Modals - About
+Why? -
+
+Use Case cross-reference ([please see main README.md for details](https://github.com/NaoiseGaffney/CitiesInCountries#processes)):
+
+* 
+
+What? -
+
+How? -
+
+#### CSS Modals - API's
+Why? -
+
+Use Case cross-reference ([please see main README.md for details](https://github.com/NaoiseGaffney/CitiesInCountries#processes)):
+
+* 
+
+What? -
+
+How? -
+
+#### CSS Modals - Code Snippets
+Why? -
+
+Use Case cross-reference ([please see main README.md for details](https://github.com/NaoiseGaffney/CitiesInCountries#processes)):
+
+* 
+
+What? -
+
+How? -
+
+#### CSS Modals - Contact Form
+Why? -
+
+Use Case cross-reference ([please see main README.md for details](https://github.com/NaoiseGaffney/CitiesInCountries#processes)):
+
+* 
+
+What? -
+
+How? -
+
+#### CSS Modals - Credibility (Naoise Olof Seán Gaffney)
+Why? -
+
+Use Case cross-reference ([please see main README.md for details](https://github.com/NaoiseGaffney/CitiesInCountries#processes)):
+
+* 
+
+What? -
+
+How? -
 
 ### Google Map Markers
 ### Google Map Marker InfoWindows and Content
