@@ -4,8 +4,6 @@
 ## Testing Criteria
 
 ### Automated Testing Technology - Acceptance (System) Testing
-![Software Testing](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/Software%20Testing%20-%20Simplified.png)
-
 Automated testing is performed using:
 
 * [Selenium IDE](https://www.selenium.dev/selenium-ide/) - the Chrome and Firefox extensions.
