@@ -336,7 +336,7 @@ A couple of things to note:
 * On the smallest devices (Galaxy S5 and Apple iPhone 5) some of the JS and CSS Modals go outside of the viewing area. The JS and CSS Modals are scrollable:  `.modal { overflow-y: auto; max-height: 90vh; }` to solve this.
 * To ensure the website works well on all types of devices I've replaced CSS attributes that "freeze" on mobile devices with ones that don't. The `:hover` pseudo-element for the Google Map Navigational Controls and the Fixed Footer CSS Modals is replaced by the `:active` pseudo-element instead.
 * To finally resolve the occasional "Uncaught..." error common (Google it!) to loading Google Maps, removed the loading of the Google Map Script file from the HTML file, to dynamically create and load it in [maps.js](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/scripts/maps.js) instead.
-* There's still a concern with the Google Map Marker InfoWindow styling being laggy on load. Instead of using the Google Map Marker I think it's better to rewrite this and create my own "InfoWindow".
+* There's still a concern with the Google Map Marker InfoWindow styling being laggy on load. Instead of using the Google Map Marker I think it's better to rewrite this and create my own "InfoWindow" in future.
 
 ### HTML, CSS, and JS Validation
 #### HTML

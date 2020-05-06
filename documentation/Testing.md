@@ -215,7 +215,7 @@ The Acceptance Criteria is based on the Use Cases described under section Proces
 > ![Contact Form E-mail](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/GT%202%20Email.png)
 
 3. 003 - Features and Functions Overview - Samples (geoLocation accepted)
-Running '003 - Features and Functions Overview - Samples (geoLocation accepted)'
+> Running '003 - Features and Functions Overview - Samples (geoLocation accepted)'
 22:15:37
 > 1. open on https://naoisegaffney.github.io/CitiesInCountries/ OK 22:15:38
 > 
@@ -281,7 +281,7 @@ Running '003 - Features and Functions Overview - Samples (geoLocation accepted)'
 > '004 - User - UC 1 - Overview and Statistics (geoLocation already accepted) (1)' completed successfully
 
 5. 005 - User - UC 2 - Feedback Form (geoLocation already accepted)
-Running '005 - User - UC 2 - Feedback Form (geoLocation already accepted)'
+> Running '005 - User - UC 2 - Feedback Form (geoLocation already accepted)'
 22:16:52
 > 1. open on https://naoisegaffney.github.io/CitiesInCountries/ OK 22:16:53
 > 
@@ -308,7 +308,7 @@ Running '005 - User - UC 2 - Feedback Form (geoLocation already accepted)'
 > ![Contact Form E-mail](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/UC%202%20Email.png)
 
 6. 006 - User - UC 3 - CSS Modals (geoLocation already accepted)
-Running '006 - User - UC 3 - CSS Modals (geoLocation already accepted)'
+> Running '006 - User - UC 3 - CSS Modals (geoLocation already accepted)'
 22:17:23
 > 1. open on https://naoisegaffney.github.io/CitiesInCountries/ OK 22:17:24
 > 
@@ -339,7 +339,7 @@ Running '006 - User - UC 3 - CSS Modals (geoLocation already accepted)'
 > '006 - User - UC 3 - CSS Modals (geoLocation already accepted)' completed successfully
 
 7. 007 - User - UC 4 - Contact (geoLocation already accepted)
-Running '007 - User - UC 4 - Contact (geoLocation already accepted)'
+> Running '007 - User - UC 4 - Contact (geoLocation already accepted)'
 22:17:50
 > 1. open on https://naoisegaffney.github.io/CitiesInCountries/ OK 22:17:51
 > 
@@ -390,7 +390,7 @@ Running '007 - User - UC 4 - Contact (geoLocation already accepted)'
 > ![Contact Form E-mail](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/UC%204%20Email.png)
 
 8. 008 - Collaborator - UC 5 - Contact (geoLocation already accepted)
-Running '008 - Collaborator - UC 5 - Contact (geoLocation already accepted)'
+> Running '008 - Collaborator - UC 5 - Contact (geoLocation already accepted)'
 22:18:34
 > 1. open on https://naoisegaffney.github.io/CitiesInCountries/ OK 22:18:35
 > 
@@ -445,7 +445,7 @@ Running '008 - Collaborator - UC 5 - Contact (geoLocation already accepted)'
 > ![Contact Form E-mail](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/UC%205%20Email.png)
 
 9. 009 - Collaborator - UC 6 - Overview and Statistics (geoLocation already accepted)
-Running '009 - Collaborator - UC 6 - Overview and Statistics (geoLocation already accepted)'
+> Running '009 - Collaborator - UC 6 - Overview and Statistics (geoLocation already accepted)'
 22:19:21
 > 1. open on https://naoisegaffney.github.io/CitiesInCountries/ OK 22:19:22
 > 
@@ -466,7 +466,7 @@ Running '009 - Collaborator - UC 6 - Overview and Statistics (geoLocation alread
 > '009 - Collaborator - UC 6 - Overview and Statistics (geoLocation already accepted)' completed successfully
 
 10. 010 - Collaborator - UC 7 - GitHub Project II (geoLocation already accepted)
-Running '010 - Collaborator - UC 7 - GitHub Project II (geoLocation already accepted)'
+> Running '010 - Collaborator - UC 7 - GitHub Project II (geoLocation already accepted)'
 22:19:43
 > 1. open on https://naoisegaffney.github.io/CitiesInCountries/ OK 22:19:44
 > 
@@ -503,7 +503,7 @@ Running '010 - Collaborator - UC 7 - GitHub Project II (geoLocation already acce
 > '010 - Collaborator - UC 7 - GitHub Project II (geoLocation already accepted)' completed successfully
 
 11. 011 - Collaborator - UC 8 - Feedback Form (geoLocation already accepted)
-Running '011 - Collaborator - UC 8 - Feedback Form (geoLocation already accepted)'
+> Running '011 - Collaborator - UC 8 - Feedback Form (geoLocation already accepted)'
 22:20:18
 > 1. open on https://naoisegaffney.github.io/CitiesInCountries/ OK 22:20:19
 > 
@@ -534,7 +534,7 @@ Running '011 - Collaborator - UC 8 - Feedback Form (geoLocation already accepted
 > ![Contact Form E-mail](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/UC%208%20Email.png)
 
 12. 012 - Employer - UC 9 - Overview and Statistics (geoLocation already accepted)
-Running '012 - Employer - UC 9 - Overview and Statistics (geoLocation already accepted)'
+> Running '012 - Employer - UC 9 - Overview and Statistics (geoLocation already accepted)'
 22:20:49
 > 1. open on https://naoisegaffney.github.io/CitiesInCountries/ OK 22:20:50
 > 
@@ -563,7 +563,7 @@ Running '012 - Employer - UC 9 - Overview and Statistics (geoLocation already ac
 > ![]()
 
 13. 013 - Employer - UC 10 - GitHub Project II (geoLocation already accepted)
-Running '013 - Employer - UC 10 - GitHub Project II (geoLocation already accepted)'
+> Running '013 - Employer - UC 10 - GitHub Project II (geoLocation already accepted)'
 22:23:55
 > 1. open on https://naoisegaffney.github.io/CitiesInCountries/ OK 22:23:56
 > 
@@ -594,7 +594,7 @@ Running '013 - Employer - UC 10 - GitHub Project II (geoLocation already accepte
 > '013 - Employer - UC 10 - GitHub Project II (geoLocation already accepted)' completed successfully
 
 14. 014 - Employer - UC 11 - GitHub Project MarkDown Documents (geoLocation already accepted)
-Running '014 - Employer - UC 11 - GitHub Project MarkDown Documents (geoLocation already accepted)'
+> Running '014 - Employer - UC 11 - GitHub Project MarkDown Documents (geoLocation already accepted)'
 22:24:25
 > 1. open on https://naoisegaffney.github.io/CitiesInCountries/ OK 22:24:26
 > 
@@ -617,7 +617,7 @@ Running '014 - Employer - UC 11 - GitHub Project MarkDown Documents (geoLocation
 > '014 - Employer - UC 11 - GitHub Project MarkDown Documents (geoLocation already accepted)' completed successfully
 
 15. 015 - Employer - UC 12 - Feedback Form (geoLocation already accepted)
-Running '015 - Employer - UC 12 - Feedback Form (geoLocation already accepted)'
+> Running '015 - Employer - UC 12 - Feedback Form (geoLocation already accepted)'
 22:24:46
 > 1. open on https://naoisegaffney.github.io/CitiesInCountries/ OK 22:24:47
 > 
@@ -648,3 +648,13 @@ Running '015 - Employer - UC 12 - Feedback Form (geoLocation already accepted)'
 > '015 - Employer - UC 12 - Feedback Form (geoLocation already accepted)' completed successfully
 > 
 > ![Contact Form E-mail](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/UC%2012%20Email.png)
+
+### Testing Notes
+All devices and formats are tested in both portrait and landscape mode. The website is responsive and supports all tested browsers.
+
+A couple of things to note:
+
+* On the smallest devices (Galaxy S5 and Apple iPhone 5) some of the JS and CSS Modals go outside of the viewing area. The JS and CSS Modals are scrollable:  `.modal { overflow-y: auto; max-height: 90vh; }` to solve this.
+* To ensure the website works well on all types of devices I've replaced CSS attributes that "freeze" on mobile devices with ones that don't. The `:hover` pseudo-element for the Google Map Navigational Controls and the Fixed Footer CSS Modals is replaced by the `:active` pseudo-element instead.
+* To finally resolve the occasional "Uncaught..." error common (Google it!) to loading Google Maps, removed the loading of the Google Map Script file from the HTML file, to dynamically create and load it in [maps.js](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/scripts/maps.js) instead.
+* There's still a concern with the Google Map Marker InfoWindow styling being laggy on load. Instead of using the Google Map Marker I think it's better to rewrite this and create my own "InfoWindow" in future.
