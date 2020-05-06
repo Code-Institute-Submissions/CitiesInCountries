@@ -5,6 +5,19 @@ Features & Functions section covers the code from the three languages, HTML, CSS
 
 The "</> HTML", ".css{} CSS", and "(Js)" sections provide an overview of the code files and external sources used for this website.
 
+Please note that this is a mid- to high-level code walkthrough, at a feature and function level, and not covering every single line of code whether it's HTML, CSS, or JavaScript. The assumption is that you as a reader have a foundational knowledge of the 3 languages. At times I take note of a particular line of code if it has a key impact on a feature and/or function.
+
+The structure of each section is:
+
+* Main Heading
+	* Sub-Heading & Screenshot (if applicable) of the Feature & Function
+		* Why?
+			* Use Case Cross-Reference
+		* What?
+		* How?
+			* Link to Code
+			* Code Snippets
+
 ## Features & Functions
 
 ### Geo-Location, Google Map and Navigational Controls
@@ -20,6 +33,8 @@ What? - Map is centred on Firhouse, Dublin, Ireland, requesting Geo-Location acc
 How? - `getCurrentLocation(map, home);` has 2 parameters, the Google Map Object `map`, and a location `home` (`let home = { lat: 53.274346, lng: -6.348835 };`). First a check is performed to see whether the browser supports Geo-Location, if not the mpa is centred on `home`. If Geo-Location is supported, then the browser requests the User's permission to use the current location. If accepted, the map is centred on the current location, and if not it's centred on the default which is `home`.
 
 [Production Code: maps.js](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/scripts/maps.js)
+
+Geo-Location request via the browser to centre the Google Map at the User's current location.
 
 `getCurrentLocation(map, home);`
 
@@ -59,9 +74,13 @@ How? - Some of the code snippets are taken from the Google Map JavaScript API do
 
 [Production Code: index.html](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/index.html)
 
+Google Map placeholder used by maps.js to place the Google Map and Map Markers using the `#map` element.
+
 `<div class="map" id="map"></div>`
 
 [Production Code: style.css](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/styles/style.css)
+
+Grid Layout for the Google Map and Fixed Footer. Using `grid-template-areas` as it's easy to understand this visual layout.
 
 ```
 .parent {
@@ -102,6 +121,8 @@ How? - Some of the code snippets are taken from the Google Map JavaScript API do
 }
 ```
 
+`#map` is the Google Map placeholder, the `height: 100%;` is a Google recommendation. The `html, body {...}` sets basic parameters, uses the Raleway Font and sets the linear-gradient used throughout the website.
+
 ```
 #map {
     height: 100%;
@@ -119,6 +140,8 @@ body {
 
 [Production Code: maps.js](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/scripts/maps.js)
 
+The main Google Map initMap function, from the Google Map JavaScript API documentation. I've set `home` to my home address (the centre of my Universe :-) and the default map centre of Geo-Location isn't used). `disableDefaultUI: true,` disables the default Google Map controls, as I use customised ones instead to better align to website layout and design. `backgroundColor: "none",` disables the default Google Map background colour of grey, and is set to the linear-gradient used throughout the website in style.css.
+
 ```
 function initMap() {
     let home = { lat: 53.274346, lng: -6.348835 };
@@ -131,7 +154,8 @@ function initMap() {
     ...
 ```
 
-#### Navigational Controls: ![]()
+#### Navigational Controls: ![Google Map, Map Type](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/Google%20Nav%20Controls%20-%20Map%20Sattelite.png) ![Google Map Zoom Controls](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/Google%20Map%20Nav%20Controls%20-%20Zoom.png)
+
 Why? - To allow recognisable ways in which to navigate Google Maps, and creating a common look-and-feel of the website, custom controls are used, creating a better User Design Experience for the User.
 
 Use Case cross-reference ([please see main README.md for details](https://github.com/NaoiseGaffney/CitiesInCountries#processes)):
@@ -152,6 +176,7 @@ One key point to note, as documented under [Testing Notes](https://github.com/Na
 }
 
 ```
+
 The Raleway font is used as the only font on the website as it's easy to read and pleasing to the eye:
 
 ```
@@ -175,6 +200,8 @@ p {
 ```
 
 [Production Code: index.html](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/index.html)
+
+These HTML elements and attributes are from the Google Map JavaScript API documentation for the customisation of the Google Map Navigational Controls.
 
 ```
 <div style="display:none">
@@ -201,6 +228,8 @@ p {
 ```
 
 [Production Code: style.css](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/styles/style.css)
+
+Google Map JavaScript API documentation for customised Navigational Controls. I've modified these styles to suit the overall website layout and design layout and style.
 
 ```
 .gm-style .controls {
@@ -341,12 +370,16 @@ p {
 
 [Production Code: maps.js](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/scripts/maps.js)
 
+These 2 function calls are for the customised Naviagational Controls and are saved in a separate file described below, mapControls.js.
+
 ```
 	initZoomControl(map);
-    initMapTypeControl(map);
+	initMapTypeControl(map);
 ```
 
 [Production Code: mapControls.js](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/scripts/mapControls.js)
+
+The 2 Google Map Navigational Control functions linked to the website buttons. Further controls can be added, such as the Full-Screen control, however, as the website uses the Google Map as a Dashboard taking up 95% of the viewport the Full-Screen control is of little use.
 
 ```
 function initZoomControl(map) {
@@ -409,10 +442,14 @@ The FontAwesome Fixed Footer links are styled by `a {...}` and `a i:hover` zoomi
 
 [Production Code: index.html](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/index.html)
 
+Loading the FontAwesome CSS version 4.7 from the CDN. The FontAwesome icons are used in the Fixed Footer and the Fixed Footer CSS Modals.
+
 ```
 <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
 ```
+
+The HTML Fixed Footer FontAwesome Links. Support for Screen-Readers too.
 
 ```
 <div class="footer  fixed-footer">
@@ -444,6 +481,8 @@ The FontAwesome Fixed Footer links are styled by `a {...}` and `a i:hover` zoomi
 ```
 
 [Prodcution Code: style.css](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/styles/style.css)
+
+Grid Layout for the Google Map and Fixed Footer. Using `grid-template-areas` as it's easy to understand this visual layout. Styling of the links and hover scaling of the FontAwesome icons.
 
 ```
 .parent {
@@ -504,18 +543,47 @@ a i:hover {
 ```
 
 #### CSS Modals - Overview
+Why? - The Fixed Footer CSS Modals provide the Users with clear instructions (if required) on how to navigate and use the features of the website, as well as information on API's, Code Snippets, and Courses used to gain the knowledge and skills to create this website. In addition to this, the Contact Form enables the User to contact the owner of the website, and the Credibility CSS Modal provides assessors, collaborators and employers an opportunity to assess the Code Quality and Software Development Practices used.
+
+Use Case cross-reference ([please see main README.md for details](https://github.com/NaoiseGaffney/CitiesInCountries#processes)):
+
+* 002 - Features and Functions Overview - Fixed Footer and CSS Modals (geoLocation accepted)
+* 005 - User - UC 2 - Feedback Form (geoLocation already accepted)
+* 006 - User - UC 3 - CSS Modals (geoLocation already accepted)
+* 007 - User - UC 4 - Contact (geoLocation already accepted)
+* 008 - Collaborator - UC 5 - Contact (geoLocation already accepted)
+* 010 - Collaborator - UC 7 - GitHub Project II (geoLocation already accepted)
+* 011 - Collaborator - UC 8 - Feedback Form (geoLocation already accepted)
+* 013 - Employer - UC 10 - GitHub Project II (geoLocation already accepted)
+* 014 - Employer - UC 11 - GitHub Project MarkDown Documents (geoLocation already accepted)
+* 015 - Employer - UC 12 - Feedback Form (geoLocation already accepted)
+
+What? - The Footer links are: About which describes the use and navigation of the website, API's providing links to the descriptions of the API's used on this website to provide data and functionality, Code Snippets providing links to tutorials and courses with knowledge and skills used on this website, Contact Form to provide greatly appreciated feedback, and About Me to view my Resumé, GitHub, and GaffCo for professional communication competence!
+
+How? - Hovering over the FontAwesome exclamation-point icon scales it to 1.5 times the origiinal size, clicking on it opens the About CSS Modal. A CSS backdrop lies behind the CSS Modal disabling clicking of any other links and buttons on the website. Only the Close button on the CSS Modal is clickable.
+
+Index.html contains the Fixed Footer FontAwesome links, and the CSS Modals and their content. Styling of the CSS Modals is specified in style.css. The only JavaScript component is the Contact Form sendemail.js script.
+
+The code details are covered under each CSS Modal sub-heading (About, API's, Code Snippets, Contact Form, Credibility).
+
+#### CSS Modals - About ![About CSS Modal](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/5.%20FF%20CSS%20Modal%20-%20About.png)
+
 Why? - Providing Users with an overview of the website, setting correct and clear expectations as well as aiding those not as savvy to use the website features.
 
 Use Case cross-reference ([please see main README.md for details](https://github.com/NaoiseGaffney/CitiesInCountries#processes)):
 
 * 002 - Features and Functions Overview - Fixed Footer and CSS Modals (geoLocation accepted)
-* 006 - User - UC 3 - CSS Modals (geoLocation already accepted)
+* User - UC 3 - CSS Modals (geoLocation already accepted)
 
-What? - A CSS About Modal describing how to navigate and use the website, and a description of the content of the other Fixed Footer CSS Modals.
+What? - About which describes the use and navigation of the website.
 
-How? -
+How? - Index.html contains the FontAwesome exclamation-mark link icon that opens up the About CSS Modal with the content in index.html. The CSS Modal control and styling is defined in style.css.
+
+Hovering over the FontAwesome exclamation-point icon scales it to 1.5 times the origiinal size, clicking on it opens the About CSS Modal. A CSS backdrop lies behind the CSS Modal disabling clicking of any other links and buttons on the website. Only the Close button on the CSS Modal is clickable.
 
 [Production Code: index.html](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/index.html)
+
+Hovering over the FontAwesome exclamation-point icon scales it to 1.5 times the origiinal size, clicking on it opens the About CSS Modal.
 
 ```
 <div class="footer  fixed-footer">
@@ -561,32 +629,139 @@ How? -
 
 [Prodcution Code: style.css](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/styles/style.css)
 
+CSS Modal animation, supporting all browser types as defined by the `...keyframes` definitions below.
 
+The `.cssmodal...` elements and styling attributes style the CSS Modal according to the look-and-feel of the layout and design used throughout the website.
 
-#### CSS Modals - About ![About CSS Modal](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/5.%20FF%20CSS%20Modal%20-%20About.png)
+```
+@-webkit-keyframes example {
+    from {
+        top: -100px;
+        opacity: 0;
+    }
 
-Why? -
+    to {
+        top: 0px;
+        opacity: 1;
+    }
+}
 
-Use Case cross-reference ([please see main README.md for details](https://github.com/NaoiseGaffney/CitiesInCountries#processes)):
+/* Add animation (Standard syntax) */
+@keyframes example {
+    from {
+        top: -100px;
+        opacity: 0;
+    }
 
-* 
+    to {
+        top: 0px;
+        opacity: 1;
+    }
+}
 
-What? -
+/* The modal's background */
+.cssmodal {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
 
-How? -
+/* Display the modal when targeted */
+.cssmodal:target {
+    display: table;
+    position: absolute;
+}
+
+/* The modal box */
+.cssmodal-dialog {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+/* The modal's content */
+.cssmodal-dialog .cssmodal-content {
+    margin: auto;
+    background: linear-gradient(0.25turn, rgba(63, 135, 166, 0.9), rgba(235, 248, 225, 0.9), rgba(246, 157, 60, 0.9));
+    color: rgb(0, 0, 0);
+    border-radius: 10px 10px 10px 10px;
+    position: relative;
+    padding: 0;
+    outline: 0;
+    text-align: justify;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    z-index: 4;
+    -webkit-animation-name: example;
+    -webkit-animation-duration: 0.5s;
+    animation-name: example;
+    animation-duration: 0.5s;
+}
+
+.cssmodal-container {
+    padding: 10px 16px;
+    text-align: left;
+}
+
+.modal-link-text:active {
+    color: rgb(255, 255, 255);
+}
+```
+
+Styling of all CSS and JS Modal buttons (Close, Overview, Statistics). Using CSS Button Creator: https://cssbuttoncreator.com/ and some additional modification to get it "just right". Added 'outline: none' to remove ugly click outline.
+
+```
+.button {
+    background: rgba(63, 135, 166, 1);
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    color: #FFFFFF;
+    font-family: Raleway, sans-serif;
+    font-size: 12px;
+    font-weight: 100;
+    padding: 3px 10px;
+    text-shadow: 1px 1px 20px #000000;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+    margin-right: 10px;
+}
+
+.button:hover {
+    background: rgba(246, 157, 60, 1);
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    text-decoration: none;
+}
+
+.button:focus {
+    outline: none;
+}
+```
 
 #### CSS Modals - API's ![API's CSS Modal](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/6.%20FF%20CSS%20Modal%20-%20API's.png)
-Why? -
+
+Why? - Providing Users with details of the API's used to provide the content of the website of interest to the Users, Collaborators, and Employers.
 
 Use Case cross-reference ([please see main README.md for details](https://github.com/NaoiseGaffney/CitiesInCountries#processes)):
 
-* 
+* 002 - Features and Functions Overview - Fixed Footer and CSS Modals (geoLocation accepted)
+* 006 - User - UC 3 - CSS Modals (geoLocation already accepted)
 
-What? -
+What? - About which describes the use and navigation of the website.
 
-How? -
+How? - Index.html contains the FontAwesome file-code-o link icon that opens up the API's CSS Modal with the content in index.html. The CSS Modal control and styling is defined in style.css.
+
+Hovering over the FontAwesome file-code-o icon scales it to 1.5 times the origiinal size, clicking on it opens the API's CSS Modal. A CSS backdrop lies behind the CSS Modal disabling clicking of any other links and buttons on the website. Only the Close button on the CSS Modal is clickable.
 
 #### CSS Modals - Code Snippets ![Code Snippets CSS Modal](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/7.%20FF%20CSS%20Modal%20-%20Code%20Snippets.png)
+
 Why? -
 
 Use Case cross-reference ([please see main README.md for details](https://github.com/NaoiseGaffney/CitiesInCountries#processes)):
