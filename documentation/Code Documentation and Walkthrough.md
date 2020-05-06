@@ -504,6 +504,67 @@ a i:hover {
 ```
 
 #### CSS Modals - Overview
+Why? - Providing Users with an overview of the website, setting correct and clear expectations as well as aiding those not as savvy to use the website features.
+
+Use Case cross-reference ([please see main README.md for details](https://github.com/NaoiseGaffney/CitiesInCountries#processes)):
+
+* 002 - Features and Functions Overview - Fixed Footer and CSS Modals (geoLocation accepted)
+* 006 - User - UC 3 - CSS Modals (geoLocation already accepted)
+
+What? - A CSS About Modal describing how to navigate and use the website, and a description of the content of the other Fixed Footer CSS Modals.
+
+How? -
+
+[Production Code: index.html](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/index.html)
+
+```
+<div class="footer  fixed-footer">
+            <a href="#id01">
+                <i class="fa fa-exclamation" id="fa-exclamation" aria-hidden="true"></i>
+                <span class="sr-only">About</span>
+            </a>
+...
+<section>
+        <div id="id01" class="cssmodal">
+            <div class="cssmodal-dialog">
+                <div class="cssmodal-content">
+                    <header class="cssmodal-container">
+                        <h3><i class="fa fa-exclamation" id="fa-exclamation-css-modal" aria-hidden="true"></i>
+                            <span class="sr-only">About</span>&nbsp;&nbsp;&nbsp;About</h3>
+                    </header>
+                    <div class="cssmodal-container">
+                        <div>
+                            <p>Please click on the Google Map Markers - <img src="../CitiesInCountries/assets/images/GoogleMapMarker.png"
+                                    width="10" alt="Google Map Marker"> - for information on the Capital City of your
+                                choice.</p>
+                            <p>Click on the Overview button &nbsp; <button class="button">Overview</button>for Country
+                                details, and click on the Statistics button &nbsp; <button
+                                    class="button">Statistics</button>for simple statistics.</p>
+                            <p>The Footer links are: About - <i class="fa fa-exclamation" aria-hidden="true"></i>
+                                <span class="sr-only">About</span> - which is this modal, API's - <i
+                                    class="fa fa-file-code-o" aria-hidden="true"></i><span class="sr-only">API's</span>
+                                - providing links to the descriptions of the API's used on this website to provide data
+                                and functionality, Code Snippets - <i class="fa fa-code" aria-hidden="true"></i>
+                                <span class="sr-only">Code Snippets</span> - providing links to tutorials and courses
+                                with knowledge and skills used on this website, Contact Form - <i
+                                    class="fa fa-envelope-o" aria-hidden="true"></i>
+                                <span class="sr-only">Contact Form</span> - to provide greatly appreciated feedback, and
+                                About Me - <i class="fa fa-location-arrow" aria-hidden="true"></i> - to view my Resumé,
+                                GitHub, and GaffCo for professional communication competence!</p>
+                        </div>
+                        <p style="text-align:right"><a href="#" class="button">Close</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+```
+
+[Prodcution Code: style.css](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/styles/style.css)
+
+
+
+#### CSS Modals - About ![About CSS Modal](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/5.%20FF%20CSS%20Modal%20-%20About.png)
+
 Why? -
 
 Use Case cross-reference ([please see main README.md for details](https://github.com/NaoiseGaffney/CitiesInCountries#processes)):
@@ -514,7 +575,7 @@ What? -
 
 How? -
 
-#### CSS Modals - About
+#### CSS Modals - API's ![API's CSS Modal](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/6.%20FF%20CSS%20Modal%20-%20API's.png)
 Why? -
 
 Use Case cross-reference ([please see main README.md for details](https://github.com/NaoiseGaffney/CitiesInCountries#processes)):
@@ -525,7 +586,7 @@ What? -
 
 How? -
 
-#### CSS Modals - API's
+#### CSS Modals - Code Snippets ![Code Snippets CSS Modal](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/7.%20FF%20CSS%20Modal%20-%20Code%20Snippets.png)
 Why? -
 
 Use Case cross-reference ([please see main README.md for details](https://github.com/NaoiseGaffney/CitiesInCountries#processes)):
@@ -536,7 +597,7 @@ What? -
 
 How? -
 
-#### CSS Modals - Code Snippets
+#### CSS Modals - Contact Form ![Contact Form CSS Modal](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/10.%20FF%20CSS%20Modal%20-%20Contact%20Form%20Filled%20and%20Sent.png)
 Why? -
 
 Use Case cross-reference ([please see main README.md for details](https://github.com/NaoiseGaffney/CitiesInCountries#processes)):
@@ -547,18 +608,7 @@ What? -
 
 How? -
 
-#### CSS Modals - Contact Form
-Why? -
-
-Use Case cross-reference ([please see main README.md for details](https://github.com/NaoiseGaffney/CitiesInCountries#processes)):
-
-* 
-
-What? -
-
-How? -
-
-#### CSS Modals - Credibility (Naoise Olof Seán Gaffney)
+#### CSS Modals - Credibility (Naoise Olof Seán Gaffney) ![Credibility Modal](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/9.%20FF%20CSS%20Modal%20-%20Credibility.png)
 Why? -
 
 Use Case cross-reference ([please see main README.md for details](https://github.com/NaoiseGaffney/CitiesInCountries#processes)):
