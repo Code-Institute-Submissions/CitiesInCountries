@@ -420,7 +420,7 @@ Development (Code Snippets and API Examples) --> Test --> Production, with frequ
 	* Go to (click on link) [Project Repository](https://github.com/NaoiseGaffney/CitiesInCountries)
 		* Click on Settings. Scroll down to GitHub Pages.
 		* Under Source click on the Select Source button, and select 'master branch'.
-		* After a couple of minutes a message above Source says the following: "Your site is published at https://naoisegaffney.github.io/Professional-Training-Development/".
+		* After a couple of minutes a message above Source says the following: "Your site is published at...".
 		* Click on the link to access the published website: [Cities in Countries Data](https://naoisegaffney.github.io/CitiesInCountries/)
 
 ## Credits
