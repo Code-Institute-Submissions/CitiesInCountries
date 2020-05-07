@@ -131,7 +131,7 @@ JS: Create and call custom functions, ZoomControl, MapType Control, and FullScre
     font-weight: 700;
 }
 
-.gm-style .controls.fullscreen-control button {
+/* .gm-style .controls.fullscreen-control button {
     display: block;
     font-size: 1em;
     height: 100%;
@@ -183,7 +183,7 @@ JS: Create and call custom functions, ZoomControl, MapType Control, and FullScre
 
 .gm-style .controls.fullscreen-control.is-fullscreen .fullscreen-control-icon.fullscreen-control-bottom-right {
     border-width: 2px 0 0 2px;
-}
+} */
 
 /* Together with JS Styling this creates a linear background effect. */
 .gm-style-iw,

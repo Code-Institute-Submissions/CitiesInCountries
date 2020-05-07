@@ -1,7 +1,7 @@
 # Code Documentation and Walkthrough
 This document is a code walkthrough covering the three languages HTML, CSS, and JavaScript, and how they provide the features & functions of the website as well as how they relate to the General Cases and Use Cases described in README.md and Testing.md.
 
-Features & Functions section covers the code from the three languages, HTML, CSS, and JavScript and how they relate to the "Why?", "What?", and "How?" of each feature & function of the website. Each section links the feature & function to one or more General Cases and/or Use Cases described in README.md and Testing.md.
+Features & Functions section covers the code from the three languages, HTML, CSS, and JavaScript and how they relate to the "Why?", "What?", and "How?" of each feature & function of the website. Each section links the feature & function to one or more General Cases and/or Use Cases described in README.md and Testing.md.
 
 The "</> HTML", ".css{} CSS", and "(Js)" sections provide an overview of the code files and external sources used for this website.
 
@@ -30,9 +30,9 @@ Use Case cross-reference ([please see main README.md for details](https://github
 
 * All General Cases and Use Cases (0 to 15).
 
-What? - Map is centred on Firhouse, Dublin, Ireland, requesting Geo-Location access from the user, and when accepted centres the map on the user's location. If Geo-Location is not accepted or the browser doesn't support Geo-Location, the map is centred on Firhouse, Dublin, Ireland (the centre of my Universe :-) ).
+What? - Map is centred on Firhouse, Dublin, Ireland, requesting Geo-Location access from the user, and when accepted centres the map on the user's location. If Geo-Location is not accepted or the browser doesn't support Geo-Location, the map is centred on Firhouse, Dublin, Ireland.
 
-How? - `getCurrentLocation(map, home);` has 2 parameters, the Google Map Object `map`, and a location `home` (`let home = { lat: 53.274346, lng: -6.348835 };`). First a check is performed to see whether the browser supports Geo-Location, if not the mpa is centred on `home`. If Geo-Location is supported, then the browser requests the User's permission to use the current location. If accepted, the map is centred on the current location, and if not it's centred on the default which is `home`.
+How? - `getCurrentLocation(map, home);` has 2 parameters, the Google Map Object `map`, and a location `home` (`let home = { lat: 53.274346, lng: -6.348835 };`). First a check is performed to see whether the browser supports Geo-Location, if not the map is centred on `home`. If Geo-Location is supported, then the browser requests the User's permission to use the current location. If accepted, the map is centred on the current location, and if not it's centred on the default which is `home`.
 
 [(Js) - Production Code: maps.js](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/scripts/maps.js)
 
@@ -74,7 +74,7 @@ A Grid Layout, together with Flexbox is used on this website. The Grid Layout de
 
 Background is set to `linear-gradient(0.25turn, rgba(63, 135, 166, 0.9), rgba(235, 248, 225, 0.9), rgba(246, 157, 60, 0.9));` which is the same used throughout the website to create a common look-and-feel.
 
-How? - Some of the code snippets are taken from the Google Map JavaScript API documentation, and are used by the Code Institute and Bill Traversy walkthroughs. index.html has the map placeholder in `<div class="map" id="map"></div>` to display the map from maps.js, and styled by style.css. The linear-gradient background is enabled by the `backgroundColor: "none",` in initMap() and the `background: linear-gradient(0.25turn, rgba(63, 135, 166, 0.9), rgba(235, 248, 225, 0.9), rgba(246, 157, 60, 0.9));` in style.css of `html, body {...}`.
+How? - Some of the code snippets are taken from the Google Map JavaScript API documentation, and are used by the Code Institute and Bill Traversy walkthroughs. Index.html has the map placeholder in `<div class="map" id="map"></div>` to display the map from maps.js, and styled in style.css. The linear-gradient background is enabled by the `backgroundColor: "none",` in initMap() and the `background: linear-gradient(0.25turn, rgba(63, 135, 166, 0.9), rgba(235, 248, 225, 0.9), rgba(246, 157, 60, 0.9));` in style.css of `html, body {...}`.
 
 [</> - Production Code: index.html](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/index.html)
 
@@ -146,7 +146,7 @@ body {
 
 [(Js) - Production Code: maps.js](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/scripts/maps.js)
 
-The main Google Map initMap function, from the Google Map JavaScript API documentation. I've set `home` to my home address (the centre of my Universe :-) and the default map centre of Geo-Location isn't used). `disableDefaultUI: true,` disables the default Google Map controls, as I use customised ones instead to better align to website layout and design. `backgroundColor: "none",` disables the default Google Map background colour of grey, and is set to the linear-gradient used throughout the website in style.css.
+The main Google Map initMap function, from the Google Map JavaScript API documentation. I've set `home` to my home address and the default map centre when Geo-Location isn't used. `disableDefaultUI: true,` disables the default Google Map controls, as I use customised ones instead to better align to website layout and design. `backgroundColor: "none",` disables the default Google Map background colour of grey, and is set to the linear-gradient used throughout the website in style.css.
 
 ```
 function initMap() {
@@ -163,7 +163,7 @@ To finally resolve the occasional "Uncaught..." error common to loading Google M
 
 Removed the loading of the Google Map Script file from the HTML file, to dynamically create and load it before `initMap()` updating the HTML file dynamically. Removed the '&callback=initMap' from the URL, calling `initMap()` from maps.js instead. No need for the 'async', nor  'defer' attributes either.
 
-We create the `<script>` element in index.html (gTest.html). We listen to the DOM, to make sure it's fully loaded. We load the Google Map JS Script:
+We create the `<script>` element in index.html. We listen to the DOM, to make sure it's fully loaded. We load the Google Map JS Script:
 `<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDKoKXKgFfLTb9SNLk0QEq1FmnNJD3hSg"></script>`. We then call `initMap()`.
 
 ```
@@ -189,7 +189,7 @@ Use Case cross-reference ([please see main README.md for details](https://github
 
 What? - Customised, based off of Google Maps JavaScript API example for customised navigation controls, and styled using CSS.
 
-How? - These code snippets are taken from the Google Maps JavaScript API documenation, and modified to suit my website. Index.html has the HTML tags for the Navigational Controls. These are styled by the CSS code which is from Google and modified to suit the website look-and-feel. Maps.js calls on the 2 functions in mapsControls.js, `function initZoomControl(map)` controls the zoom controls (+ and - buttons on the mid-right of the viewport). `function initMapTypeControl(map)` controls the map type selection, of Satellite or Map. The button borders and click status are set by `box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);`.
+How? - These code snippets are taken from the Google Maps JavaScript API documentation, and modified to suit my website. Index.html has the HTML tags for the Navigational Controls. These are styled by the CSS code which is from Google and modified to suit the website look-and-feel. Maps.js calls on the 2 functions in mapsControls.js, `function initZoomControl(map)` controls the zoom controls (+ and - buttons on the mid-right of the viewport). `function initMapTypeControl(map)` controls the map type selection, of Satellite or Map. The button borders and click status are set by `box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);`.
 
 One key point to note, as documented under [Testing Notes](https://github.com/NaoiseGaffney/CitiesInCountries#testing-notes) in README.md and Testing.md, is that the `.gm-style .controls button:hover` causes a feature "freeze" on mobile devices when clicking on the controls. Changing to `.gm-style .controls button:active` (`:active`) works fine across all devices. Styling the button to include the same linear-gradient when clicked as is used throughout the website, and a colour-change from black to white when clicked:
 
@@ -394,7 +394,7 @@ p {
 
 [(Js) - Production Code: maps.js](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/scripts/maps.js)
 
-These 2 function calls are for the customised Naviagational Controls and are saved in a separate file described below, mapControls.js.
+These 2 function calls are for the customised Navigational Controls and are saved in a separate file described below, mapControls.js.
 
 ```
 	initZoomControl(map);
@@ -440,7 +440,7 @@ function initMapTypeControl(map) {
 ### Fixed Footer and CSS Modals
 #### --- * --- * === { Fixed Footer } === * --- * ---
 ![Fixed Footer](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/4.%20Fixed%20Footer.png)
-Why? - Provide Users an unobtrusive fixed footer with a scrollable Google Map and CSS Modals to provide additional information regarding the use of the website (probably not required), links to the API's and Code Snipptes used to the benefit of collaborating developers and employers, as well as a Contact Form to engage with me and a credibility modal ("Ego-page").
+Why? - Provide Users an unobtrusive fixed footer with a scrollable Google Map and CSS Modals to provide additional information regarding the use of the website (probably not required), links to the API's and Code Snippets used to the benefit of collaborating developers and employers, as well as a Contact Form to engage with me and a credibility modal ("Ego-page").
 
 Use Case cross-reference ([please see main README.md for details](https://github.com/NaoiseGaffney/CitiesInCountries#processes)):
 
@@ -455,7 +455,7 @@ Use Case cross-reference ([please see main README.md for details](https://github
 * 014 - Employer - UC 11 - GitHub Project MarkDown Documents (geoLocation already accepted)
 * 015 - Employer - UC 12 - Feedback Form (geoLocation already accepted)
 
-What? - CSS Modals with an About Modal describing how to navigate and use the website, an API Modal providing links to the API documentation of the API's used on this project/website, a Code Snipped Modal with links to resources and courses used to further my knowledge and skills to create this website, a Contact Form Modal for Users to engage with me, and a Credibility Modal to gain an understanding of who I am and wirth links to the Code Institute Milestone Projects.
+What? - CSS Modals with an About Modal describing how to navigate and use the website, an API Modal providing links to the API documentation of the API's used on this project/website, a Code Snipped Modal with links to resources and courses used to further my knowledge and skills to create this website, a Contact Form Modal for Users to engage with me, and a Credibility Modal to gain an understanding of who I am and with links to the Code Institute Milestone Projects.
 
 How? - A Grid Layout, together with Flexbox is used on this website. The Grid Layout described below uses `grid-template-areas` as they're easy to understand and use (visually clear). The Fixed Footer area uses 3 columns x 1 row.
 
@@ -505,7 +505,7 @@ The HTML Fixed Footer FontAwesome Links. Support for Screen-Readers too.
         </div>
 ```
 
-[.css{} - Prodcution Code: style.css](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/styles/style.css)
+[.css{} - Production Code: style.css](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/styles/style.css)
 
 Grid Layout for the Google Map and Fixed Footer. Using `grid-template-areas` as it's easy to understand this visual layout. Styling of the links and hover scaling of the FontAwesome icons.
 
@@ -653,7 +653,7 @@ Hovering over the FontAwesome exclamation-point icon scales it to 1.5 times the 
         </div>
 ```
 
-[.css{} - Prodcution Code: style.css](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/styles/style.css)
+[.css{} - Production Code: style.css](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/styles/style.css)
 
 CSS Modal animation, supporting all browser types as defined by the `...keyframes` definitions below.
 
@@ -829,7 +829,7 @@ Hovering over the FontAwesome exclamation-point icon scales it to 1.5 times the 
         </div>
 ```
 
-[.css{} - Prodcution Code: style.css](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/styles/style.css)
+[.css{} - Production Code: style.css](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/styles/style.css)
 
 CSS Modal animation, supporting all browser types as defined by the `...keyframes` definitions below.
 
@@ -1001,7 +1001,7 @@ Hovering over the FontAwesome exclamation-point icon scales it to 1.5 times the 
         </div>
 ```
 
-[.css{} - Prodcution Code: style.css](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/styles/style.css)
+[.css{} - Production Code: style.css](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/styles/style.css)
 
 CSS Modal animation, supporting all browser types as defined by the `...keyframes` definitions below.
 
@@ -1347,7 +1347,7 @@ textarea {
 
 [(Js) - Production Code: sendemail.js](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/scripts/sendemail.js)
 
-This code is a modified version of the EmailJS API documentation. It maps the HTML form to the EmailJS template defined on the EmailJS website, sends the form to the EmailJS website. On success ("Success OK 200") the script updates the Contact Form with the success message of "Thank you! Email sent successfully." for 5 seconds (long enough for the User to read and understand the message), and clears the form fields. If the sending of the form is unsuccessful the message on the Contact Form is "Apologies, something went wrong. Please try again." for 5 seconds, and retains the previosuly filled out form fields to allow the User to try again.
+This code is a modified version of the EmailJS API documentation. It maps the HTML form to the EmailJS template defined on the EmailJS website, sends the form to the EmailJS website. On success ("Success OK 200") the script updates the Contact Form with the success message of "Thank you! Email sent successfully." for 5 seconds (long enough for the User to read and understand the message), and clears the form fields. If the sending of the form is unsuccessful the message on the Contact Form is "Apologies, something went wrong. Please try again." for 5 seconds, and retains the previously filled out form fields to allow the User to try again.
 
 ```
 function sendMail(contactForm) {
@@ -1375,7 +1375,7 @@ function sendMail(contactForm) {
 #### --- * --- * === { CSS Modals - Credibility (Naoise Olof Seán Gaffney) } === * --- * ---
 ![Credibility Modal](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/9.%20FF%20CSS%20Modal%20-%20Credibility.png)
 
-Why? - Providing Users with access to the second Code Institute Milestone Project details (code, documentation, automated testing) to assess my knowledged and skills as a Front-End/Full-Stack Developer, access to my first Milestone Project, and my Resumé, all to add to my credibility.
+Why? - Providing Users with access to the second Code Institute Milestone Project details (code, documentation, automated testing) to assess my knowledge and skills as a Front-End/Full-Stack Developer, access to my first Milestone Project, and my Resumé, all to add to my credibility.
 
 Use Case cross-reference ([please see main README.md for details](https://github.com/NaoiseGaffney/CitiesInCountries#processes)):
 
@@ -1435,7 +1435,7 @@ Hovering over the FontAwesome exclamation-point icon scales it to 1.5 times the 
     </section>
 ```
 
-[.css{} - Prodcution Code: style.css](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/styles/style.css)
+[.css{} - Production Code: style.css](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/styles/style.css)
 
 CSS Modal animation, supporting all browser types as defined by the `...keyframes` definitions below.
 
@@ -1565,7 +1565,7 @@ Use Case cross-reference ([please see main README.md for details](https://github
 * 009 - Collaborator - UC 6 - Overview and Statistics (geoLocation already accepted)
 * 012 - Employer - UC 9 - Overview and Statistics (geoLocation already accepted)
 
-What? - The Map Markers are positioned on the capital cities of Europe. and are placed by the coordinates specified in the internal `markersArray[]` in maps.js.
+What? - The Map Markers are positioned on the capital cities of Europe and are placed by the coordinates specified in the internal `markersArray[]` in maps.js.
 
 How? - The Map Markers are positioned on the capital cities of Europe and are placed by the coordinates specified in the internal `markersArray[]` in maps.js. The `markersArray[]` is an expansion of the one provided by the Code Institute mini-project walkthrough by Matt Rudge. The `for (let i = 0; i < markersArray.length; i++) {
         addMarker(markersArray[i]);
@@ -1996,7 +1996,7 @@ Use Case cross-reference ([please see main README.md for details](https://github
 
 What? - The Map Markers are positioned on the capital cities of Europe and when clicked open up InfoViews with the city, the country, the latitude and longitude of the city, all stored in the internal `markersArray[]` in maps.js. The weather information is populated dynamically in real-time, fetched from the OpenWeather API. Two buttons, Overview and Statistics open JS Modals with further details. The InfoWindow closes after 3 seconds, more than enough time to read the InfoWindow data and click on a button.
 
-How? - The Google Map Marker InfoWindow the Google classes `.gm-style-iw, .gm-style-iw-c` are styled in the same linear-gradient used througout the website. To make this work, some JavaScript statements remove the Google class `.gm-style-iw-d` and a padding of 12px is set `document.querySelector(".gm-style-iw-d").className = ""; document.querySelector(".gm-style-iw-c").style = "padding: 12px";`.
+How? - The Google Map Marker InfoWindow the Google classes `.gm-style-iw, .gm-style-iw-c` are styled in the same linear-gradient used throughout the website. To make this work, some JavaScript statements remove the Google class `.gm-style-iw-d` and a padding of 12px is set `document.querySelector(".gm-style-iw-d").className = ""; document.querySelector(".gm-style-iw-c").style = "padding: 12px";`.
 
 Background is set to `linear-gradient(0.25turn, rgba(63, 135, 166, 0.9), rgba(235, 248, 225, 0.9), rgba(246, 157, 60, 0.9));` which is the same used throughout the website to create a common look-and-feel.
 
@@ -2004,7 +2004,7 @@ The city, country, coordinates are provided by the internal `markersArray[]` in 
 
 [.css{} - Production Code: style.css](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/styles/style.css)
 
-The Google Map Marker InfoWindow the Google classes `.gm-style-iw, .gm-style-iw-c` are styled in the same linear-gradient used througout the website.
+The Google Map Marker InfoWindow the Google classes `.gm-style-iw, .gm-style-iw-c` are styled in the same linear-gradient used throughout the website.
 
 The Raleway font is set for all elements to ensure consistency.
 
@@ -2491,7 +2491,7 @@ When a Google Map Marker is clicked the coordinates of the current Google Map Ma
 
 The `fetch()` calls the OpenWeather API for the current weather information. The JSON data is converted and some of the values received stored in variables for use to populate the Google Map Marker InfoWindow.
 
-The weather data gives us a good idea of what it's currently like in the European city we clicked on:
+The weather data gives us a good idea of what it's currently like in the European City we clicked on:
 
 * tempValue contains the temperature converted from a float to an integer as it looks nicer when displayed.
 * descValue contains the weather description.
@@ -2502,7 +2502,7 @@ The `if (document.getElementById("weather"))...` checks whether this is the firs
 
 The event handlers for the buttons function is called with two parameters, `buttonIDOver, buttonIDStats`.
 
-The real-time weather data poulates the InfoWindow:
+The real-time weather data populates the InfoWindow:
 
 ```
 document.getElementById(weatherID).innerHTML = tempValue + `° Celsius, ` + descValue + `, ` + airPressure + ` hPa`;
@@ -2619,7 +2619,7 @@ Use Case cross-reference ([please see main README.md for details](https://github
 * 009 - Collaborator - UC 6 - Overview and Statistics (geoLocation already accepted)
 * 012 - Employer - UC 9 - Overview and Statistics (geoLocation already accepted)
 
-What? - Provides country data, the flag, native name, regions, language(s), currencie(s), and calling code, which is of use or interest to a User.
+What? - Provides country data, the flag, native name, regions, languages, currencies, and calling code, which is of use or interest to a User.
 
 How? - The data is created in real-time from data fetched from the REST Countries API and the internal `markersArray[]` (please see above, Google Map Marker InfoWindows and Content for details).
 
@@ -2640,7 +2640,7 @@ This is the JS Modal used by maps.js and styled by style.css. It includes a plac
 
 [.css{} - Production Code: style.css](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/styles/style.css)
 
-Displays details without leaving the page, providing a clear and clean navigation option. A backdrop, similar to the CSS Modal is styled with the same look-and-feel though created and controled by JS in maps.js.
+Displays details without leaving the page, providing a clear and clean navigation option. A backdrop, similar to the CSS Modal is styled with the same look-and-feel though created and controlled by JS in maps.js.
 
 ```
 .card {
@@ -2754,9 +2754,9 @@ The JS Overview Modal is updated with ```document.getElementById("modal-content"
 
 `fetchCountry(cityArray[1], displayCountry);` is called with two parameters, the country and the name of the `functionCall` to call (`displayCountry` for the JS Overview Modal or `displayStats` for the JS Statistics Modal). It checks if `findCountryObject` is populated (=== 0), if so `fetch()` from the REST Countries API is called to populate `findCountryObject` else the existing data is used (previously fetched).
 
-`displayCountry()` checks the the languages and currencies arrays for multiple objects and creates the relevant object (for example, "Irish, English." and "Euro, Dollars.") to make it look good when displayed to the User.
+`displayCountry()` checks the languages and currencies arrays for multiple objects and creates the relevant object (for example, "Irish, English." and "Euro, Dollars.") to make it look good when displayed to the User.
 
-Using `document,querySelector("#...").innerHTML = ...;` the JS Overview Modal is poulated with the flag, native name, regions, language(s), currencie(s), and calling code.
+Using `document,querySelector("#...").innerHTML = ...;` the JS Overview Modal is populated with the flag, native name, regions, languages, currencies, and calling code.
 
 ```
 const backdrop = document.getElementById("backdrop");
@@ -2903,7 +2903,7 @@ This is the JS Modal used by maps.js and styled by style.css. It includes a plac
 
 [.css{} - Production Code: style.css](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/styles/style.css)
 
-Displays details without leaving the page, providing a clear and clean navigation option. A backdrop, similar to the CSS Modal is styled with the same look-and-feel though created and controled by JS in maps.js.
+Displays details without leaving the page, providing a clear and clean navigation option. A backdrop, similar to the CSS Modal is styled with the same look-and-feel though created and controlled by JS in maps.js.
 
 ```
 .card {
@@ -3017,7 +3017,7 @@ The JS Statistics Modal is updated with ```document.getElementById("modal-conten
 
 The following code snippet splits the city and country into an array with two values to use the city as a parameter when calling `d3Stats();`. `d3Stats()` is flexible as it takes several parameters to create the Scalable Vector Graphic used to populate the JS Statistics Modal. The parameters are:
 
-* city (`cityArray[0]`), for example "Dublin" which is used as the index for the noSQL database Firestore to colect population data for city and country.
+* city (`cityArray[0]`), for example "Dublin" which is used as the index for the noSQL database Firestore to collect population data for city and country.
 *  width (`200`) in pixels to set the width of the SVG graph.
 *  height (`200`) in pixels to set the height of the SVG graph.
 *  tickFormat (`"M"`) is the text or symbol used for the Y-axis. In this case "M" = Millions.
@@ -3030,9 +3030,9 @@ The following code snippet splits the city and country into an array with two va
 
 `fetchCountry(cityArray[1], displayStats);` is called with two parameters, the country and the name of the `functionCall` to call (`displayCountry` for the JS Overview Modal or `displayStats` for the JS Statistics Modal). It checks if `findCountryObject` is populated (=== 0), if so `fetch()` from the REST Countries API is called to populate `findCountryObject` else the existing data is used (previously fetched).
 
-`displayCountry()` checks the the languages and currencies arrays for multiple objects and creates the relevant object (for example, "Irish, English." and "Euro, Dollars.") to make it look good when displayed to the User.
+`displayCountry()` checks the languages and currencies arrays for multiple objects and creates the relevant object (for example, "Irish, English." and "Euro, Dollars.") to make it look good when displayed to the User.
 
-Using `document,querySelector("#...").innerHTML = ...;` the JS Overview Modal is poulated with the flag, native name, regions, language(s), currencie(s), and calling code.
+Using `document,querySelector("#...").innerHTML = ...;` the JS Overview Modal is populated with the flag, native name, regions, languages, currencies, and calling code.
 
 ```
 const backdrop = document.getElementById("backdrop");
@@ -3277,7 +3277,7 @@ const d3Stats = (city, width, height, tickFormat, fillColour) => {
         let i = d3.interpolate(0, x.bandwidth());
         // Return function with time ticker 't'
         return function (t) {
-            // Return the value from pasign the ticker into the interpolation
+            // Return the value from passign the ticker into the interpolation
             return i(t);
         };
     };
@@ -3341,7 +3341,7 @@ Google Cloud Firestore for the D3 API data, the bar graphs in the JS Statistics 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.js"></script>
 ```
 
-* Internal: (Js) - Google Maps JavaScript API code for the customised Navigational Controls. This is copied from the Google Maps JavaScript API documentation, and modified to suit my website requirements (map type controls (Map / Sattelite), and zoom controls (+ -)).
+* Internal: (Js) - Google Maps JavaScript API code for the customised Navigational Controls. This is copied from the Google Maps JavaScript API documentation, and modified to suit my website requirements (map type controls (Map / Satellite), and zoom controls (+ -)).
 
 ```
 <script src="../CitiesInCountries/assets/scripts/mapControls.js" defer></script>
