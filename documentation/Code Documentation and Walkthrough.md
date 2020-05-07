@@ -21,7 +21,8 @@ The structure of each section is:
 ## Features & Functions
 
 ### Geo-Location, Google Map and Navigational Controls
-#### Geo-Location: ![First loading of the website, Geo-Location](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/1.%20Geo-Location.png)
+#### Geo-Location
+![First loading of the website, Geo-Location](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/1.%20Geo-Location.png)
 Why? - The User requires only to accept the browser's request for the current location to have the map centre on their current location. This is their starting point for exploring the map marker InfoWindows to acquire information regarding European capital cities and countries.
 
 Use Case cross-reference ([please see main README.md for details](https://github.com/NaoiseGaffney/CitiesInCountries#processes)):
@@ -57,7 +58,9 @@ const getCurrentLocation = (map, home) => {
 };
 ```
 
-#### Google Map: ![Google Map Dashboard](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/3.%20Google%20Map%20and%20Navigational%20Controls.png)
+#### Google Map
+![Google Map Dashboard](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/3.%20Google%20Map%20and%20Navigational%20Controls.png)
+
 Why? - Google Map is used to provide Map Markers with information about European capital cities and countries. The Map is the key display upon which further InfoViews and Modals are used to provide further details for the User to acquire basic knowledge of cities and countries.
 
 Use Case cross-reference ([please see main README.md for details](https://github.com/NaoiseGaffney/CitiesInCountries#processes)):
@@ -154,7 +157,8 @@ function initMap() {
     ...
 ```
 
-#### Navigational Controls: ![Google Map, Map Type](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/Google%20Nav%20Controls%20-%20Map%20Sattelite.png) ![Google Map Zoom Controls](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/Google%20Map%20Nav%20Controls%20-%20Zoom.png)
+#### Navigational Controls
+![Google Map, Map Type](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/Google%20Nav%20Controls%20-%20Map%20Sattelite.png) ![Google Map Zoom Controls](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/Google%20Map%20Nav%20Controls%20-%20Zoom.png)
 
 Why? - To allow recognisable ways in which to navigate Google Maps, and creating a common look-and-feel of the website, custom controls are used, creating a better User Design Experience for the User.
 
@@ -414,7 +418,8 @@ function initMapTypeControl(map) {
 ```
 
 ### Fixed Footer and CSS Modals
-#### Fixed Footer ![Fixed Footer](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/4.%20Fixed%20Footer.png)
+#### Fixed Footer
+![Fixed Footer](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/4.%20Fixed%20Footer.png)
 Why? - Provide Users an unobtrusive fixed footer with a scrollable Google Map and CSS Modals to provide additional information regarding the use of the website (probably not required), links to the API's and Code Snipptes used to the benefit of collaborating developers and employers, as well as a Contact Form to engage with me and a credibility modal ("Ego-page").
 
 Use Case cross-reference ([please see main README.md for details](https://github.com/NaoiseGaffney/CitiesInCountries#processes)):
@@ -566,7 +571,8 @@ Index.html contains the Fixed Footer FontAwesome links, and the CSS Modals and t
 
 The code details are covered under each CSS Modal sub-heading (About, API's, Code Snippets, Contact Form, Credibility).
 
-#### CSS Modals - About ![About CSS Modal](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/5.%20FF%20CSS%20Modal%20-%20About.png)
+#### CSS Modals - About
+![About CSS Modal](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/5.%20FF%20CSS%20Modal%20-%20About.png)
 
 Why? - Providing Users with an overview of the website, setting correct and clear expectations as well as aiding those not as savvy to use the website features.
 
@@ -745,7 +751,8 @@ Styling of all CSS and JS Modal buttons (Close, Overview, Statistics). Using CSS
 }
 ```
 
-#### CSS Modals - API's ![API's CSS Modal](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/6.%20FF%20CSS%20Modal%20-%20API's.png)
+#### CSS Modals - API's
+![API's CSS Modal](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/6.%20FF%20CSS%20Modal%20-%20API's.png)
 
 Why? - Providing Users with details of the API's used to provide the content of the website of interest to the Users, Collaborators, and Employers.
 
@@ -920,7 +927,8 @@ Styling of all CSS and JS Modal buttons (Close, Overview, Statistics). Using CSS
 }
 ```
 
-#### CSS Modals - Code Snippets ![Code Snippets CSS Modal](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/7.%20FF%20CSS%20Modal%20-%20Code%20Snippets.png)
+#### CSS Modals - Code Snippets
+![Code Snippets CSS Modal](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/7.%20FF%20CSS%20Modal%20-%20Code%20Snippets.png)
 
 Why? - Providing Users with details of the Code Snippets used to provide the content of the website of interest to the Users, Collaborators, and Employers. This includes the courses taken on "D3 & Firestore" and "JavaScript" on Udemy. This shows an interest above-and-beyond what is covered by the Diploma in Full Stack Development as well as an improvement on both knowledge and skills needed to create the features and functions of this website.
 
@@ -1091,7 +1099,8 @@ Styling of all CSS and JS Modal buttons (Close, Overview, Statistics). Using CSS
 }
 ```
 
-#### CSS Modals - Contact Form ![Contact Form CSS Modal](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/10.%20FF%20CSS%20Modal%20-%20Contact%20Form%20Filled%20and%20Sent.png)
+#### CSS Modals - Contact Form
+![Contact Form CSS Modal](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/10.%20FF%20CSS%20Modal%20-%20Contact%20Form%20Filled%20and%20Sent.png)
 
 ![E-mail example](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/UC%2012%20Email.png)
 
@@ -1164,6 +1173,8 @@ Hovering over the FontAwesome exclamation-point icon scales it to 1.5 times the 
             </div>
         </div>
 ```
+
+The EmailJS API with unique key and sendemail.js scripts.
 
 ```
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
@@ -1294,6 +1305,8 @@ Styling of all CSS and JS Modal buttons (Close, Overview, Statistics). Using CSS
 }
 ```
 
+Styling of the Contact Form fields and status message ("success or failure").
+
 ```
 input[type=text],
 textarea {
@@ -1339,7 +1352,8 @@ function sendMail(contactForm) {
 }
 ```
 
-#### CSS Modals - Credibility (Naoise Olof Seán Gaffney) ![Credibility Modal](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/9.%20FF%20CSS%20Modal%20-%20Credibility.png)
+#### CSS Modals - Credibility (Naoise Olof Seán Gaffney)
+![Credibility Modal](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/9.%20FF%20CSS%20Modal%20-%20Credibility.png)
 
 Why? - Providing Users with access to the second Code Institute Milestone Project details (code, documentation, automated testing) to assess my knowledged and skills as a Front-End/Full-Stack Developer, access to my first Milestone Project, and my Resumé, all to add to my credibility.
 
@@ -1520,9 +1534,153 @@ Styling of all CSS and JS Modal buttons (Close, Overview, Statistics). Using CSS
 ```
 
 ### Google Map Markers
+![Google Map Markers]()
+
+Why? - 
+
+Use Case cross-reference ([please see main README.md for details](https://github.com/NaoiseGaffney/CitiesInCountries#processes)):
+
+* 003 - Features and Functions Overview - Samples (geoLocation accepted)
+* 004 - User - UC 1 - Overview and Statistics (geoLocation already accepted)
+* 009 - Collaborator - UC 6 - Overview and Statistics (geoLocation already accepted)
+* 012 - Employer - UC 9 - Overview and Statistics (geoLocation already accepted)
+
+What? - 
+
+How? -
+
+
+Why? - Google Map is used to provide Map Markers with information about European capital cities and countries. The Map is the key display upon which further InfoViews and Modals are used to provide further details for the User to acquire basic knowledge of cities and countries.
+
+Use Case cross-reference ([please see main README.md for details](https://github.com/NaoiseGaffney/CitiesInCountries#processes)):
+
+* All General Cases and Use Cases (0 to 15).
+
+What? - Google Map JavaScript API is used to create the Google Map, Navigational Controls, and Map Markers (together with an internal `markersArray[]`).
+
+A Grid Layout, together with Flexbox is used on this website. The Grid Layout described below uses `grid-template-areas` as they're easy to understand and use (visually clear). The Map area uses 3 columns x 19 rows.
+
+Background is set to `linear-gradient(0.25turn, rgba(63, 135, 166, 0.9), rgba(235, 248, 225, 0.9), rgba(246, 157, 60, 0.9));` which is the same used throughout the website to create a common look-and-feel.
+
+How? - Some of the code snippets are taken from the Google Map JavaScript API documentation, and are used by the Code Institute and Bill Traversy walkthroughs. index.html has the map placeholder in `<div class="map" id="map"></div>` to display the map from maps.js, and styled by style.css. The linear-gradient background is enabled by the `backgroundColor: "none",` in initMap() and the `background: linear-gradient(0.25turn, rgba(63, 135, 166, 0.9), rgba(235, 248, 225, 0.9), rgba(246, 157, 60, 0.9));` in style.css of `html, body {...}`.
+
+[Production Code: index.html](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/index.html)
+
+Google Map placeholder used by maps.js to place the Google Map and Map Markers using the `#map` element.
+
+`<div class="map" id="map"></div>`
+
+[Production Code: style.css](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/styles/style.css)
+
+Grid Layout for the Google Map and Fixed Footer. Using `grid-template-areas` as it's easy to understand this visual layout.
+
+```
+.parent {
+    height: 100%;
+    display: grid;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(20, 1fr);
+    grid-template-areas:
+        "map map map"
+        "map map map"
+        "map map map"
+        "map map map"
+        "map map map"
+        "map map map"
+        "map map map"
+        "map map map"
+        "map map map"
+        "map map map"
+        "map map map"
+        "map map map"
+        "map map map"
+        "map map map"
+        "map map map"
+        "map map map"
+        "map map map"
+        "map map map"
+        "map map map"
+        "footer  footer footer";
+}
+
+.map {
+    grid-area: map;
+    display: grid;
+    height: auto;
+    width: auto;
+}
+```
+
+`#map` is the Google Map placeholder, the `height: 100%;` is a Google recommendation. The `html, body {...}` sets basic parameters, uses the Raleway Font and sets the linear-gradient used throughout the website.
+
+```
+#map {
+    height: 100%;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Raleway', sans-serif;
+    background: linear-gradient(0.25turn, rgba(63, 135, 166, 0.9), rgba(235, 248, 225, 0.9), rgba(246, 157, 60, 0.9));
+}
+```
+
+[Production Code: maps.js](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/scripts/maps.js)
+
+The main Google Map initMap function, from the Google Map JavaScript API documentation. I've set `home` to my home address (the centre of my Universe :-) and the default map centre of Geo-Location isn't used). `disableDefaultUI: true,` disables the default Google Map controls, as I use customised ones instead to better align to website layout and design. `backgroundColor: "none",` disables the default Google Map background colour of grey, and is set to the linear-gradient used throughout the website in style.css.
+
+```
+function initMap() {
+    let home = { lat: 53.274346, lng: -6.348835 };
+    let map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 6,
+        center: home,
+        disableDefaultUI: true,
+        backgroundColor: "none",
+    });
+    ...
+```
+
 ### Google Map Marker InfoWindows and Content
+
+Why? - 
+
+Use Case cross-reference ([please see main README.md for details](https://github.com/NaoiseGaffney/CitiesInCountries#processes)):
+
+* 
+
+What? - 
+
+How? -
+
 ### JS Overview Modal
+
+Why? - 
+
+Use Case cross-reference ([please see main README.md for details](https://github.com/NaoiseGaffney/CitiesInCountries#processes)):
+
+* 
+
+What? - 
+
+How? -
+
 ### JS Statistics Modal
+
+Why? - 
+
+Use Case cross-reference ([please see main README.md for details](https://github.com/NaoiseGaffney/CitiesInCountries#processes)):
+
+* 
+
+What? - 
+
+How? -
 
 ## </> HTML 5
 
