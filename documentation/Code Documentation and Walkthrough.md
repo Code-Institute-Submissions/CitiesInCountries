@@ -560,7 +560,7 @@ Use Case cross-reference ([please see main README.md for details](https://github
 
 What? - The Footer links are: About which describes the use and navigation of the website, API's providing links to the descriptions of the API's used on this website to provide data and functionality, Code Snippets providing links to tutorials and courses with knowledge and skills used on this website, Contact Form to provide greatly appreciated feedback, and About Me to view my Resumé, GitHub, and GaffCo for professional communication competence!
 
-How? - Hovering over the FontAwesome exclamation-point icon scales it to 1.5 times the origiinal size, clicking on it opens the About CSS Modal. A CSS backdrop lies behind the CSS Modal disabling clicking of any other links and buttons on the website. Only the Close button on the CSS Modal is clickable.
+How? - Hovering over the FontAwesome icons scales it to 1.5 times the original size, clicking on it opens the About CSS Modal. A CSS backdrop lies behind the CSS Modal disabling clicking of any other links and buttons on the website. Only the Close button on the CSS Modal is clickable.
 
 Index.html contains the Fixed Footer FontAwesome links, and the CSS Modals and their content. Styling of the CSS Modals is specified in style.css. The only JavaScript component is the Contact Form sendemail.js script.
 
@@ -579,11 +579,11 @@ What? - About which describes the use and navigation of the website.
 
 How? - Index.html contains the FontAwesome exclamation-mark link icon that opens up the About CSS Modal with the content in index.html. The CSS Modal control and styling is defined in style.css.
 
-Hovering over the FontAwesome exclamation-point icon scales it to 1.5 times the origiinal size, clicking on it opens the About CSS Modal. A CSS backdrop lies behind the CSS Modal disabling clicking of any other links and buttons on the website. Only the Close button on the CSS Modal is clickable.
+Hovering over the FontAwesome exclamation-point icon scales it to 1.5 times the original size, clicking on it opens the About CSS Modal. A CSS backdrop lies behind the CSS Modal disabling clicking of any other links and buttons on the website. Only the Close button on the CSS Modal is clickable.
 
 [Production Code: index.html](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/index.html)
 
-Hovering over the FontAwesome exclamation-point icon scales it to 1.5 times the origiinal size, clicking on it opens the About CSS Modal.
+Hovering over the FontAwesome exclamation-point icon scales it to 1.5 times the original size, clicking on it opens the About CSS Modal.
 
 ```
 <div class="footer  fixed-footer">
@@ -754,45 +754,770 @@ Use Case cross-reference ([please see main README.md for details](https://github
 * 002 - Features and Functions Overview - Fixed Footer and CSS Modals (geoLocation accepted)
 * 006 - User - UC 3 - CSS Modals (geoLocation already accepted)
 
-What? - About which describes the use and navigation of the website.
+What? - API's providing links to the descriptions of the API's used on this website to provide real-time dynamic data to the User via the JS Modals.
 
 How? - Index.html contains the FontAwesome file-code-o link icon that opens up the API's CSS Modal with the content in index.html. The CSS Modal control and styling is defined in style.css.
 
-Hovering over the FontAwesome file-code-o icon scales it to 1.5 times the origiinal size, clicking on it opens the API's CSS Modal. A CSS backdrop lies behind the CSS Modal disabling clicking of any other links and buttons on the website. Only the Close button on the CSS Modal is clickable.
+Hovering over the FontAwesome file-code-o icon scales it to 1.5 times the original size, clicking on it opens the API's CSS Modal. A CSS backdrop lies behind the CSS Modal disabling clicking of any other links and buttons on the website. Only the Close button on the CSS Modal is clickable.
+
+Clicking on the links opens up the external websites in new tabs `target=_blank`.
+
+[Production Code: index.html](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/index.html)
+
+Hovering over the FontAwesome exclamation-point icon scales it to 1.5 times the original size, clicking on it opens the About CSS Modal.
+
+```
+<a href="#id02">
+                <i class="fa fa-file-code-o" id="fa-file-code-o" aria-hidden="true"></i>
+                <span class="sr-only">API's</span>
+            </a>
+...
+<div id="id02" class="cssmodal">
+            <div class="cssmodal-dialog">
+                <div class="cssmodal-content">
+                    <header class="cssmodal-container">
+                        <h3><i class="fa fa-file-code-o" id="fa-file-code-o-css-modal" aria-hidden="true"></i>
+                            <span class="sr-only">API's</span>&nbsp;&nbsp;&nbsp;Links&#58; Application Programming Interfaces</h3>
+                    </header>
+                    <div class="cssmodal-container">
+                        <div><a href="https://developers.google.com/maps/documentation/javascript/tutorial"
+                                target="_blank" class="modal-link-text">-> Google Maps JavaScript API Description - to
+                                create the map and markers.</a></div>
+                        <div><a href="https://openweathermap.org/api/one-call-api" target="_blank"
+                                class="modal-link-text">-> OpenWeather API Description - adding real-time weather
+                                information to the marker tool-tips.</a></div>
+                        <div><a href="https://github.com/d3/d3/blob/master/API.md" target="_blank"
+                                class="modal-link-text">-> D3 API Description - to display dynamic graphs and
+                                statistics.</a></div>
+                        <div><a href="https://www.emailjs.com/" target="_blank" class="modal-link-text">-> EmailJS API
+                                Description - to enjoy user feedback to improve the website.</a></div>
+                        <div><a href="https://firebase.google.com/" target="_blank" class="modal-link-text">-> "Built with
+                                Firebase &reg;" - to store and retrieve D3 and City data.</a></div>
+                        <div><a href="https://restcountries.eu/" target="_blank" class="modal-link-text">-> REST Countries
+                                EU API Description - Global Country data for Overview and Statistics Modals.</a></div>
+                        <p style="text-align:right"><a href="#" class="button">Close</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+```
+
+[Prodcution Code: style.css](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/styles/style.css)
+
+CSS Modal animation, supporting all browser types as defined by the `...keyframes` definitions below.
+
+The `.cssmodal...` elements and styling attributes style the CSS Modal according to the look-and-feel of the layout and design used throughout the website.
+
+```
+@-webkit-keyframes example {
+    from {
+        top: -100px;
+        opacity: 0;
+    }
+
+    to {
+        top: 0px;
+        opacity: 1;
+    }
+}
+
+/* Add animation (Standard syntax) */
+@keyframes example {
+    from {
+        top: -100px;
+        opacity: 0;
+    }
+
+    to {
+        top: 0px;
+        opacity: 1;
+    }
+}
+
+/* The modal's background */
+.cssmodal {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+/* Display the modal when targeted */
+.cssmodal:target {
+    display: table;
+    position: absolute;
+}
+
+/* The modal box */
+.cssmodal-dialog {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+/* The modal's content */
+.cssmodal-dialog .cssmodal-content {
+    margin: auto;
+    background: linear-gradient(0.25turn, rgba(63, 135, 166, 0.9), rgba(235, 248, 225, 0.9), rgba(246, 157, 60, 0.9));
+    color: rgb(0, 0, 0);
+    border-radius: 10px 10px 10px 10px;
+    position: relative;
+    padding: 0;
+    outline: 0;
+    text-align: justify;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    z-index: 4;
+    -webkit-animation-name: example;
+    -webkit-animation-duration: 0.5s;
+    animation-name: example;
+    animation-duration: 0.5s;
+}
+
+.cssmodal-container {
+    padding: 10px 16px;
+    text-align: left;
+}
+
+.modal-link-text:active {
+    color: rgb(255, 255, 255);
+}
+```
+
+Styling of all CSS and JS Modal buttons (Close, Overview, Statistics). Using CSS Button Creator: https://cssbuttoncreator.com/ and some additional modification to get it "just right". Added 'outline: none' to remove ugly click outline.
+
+```
+.button {
+    background: rgba(63, 135, 166, 1);
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    color: #FFFFFF;
+    font-family: Raleway, sans-serif;
+    font-size: 12px;
+    font-weight: 100;
+    padding: 3px 10px;
+    text-shadow: 1px 1px 20px #000000;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+    margin-right: 10px;
+}
+
+.button:hover {
+    background: rgba(246, 157, 60, 1);
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    text-decoration: none;
+}
+
+.button:focus {
+    outline: none;
+}
+```
 
 #### CSS Modals - Code Snippets ![Code Snippets CSS Modal](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/7.%20FF%20CSS%20Modal%20-%20Code%20Snippets.png)
 
-Why? -
+Why? - Providing Users with details of the Code Snippets used to provide the content of the website of interest to the Users, Collaborators, and Employers. This includes the courses taken on "D3 & Firestore" and "JavaScript" on Udemy. This shows an interest above-and-beyond what is covered by the Diploma in Full Stack Development as well as an improvement on both knowledge and skills needed to create the features and functions of this website.
 
 Use Case cross-reference ([please see main README.md for details](https://github.com/NaoiseGaffney/CitiesInCountries#processes)):
 
-* 
+* 002 - Features and Functions Overview - Fixed Footer and CSS Modals (geoLocation accepted)
+* 006 - User - UC 3 - CSS Modals (geoLocation already accepted)
 
-What? -
+What? - Code Snippets, Code Walkthroughs, and Udemy Courses providing both knowledge and skills to further my programming abilities.
 
-How? -
+How? - Index.html contains the FontAwesome fa-code link icon that opens up the API's CSS Modal with the content in index.html. The CSS Modal control and styling is defined in style.css.
+
+Hovering over the FontAwesome fa-code icon scales it to 1.5 times the original size, clicking on it opens the Code Snippet CSS Modal. A CSS backdrop lies behind the CSS Modal disabling clicking of any other links and buttons on the website. Only the Close button on the CSS Modal is clickable.
+
+Clicking on the links opens up the external websites in new tabs `target=_blank`.
+
+[Production Code: index.html](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/index.html)
+
+Hovering over the FontAwesome exclamation-point icon scales it to 1.5 times the original size, clicking on it opens the About CSS Modal.
+
+```
+<a href="#id03">
+                <i class="fa fa-code" id="fa-code" aria-hidden="true"></i>
+                <span class="sr-only">Code Snippets</span>
+            </a>
+...
+<div id="id03" class="cssmodal">
+            <div class="cssmodal-dialog">
+                <div class="cssmodal-content">
+                    <header class="cssmodal-container">
+                        <h3><i class="fa fa-code" id="fa-code-css-modal" aria-hidden="true"></i>
+                            <span class="sr-only">Code Snippets</span>&nbsp;&nbsp;&nbsp;Links&#58; Code Snippets</h3>
+                    </header>
+                    <div class="cssmodal-container">
+                        <div><a href="https://codeinstitute.net/" target="_blank" class="modal-link-text">-> Google Maps
+                                API - Code Institute walkthrough by Matt Rudge.</a></div>
+                        <div><a href="https://youtu.be/Zxf1mnP5zcw" target="_blank" class="modal-link-text">-> Google Maps
+                                API - Bill Traversy @ Traversy Media.</a></div>
+                        <div><a href="https://youtu.be/GXrDEA3SIOQ" target="_blank" class="modal-link-text">-> OpenWeather
+                                API - OpenWeather API JavaScript example and walkthrough by Shanjah Raj.</a></div>
+                        <div><a href="https://www.udemy.com/course/build-data-uis-with-d3-firebase/" target="_blank"
+                                class="modal-link-text">-> Udemy Course on D3 & Firebase by Shaun Pelling.</a></div>
+                        <div><a href="https://www.udemy.com/course-dashboard-redirect/?course_id=2508942"
+                                target="_blank" class="modal-link-text">-> Udemy Course on JavaScript the Complete Guide
+                                2020 by Maximilian Schwarzmüller.</a></div>
+                        <p style="text-align:right"><a href="#" class="button">Close</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+```
+
+[Prodcution Code: style.css](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/styles/style.css)
+
+CSS Modal animation, supporting all browser types as defined by the `...keyframes` definitions below.
+
+The `.cssmodal...` elements and styling attributes style the CSS Modal according to the look-and-feel of the layout and design used throughout the website.
+
+```
+@-webkit-keyframes example {
+    from {
+        top: -100px;
+        opacity: 0;
+    }
+
+    to {
+        top: 0px;
+        opacity: 1;
+    }
+}
+
+/* Add animation (Standard syntax) */
+@keyframes example {
+    from {
+        top: -100px;
+        opacity: 0;
+    }
+
+    to {
+        top: 0px;
+        opacity: 1;
+    }
+}
+
+/* The modal's background */
+.cssmodal {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+/* Display the modal when targeted */
+.cssmodal:target {
+    display: table;
+    position: absolute;
+}
+
+/* The modal box */
+.cssmodal-dialog {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+/* The modal's content */
+.cssmodal-dialog .cssmodal-content {
+    margin: auto;
+    background: linear-gradient(0.25turn, rgba(63, 135, 166, 0.9), rgba(235, 248, 225, 0.9), rgba(246, 157, 60, 0.9));
+    color: rgb(0, 0, 0);
+    border-radius: 10px 10px 10px 10px;
+    position: relative;
+    padding: 0;
+    outline: 0;
+    text-align: justify;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    z-index: 4;
+    -webkit-animation-name: example;
+    -webkit-animation-duration: 0.5s;
+    animation-name: example;
+    animation-duration: 0.5s;
+}
+
+.cssmodal-container {
+    padding: 10px 16px;
+    text-align: left;
+}
+
+.modal-link-text:active {
+    color: rgb(255, 255, 255);
+}
+```
+
+Styling of all CSS and JS Modal buttons (Close, Overview, Statistics). Using CSS Button Creator: https://cssbuttoncreator.com/ and some additional modification to get it "just right". Added 'outline: none' to remove ugly click outline.
+
+```
+.button {
+    background: rgba(63, 135, 166, 1);
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    color: #FFFFFF;
+    font-family: Raleway, sans-serif;
+    font-size: 12px;
+    font-weight: 100;
+    padding: 3px 10px;
+    text-shadow: 1px 1px 20px #000000;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+    margin-right: 10px;
+}
+
+.button:hover {
+    background: rgba(246, 157, 60, 1);
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    text-decoration: none;
+}
+
+.button:focus {
+    outline: none;
+}
+```
 
 #### CSS Modals - Contact Form ![Contact Form CSS Modal](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/10.%20FF%20CSS%20Modal%20-%20Contact%20Form%20Filled%20and%20Sent.png)
-Why? -
+
+[E-mail example](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/UC%2012%20Email.png)
+
+Why? - Providing Users with the opportunity to contact me for work, collaboration, and feedback to further improve the website with additional features of value to the Users.
 
 Use Case cross-reference ([please see main README.md for details](https://github.com/NaoiseGaffney/CitiesInCountries#processes)):
 
-* 
+* 002 - Features and Functions Overview - Fixed Footer and CSS Modals (geoLocation accepted)
+* 005 - User - UC 2 - Feedback Form (geoLocation already accepted)
+* 006 - User - UC 3 - CSS Modals (geoLocation already accepted)
+* 007 - User - UC 4 - Contact (geoLocation already accepted)
+* 008 - Collaborator - UC 5 - Contact (geoLocation already accepted)
+* 011 - Collaborator - UC 8 - Feedback Form (geoLocation already accepted)
+* 015 - Employer - UC 12 - Feedback Form (geoLocation already accepted)
 
-What? -
+What? - Code Snippets, Code Walkthroughs, and Udemy Courses providing both knowledge and skills to further my programming abilities.
 
-How? -
+The EmailJS API is used and the HTML code and in-line JavaScript in index.html is from the API's documentation, as is the code in sendemail.js. A unique key is required, as is the creation of an e-mail template on the EmailJS website.
+
+How? - Index.html contains the FontAwesome fa-envelope link icon that opens up the Contact Form CSS Modal with the content in index.html. The CSS Modal control and styling is defined in style.css.
+
+Hovering over the FontAwesome fa-envelope icon scales it to 1.5 times the original size, clicking on it opens the Contact Form CSS Modal. A CSS backdrop lies behind the CSS Modal disabling clicking of any other links and buttons on the website. Only the Close button on the CSS Modal is clickable.
+
+Clicking on the "Send Feedback" button without filling out the form fields will result in a message asking the User to "Please fill out this field." Filling out the form correctly and clicking the "Send Feedback" button sends the form details as an e-mail to me with the "Name, e-mail, and text." If the form submission is successful a message is displayed for 5 seconds below the form, "Thank you! Email sent successfully." and the form fields are cleared. If an error occurs, the message is "Apologies, something went wrong. Please try again."
+
+When index.html is loaded the EmailJS script and function with my unique key are loaded together with [sendemail.js](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/scripts/sendemail.js).
+
+Clicking on "Send Feedback" triggers `<form onsubmit="return sendMail(this);" id="feedbackform">` in index.html. That in turn calls on [sendemail.js](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/scripts/sendemail.js) to send the e-mail.
+
+[Production Code: index.html](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/index.html)
+
+Hovering over the FontAwesome exclamation-point icon scales it to 1.5 times the original size, clicking on it opens the About CSS Modal.
+
+```
+<a href="#id04">
+                <i class="fa fa-envelope-o" id="fa-envelope-o" aria-hidden="true"></i>
+                <span class="sr-only">Contact Form</span>
+            </a>
+...
+<div id="id04" class="cssmodal">
+            <div class="cssmodal-dialog">
+                <div class="cssmodal-content">
+                    <header class="cssmodal-container">
+                        <h3><i class="fa fa-envelope-o" id="fa-envelope-o-css-modal" aria-hidden="true"></i>
+                            <span class="sr-only">Contact Form</span>&nbsp;&nbsp;&nbsp;Contact Form</h3>
+                    </header>
+                    <div class="cssmodal-container">
+                        <div class="center-form">
+                            <h4>Please get in touch!</h4>
+                            <form onsubmit="return sendMail(this);" id="feedbackform">
+                                <div><input type="text" name="name" class="form-control" id="fullname"
+                                        placeholder="Name" required />
+                                    <div>
+                                        <div><input type="text" name="emailaddress" class="form-control"
+                                                id="emailaddress" placeholder="Email: name@domain.com" required /></div>
+                                        <span><textarea rows="3" cols="35" name="feedback" class="form-control"
+                                                id="feedback" placeholder="Your comments and thoughts."
+                                                required></textarea></span>
+                                        <div><button type="submit" value="send" class="button" id="contactsubmit">Send
+                                                Feedback</button>
+                                            <p style="text-align: center;" id="sendmail-status"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <p style="text-align:right"><a href="#" class="button">Close</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+```
+
+```
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
+<script>
+    (function () {
+        emailjs.init("user_Dhpon4lpXiEEQEGFYwVco");
+    })();
+</script>
+
+<script src="../CitiesInCountries/assets/scripts/sendemail.js"></script>
+```
+
+[Prodcution Code: style.css](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/styles/style.css)
+
+CSS Modal animation, supporting all browser types as defined by the `...keyframes` definitions below.
+
+The `.cssmodal...` elements and styling attributes style the CSS Modal according to the look-and-feel of the layout and design used throughout the website.
+
+```
+@-webkit-keyframes example {
+    from {
+        top: -100px;
+        opacity: 0;
+    }
+
+    to {
+        top: 0px;
+        opacity: 1;
+    }
+}
+
+/* Add animation (Standard syntax) */
+@keyframes example {
+    from {
+        top: -100px;
+        opacity: 0;
+    }
+
+    to {
+        top: 0px;
+        opacity: 1;
+    }
+}
+
+/* The modal's background */
+.cssmodal {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+/* Display the modal when targeted */
+.cssmodal:target {
+    display: table;
+    position: absolute;
+}
+
+/* The modal box */
+.cssmodal-dialog {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+/* The modal's content */
+.cssmodal-dialog .cssmodal-content {
+    margin: auto;
+    background: linear-gradient(0.25turn, rgba(63, 135, 166, 0.9), rgba(235, 248, 225, 0.9), rgba(246, 157, 60, 0.9));
+    color: rgb(0, 0, 0);
+    border-radius: 10px 10px 10px 10px;
+    position: relative;
+    padding: 0;
+    outline: 0;
+    text-align: justify;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    z-index: 4;
+    -webkit-animation-name: example;
+    -webkit-animation-duration: 0.5s;
+    animation-name: example;
+    animation-duration: 0.5s;
+}
+
+.cssmodal-container {
+    padding: 10px 16px;
+    text-align: left;
+}
+
+.modal-link-text:active {
+    color: rgb(255, 255, 255);
+}
+```
+
+Styling of all CSS and JS Modal buttons (Close, Overview, Statistics). Using CSS Button Creator: https://cssbuttoncreator.com/ and some additional modification to get it "just right". Added 'outline: none' to remove ugly click outline.
+
+```
+.button {
+    background: rgba(63, 135, 166, 1);
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    color: #FFFFFF;
+    font-family: Raleway, sans-serif;
+    font-size: 12px;
+    font-weight: 100;
+    padding: 3px 10px;
+    text-shadow: 1px 1px 20px #000000;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+    margin-right: 10px;
+}
+
+.button:hover {
+    background: rgba(246, 157, 60, 1);
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    text-decoration: none;
+}
+
+.button:focus {
+    outline: none;
+}
+```
+
+```
+input[type=text],
+textarea {
+    width: 100%;
+    padding: 4px 20px;
+    margin: 4px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#sendmail-status {
+    font-size: 16px;
+    padding-right: 12px;
+}
+```
+
+[Production Code: sendemail.js](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/scripts/sendemail.js)
+
+This code is a modified version of the EmailJS API documentation. It maps the HTML form to the EmailJS template defined on the EmailJS website, sends the form to the EmailJS website. On success ("Success OK 200") the script updates the Contact Form with the success message of "Thank you! Email sent successfully." for 5 seconds (long enough for the User to read and understand the message), and clears the form fields. If the sending of the form is unsuccessful the message on the Contact Form is "Apologies, something went wrong. Please try again." for 5 seconds, and retains the previosuly filled out form fields to allow the User to try again.
+
+```
+function sendMail(contactForm) {
+    emailjs.send("gmail", "website_feedback_form", {
+        "from_name": contactForm.name.value,
+        "from_email": contactForm.emailaddress.value,
+        "feedback": contactForm.feedback.value
+    })
+        .then(function (response) {
+            document.querySelector("#sendmail-status").innerHTML = "Thank you! Email sent successfully.";
+            document.querySelector("#feedbackform").reset();
+            setTimeout(() => {
+                document.querySelector("#sendmail-status").innerHTML = "";
+            }, 5000);
+        }, function (error) {
+            document.querySelector("#sendmail-status").innerHTML = "Apologies, something went wrong. Please try again.";
+            setTimeout(() => {
+                document.querySelector("#sendmail-status").innerHTML = "";
+            }, 5000);
+        });
+    return false;
+}
+```
 
 #### CSS Modals - Credibility (Naoise Olof Seán Gaffney) ![Credibility Modal](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/9.%20FF%20CSS%20Modal%20-%20Credibility.png)
-Why? -
+
+Why? - Providing Users with access to the second Code Institute Milestone Project details (code, documentation, automated testing) to assess my knowledged and skills as a Front-End/Full-Stack Developer, access to my first Milestone Project, and my Resumé, all to add to my credibility.
 
 Use Case cross-reference ([please see main README.md for details](https://github.com/NaoiseGaffney/CitiesInCountries#processes)):
 
-* 
+* 002 - Features and Functions Overview - Fixed Footer and CSS Modals (geoLocation accepted)
+* 006 - User - UC 3 - CSS Modals (geoLocation already accepted)
+* 007 - User - UC 4 - Contact (geoLocation already accepted)
+* 008 - Collaborator - UC 5 - Contact (geoLocation already accepted)
+* 010 - Collaborator - UC 7 - GitHub Project II (geoLocation already accepted)
+* 013 - Employer - UC 10 - GitHub Project II (geoLocation already accepted)
+* 014 - Employer - UC 11 - GitHub Project MarkDown Documents (geoLocation already accepted)
 
-What? -
+What? - Link to my Resumé, my GitHub, this Milestone Project (HTML, CSS, and JavaScript), my first Milestone Project (HTML and CSS).
 
-How? -
+How? - Index.html contains the FontAwesome fa-user link icon that opens up the Credibility CSS Modal with the content in index.html. The CSS Modal control and styling is defined in style.css.
+
+Hovering over the FontAwesome fa-user icon scales it to 1.5 times the original size, clicking on it opens the Credibility CSS Modal. A CSS backdrop lies behind the CSS Modal disabling clicking of any other links and buttons on the website. Only the Close button on the CSS Modal is clickable.
+
+Clicking on the links opens up the external websites in new tabs `target=_blank`.
+
+[Production Code: index.html](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/index.html)
+
+Hovering over the FontAwesome exclamation-point icon scales it to 1.5 times the original size, clicking on it opens the About CSS Modal.
+
+```
+<a href="#id05">
+                <i class="fa fa-user" id="fa-user" aria-hidden="true"></i>
+                <span class="sr-only">Naoise Olof Seán Gaffney</span>
+            </a>
+        </div>
+    </div>
+...
+<div id="id05" class="cssmodal">
+            <div class="cssmodal-dialog">
+                <div class="cssmodal-content">
+                    <header class="cssmodal-container">
+                        <h3><i class="fa fa-user" id="fa-user-css-modal" aria-hidden="true"></i>
+                            <span class="sr-only">Naoise Olof Seán Gaffney</span>&nbsp;&nbsp;&nbsp;Links&#58; Naoise Olof Seán
+                            Gaffney</h3>
+                    </header>
+                    <div class="cssmodal-container">
+                        <div><a href="https://naoisegaffney.github.io/Resume/index.html" target="_blank"
+                                class="modal-link-text">-> My Resumé.</a></div>
+                        <div><a href="https://github.com/NaoiseGaffney" target="_blank" class="modal-link-text">-> My
+                                GitHub.</a></div>
+                        <div><a href="https://github.com/NaoiseGaffney/CitiesInCountries" target="_blank"
+                                class="modal-link-text">-> The
+                                documentation and source code on GitHub of this website, my 2<sup>nd</sup> Code Institute Milestone Project.</a></div>
+                        <div><a href="https://ptd--gaffco.repl.co/index.html" target="_blank"
+                                class="modal-link-text">-> GaffCo Consulting Professional Communication Competence.</a>
+                        </div>
+                        <p style="text-align:right"><a href="#" class="button">Close</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+```
+
+[Prodcution Code: style.css](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/styles/style.css)
+
+CSS Modal animation, supporting all browser types as defined by the `...keyframes` definitions below.
+
+The `.cssmodal...` elements and styling attributes style the CSS Modal according to the look-and-feel of the layout and design used throughout the website.
+
+```
+@-webkit-keyframes example {
+    from {
+        top: -100px;
+        opacity: 0;
+    }
+
+    to {
+        top: 0px;
+        opacity: 1;
+    }
+}
+
+/* Add animation (Standard syntax) */
+@keyframes example {
+    from {
+        top: -100px;
+        opacity: 0;
+    }
+
+    to {
+        top: 0px;
+        opacity: 1;
+    }
+}
+
+/* The modal's background */
+.cssmodal {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+/* Display the modal when targeted */
+.cssmodal:target {
+    display: table;
+    position: absolute;
+}
+
+/* The modal box */
+.cssmodal-dialog {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+/* The modal's content */
+.cssmodal-dialog .cssmodal-content {
+    margin: auto;
+    background: linear-gradient(0.25turn, rgba(63, 135, 166, 0.9), rgba(235, 248, 225, 0.9), rgba(246, 157, 60, 0.9));
+    color: rgb(0, 0, 0);
+    border-radius: 10px 10px 10px 10px;
+    position: relative;
+    padding: 0;
+    outline: 0;
+    text-align: justify;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    z-index: 4;
+    -webkit-animation-name: example;
+    -webkit-animation-duration: 0.5s;
+    animation-name: example;
+    animation-duration: 0.5s;
+}
+
+.cssmodal-container {
+    padding: 10px 16px;
+    text-align: left;
+}
+
+.modal-link-text:active {
+    color: rgb(255, 255, 255);
+}
+```
+
+Styling of all CSS and JS Modal buttons (Close, Overview, Statistics). Using CSS Button Creator: https://cssbuttoncreator.com/ and some additional modification to get it "just right". Added 'outline: none' to remove ugly click outline.
+
+```
+.button {
+    background: rgba(63, 135, 166, 1);
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    color: #FFFFFF;
+    font-family: Raleway, sans-serif;
+    font-size: 12px;
+    font-weight: 100;
+    padding: 3px 10px;
+    text-shadow: 1px 1px 20px #000000;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+    margin-right: 10px;
+}
+
+.button:hover {
+    background: rgba(246, 157, 60, 1);
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    text-decoration: none;
+}
+
+.button:focus {
+    outline: none;
+}
+```
 
 ### Google Map Markers
 ### Google Map Marker InfoWindows and Content

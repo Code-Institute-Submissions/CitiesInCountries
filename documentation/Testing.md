@@ -559,8 +559,6 @@ The Acceptance Criteria is based on the Use Cases described under section Proces
 > 11. click on id=close OK 22:21:08
 > 
 > '012 - Employer - UC 9 - Overview and Statistics (geoLocation already accepted)' completed successfully
-> 
-> ![]()
 
 13. 013 - Employer - UC 10 - GitHub Project II (geoLocation already accepted)
 > Running '013 - Employer - UC 10 - GitHub Project II (geoLocation already accepted)'
