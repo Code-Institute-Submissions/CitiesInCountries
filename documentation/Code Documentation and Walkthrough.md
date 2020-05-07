@@ -33,7 +33,7 @@ What? - Map is centred on Firhouse, Dublin, Ireland, requesting Geo-Location acc
 
 How? - `getCurrentLocation(map, home);` has 2 parameters, the Google Map Object `map`, and a location `home` (`let home = { lat: 53.274346, lng: -6.348835 };`). First a check is performed to see whether the browser supports Geo-Location, if not the mpa is centred on `home`. If Geo-Location is supported, then the browser requests the User's permission to use the current location. If accepted, the map is centred on the current location, and if not it's centred on the default which is `home`.
 
-[Production Code: maps.js](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/scripts/maps.js)
+[(Js) - Production Code: maps.js](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/scripts/maps.js)
 
 Geo-Location request via the browser to centre the Google Map at the User's current location.
 
@@ -75,13 +75,13 @@ Background is set to `linear-gradient(0.25turn, rgba(63, 135, 166, 0.9), rgba(23
 
 How? - Some of the code snippets are taken from the Google Map JavaScript API documentation, and are used by the Code Institute and Bill Traversy walkthroughs. index.html has the map placeholder in `<div class="map" id="map"></div>` to display the map from maps.js, and styled by style.css. The linear-gradient background is enabled by the `backgroundColor: "none",` in initMap() and the `background: linear-gradient(0.25turn, rgba(63, 135, 166, 0.9), rgba(235, 248, 225, 0.9), rgba(246, 157, 60, 0.9));` in style.css of `html, body {...}`.
 
-[Production Code: index.html](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/index.html)
+[</> - Production Code: index.html](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/index.html)
 
 Google Map placeholder used by maps.js to place the Google Map and Map Markers using the `#map` element.
 
 `<div class="map" id="map"></div>`
 
-[Production Code: style.css](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/styles/style.css)
+[.css{} - Production Code: style.css](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/styles/style.css)
 
 Grid Layout for the Google Map and Fixed Footer. Using `grid-template-areas` as it's easy to understand this visual layout.
 
@@ -141,7 +141,7 @@ body {
 }
 ```
 
-[Production Code: maps.js](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/scripts/maps.js)
+[(Js) - Production Code: maps.js](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/scripts/maps.js)
 
 The main Google Map initMap function, from the Google Map JavaScript API documentation. I've set `home` to my home address (the centre of my Universe :-) and the default map centre of Geo-Location isn't used). `disableDefaultUI: true,` disables the default Google Map controls, as I use customised ones instead to better align to website layout and design. `backgroundColor: "none",` disables the default Google Map background colour of grey, and is set to the linear-gradient used throughout the website in style.css.
 
@@ -203,7 +203,7 @@ p {
 }
 ```
 
-[Production Code: index.html](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/index.html)
+[</> - Production Code: index.html](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/index.html)
 
 These HTML elements and attributes are from the Google Map JavaScript API documentation for the customisation of the Google Map Navigational Controls.
 
@@ -231,7 +231,7 @@ These HTML elements and attributes are from the Google Map JavaScript API docume
         </div>
 ```
 
-[Production Code: style.css](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/styles/style.css)
+[.css{} - Production Code: style.css](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/styles/style.css)
 
 Google Map JavaScript API documentation for customised Navigational Controls. I've modified these styles to suit the overall website layout and design layout and style.
 
@@ -372,7 +372,7 @@ p {
 }
 ```
 
-[Production Code: maps.js](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/scripts/maps.js)
+[(Js) - Production Code: maps.js](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/scripts/maps.js)
 
 These 2 function calls are for the customised Naviagational Controls and are saved in a separate file described below, mapControls.js.
 
@@ -381,7 +381,7 @@ These 2 function calls are for the customised Naviagational Controls and are sav
 	initMapTypeControl(map);
 ```
 
-[Production Code: mapControls.js](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/scripts/mapControls.js)
+[(Js) - Production Code: mapControls.js](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/scripts/mapControls.js)
 
 The 2 Google Map Navigational Control functions linked to the website buttons. Further controls can be added, such as the Full-Screen control, however, as the website uses the Google Map as a Dashboard taking up 95% of the viewport the Full-Screen control is of little use.
 
@@ -445,7 +445,7 @@ Grid Layout for the Fixed Footer with the same linear-gradient used throughout t
 
 The FontAwesome Fixed Footer links are styled by `a {...}` and `a i:hover` zooming in on the icons when hovered over to make them stand out as clickable elements.
 
-[Production Code: index.html](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/index.html)
+[</> - Production Code: index.html](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/index.html)
 
 Loading the FontAwesome CSS version 4.7 from the CDN. The FontAwesome icons are used in the Fixed Footer and the Fixed Footer CSS Modals.
 
@@ -485,7 +485,7 @@ The HTML Fixed Footer FontAwesome Links. Support for Screen-Readers too.
         </div>
 ```
 
-[Prodcution Code: style.css](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/styles/style.css)
+[.css{} - Prodcution Code: style.css](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/styles/style.css)
 
 Grid Layout for the Google Map and Fixed Footer. Using `grid-template-areas` as it's easy to understand this visual layout. Styling of the links and hover scaling of the FontAwesome icons.
 
@@ -587,7 +587,7 @@ How? - Index.html contains the FontAwesome exclamation-mark link icon that opens
 
 Hovering over the FontAwesome exclamation-point icon scales it to 1.5 times the original size, clicking on it opens the About CSS Modal. A CSS backdrop lies behind the CSS Modal disabling clicking of any other links and buttons on the website. Only the Close button on the CSS Modal is clickable.
 
-[Production Code: index.html](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/index.html)
+[</> - Production Code: index.html](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/index.html)
 
 Hovering over the FontAwesome exclamation-point icon scales it to 1.5 times the original size, clicking on it opens the About CSS Modal.
 
@@ -633,7 +633,7 @@ Hovering over the FontAwesome exclamation-point icon scales it to 1.5 times the 
         </div>
 ```
 
-[Prodcution Code: style.css](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/styles/style.css)
+[.css{} - Prodcution Code: style.css](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/styles/style.css)
 
 CSS Modal animation, supporting all browser types as defined by the `...keyframes` definitions below.
 
@@ -769,7 +769,7 @@ Hovering over the FontAwesome file-code-o icon scales it to 1.5 times the origin
 
 Clicking on the links opens up the external websites in new tabs `target=_blank`.
 
-[Production Code: index.html](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/index.html)
+[</> - Production Code: index.html](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/index.html)
 
 Hovering over the FontAwesome exclamation-point icon scales it to 1.5 times the original size, clicking on it opens the About CSS Modal.
 
@@ -809,7 +809,7 @@ Hovering over the FontAwesome exclamation-point icon scales it to 1.5 times the 
         </div>
 ```
 
-[Prodcution Code: style.css](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/styles/style.css)
+[.css{} - Prodcution Code: style.css](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/styles/style.css)
 
 CSS Modal animation, supporting all browser types as defined by the `...keyframes` definitions below.
 
@@ -945,7 +945,7 @@ Hovering over the FontAwesome fa-code icon scales it to 1.5 times the original s
 
 Clicking on the links opens up the external websites in new tabs `target=_blank`.
 
-[Production Code: index.html](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/index.html)
+[</> - Production Code: index.html](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/index.html)
 
 Hovering over the FontAwesome exclamation-point icon scales it to 1.5 times the original size, clicking on it opens the About CSS Modal.
 
@@ -981,7 +981,7 @@ Hovering over the FontAwesome exclamation-point icon scales it to 1.5 times the 
         </div>
 ```
 
-[Prodcution Code: style.css](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/styles/style.css)
+[.css{} - Prodcution Code: style.css](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/styles/style.css)
 
 CSS Modal animation, supporting all browser types as defined by the `...keyframes` definitions below.
 
@@ -1126,11 +1126,11 @@ Hovering over the FontAwesome fa-envelope icon scales it to 1.5 times the origin
 
 Clicking on the "Send Feedback" button without filling out the form fields will result in a message asking the User to "Please fill out this field." Filling out the form correctly and clicking the "Send Feedback" button sends the form details as an e-mail to me with the "Name, e-mail, and text." If the form submission is successful a message is displayed for 5 seconds below the form, "Thank you! Email sent successfully." and the form fields are cleared. If an error occurs, the message is "Apologies, something went wrong. Please try again."
 
-When index.html is loaded the EmailJS script and function with my unique key are loaded together with [sendemail.js](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/scripts/sendemail.js).
+When index.html is loaded the EmailJS script and function with my unique key are loaded together with [(Js) - sendemail.js](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/scripts/sendemail.js).
 
-Clicking on "Send Feedback" triggers `<form onsubmit="return sendMail(this);" id="feedbackform">` in index.html. That in turn calls on [sendemail.js](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/scripts/sendemail.js) to send the e-mail.
+Clicking on "Send Feedback" triggers `<form onsubmit="return sendMail(this);" id="feedbackform">` in index.html. That in turn calls on [(Js) - sendemail.js](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/scripts/sendemail.js) to send the e-mail.
 
-[Production Code: index.html](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/index.html)
+[</> - Production Code: index.html](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/index.html)
 
 Hovering over the FontAwesome exclamation-point icon scales it to 1.5 times the original size, clicking on it opens the About CSS Modal.
 
@@ -1187,7 +1187,7 @@ The EmailJS API with unique key and sendemail.js scripts.
 <script src="../CitiesInCountries/assets/scripts/sendemail.js"></script>
 ```
 
-[Production Code: style.css](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/styles/style.css)
+[.css{} - Production Code: style.css](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/styles/style.css)
 
 CSS Modal animation, supporting all browser types as defined by the `...keyframes` definitions below.
 
@@ -1325,7 +1325,7 @@ textarea {
 }
 ```
 
-[Production Code: sendemail.js](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/scripts/sendemail.js)
+[(Js) - Production Code: sendemail.js](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/scripts/sendemail.js)
 
 This code is a modified version of the EmailJS API documentation. It maps the HTML form to the EmailJS template defined on the EmailJS website, sends the form to the EmailJS website. On success ("Success OK 200") the script updates the Contact Form with the success message of "Thank you! Email sent successfully." for 5 seconds (long enough for the User to read and understand the message), and clears the form fields. If the sending of the form is unsuccessful the message on the Contact Form is "Apologies, something went wrong. Please try again." for 5 seconds, and retains the previosuly filled out form fields to allow the User to try again.
 
@@ -1375,7 +1375,7 @@ Hovering over the FontAwesome fa-user icon scales it to 1.5 times the original s
 
 Clicking on the links opens up the external websites in new tabs `target=_blank`.
 
-[Production Code: index.html](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/index.html)
+[</> - Production Code: index.html](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/index.html)
 
 Hovering over the FontAwesome exclamation-point icon scales it to 1.5 times the original size, clicking on it opens the About CSS Modal.
 
@@ -1415,7 +1415,7 @@ Hovering over the FontAwesome exclamation-point icon scales it to 1.5 times the 
     </section>
 ```
 
-[Prodcution Code: style.css](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/styles/style.css)
+[.css{} - Prodcution Code: style.css](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/styles/style.css)
 
 CSS Modal animation, supporting all browser types as defined by the `...keyframes` definitions below.
 
@@ -1564,13 +1564,13 @@ Background is set to `linear-gradient(0.25turn, rgba(63, 135, 166, 0.9), rgba(23
 
 How? - Some of the code snippets are taken from the Google Map JavaScript API documentation, and are used by the Code Institute and Bill Traversy walkthroughs. index.html has the map placeholder in `<div class="map" id="map"></div>` to display the map from maps.js, and styled by style.css. The linear-gradient background is enabled by the `backgroundColor: "none",` in initMap() and the `background: linear-gradient(0.25turn, rgba(63, 135, 166, 0.9), rgba(235, 248, 225, 0.9), rgba(246, 157, 60, 0.9));` in style.css of `html, body {...}`.
 
-[Production Code: index.html](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/index.html)
+[</> - Production Code: index.html](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/index.html)
 
 Google Map placeholder used by maps.js to place the Google Map and Map Markers using the `#map` element.
 
 `<div class="map" id="map"></div>`
 
-[Production Code: style.css](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/styles/style.css)
+[.css{} - Production Code: style.css](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/styles/style.css)
 
 Grid Layout for the Google Map and Fixed Footer. Using `grid-template-areas` as it's easy to understand this visual layout.
 
@@ -1630,7 +1630,7 @@ body {
 }
 ```
 
-[Production Code: maps.js](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/scripts/maps.js)
+[(Js) - Production Code: maps.js](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/scripts/maps.js)
 
 The main Google Map initMap function, from the Google Map JavaScript API documentation. I've set `home` to my home address (the centre of my Universe :-) and the default map centre of Geo-Location isn't used). `disableDefaultUI: true,` disables the default Google Map controls, as I use customised ones instead to better align to website layout and design. `backgroundColor: "none",` disables the default Google Map background colour of grey, and is set to the linear-gradient used throughout the website in style.css.
 
