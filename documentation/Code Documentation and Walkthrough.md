@@ -1553,7 +1553,7 @@ Styling of all CSS and JS Modal buttons (Close, Overview, Statistics). Using CSS
 ### Google Map Markers
 ![Google Map Markers](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/11.%20Google%20Map%20Markers.png)
 
-Why? - 
+Why? - The Google Map Markers provide information about European capital cities and countries that are of interest to the Users of the website.
 
 Use Case cross-reference ([please see main README.md for details](https://github.com/NaoiseGaffney/CitiesInCountries#processes)):
 
@@ -1562,105 +1562,421 @@ Use Case cross-reference ([please see main README.md for details](https://github
 * 009 - Collaborator - UC 6 - Overview and Statistics (geoLocation already accepted)
 * 012 - Employer - UC 9 - Overview and Statistics (geoLocation already accepted)
 
-What? - 
+What? - The Map Markers are positioned on the capital cities of Europe. and are placed by the coordinates specified in the internal `markersArray[]` in maps.js.
 
-How? -
-
-
-Why? - Google Map is used to provide Map Markers with information about European capital cities and countries. The Map is the key display upon which further InfoViews and Modals are used to provide further details for the User to acquire basic knowledge of cities and countries.
-
-Use Case cross-reference ([please see main README.md for details](https://github.com/NaoiseGaffney/CitiesInCountries#processes)):
-
-* All General Cases and Use Cases (0 to 15).
-
-What? - Google Map JavaScript API is used to create the Google Map, Navigational Controls, and Map Markers (together with an internal `markersArray[]`).
-
-A Grid Layout, together with Flexbox is used on this website. The Grid Layout described below uses `grid-template-areas` as they're easy to understand and use (visually clear). The Map area uses 3 columns x 19 rows.
-
-Background is set to `linear-gradient(0.25turn, rgba(63, 135, 166, 0.9), rgba(235, 248, 225, 0.9), rgba(246, 157, 60, 0.9));` which is the same used throughout the website to create a common look-and-feel.
-
-How? - Some of the code snippets are taken from the Google Map JavaScript API documentation, and are used by the Code Institute and Bill Traversy walkthroughs. index.html has the map placeholder in `<div class="map" id="map"></div>` to display the map from maps.js, and styled by style.css. The linear-gradient background is enabled by the `backgroundColor: "none",` in initMap() and the `background: linear-gradient(0.25turn, rgba(63, 135, 166, 0.9), rgba(235, 248, 225, 0.9), rgba(246, 157, 60, 0.9));` in style.css of `html, body {...}`.
-
-[</> - Production Code: index.html](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/index.html)
-
-Google Map placeholder used by maps.js to place the Google Map and Map Markers using the `#map` element.
-
-`<div class="map" id="map"></div>`
-
-[.css{} - Production Code: style.css](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/styles/style.css)
-
-Grid Layout for the Google Map and Fixed Footer. Using `grid-template-areas` as it's easy to understand this visual layout.
-
-```
-.parent {
-    height: 100%;
-    display: grid;
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(20, 1fr);
-    grid-template-areas:
-        "map map map"
-        "map map map"
-        "map map map"
-        "map map map"
-        "map map map"
-        "map map map"
-        "map map map"
-        "map map map"
-        "map map map"
-        "map map map"
-        "map map map"
-        "map map map"
-        "map map map"
-        "map map map"
-        "map map map"
-        "map map map"
-        "map map map"
-        "map map map"
-        "map map map"
-        "footer  footer footer";
-}
-
-.map {
-    grid-area: map;
-    display: grid;
-    height: auto;
-    width: auto;
-}
-```
-
-`#map` is the Google Map placeholder, the `height: 100%;` is a Google recommendation. The `html, body {...}` sets basic parameters, uses the Raleway Font and sets the linear-gradient used throughout the website.
-
-```
-#map {
-    height: 100%;
-}
-
-html,
-body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    font-family: 'Raleway', sans-serif;
-    background: linear-gradient(0.25turn, rgba(63, 135, 166, 0.9), rgba(235, 248, 225, 0.9), rgba(246, 157, 60, 0.9));
-}
-```
+How? - The Map Markers are positioned on the capital cities of Europe and are placed by the coordinates specified in the internal `markersArray[]` in maps.js. The `markersArray[]` is an expansion of the one provided by the Code Institute mini-project walkthrough by Matt Rudge. The `for (let i = 0; i < markersArray.length; i++) {
+        addMarker(markersArray[i]);
+    }` creates and adds the Google Map Markers to the Google Map. `markersArray.map(markerArrayItem => { addMarker(markerArrayItem); });` could be used instead, though I find the for-loop to be clearer in terms of what is done, while the `map()` is easier to read. :-)
 
 [(Js) - Production Code: maps.js](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/scripts/maps.js)
 
-The main Google Map initMap function, from the Google Map JavaScript API documentation. I've set `home` to my home address (the centre of my Universe :-) and the default map centre of Geo-Location isn't used). `disableDefaultUI: true,` disables the default Google Map controls, as I use customised ones instead to better align to website layout and design. `backgroundColor: "none",` disables the default Google Map background colour of grey, and is set to the linear-gradient used throughout the website in style.css.
+The internal `markersArray[]` in maps.js. In future it will be moved to a noSQL database such as Firestore or MongoDB.
+
+Two constants are defined, one as a placeholder for the OpenWeather API, and the other for the InfoWindow (`toolTipButtons`) buttons for the JS Overview and Statistics Modals.
+
+The array contains:
+
+* European capital city coordinates.
+* InfoWindow content such as city, country, and coordinates.
+* Name used as an index for the D3 and REST Countries API's.
+* Overview as a placeholder for the Overview JS Modal.
+* D3 as a placeholder for the Statistics JS Modal.
 
 ```
-function initMap() {
-    let home = { lat: 53.274346, lng: -6.348835 };
-    let map = new google.maps.Map(document.getElementById("map"), {
-        zoom: 6,
-        center: home,
-        disableDefaultUI: true,
-        backgroundColor: "none",
-    });
-    ...
+const weatherInfo = `<div class="weather" id="weather"></div>`;
+const toolTipButtons = `<br><div class="modalActions"><button class="button" id="buttonOver">Overview</button><button class="buttton" id="buttonStats">Statistics</button></div>`;
+
+let markersArray = [
+    {
+        coords: { lat: 53.274346, lng: -6.348835 },
+        content: `<p>Dublin, Ireland: 53.3498° N, 6.2603° W</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Dublin, Ireland",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 51.5074, lng: 0.1278 },
+        content: `<p>London, United Kingdom of Great Britain and Northern Ireland: 51.5074° N, 0.1278°</p>${weatherInfo} ${toolTipButtons}`,
+        name: "London, United Kingdom of Great Britain and Northern Ireland",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 59.3293, lng: 18.0686 },
+        content: `<p>Stockholm, Sweden: 59.3293° N, 18.0686° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Stockholm, Sweden",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 59.9139, lng: 10.7522 },
+        content: `<p>Oslo, Norway: 59.9139° N, 10.7522° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Oslo, Norway",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 55.6761, lng: 12.5683 },
+        content: `<p>Copenhagen, Denmark: 55.6761° N, 12.5683° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Copenhagen, Denmark",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 60.1699, lng: 24.9384 },
+        content: `<p>Helsinki, Finland: 60.1699° N, 24.9384° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Helsinki, Finland",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 59.4370, lng: 24.7536 },
+        content: `<p>Tallinn, Estonia: 59.4370° N, 24.7536° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Tallinn, Estonia",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 56.9496, lng: 24.1052 },
+        content: `<p>Riga, Latvia: 56.9496° N, 24.1052° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Riga, Latvia",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 54.6872, lng: 25.2797 },
+        content: `<p>Vilnius, Lithuania: 54.6872° N, 25.2797° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Vilnius, Lithuania",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 52.2297, lng: 21.0122 },
+        content: `<p>Warsaw, Poland: 52.2297° N, 21.0122° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Warsaw, Poland",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 50.0755, lng: 14.4378 },
+        content: `<p>Prague, Czech Republic: 50.0755° N, 14.4378° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Prague, Czech Republic",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 64.1466, lng: -21.9426 },
+        content: `<p>Reykjavik, Iceland: 64.1466° N, 21.9426° W</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Reykjavik, Iceland",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 48.8566, lng: 2.3522 },
+        content: `<p>Paris, France: 48.8566° N, 2.3522° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Paris, France",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 50.8503, lng: 4.3517 },
+        content: `<p>Brussels, Belgium: 50.8503° N, 4.3517° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Brussels, Belgium",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 40.4168, lng: -3.7038 },
+        content: `<p>Madrid, Spain: 40.4168° N, 3.7038° W</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Madrid, Spain",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 38.7223, lng: -9.1393 },
+        content: `<p>Lisbon, Portugal: 38.7223° N, 9.1393° W</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Lisbon, Portugal",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 41.9028, lng: 12.4964 },
+        content: `<p>Rome, Italy: 41.9028° N, 12.4964° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Rome, Italy",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 46.9480, lng: 7.4474 },
+        content: `<p>Bern, Switzerland: 46.9480° N, 7.4474° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Bern, Switzerland",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 47.1660, lng: 9.5554 },
+        content: `<p>Liechtenstein, Liechtenstein: 47.1660° N, 9.5554° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Liechtenstein, Liechtenstein",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 49.8153, lng: 6.1296 },
+        content: `<p>Luxembourg, Luxembourg: 49.8153° N, 6.1296° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Luxembourg, Luxembourg",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 43.9424, lng: 12.4578 },
+        content: `<p>San Marino, San Marino: 43.9424° N, 12.4578° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "San Marino, San Marino",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 42.5063, lng: 1.5218 },
+        content: `<p>Andorra la Vella, Andorra: 42.5063° N, 1.5218° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Andorra, Andorra",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 43.7384, lng: 7.4246 },
+        content: `<p>Monaco, Monaco: 43.7384° N, 7.4246° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Monaco, Monaco",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 41.9029, lng: 12.4534 },
+        content: `<p>Vatican City, Holy See: 41.9029° N, 12.4534° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Vatican City, Holy See",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 52.3667, lng: 4.8945 },
+        content: `<p>Amsterdam, Netherlands: 52.3667° N, 4.8945° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Amsterdam, Netherlands",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 52.5200, lng: 13.4050 },
+        content: `<p>Berlin, Germany: 52.5200° N, 13.4050° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Berlin, Germany",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 48.2082, lng: 16.3738 },
+        content: `<p>Vienna, Austria: 48.2082° N, 16.3738° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Vienna, Austria",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 46.0569, lng: 14.5058 },
+        content: `<p>Ljubljana, Slovenia: 46.0569° N, 14.5058° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Ljubljana, Slovenia",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 45.8150, lng: 15.9819 },
+        content: `<p>Zagreb, Croatia: 45.8150° N, 15.9819° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Zagreb, Croatia",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 43.8563, lng: 18.4131 },
+        content: `<p>Sarajevo, Bosnia and Herzegovina: 43.8563° N, 18.4131° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Sarajevo, Bosnia and Herzegovina",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 42.4304, lng: 19.2594 },
+        content: `<p>Podgorica, Montenegro: 42.4304° N, 19.2594° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Podgorica, Montenegro",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 41.9981, lng: 21.4254 },
+        content: `<p>Skopje, Macedonia (the former Yugoslav Republic of): 41.9981° N, 21.4254° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Skopje, Macedonia (the former Yugoslav Republic of)",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 41.3275, lng: 19.8187 },
+        content: `<p>Tirana, Albania: 41.3275° N, 19.8187° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Tirana, Albania",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 37.9838, lng: 23.7275 },
+        content: `<p>Athens, Greece: 37.9838° N, 23.7275° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Athens, Greece",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 42.6977, lng: 23.3219 },
+        content: `<p>Sofia, Bulgaria: 42.6977° N, 23.3219° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Sofia, Bulgaria",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 44.4268, lng: 26.1025 },
+        content: `<p>Bucharest, Romania: 44.4268° N, 26.1025° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Bucharest, Romania",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 39.9334, lng: 32.8597 },
+        content: `<p>Ankara, Turkey: 39.9334° N, 32.8597° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Ankara, Turkey",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 47.4979, lng: 19.0402 },
+        content: `<p>Budapest, Hungary: 47.4979° N, 19.0402° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Budapest, Hungary",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 48.1486, lng: 17.1077 },
+        content: `<p>Bratislava, Slovakia: 48.1486° N, 17.1077° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Bratislava, Slovakia",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 47.0105, lng: 28.8638 },
+        content: `<p>Chisinau, Moldova (Republic of): 47.0105° N, 28.8638° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Chisinau, Moldova (Republic of)",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 50.4501, lng: 30.5234 },
+        content: `<p>Kyiv, Ukraine: 50.4501° N, 30.5234° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Kyiv, Ukraine",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 55.7558, lng: 37.6173 },
+        content: `<p>Moscow, Russian Federation: 55.7558° N, 37.6173° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Moscow, Russian Federation",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 35.8989, lng: 14.5146 },
+        content: `<p>Valletta, Malta: 35.8989° N, 14.5146° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Valletta, Malta",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 42.6629, lng: 21.1655 },
+        content: `<p>Prishtina,  Kosovo: 42.6629° N, 21.1655° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Prishtina,  Kosovo",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 51.1605, lng: 71.4704 },
+        content: `<p>Nur-Sultan, Kazakhstan: 51.1605° N, 71.4704° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Nur-Sultan, Kazakhstan",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 41.7151, lng: 44.8271 },
+        content: `<p>Tbilisi, Georgia: 41.7151° N, 44.8271° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Tbilisi, Georgia",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 35.1856, lng: 33.3823 },
+        content: `<p>Nicosia, Cyprus: 35.1856° N, 33.3823° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Nicosia, Cyprus",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 53.9006, lng: 27.5590 },
+        content: `<p>Minsk, Belarus: 53.9006° N, 27.5590° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Minsk, Belarus",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 40.4093, lng: 49.8671 },
+        content: `<p>Baku, Azerbaijan: 40.4093° N, 49.8671° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Baku, Azerbaijan",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 40.1872, lng: 44.5152 },
+        content: `<p>Yerevan, Armenia: 40.1872° N, 44.5152° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Yerevan, Armenia",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 44.7866, lng: 20.4489 },
+        content: `<p>Belgrade, Serbia: 44.7866° N, 20.4489° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Belgrade, Serbia",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 64.1814, lng: -51.6941 },
+        content: `<p>Nuuk, Greenland: 64.1814° N, 51.6941° W</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Nuuk, Greenland",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    }
+];
+```
+
+The `for (let i = 0; i < markersArray.length; i++) {
+        addMarker(markersArray[i]);
+    }` creates and adds the Google Map Markers to the Google Map.
+
+```
+for (let i = 0; i < markersArray.length; i++) {
+        addMarker(markersArray[i]);
+    }
+
+    function addMarker(props) {
+        let marker = new google.maps.Marker({
+            position: props.coords,
+            map: map,
+            iconImage: props.iconImage,
+            content: props.content,
+            name: props.name,
+            overview: props.overview,
+            d3: props.d3
+        });
+
+        if (props.iconImage) {
+            marker.setIcon(props.iconImage);
+        }
 ```
 
 ### Google Map Marker InfoWindows and Content
@@ -1674,6 +1990,25 @@ Use Case cross-reference ([please see main README.md for details](https://github
 What? - 
 
 How? -
+
+What? - The Map Markers are positioned on the capital cities of Europe and controleed by when clicked open up InfoViews with the city, the country, the latitude and longitude of the city, all stored in the internal `markersArray[]` in maps.js. The weather information is populated dynamically in real-time, fetched from the OpenWeather API. Two buttons, Overview and Statistics open JS Modals with further details.
+
+Background is set to `linear-gradient(0.25turn, rgba(63, 135, 166, 0.9), rgba(235, 248, 225, 0.9), rgba(246, 157, 60, 0.9));` which is the same used throughout the website to create a common look-and-feel.
+
+[.css{} - Production Code: style.css](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/styles/style.css)
+
+Grid Layout for the Google Map and Fixed Footer. Using `grid-template-areas` as it's easy to understand this visual layout.
+
+```
+
+```
+
+Buttons...
+
+```
+
+```
+
 
 ### JS Overview Modal
 
