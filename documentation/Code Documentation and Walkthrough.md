@@ -21,7 +21,7 @@ The structure of each section is:
 ## Features & Functions
 
 ### Geo-Location, Google Map and Navigational Controls
-#### Geo-Location
+#### --- * --- * === { Geo-Location } === * --- * ---
 ![First loading of the website, Geo-Location](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/1.%20Geo-Location.png)
 Why? - The User requires only to accept the browser's request for the current location to have the map centre on their current location. This is their starting point for exploring the map marker InfoWindows to acquire information regarding European capital cities and countries.
 
@@ -58,7 +58,7 @@ const getCurrentLocation = (map, home) => {
 };
 ```
 
-#### Google Map
+#### --- * --- * === { Google Map } === * --- * ---
 ![Google Map Dashboard](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/3.%20Google%20Map%20and%20Navigational%20Controls.png)
 
 Why? - Google Map is used to provide Map Markers with information about European capital cities and countries. The Map is the key display upon which further InfoViews and Modals are used to provide further details for the User to acquire basic knowledge of cities and countries.
@@ -157,7 +157,7 @@ function initMap() {
     ...
 ```
 
-#### Navigational Controls
+#### --- * --- * === { Navigational Controls } === * --- * ---
 ![Google Map, Map Type](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/Google%20Nav%20Controls%20-%20Map%20Sattelite.png) ![Google Map Zoom Controls](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/Google%20Map%20Nav%20Controls%20-%20Zoom.png)
 
 Why? - To allow recognisable ways in which to navigate Google Maps, and creating a common look-and-feel of the website, custom controls are used, creating a better User Design Experience for the User.
@@ -418,7 +418,7 @@ function initMapTypeControl(map) {
 ```
 
 ### Fixed Footer and CSS Modals
-#### Fixed Footer
+#### --- * --- * === { Fixed Footer } === * --- * ---
 ![Fixed Footer](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/4.%20Fixed%20Footer.png)
 Why? - Provide Users an unobtrusive fixed footer with a scrollable Google Map and CSS Modals to provide additional information regarding the use of the website (probably not required), links to the API's and Code Snipptes used to the benefit of collaborating developers and employers, as well as a Contact Form to engage with me and a credibility modal ("Ego-page").
 
@@ -547,7 +547,7 @@ a i:hover {
 }
 ```
 
-#### CSS Modals - Overview
+#### --- * --- * === { CSS Modals - Overview } === * --- * ---
 Why? - The Fixed Footer CSS Modals provide the Users with clear instructions (if required) on how to navigate and use the features of the website, as well as information on API's, Code Snippets, and Courses used to gain the knowledge and skills to create this website. In addition to this, the Contact Form enables the User to contact the owner of the website, and the Credibility CSS Modal provides assessors, collaborators and employers an opportunity to assess the Code Quality and Software Development Practices used.
 
 Use Case cross-reference ([please see main README.md for details](https://github.com/NaoiseGaffney/CitiesInCountries#processes)):
@@ -571,7 +571,7 @@ Index.html contains the Fixed Footer FontAwesome links, and the CSS Modals and t
 
 The code details are covered under each CSS Modal sub-heading (About, API's, Code Snippets, Contact Form, Credibility).
 
-#### CSS Modals - About
+#### --- * --- * === { CSS Modals - About } === * --- * ---
 ![About CSS Modal](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/5.%20FF%20CSS%20Modal%20-%20About.png)
 
 Why? - Providing Users with an overview of the website, setting correct and clear expectations as well as aiding those not as savvy to use the website features.
@@ -751,7 +751,7 @@ Styling of all CSS and JS Modal buttons (Close, Overview, Statistics). Using CSS
 }
 ```
 
-#### CSS Modals - API's
+#### --- * --- * === { CSS Modals - API's } === * --- * ---
 ![API's CSS Modal](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/6.%20FF%20CSS%20Modal%20-%20API's.png)
 
 Why? - Providing Users with details of the API's used to provide the content of the website of interest to the Users, Collaborators, and Employers.
@@ -927,7 +927,7 @@ Styling of all CSS and JS Modal buttons (Close, Overview, Statistics). Using CSS
 }
 ```
 
-#### CSS Modals - Code Snippets
+#### --- * --- * === { CSS Modals - Code Snippets } === * --- * ---
 ![Code Snippets CSS Modal](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/7.%20FF%20CSS%20Modal%20-%20Code%20Snippets.png)
 
 Why? - Providing Users with details of the Code Snippets used to provide the content of the website of interest to the Users, Collaborators, and Employers. This includes the courses taken on "D3 & Firestore" and "JavaScript" on Udemy. This shows an interest above-and-beyond what is covered by the Diploma in Full Stack Development as well as an improvement on both knowledge and skills needed to create the features and functions of this website.
@@ -1099,7 +1099,7 @@ Styling of all CSS and JS Modal buttons (Close, Overview, Statistics). Using CSS
 }
 ```
 
-#### CSS Modals - Contact Form
+#### --- * --- * === { CSS Modals - Contact Form } === * --- * ---
 ![Contact Form CSS Modal](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/10.%20FF%20CSS%20Modal%20-%20Contact%20Form%20Filled%20and%20Sent.png)
 
 ![E-mail example](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/UC%2012%20Email.png)
@@ -1352,7 +1352,7 @@ function sendMail(contactForm) {
 }
 ```
 
-#### CSS Modals - Credibility (Naoise Olof Seán Gaffney)
+#### --- * --- * === { CSS Modals - Credibility (Naoise Olof Seán Gaffney) } === * --- * ---
 ![Credibility Modal](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/9.%20FF%20CSS%20Modal%20-%20Credibility.png)
 
 Why? - Providing Users with access to the second Code Institute Milestone Project details (code, documentation, automated testing) to assess my knowledged and skills as a Front-End/Full-Stack Developer, access to my first Milestone Project, and my Resumé, all to add to my credibility.
