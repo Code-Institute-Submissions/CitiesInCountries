@@ -1093,7 +1093,7 @@ Styling of all CSS and JS Modal buttons (Close, Overview, Statistics). Using CSS
 
 #### CSS Modals - Contact Form ![Contact Form CSS Modal](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/10.%20FF%20CSS%20Modal%20-%20Contact%20Form%20Filled%20and%20Sent.png)
 
-[E-mail example](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/UC%2012%20Email.png)
+![E-mail example](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/UC%2012%20Email.png)
 
 Why? - Providing Users with the opportunity to contact me for work, collaboration, and feedback to further improve the website with additional features of value to the Users.
 
@@ -1176,7 +1176,7 @@ Hovering over the FontAwesome exclamation-point icon scales it to 1.5 times the 
 <script src="../CitiesInCountries/assets/scripts/sendemail.js"></script>
 ```
 
-[Prodcution Code: style.css](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/styles/style.css)
+[Production Code: style.css](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/styles/style.css)
 
 CSS Modal animation, supporting all browser types as defined by the `...keyframes` definitions below.
 
