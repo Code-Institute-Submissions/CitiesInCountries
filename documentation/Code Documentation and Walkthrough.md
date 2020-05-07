@@ -156,6 +156,23 @@ function initMap() {
     });
     ...
 ```
+To finally resolve the occasional "Uncaught..." error common to loading Google Maps, I control the loading of the `<script></script>` before `initMap()`. Courtesy of ["Prof3ssorSt3v3"](https://gist.github.com/prof3ssorSt3v3/e0e07e0fd0b293d043d4ff2504fc847b).
+
+Removed the loading of the Google Map Script file from the HTML file, to dynamically create and load it before `initMap()` updating the HTML file dynamically. Removed the '&callback=initMap' from the URL, calling `initMap()` from maps.js instead. No need for the 'async', nor  'defer' attributes either.
+
+We create the `<script>` element in index.html (gTest.html). We listen to the DOM, to make sure it's fully loaded. We load the Google Map JS Script:
+`<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDKoKXKgFfLTb9SNLk0QEq1FmnNJD3hSg"></script>`. We then call `initMap()`.
+
+```
+let script = document.createElement("script");
+document.addEventListener("DOMContentLoaded", () => {
+    document.head.appendChild(script);
+    script.addEventListener("load", () => {
+        initMap();
+    });
+});
+script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyBDKoKXKgFfLTb9SNLk0QEq1FmnNJD3hSg`;
+```
 
 #### --- * --- * === { Navigational Controls } === * --- * ---
 ![Google Map, Map Type](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/Google%20Nav%20Controls%20-%20Map%20Sattelite.png) ![Google Map Zoom Controls](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/Google%20Map%20Nav%20Controls%20-%20Zoom.png)
