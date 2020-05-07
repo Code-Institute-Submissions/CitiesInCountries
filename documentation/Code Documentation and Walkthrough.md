@@ -23,6 +23,7 @@ The structure of each section is:
 ### Geo-Location, Google Map and Navigational Controls
 #### --- * --- * === { Geo-Location } === * --- * ---
 ![First loading of the website, Geo-Location](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/1.%20Geo-Location.png)
+
 Why? - The User requires only to accept the browser's request for the current location to have the map centre on their current location. This is their starting point for exploring the map marker InfoWindows to acquire information regarding European capital cities and countries.
 
 Use Case cross-reference ([please see main README.md for details](https://github.com/NaoiseGaffney/CitiesInCountries#processes)):
@@ -127,6 +128,8 @@ Grid Layout for the Google Map and Fixed Footer. Using `grid-template-areas` as 
 `#map` is the Google Map placeholder, the `height: 100%;` is a Google recommendation. The `html, body {...}` sets basic parameters, uses the Raleway Font and sets the linear-gradient used throughout the website.
 
 ```
+@import url('https://fonts.googleapis.com/css?family=Raleway|&display=swap');
+...
 #map {
     height: 100%;
 }
@@ -1980,59 +1983,1308 @@ for (let i = 0; i < markersArray.length; i++) {
 ```
 
 ### Google Map Marker InfoWindows and Content
+![Google Map Marker InfoWindow -  Paris, France](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/Google%20Map%20Marker%20InfoWindow.png)
 
-Why? - 
+Why? - The Google Map Markers InfoWindows provide information about the city, country, city coordinates, real-time weather data, and two buttons to JS Modals with additional information of interest to the User. This dashboard approach means the Users navigate "in-place", with information provided in layers through InfoWindows and JS Modals.
 
 Use Case cross-reference ([please see main README.md for details](https://github.com/NaoiseGaffney/CitiesInCountries#processes)):
 
-* 
+* 003 - Features and Functions Overview - Samples (geoLocation accepted)
+* 004 - User - UC 1 - Overview and Statistics (geoLocation already accepted)
+* 009 - Collaborator - UC 6 - Overview and Statistics (geoLocation already accepted)
+* 012 - Employer - UC 9 - Overview and Statistics (geoLocation already accepted)
 
-What? - 
+What? - The Map Markers are positioned on the capital cities of Europe and when clicked open up InfoViews with the city, the country, the latitude and longitude of the city, all stored in the internal `markersArray[]` in maps.js. The weather information is populated dynamically in real-time, fetched from the OpenWeather API. Two buttons, Overview and Statistics open JS Modals with further details. The InfoWindow closes after 3 seconds, more than enough time to read the InfoWindow data and click on a button.
 
-How? -
-
-What? - The Map Markers are positioned on the capital cities of Europe and controleed by when clicked open up InfoViews with the city, the country, the latitude and longitude of the city, all stored in the internal `markersArray[]` in maps.js. The weather information is populated dynamically in real-time, fetched from the OpenWeather API. Two buttons, Overview and Statistics open JS Modals with further details.
+How? - The Google Map Marker InfoWindow the Google classes `.gm-style-iw, .gm-style-iw-c` are styled in the same linear-gradient used througout the website. To make this work, some JavaScript statements remove the Google class `.gm-style-iw-d` and a padding of 12px is set `document.querySelector(".gm-style-iw-d").className = ""; document.querySelector(".gm-style-iw-c").style = "padding: 12px";`.
 
 Background is set to `linear-gradient(0.25turn, rgba(63, 135, 166, 0.9), rgba(235, 248, 225, 0.9), rgba(246, 157, 60, 0.9));` which is the same used throughout the website to create a common look-and-feel.
 
+The city, country, coordinates are provided by the internal `markersArray[]` in maps.js. The weather information is fetched in real-time from the OpenWeather API. The two buttons are provided by the `markersArray[]` and styled in style.css.
+
 [.css{} - Production Code: style.css](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/styles/style.css)
 
-Grid Layout for the Google Map and Fixed Footer. Using `grid-template-areas` as it's easy to understand this visual layout.
+The Google Map Marker InfoWindow the Google classes `.gm-style-iw, .gm-style-iw-c` are styled in the same linear-gradient used througout the website.
+
+The Raleway font is set for all elements to ensure consistency.
 
 ```
+.gm-style-iw,
+.gm-style-iw-c {
+    background: linear-gradient(0.25turn, rgba(63, 135, 166, 0.9), rgba(235, 248, 225, 0.9), rgba(246, 157, 60, 0.9));
+}
 
+/* Consistent Font use on the website - Google Map, Tool-Tips, Controls and Text */
+.weather,
+.btn,
+.gm-style,
+.controls,
+p {
+    font-family: 'Raleway', sans-serif;
+    margin-bottom: 10px;
+}
 ```
 
-Buttons...
+Styling of all CSS and JS Modal buttons (Close, Overview, Statistics). Using CSS Button Creator: https://cssbuttoncreator.com/ and some additional modification to get it "just right". Added 'outline: none' to remove ugly click outline.
 
 ```
+.button {
+    background: rgba(63, 135, 166, 1);
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    color: #FFFFFF;
+    font-family: Raleway, sans-serif;
+    font-size: 12px;
+    font-weight: 100;
+    padding: 3px 10px;
+    text-shadow: 1px 1px 20px #000000;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+    margin-right: 10px;
+}
 
+.button:hover {
+    background: rgba(246, 157, 60, 1);
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    text-decoration: none;
+}
+
+.button:focus {
+    outline: none;
+}
 ```
 
+[(Js) - Production Code: maps.js](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/scripts/maps.js)
+
+The internal `markersArray[]` in maps.js. In future it will be moved to a noSQL database such as Firestore or MongoDB.
+
+Two constants are defined, one as a placeholder for the OpenWeather API, and the other for the InfoWindow (`toolTipButtons`) buttons for the JS Overview and Statistics Modals.
+
+The array contains:
+
+* European capital city coordinates.
+* InfoWindow content such as city, country, and coordinates.
+* Name used as an index for the D3 and REST Countries API's.
+* Overview as a placeholder for the Overview JS Modal.
+* D3 as a placeholder for the Statistics JS Modal.
+
+```
+const weatherInfo = `<div class="weather" id="weather"></div>`;
+const toolTipButtons = `<br><div class="modalActions"><button class="button" id="buttonOver">Overview</button><button class="buttton" id="buttonStats">Statistics</button></div>`;
+
+let markersArray = [
+    {
+        coords: { lat: 53.274346, lng: -6.348835 },
+        content: `<p>Dublin, Ireland: 53.3498° N, 6.2603° W</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Dublin, Ireland",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 51.5074, lng: 0.1278 },
+        content: `<p>London, United Kingdom of Great Britain and Northern Ireland: 51.5074° N, 0.1278°</p>${weatherInfo} ${toolTipButtons}`,
+        name: "London, United Kingdom of Great Britain and Northern Ireland",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 59.3293, lng: 18.0686 },
+        content: `<p>Stockholm, Sweden: 59.3293° N, 18.0686° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Stockholm, Sweden",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 59.9139, lng: 10.7522 },
+        content: `<p>Oslo, Norway: 59.9139° N, 10.7522° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Oslo, Norway",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 55.6761, lng: 12.5683 },
+        content: `<p>Copenhagen, Denmark: 55.6761° N, 12.5683° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Copenhagen, Denmark",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 60.1699, lng: 24.9384 },
+        content: `<p>Helsinki, Finland: 60.1699° N, 24.9384° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Helsinki, Finland",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 59.4370, lng: 24.7536 },
+        content: `<p>Tallinn, Estonia: 59.4370° N, 24.7536° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Tallinn, Estonia",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 56.9496, lng: 24.1052 },
+        content: `<p>Riga, Latvia: 56.9496° N, 24.1052° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Riga, Latvia",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 54.6872, lng: 25.2797 },
+        content: `<p>Vilnius, Lithuania: 54.6872° N, 25.2797° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Vilnius, Lithuania",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 52.2297, lng: 21.0122 },
+        content: `<p>Warsaw, Poland: 52.2297° N, 21.0122° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Warsaw, Poland",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 50.0755, lng: 14.4378 },
+        content: `<p>Prague, Czech Republic: 50.0755° N, 14.4378° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Prague, Czech Republic",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 64.1466, lng: -21.9426 },
+        content: `<p>Reykjavik, Iceland: 64.1466° N, 21.9426° W</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Reykjavik, Iceland",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 48.8566, lng: 2.3522 },
+        content: `<p>Paris, France: 48.8566° N, 2.3522° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Paris, France",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 50.8503, lng: 4.3517 },
+        content: `<p>Brussels, Belgium: 50.8503° N, 4.3517° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Brussels, Belgium",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 40.4168, lng: -3.7038 },
+        content: `<p>Madrid, Spain: 40.4168° N, 3.7038° W</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Madrid, Spain",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 38.7223, lng: -9.1393 },
+        content: `<p>Lisbon, Portugal: 38.7223° N, 9.1393° W</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Lisbon, Portugal",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 41.9028, lng: 12.4964 },
+        content: `<p>Rome, Italy: 41.9028° N, 12.4964° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Rome, Italy",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 46.9480, lng: 7.4474 },
+        content: `<p>Bern, Switzerland: 46.9480° N, 7.4474° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Bern, Switzerland",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 47.1660, lng: 9.5554 },
+        content: `<p>Liechtenstein, Liechtenstein: 47.1660° N, 9.5554° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Liechtenstein, Liechtenstein",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 49.8153, lng: 6.1296 },
+        content: `<p>Luxembourg, Luxembourg: 49.8153° N, 6.1296° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Luxembourg, Luxembourg",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 43.9424, lng: 12.4578 },
+        content: `<p>San Marino, San Marino: 43.9424° N, 12.4578° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "San Marino, San Marino",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 42.5063, lng: 1.5218 },
+        content: `<p>Andorra la Vella, Andorra: 42.5063° N, 1.5218° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Andorra, Andorra",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 43.7384, lng: 7.4246 },
+        content: `<p>Monaco, Monaco: 43.7384° N, 7.4246° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Monaco, Monaco",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 41.9029, lng: 12.4534 },
+        content: `<p>Vatican City, Holy See: 41.9029° N, 12.4534° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Vatican City, Holy See",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 52.3667, lng: 4.8945 },
+        content: `<p>Amsterdam, Netherlands: 52.3667° N, 4.8945° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Amsterdam, Netherlands",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 52.5200, lng: 13.4050 },
+        content: `<p>Berlin, Germany: 52.5200° N, 13.4050° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Berlin, Germany",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 48.2082, lng: 16.3738 },
+        content: `<p>Vienna, Austria: 48.2082° N, 16.3738° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Vienna, Austria",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 46.0569, lng: 14.5058 },
+        content: `<p>Ljubljana, Slovenia: 46.0569° N, 14.5058° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Ljubljana, Slovenia",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 45.8150, lng: 15.9819 },
+        content: `<p>Zagreb, Croatia: 45.8150° N, 15.9819° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Zagreb, Croatia",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 43.8563, lng: 18.4131 },
+        content: `<p>Sarajevo, Bosnia and Herzegovina: 43.8563° N, 18.4131° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Sarajevo, Bosnia and Herzegovina",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 42.4304, lng: 19.2594 },
+        content: `<p>Podgorica, Montenegro: 42.4304° N, 19.2594° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Podgorica, Montenegro",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 41.9981, lng: 21.4254 },
+        content: `<p>Skopje, Macedonia (the former Yugoslav Republic of): 41.9981° N, 21.4254° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Skopje, Macedonia (the former Yugoslav Republic of)",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 41.3275, lng: 19.8187 },
+        content: `<p>Tirana, Albania: 41.3275° N, 19.8187° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Tirana, Albania",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 37.9838, lng: 23.7275 },
+        content: `<p>Athens, Greece: 37.9838° N, 23.7275° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Athens, Greece",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 42.6977, lng: 23.3219 },
+        content: `<p>Sofia, Bulgaria: 42.6977° N, 23.3219° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Sofia, Bulgaria",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 44.4268, lng: 26.1025 },
+        content: `<p>Bucharest, Romania: 44.4268° N, 26.1025° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Bucharest, Romania",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 39.9334, lng: 32.8597 },
+        content: `<p>Ankara, Turkey: 39.9334° N, 32.8597° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Ankara, Turkey",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 47.4979, lng: 19.0402 },
+        content: `<p>Budapest, Hungary: 47.4979° N, 19.0402° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Budapest, Hungary",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 48.1486, lng: 17.1077 },
+        content: `<p>Bratislava, Slovakia: 48.1486° N, 17.1077° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Bratislava, Slovakia",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 47.0105, lng: 28.8638 },
+        content: `<p>Chisinau, Moldova (Republic of): 47.0105° N, 28.8638° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Chisinau, Moldova (Republic of)",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 50.4501, lng: 30.5234 },
+        content: `<p>Kyiv, Ukraine: 50.4501° N, 30.5234° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Kyiv, Ukraine",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 55.7558, lng: 37.6173 },
+        content: `<p>Moscow, Russian Federation: 55.7558° N, 37.6173° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Moscow, Russian Federation",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 35.8989, lng: 14.5146 },
+        content: `<p>Valletta, Malta: 35.8989° N, 14.5146° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Valletta, Malta",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 42.6629, lng: 21.1655 },
+        content: `<p>Prishtina,  Kosovo: 42.6629° N, 21.1655° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Prishtina,  Kosovo",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 51.1605, lng: 71.4704 },
+        content: `<p>Nur-Sultan, Kazakhstan: 51.1605° N, 71.4704° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Nur-Sultan, Kazakhstan",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 41.7151, lng: 44.8271 },
+        content: `<p>Tbilisi, Georgia: 41.7151° N, 44.8271° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Tbilisi, Georgia",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 35.1856, lng: 33.3823 },
+        content: `<p>Nicosia, Cyprus: 35.1856° N, 33.3823° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Nicosia, Cyprus",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 53.9006, lng: 27.5590 },
+        content: `<p>Minsk, Belarus: 53.9006° N, 27.5590° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Minsk, Belarus",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 40.4093, lng: 49.8671 },
+        content: `<p>Baku, Azerbaijan: 40.4093° N, 49.8671° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Baku, Azerbaijan",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 40.1872, lng: 44.5152 },
+        content: `<p>Yerevan, Armenia: 40.1872° N, 44.5152° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Yerevan, Armenia",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 44.7866, lng: 20.4489 },
+        content: `<p>Belgrade, Serbia: 44.7866° N, 20.4489° E</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Belgrade, Serbia",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    },
+    {
+        coords: { lat: 64.1814, lng: -51.6941 },
+        content: `<p>Nuuk, Greenland: 64.1814° N, 51.6941° W</p>${weatherInfo} ${toolTipButtons}`,
+        name: "Nuuk, Greenland",
+        overview: `<div class="flag" id="flag"></div><div class="overview" id="overview"></div>`,
+        d3: `<div class="d3" id="d3"></div>`
+    }
+];
+```
+
+The `for (let i = 0; i < markersArray.length; i++) {
+        addMarker(markersArray[i]);
+    }` creates and adds the Google Map Markers to the Google Map.
+
+```
+for (let i = 0; i < markersArray.length; i++) {
+        addMarker(markersArray[i]);
+    }
+
+    function addMarker(props) {
+        let marker = new google.maps.Marker({
+            position: props.coords,
+            map: map,
+            iconImage: props.iconImage,
+            content: props.content,
+            name: props.name,
+            overview: props.overview,
+            d3: props.d3
+        });
+
+        if (props.iconImage) {
+            marker.setIcon(props.iconImage);
+        }
+```
+
+These JavaScript statements remove the Google class `.gm-style-iw-d` and add a padding of 12px to the InfoWindow.
+
+```
+	document.querySelector(".gm-style-iw-d").className = "";
+	document.querySelector(".gm-style-iw-c").style = "padding: 12px";
+```
+
+They work in conjunction with the CSS styling mentioned above:
+
+```
+.gm-style-iw,
+.gm-style-iw-c {
+    background: linear-gradient(0.25turn, rgba(63, 135, 166, 0.9), rgba(235, 248, 225, 0.9), rgba(246, 157, 60, 0.9));
+}
+```
+If there is content then an InfoWindow is created and populated with the content in the `markersArray[]`. The `marker.addListener("click"...` listens for a "click" on the Google Map Marker.
+
+When a Google Map Marker is clicked the coordinates of the current Google Map Marker is converted to a string, the opening and closing parenthesis are removed together with a space, and the string split into two: latitude and longitude. For example, `(41.9981, 21.4254)` becomes correctly formatted `markerString = ["41.9981","21.4254"];` to be used by the `fetch()` URL string.
+
+The `fetch()` calls the OpenWeather API for the current weather information. The JSON data is converted and some of the values received stored in variables for use to populate the Google Map Marker InfoWindow.
+
+The weather data gives us a good idea of what it's currently like in the European city we clicked on:
+
+* tempValue contains the temperature converted from a float to an integer as it looks nicer when displayed.
+* descValue contains the weather description.
+* airPressure contains the air pressure.
+* nameValue is the name of the place at the coordinates, and this is used to create unique JS Overview and Statistics Modals referenced by `document.getElementById`.
+
+The `if (document.getElementById("weather"))...` checks whether this is the first time this Google Map Marker has been clicked on, and sets the `weatherID` of the InfoWindow to a unique ID based on the nameValue received from the OpenWeather API. The two InfoView buttons to the JS Overview and Statistics modals are also provided unique ID's to ensure the correct information is populated in the JS Modals.
+
+The event handlers for the buttons function is called with two parameters, `buttonIDOver, buttonIDStats`.
+
+The real-time weather data poulates the InfoWindow:
+
+```
+document.getElementById(weatherID).innerHTML = tempValue + `° Celsius, ` + descValue + `, ` + airPressure + ` hPa`;
+```
+
+Any `fetch()` errors are caught and if no data received the weather info in the InfoWindow is blank.
+
+A timeout of 3 seconds is set before the InfoWindow is closed.
+
+```
+if (props.content) {
+            let infoWindow = new google.maps.InfoWindow({
+                content: props.content
+            });
+
+            marker.addListener("click", () => {
+
+                let markerString = String(marker.position);
+                markerString = markerString.replace(/[() ]/g, "");
+                markerStringArray = markerString.split(",");
+
+                fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${markerStringArray[0]}&lon=${markerStringArray[1]}&units=metric&appid=4788a47d724b35cf9cc4e281a1893b4c`)
+                    .then(response => response.json())
+                    .then(data => {
+                        let tempValue = parseInt(data.main.temp);
+                        let descValue = data.weather[0].description;
+                        let airPressure = data.main.pressure;
+                        let nameValue = data.name;
+
+                        document.querySelector(".gm-style-iw-d").className = "";
+                        document.querySelector(".gm-style-iw-c").style = "padding: 12px";
+
+                        if (document.getElementById("weather")) {
+                            let weatherID = document.getElementById("weather").id = "weather" + nameValue;
+                            let buttonIDOver = document.getElementById("buttonOver").id = "buttonOver" + nameValue;
+                            let buttonIDStats = document.getElementById("buttonStats").id = "buttonStats" + nameValue;
+                            document.getElementById(buttonIDOver).className = "button";
+                            document.getElementById(buttonIDStats).className = "button";
+                            configureButtonEventHandlers(buttonIDOver, buttonIDStats);
+                            document.getElementById(weatherID).innerHTML = tempValue + `° Celsius, ` + descValue + `, ` + airPressure + ` hPa`;
+                        } else {
+                            let weatherID = "weather" + nameValue;
+                            document.getElementById(weatherID).innerHTML = tempValue + `° Celsius, ` + descValue + `, ` + airPressure + ` hPa`;
+                        }
+                    })
+                    .catch(err => console.log(err));
+
+                setTimeout(() => {
+                    infoWindow.close(map, marker);
+                }, 3000);
+                infoWindow.open(map, marker);
+            });
+        }
+```
+
+The `configureButtonEventHandlers` is called from within the `addListener()` with two parameters `buttonIDOver, buttonIDStats` referencing the HTML ID's of the InfoWindow buttons. Two Event Listeners with associated Handlers are created for the two InfoWindow buttons.
+
+When either button is clicked the backdrop is toggled, dimming the background (style.css) and stops all clicking on anything "behind" the JS Modal. It references the modal defined in index.html (please see details below, JS Overview Modal and JS Statistics Modal).
+
+```
+const backdrop = document.getElementById("backdrop");
+
+        const toggleBackdrop = () => {
+            backdrop.classList.toggle("visible");
+        };
+
+        const addModal = document.getElementById("add-modal");
+
+        const toggleModal = () => {
+            addModal.classList.toggle("visible");
+        };
+
+        let configureButtonEventHandlers = (buttonIDOver, buttonIDStats) => {
+            let buttonOverview = document.getElementById(buttonIDOver);
+            let buttonStats = document.getElementById(buttonIDStats);
+
+            const overviewModalHandler = () => {
+                toggleBackdrop();
+                toggleModal();
+                document.getElementById("modal-content").innerHTML = `<h4>Overview: ${marker.name}</h4> ${marker.overview}`;
+                let cityArray = marker.name.split(", ");
+                fetchCountry(cityArray[1], displayCountry);
+            };
+            buttonOverview.addEventListener("click", overviewModalHandler);
+
+            const statisticsModalHandler = () => {
+                toggleBackdrop();
+                toggleModal();
+                document.getElementById("modal-content").innerHTML = `<h4>Statistics: ${marker.name}</h4><div class="canvas"></div><div>${marker.d3}`;
+                let cityArray = marker.name.split(", ");
+                d3Stats(cityArray[0], 200, 200, "M", "rgb(0, 0, 0)");
+                fetchCountry(cityArray[1], displayStats);
+            };
+            buttonStats.addEventListener("click", statisticsModalHandler);
+        };
+
+        document.getElementById("close").onclick = () => { closeModal(); };
+
+        const closeModal = () => {
+            toggleModal();
+            toggleBackdrop();
+        };
+```
 
 ### JS Overview Modal
+![JS Overview Modal: Paris, France](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/JS%20Overview%20Modal%20for%20Paris.png)
 
-Why? - 
+Why? - Provides country data which is of use or interest to a User.
 
 Use Case cross-reference ([please see main README.md for details](https://github.com/NaoiseGaffney/CitiesInCountries#processes)):
 
-* 
+* 003 - Features and Functions Overview - Samples (geoLocation accepted)
+* 004 - User - UC 1 - Overview and Statistics (geoLocation already accepted)
+* 009 - Collaborator - UC 6 - Overview and Statistics (geoLocation already accepted)
+* 012 - Employer - UC 9 - Overview and Statistics (geoLocation already accepted)
 
-What? - 
+What? - Provides country data, the flag, native name, regions, language(s), currencie(s), and calling code, which is of use or interest to a User.
 
-How? -
+How? - The data is created in real-time from data fetched from the REST Countries API and the internal `markersArray[]` (please see above, Google Map Marker InfoWindows and Content for details).
+
+[</> - Production Code: index.html](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/index.html)
+
+This is the JS Modal used by maps.js and styled by style.css. It includes a placeholder for innerHTML and a close button ("x" in the top-right corner).
+
+```
+    <aside class="modal card" id="add-modal">
+        <div class="modal__content" id="modal-content">
+            <p>Modal Content Here!</p>
+        </div>
+        <div class="modal__actions">
+            <button class="button" id="close" onclick="closeModal()">Close</button>
+        </div>
+    </aside>
+```
+
+[.css{} - Production Code: style.css](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/styles/style.css)
+
+Displays details without leaving the page, providing a clear and clean navigation option. A backdrop, similar to the CSS Modal is styled with the same look-and-feel though created and controled by JS in maps.js.
+
+```
+.card {
+    background: rgb(255, 255, 255);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.modal {
+    position: fixed;
+    z-index: 100;
+    width: 80%;
+    top: 5vh;
+    left: 10%;
+    display: none;
+    font-family: Raleway, sans-serif;
+    background: linear-gradient(0.25turn, rgba(63, 135, 166, 0.9), rgba(235, 248, 225, 0.9), rgba(246, 157, 60, 0.9));
+    overflow-y: auto;
+    max-height: 90vh;
+}
+
+.modal.visible {
+    display: block;
+    animation: fade-slide-in 0.3s ease-out forwards;
+}
+
+.modal .modal__title {
+    margin: 0;
+    padding: 1rem;
+    border-bottom: 1px solid rgb(0, 50, 158);
+    background: rgb(0, 50, 158);
+    color: rgb(0, 0, 0);
+    border-radius: 10px 10px 0 0;
+}
+
+.modal .modal__content {
+    padding: 1rem;
+    font-family: inherit;
+    border-radius: 10px 10px 0 0;
+}
+
+.modal .modal__actions {
+    padding: 1rem;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#add-modal .modal__content {
+    display: flex;
+    flex-direction: column;
+}
+
+hr {
+    width: 80%;
+    height: 2px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #666;
+    border: 0 none;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.flag,
+svg {
+    margin-top: 5px;
+}
+```
+
+Styling of all CSS and JS Modal buttons (Close, Overview, Statistics). Using CSS Button Creator: https://cssbuttoncreator.com/ and some additional modification to get it "just right". Added 'outline: none' to remove ugly click outline.
+
+```
+.button {
+    background: rgba(63, 135, 166, 1);
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    color: #FFFFFF;
+    font-family: Raleway, sans-serif;
+    font-size: 12px;
+    font-weight: 100;
+    padding: 3px 10px;
+    text-shadow: 1px 1px 20px #000000;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+    margin-right: 10px;
+}
+
+.button:hover {
+    background: rgba(246, 157, 60, 1);
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    text-decoration: none;
+}
+
+.button:focus {
+    outline: none;
+}
+```
+
+[(Js) - Production Code: maps.js](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/scripts/maps.js)
+
+The `configureButtonEventHandlers` is called from within the `addListener()` with two parameters `buttonIDOver, buttonIDStats` referencing the HTML ID's of the InfoWindow buttons. Two Event Listeners with associated Handlers are created for the two InfoWindow buttons.
+
+When either button is clicked the backdrop is toggled (`toggleBackdrop();`), dimming the background (style.css) and stops all clicking on anything "behind" the JS Modal. It references the modal defined in index.html and is made visible by `toggleModal();`.
+
+The JS Overview Modal is updated with ```document.getElementById("modal-content").innerHTML = `<h4>Overview: ${marker.name}</h4> ${marker.overview}`;```, for example "Overview: Dublin, Ireland" and a placeholder is created for the real-time content from the REST Countries API. `let cityArray = marker.name.split(", ");` splits the city and country to use the country as a parameter in `fetchCountry(cityArray[1], displayCountry);` followed by `displayCountry();`.
+
+`fetchCountry(cityArray[1], displayCountry);` is called with two parameters, the country and the name of the `functionCall` to call (`displayCountry` for the JS Overview Modal or `displayStats` for the JS Statistics Modal). It checks if `findCountryObject` is populated (=== 0), if so `fetch()` from the REST Countries API is called to populate `findCountryObject` else the existing data is used (previously fetched).
+
+`displayCountry()` checks the the languages and currencies arrays for multiple objects and creates the relevant object (for example, "Irish, English." and "Euro, Dollars.") to make it look good when displayed to the User.
+
+Using `document,querySelector("#...").innerHTML = ...;` the JS Overview Modal is poulated with the flag, native name, regions, language(s), currencie(s), and calling code.
+
+```
+const backdrop = document.getElementById("backdrop");
+
+        const toggleBackdrop = () => {
+            backdrop.classList.toggle("visible");
+        };
+
+        const addModal = document.getElementById("add-modal");
+
+        const toggleModal = () => {
+            addModal.classList.toggle("visible");
+        };
+
+        let configureButtonEventHandlers = (buttonIDOver, buttonIDStats) => {
+            let buttonOverview = document.getElementById(buttonIDOver);
+            let buttonStats = document.getElementById(buttonIDStats);
+
+            const overviewModalHandler = () => {
+                toggleBackdrop();
+                toggleModal();
+                document.getElementById("modal-content").innerHTML = `<h4>Overview: ${marker.name}</h4> ${marker.overview}`;
+                let cityArray = marker.name.split(", ");
+                fetchCountry(cityArray[1], displayCountry);
+            };
+            buttonOverview.addEventListener("click", overviewModalHandler);
+
+            const statisticsModalHandler = () => {
+                toggleBackdrop();
+                toggleModal();
+                document.getElementById("modal-content").innerHTML = `<h4>Statistics: ${marker.name}</h4><div class="canvas"></div><div>${marker.d3}`;
+                let cityArray = marker.name.split(", ");
+                d3Stats(cityArray[0], 200, 200, "M", "rgb(0, 0, 0)");
+                fetchCountry(cityArray[1], displayStats);
+            };
+            buttonStats.addEventListener("click", statisticsModalHandler);
+        };
+
+        document.getElementById("close").onclick = () => { closeModal(); };
+
+        const closeModal = () => {
+            toggleModal();
+            toggleBackdrop();
+        };
+```
+
+The `findCountryObject` is declared and populated with data from the REST Countries API using `fetch().then().then()`.
+
+```
+let findCountryObject = {};
+
+        let displayCountry = () => {
+            let languages = "";
+
+            for (let i = 0; i < findCountryObject.languages.length; i++) {
+                if (i === (findCountryObject.languages.length - 1)) {
+                    languages += `${findCountryObject.languages[i].name}.`;
+                } else {
+                    languages += `${findCountryObject.languages[i].name}, `;
+                }
+            }
+
+            let currencies = "";
+
+            for (let i = 0; i < findCountryObject.currencies.length; i++) {
+                if (i === (findCountryObject.currencies.length - 1)) {
+                    currencies += `${findCountryObject.currencies[i].name}.`;
+                } else {
+                    currencies += `${findCountryObject.currencies[i].name}, `;
+                }
+            }
+
+            document.querySelector("#flag").innerHTML = `<img src="${findCountryObject.flag}" width="150" style="border:2px solid black"></a>`;
+            document.querySelector("#overview").innerHTML = `<p>Native Name: "${findCountryObject.nativeName}" => ${findCountryObject.name} --> ${findCountryObject.subregion} --> ${findCountryObject.region}</p>
+                <p>Language(s): ${languages} - Currencie(s): ${currencies} - Calling Code: +${findCountryObject.callingCodes[0]}</p>`;
+        };
+
+        let fetchCountry = (country, functionCall) => {
+            if ((Object.keys(findCountryObject).length) === 0) {
+                fetch(`https://restcountries.eu/rest/v2/all`)
+                    .then(data => data.json())
+                    .then(data => {
+                        findCountryObject = data.find(data => data.name === country);
+                        functionCall();
+                    });
+            } else {
+                functionCall();
+            }
+        };
+
+
+        let displayStats = () => {
+            let borders = "";
+
+            for (let i = 0; i < findCountryObject.borders.length; i++) {
+                if (i === (findCountryObject.borders.length - 1)) {
+                    borders += `${findCountryObject.borders[i]}.`;
+                } else {
+                    borders += `${findCountryObject.borders[i]}, `;
+                }
+            }
+
+            if (findCountryObject.gini === null) {
+                findCountryObject.gini = "None";
+            }
+            findCountryObject.population = findCountryObject.population.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ');
+            findCountryObject.area = findCountryObject.area.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ');
+
+            document.querySelector("#d3").innerHTML = `<p>Population: "${findCountryObject.population}", Area: ${findCountryObject.area} km<sup>2</sup></p>
+                <p>Bordering Countrie(s): ${borders}</p><p>Gini Coefficient: ${findCountryObject.gini}, this is a measurement of inequality. The lower the better (< 35).</p>`;
+        };
+```
 
 ### JS Statistics Modal
+![JS Statistics Modal: Paris, France](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/JS%20Statistics%20Modal%20for%20Paris.png)
 
-Why? - 
+Why? - Provides country statistics which is of use or interest to a User.
 
 Use Case cross-reference ([please see main README.md for details](https://github.com/NaoiseGaffney/CitiesInCountries#processes)):
 
-* 
+* 003 - Features and Functions Overview - Samples (geoLocation accepted)
+* 004 - User - UC 1 - Overview and Statistics (geoLocation already accepted)
+* 009 - Collaborator - UC 6 - Overview and Statistics (geoLocation already accepted)
+* 012 - Employer - UC 9 - Overview and Statistics (geoLocation already accepted)
 
-What? - 
+What? - Provides a real-time dynamic D3 Graph (D3 API) of population data from a Firestore noSQL database, as well as statistics from the REST Countries API.
 
-How? -
+How? - The data is created in real-time from data fetched from the Firestore noSQL database via the D3 API, a graph is created by D3, and the REST Countries API.
+
+[</> - Production Code: index.html](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/index.html)
+
+This is the JS Modal used by maps.js and styled by style.css. It includes a placeholder for innerHTML and a close button ("x" in the top-right corner).
+
+```
+    <aside class="modal card" id="add-modal">
+        <div class="modal__content" id="modal-content">
+            <p>Modal Content Here!</p>
+        </div>
+        <div class="modal__actions">
+            <button class="button" id="close" onclick="closeModal()">Close</button>
+        </div>
+    </aside>
+```
+
+[.css{} - Production Code: style.css](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/styles/style.css)
+
+Displays details without leaving the page, providing a clear and clean navigation option. A backdrop, similar to the CSS Modal is styled with the same look-and-feel though created and controled by JS in maps.js.
+
+```
+.card {
+    background: rgb(255, 255, 255);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.modal {
+    position: fixed;
+    z-index: 100;
+    width: 80%;
+    top: 5vh;
+    left: 10%;
+    display: none;
+    font-family: Raleway, sans-serif;
+    background: linear-gradient(0.25turn, rgba(63, 135, 166, 0.9), rgba(235, 248, 225, 0.9), rgba(246, 157, 60, 0.9));
+    overflow-y: auto;
+    max-height: 90vh;
+}
+
+.modal.visible {
+    display: block;
+    animation: fade-slide-in 0.3s ease-out forwards;
+}
+
+.modal .modal__title {
+    margin: 0;
+    padding: 1rem;
+    border-bottom: 1px solid rgb(0, 50, 158);
+    background: rgb(0, 50, 158);
+    color: rgb(0, 0, 0);
+    border-radius: 10px 10px 0 0;
+}
+
+.modal .modal__content {
+    padding: 1rem;
+    font-family: inherit;
+    border-radius: 10px 10px 0 0;
+}
+
+.modal .modal__actions {
+    padding: 1rem;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#add-modal .modal__content {
+    display: flex;
+    flex-direction: column;
+}
+
+hr {
+    width: 80%;
+    height: 2px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #666;
+    border: 0 none;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.flag,
+svg {
+    margin-top: 5px;
+}
+```
+
+Styling of all CSS and JS Modal buttons (Close, Overview, Statistics). Using CSS Button Creator: https://cssbuttoncreator.com/ and some additional modification to get it "just right". Added 'outline: none' to remove ugly click outline.
+
+```
+.button {
+    background: rgba(63, 135, 166, 1);
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    color: #FFFFFF;
+    font-family: Raleway, sans-serif;
+    font-size: 12px;
+    font-weight: 100;
+    padding: 3px 10px;
+    text-shadow: 1px 1px 20px #000000;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+    margin-right: 10px;
+}
+
+.button:hover {
+    background: rgba(246, 157, 60, 1);
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    text-decoration: none;
+}
+
+.button:focus {
+    outline: none;
+}
+```
+
+[(Js) - Production Code: maps.js](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/scripts/maps.js)
+
+The `configureButtonEventHandlers` is called from within the `addListener()` with two parameters `buttonIDOver, buttonIDStats` referencing the HTML ID's of the InfoWindow buttons. Two Event Listeners with associated Handlers are created for the two InfoWindow buttons.
+
+When either button is clicked the backdrop is toggled (`toggleBackdrop();`), dimming the background (style.css) and stops all clicking on anything "behind" the JS Modal. It references the modal defined in index.html and is made visible by `toggleModal();`.
+
+The JS Statistics Modal is updated with ```document.getElementById("modal-content").innerHTML = `<h4>Statistics: ${marker.name}</h4><div class="canvas"></div><div>${marker.d3}`;```, for example "Statistics: Dublin, Ireland" and a placeholder is created for the real-time content from the REST Countries API. `let cityArray = marker.name.split(", ");` splits the city and country to use the country as a parameter in `fetchCountry(cityArray[1], displayStats);` followed by `displayStats();`.
+
+The following code snippet splits the city and country into an array with two values to use the city as a parameter when calling `d3Stats();`. `d3Stats()` is flexible as it takes several parameters to create the Scalable Vector Graphic used to populate the JS Statistics Modal. The parameters are:
+
+* city (`cityArray[0]`), for example "Dublin" which is used as the index for the noSQL database Firestore to colect population data for city and country.
+*  width (`200`) in pixels to set the width of the SVG graph.
+*  height (`200`) in pixels to set the height of the SVG graph.
+*  tickFormat (`"M"`) is the text or symbol used for the Y-axis. In this case "M" = Millions.
+*  fillColour (`"rgb(0, 0, 0)"`) is the colour used for the D3 graph. In this case "black" as it contrasts nicely on the linear-gradient background.
+
+```
+	let cityArray = marker.name.split(", ");
+	d3Stats(cityArray[0], 200, 200, "M", "rgb(0, 0, 0)");
+```
+
+`fetchCountry(cityArray[1], displayStats);` is called with two parameters, the country and the name of the `functionCall` to call (`displayCountry` for the JS Overview Modal or `displayStats` for the JS Statistics Modal). It checks if `findCountryObject` is populated (=== 0), if so `fetch()` from the REST Countries API is called to populate `findCountryObject` else the existing data is used (previously fetched).
+
+`displayCountry()` checks the the languages and currencies arrays for multiple objects and creates the relevant object (for example, "Irish, English." and "Euro, Dollars.") to make it look good when displayed to the User.
+
+Using `document,querySelector("#...").innerHTML = ...;` the JS Overview Modal is poulated with the flag, native name, regions, language(s), currencie(s), and calling code.
+
+```
+const backdrop = document.getElementById("backdrop");
+
+        const toggleBackdrop = () => {
+            backdrop.classList.toggle("visible");
+        };
+
+        const addModal = document.getElementById("add-modal");
+
+        const toggleModal = () => {
+            addModal.classList.toggle("visible");
+        };
+
+        let configureButtonEventHandlers = (buttonIDOver, buttonIDStats) => {
+            let buttonOverview = document.getElementById(buttonIDOver);
+            let buttonStats = document.getElementById(buttonIDStats);
+
+            const overviewModalHandler = () => {
+                toggleBackdrop();
+                toggleModal();
+                document.getElementById("modal-content").innerHTML = `<h4>Overview: ${marker.name}</h4> ${marker.overview}`;
+                let cityArray = marker.name.split(", ");
+                fetchCountry(cityArray[1], displayCountry);
+            };
+            buttonOverview.addEventListener("click", overviewModalHandler);
+
+            const statisticsModalHandler = () => {
+                toggleBackdrop();
+                toggleModal();
+                document.getElementById("modal-content").innerHTML = `<h4>Statistics: ${marker.name}</h4><div class="canvas"></div><div>${marker.d3}`;
+                let cityArray = marker.name.split(", ");
+                d3Stats(cityArray[0], 200, 200, "M", "rgb(0, 0, 0)");
+                fetchCountry(cityArray[1], displayStats);
+            };
+            buttonStats.addEventListener("click", statisticsModalHandler);
+        };
+
+        document.getElementById("close").onclick = () => { closeModal(); };
+
+        const closeModal = () => {
+            toggleModal();
+            toggleBackdrop();
+        };
+```
+
+The `findCountryObject` is declared and populated with data from the REST Countries API using `fetch().then().then()`.
+
+```
+let findCountryObject = {};
+
+        let displayCountry = () => {
+            let languages = "";
+
+            for (let i = 0; i < findCountryObject.languages.length; i++) {
+                if (i === (findCountryObject.languages.length - 1)) {
+                    languages += `${findCountryObject.languages[i].name}.`;
+                } else {
+                    languages += `${findCountryObject.languages[i].name}, `;
+                }
+            }
+
+            let currencies = "";
+
+            for (let i = 0; i < findCountryObject.currencies.length; i++) {
+                if (i === (findCountryObject.currencies.length - 1)) {
+                    currencies += `${findCountryObject.currencies[i].name}.`;
+                } else {
+                    currencies += `${findCountryObject.currencies[i].name}, `;
+                }
+            }
+
+            document.querySelector("#flag").innerHTML = `<img src="${findCountryObject.flag}" width="150" style="border:2px solid black"></a>`;
+            document.querySelector("#overview").innerHTML = `<p>Native Name: "${findCountryObject.nativeName}" => ${findCountryObject.name} --> ${findCountryObject.subregion} --> ${findCountryObject.region}</p>
+                <p>Language(s): ${languages} - Currencie(s): ${currencies} - Calling Code: +${findCountryObject.callingCodes[0]}</p>`;
+        };
+
+        let fetchCountry = (country, functionCall) => {
+            if ((Object.keys(findCountryObject).length) === 0) {
+                fetch(`https://restcountries.eu/rest/v2/all`)
+                    .then(data => data.json())
+                    .then(data => {
+                        findCountryObject = data.find(data => data.name === country);
+                        functionCall();
+                    });
+            } else {
+                functionCall();
+            }
+        };
+
+
+        let displayStats = () => {
+            let borders = "";
+
+            for (let i = 0; i < findCountryObject.borders.length; i++) {
+                if (i === (findCountryObject.borders.length - 1)) {
+                    borders += `${findCountryObject.borders[i]}.`;
+                } else {
+                    borders += `${findCountryObject.borders[i]}, `;
+                }
+            }
+
+            if (findCountryObject.gini === null) {
+                findCountryObject.gini = "None";
+            }
+            findCountryObject.population = findCountryObject.population.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ');
+            findCountryObject.area = findCountryObject.area.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ');
+
+            document.querySelector("#d3").innerHTML = `<p>Population: "${findCountryObject.population}", Area: ${findCountryObject.area} km<sup>2</sup></p>
+                <p>Bordering Countrie(s): ${borders}</p><p>Gini Coefficient: ${findCountryObject.gini}, this is a measurement of inequality. The lower the better (< 35).</p>`;
+        };
+```
+
+[(Js) - Production Code: d3Stats.js]()
+
+This is inspired by the Udemy course on D3 and Firestore by Shaun Pelling. The processes and pattern are the same for all D3 graphing. I've added the flexibility of supplying parameters so I won't have to modify this file every time I want to change colour or size.
+
+The D3 3-step Process:
+
+1. Setup the graph style.
+2. Access the JSON data (file or database or API).
+3. Call the update().
+
+The D3 Update Pattern:
+
+1. Update scales (domains) if they rely on our data.
+2. Join updated data to elements.
+3. Remove unwanted, if any, shapes using the exit selection.
+4. Update current shapes in the DOM.
+5. Append the enter selection to the DOM.
+
+```
+// Select the SVG element <div class="canvas"> to append SVG
+
+const d3Stats = (city, width, height, tickFormat, fillColour) => {
+    const svg = d3.select(".canvas")
+        .append("svg")
+        .attr("width", width)
+        .attr("height", height);
+    // Create margins and dimensions for our graph, for axis information
+    const margin = { top: 5, right: 5, bottom: 40, left: 40 };
+    const graphWidth = 200 - margin.left - margin.right;
+    const graphHeight = 200 - margin.top - margin.bottom;
+    const graph = svg.append("g")
+        .attr("width", graphWidth)
+        .attr("height", graphHeight)
+        .attr("transform", `translate(${margin.left}, ${margin.top})`);
+    // Create x- and y-axis groups and provide elements
+    const xAxisGroup = graph.append("g")
+        .attr("transform", `translate(0, ${graphHeight})`); // Reverse axis from top to bottom
+    const yAxisGroup = graph.append("g");
+    // Scales
+    // Domain: input value range --> Range: scale value range
+    const y = d3.scaleLinear()
+        .range([graphHeight, 0]);
+    // Map Object to an Array of items (in this case names)
+    // .domain(data.map(item => item.name)) -->
+    // ["veg soup", "veg curry", "veg pasta", "veg surprise"]
+    const x = d3.scaleBand()
+        .range([0, graphWidth])
+        .paddingInner(0.2)
+        .paddingOuter(0.2);
+    const xAxis = d3.axisBottom(x);
+    const yAxis = d3.axisLeft(y)
+        .ticks(5)
+        .tickFormat(d => d + ` ${tickFormat}`);
+
+    const t = d3.transition().duration(3000);
+
+
+    /* === D3 Update Function === === === === === === === === === === === */
+    const update = (data) => {
+        // D3 Update Step 1: Update scales (domains) if they rely on our data
+        y.domain([0, d3.max(data, d => d.population)]);
+        x.domain(data.map(item => item.name));
+        // D3 Update Step 2: Join the updated data array (JSON) to rects
+        const rects = graph.selectAll("rect")
+            .data(data);
+        // D3 Update Step 3: Remove the exit  selection
+        rects.exit().remove();
+        // D3 Update Step 4: Add attrs to rects already in the DOM (innerHTML)
+        rects.attr("width", x.bandwidth)
+            .attr("fill", fillColour)
+            .attr("x", d => x(d.name))
+            .transition(t)
+            .attr("height", d => graphHeight - y(d.population))
+            .attr("y", d => y(d.population));
+        // D3 Update Step 5: Append the enter selection to the DOM (outerHTML and innerHTML)
+        rects.enter()
+            .append("rect")
+            .attr("width", 0)
+            .attr("height", d => 0)
+            .attr("fill", fillColour)
+            .attr("x", (d) => x(d.name))
+            .attr("y", d => graphHeight)
+            .transition(t)
+            .attrTween("width", widthTween)
+            .attr("height", d => graphHeight - y(d.population))
+            .attr("y", d => y(d.population));
+        // Call axes
+        xAxisGroup.call(xAxis);
+        yAxisGroup.call(yAxis);
+    };
+    // Get data from Firestore (previously a local JSON file) when a change  occurs, this onSnapshot() is triggered.
+    let dataArray = [];
+    // Firestore change listener triggers a dataArray[] update (added, modified, removed).
+    db.collection(city).onSnapshot(response => {
+        //console.log(response.docChanges());
+        // Cycling through every change that occurs in the database.
+        response.docChanges().forEach(change => {
+            //console.log(change.doc.data());
+            // Create a doc object based on the changes in the database, getting the data and document id.
+            const doc = { ...change.doc.data(), id: change.doc.id };
+            
+            // Check change type using a switch statement.
+            switch (change.type) {
+                case "added":
+                    dataArray.push(doc);
+                    break;
+                case "modified":
+                    const index = dataArray.findIndex(item => item.id == doc.id);
+                    dataArray[index] = doc;
+                    break;
+                case "removed":
+                    dataArray = dataArray.filter(item => item.id !== doc.id);
+                    break;
+                default:
+                    break;
+            }
+        });
+        update(dataArray);
+
+        xAxisGroup.selectAll("text")
+            .attr("transform", "rotate(-10)")
+            .attr("text-anchor", "end")
+            .attr("fill", fillColour);
+
+    });
+    // Tweens: timer to update attributes over time.
+    const widthTween = (d) => {
+        // Define interpolation. d3.interpolate returns a function we call 'i' (a value from 0 to 1)
+        let i = d3.interpolate(0, x.bandwidth());
+        // Return function with time ticker 't'
+        return function (t) {
+            // Return the value from pasign the ticker into the interpolation
+            return i(t);
+        };
+    };
+}
+```
+
+![(^) - Production Code: noSQl database Firebase Firestore]()
 
 ## </> HTML 5
 
