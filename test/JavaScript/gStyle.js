@@ -524,7 +524,7 @@ function initMap() {
                     .then(data => {
                         findCountryObject = data.find(data => data.name === country);
                         functionCall();
-                    });
+                    }).catch(err => console.log(err));
             } else {
                 functionCall();
             }
