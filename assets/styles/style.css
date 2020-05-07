@@ -342,6 +342,7 @@ Displays details without leaving the page, providing a clear and clean navigatio
     width: 100%;
     height: 100%;
     overflow: auto;
+    background: rgba(0, 0, 0, 0.20);
 }
 
 /* Display the modal when targeted */
