@@ -1534,7 +1534,7 @@ Styling of all CSS and JS Modal buttons (Close, Overview, Statistics). Using CSS
 ```
 
 ### Google Map Markers
-![Google Map Markers]()
+![Google Map Markers](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/11.%20Google%20Map%20Markers.png)
 
 Why? - 
 

@@ -9,6 +9,17 @@
 A responsive and interactive website using HTML 5, CSS 3, and JavaScript to provide an informative overview of Cities and Countries in Europe (expanded in future to include the World) through Google Map Markers, with Modals (“pop-ups”) providing place details and statistics.
 
 ## Table of Contents
+
+This Milestone Project II has beyond the code, 4 main documents linked to in this Table of Contents.
+
+The main document is this README.md, and contains the Business to Processes to Solution to Technology to Testing and finally Deployment details. Credits too.
+
+The second document is the User Experience and User Design MarkDown, describing the 5 Planes of the Elements of User Experience.
+
+The third document is the Accceptance Testing document describing the successful testing of the 3 General Cases and 12 Use Cases. The Acceptance Testing is automated using Selenium IDE. The Selenium IDE Test Script is attached to the documentation and referenced in the Testing.md and this README.md.
+
+The fourth document is a full code documentation and walkthrough mapping the website features & functions to the relevant code in HTML, CSS, and JavaScript.
+
 [THIS Document - README.md - Capital Cities in Countries Data](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/README.md)
 
 * [Business](https://github.com/NaoiseGaffney/CitiesInCountries#business)
@@ -29,7 +40,7 @@ A responsive and interactive website using HTML 5, CSS 3, and JavaScript to prov
 * [Surface Plane](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/CinC%20-%20User%20Experience%20and%20Design.md#surface)
 * [Acknowledgements](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/CinC%20-%20User%20Experience%20and%20Design.md#acknowledgements)
 
-[Testing Details (Full Report)](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/Testing.md)
+[Document: Testing Details (Full Report)](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/Testing.md)
 
 [Document: Code Documentation and Walkthrough](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/Code%20Documentation%20and%20Walkthrough.md)
 
@@ -238,7 +249,7 @@ Automated testing is performed using:
 ### Testing Criteria - Automated Tests Using Selenium IDE
 The Acceptance Criteria is based on the Use Cases described under section Processes --> UX, with the exception of tests 001 to 003 that are general features testing.
 
-[Testing Details (Full Report)](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/Testing.md)
+[Document: Testing Details (Full Report)](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/Testing.md)
 
 1. 001 - Features and Functions Overview - Google Maps (geoLocation accepted)
 > Running '001 - Features and Functions Overview Google Maps (geoLocation accepted)' 22:12:14
