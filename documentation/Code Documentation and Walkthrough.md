@@ -3284,22 +3284,135 @@ const d3Stats = (city, width, height, tickFormat, fillColour) => {
 }
 ```
 
-![(^) - Production Code: noSQl database Firebase Firestore]()
+![noSQl database Firebase Firestore](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/12.%20Firebase%20Firestore%20for%20%20D3.png)
+
+The Database Consists of several Capital City Collections, and each City Collection has one to three Documents, and each Document has two fields, name: (String) and Population: (Number). This is the data used by the D3 API to create the dynamic graphs in the JS Statistics Modals.
 
 ## </> HTML 5
 
 ### index.html
 
+An overview of the internal and external CSS and JavaScript files, CDN's, icons, and API's referenced in index.html.
+
+* External: .css{} - FontAwesome icons version 4.7.0 used for the Fixed Footer links, and the CSS Modals. A CSS file loaded from a CDN.
+
+```
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet” type="text/css">
+```
+
+* Internal: .css{} - CSS file created by me to provide the layout, design, and style of the website.
+* External: It loads `@import url('https://fonts.googleapis.com/css?family=Raleway|&display=swap');`, the Raleway font from Google Fonts.
+
+```
+<link rel="stylesheet" href="../CitiesInCountries/assets/styles/style.css">
+```
+
+* Internal: [i] - Favicon for the website, a simple white G on a light blue background.
+
+```
+<link rel="icon" type="image/png" sizes="16x16" href="../CitiesInCountries/assets/images/favicon-16x16.png">
+```
+
+The EmailJS is configured according to the EmailJS API documentation, though I keep the sending code in the sendemail.js file that is called when the User clicks on the "Send Feedback" button.
+
+* External: (Js) - EmailJS API.
+* Internal: (Js) - In-line internal component containing my unique ID.
+* Internal: (Js) - The sendemail.js file contains the JS to send the Contact Form data via the EmailJS API as an e-mail to me.
+
+```
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
+<script>(function () {emailjs.init("user_Dhpon4lpXiEEQEGFYwVco");})();</script><script src="../CitiesInCountries/assets/scripts/sendemail.js"></script>
+```
+
+Google Cloud Firestore for the D3 API data, the bar graphs in the JS Statistics Modals.
+
+* External: (Js) - 3 JS scripts as per the Google Cloud Firestore documentation.
+* Internal: (Js) - my variable to access my database, used by d3Stats.js.
+
+```
+<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-analytics.js"></script><script>var firebaseConfig = {…}; </script>
+```
+
+* External: (Js) - D3 API for the bar graphs in the JS Statistics Modals.
+
+```
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.js"></script>
+```
+
+* Internal: (Js) - Google Maps JavaScript API code for the customised Navigational Controls. This is copied from the Google Maps JavaScript API documentation, and modified to suit my website requirements (map type controls (Map / Sattelite), and zoom controls (+ -)).
+
+```
+<script src="../CitiesInCountries/assets/scripts/mapControls.js" defer></script>
+```
+
+* Internal: (Js) - my main JavaScript file, maps.js.
+
+```
+<script src="../CitiesInCountries/assets/scripts/maps.js" defer></script>
+```
+
+* Internal: (Js) - D3 code for fetching, updating, and styling the real-time dynamic SVG bar graphs in the JS Statistics Modals.
+
+```
+<script src="../CitiesInCountries/assets/scripts/d3Stats.js"></script>
+```
+
+* External: (Js) - Google Maps JavaScript API, created dynamically to ensure the DOM is fully loaded before calling `initMap()` from maps.js. This is done to avoid common "Uncaught...initMap() not a function..." error messages that stop the page from loading.  This is from "Prof3ssorSt3v3".
+
+```
+let script = document.createElement("script");
+document.addEventListener("DOMContentLoaded", () => {
+    document.head.appendChild(script);
+    script.addEventListener("load", () => {
+        initMap();
+    });
+});
+script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyBDKoKXKgFfLTb9SNLk0QEq1FmnNJD3hSg`;
+```
+
 ## .css{} CSS 3
 
 ### style.css
 
+An overview of the main styling sections of style.css.
+
+* Google Font Raleway: `@import url('https://fonts.googleapis.com/css?family=Raleway|&display=swap');` used throughout the website as it's an easy font to read, and easy on the eyes.
+* Main section for setting basic parameters `* {...}`, and `html, body {...}` to set font and background to the linear-gradient used throughout the website.
+* Google Map height definition, from the Google Map JavaScript API documentation, `#map`.
+* Google Map Navigational Control styles from the Google Map JavaScript API with modifications to suit the overall design of the website, `.gm-style...{...}`.
+* Grid Layout for the map and footer, using `grid-template-areas`. 3 columns x 20 rows, of which the Fixed Footer use one row of 3 columns, and the rest is real estate for Google Maps.
+* Fixed Footer styling of FontAwesome icon links.
+* CSS Modal backdrop styling and toggling.
+* JavaScript Modal, backdrop, modals, and SVG flag.
+* CSS Modal styling for the Fixed Footer FontAwesome icon links.
+* Buttons, all Close buttons, JS Modal Overview and Statistics buttons.
+* Responsive Web Design, for laptops and desktops with plenty of "real estate".
+
 ## (Js) JavaScript
 
 ### maps.js
+
+All the fetching of data (data-at-rest), processing of data (data-in-motion), and displaying of data (data presentation) is driven by this maps.js JavaScript.
+
+The main JavaScript file, maps.js, contains the logic for loading the Google Maps API, creating a new Google Map, adding Google Map Markers, InfoViews with both static and dynamic data from the internal `markersArray[]` and the OpenWeather API.
+
+The JS Overview and Statistics Modals are created in this script, and populated with data fetched from numerous API's (OpenWeather, Google Maps, D3, EmailJS, REST Countries, and Cloud Firestore).
+
+All other JavaScripts, except sendemail.js, are called from this main script.
+
 ### d3Stats.js
+
+This script contains the D3 API and logic to fetch D3 population data from the Cloud Firestore, create the D3 dynamic bar graph displayed in the JS Statistics Modals.
+
 ### mapControls.js
+
+This script contains the Google Map JavaScript API for the customised Navigational Controls. The two used  are for map types and zoom controls.
+
 ### sendemail.js
+
+This script contains the EmailJS send Contact Form to e-mail logic triggered by the "Send Feedback" button on the Contact Form. This is from the EmailJS API documentation.
 
 
 
