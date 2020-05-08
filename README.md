@@ -10,7 +10,7 @@ A responsive and interactive website using HTML 5, CSS 3, and JavaScript to prov
 
 ## Table of Contents
 
-This Milestone Project II has beyond the code, 4 main documents linked to in this Table of Contents.
+This Milestone Project II has beyond the code, 5 main documents linked to in this Table of Contents.
 
 The main document is this README.md, and contains the Business to Processes to Solution to Technology to Testing and finally Deployment details. Credits too.
 
@@ -19,6 +19,8 @@ The second document is the User Experience and User Design MarkDown, describing 
 The third document is the Acceptance Testing document describing the successful testing of the 3 General Cases and 12 Use Cases. The Acceptance Testing is automated using Selenium IDE. The Selenium IDE Test Script is attached to the documentation and referenced in the Testing.md and this README.md.
 
 The fourth document is a full code documentation and walkthrough mapping the website features & functions to the relevant code in HTML, CSS, and JavaScript.
+
+The User Journey Map to describe a possible User Journey from Awareness to Advocacy.
 
 [THIS Document - README.md - Capital Cities in Countries Data](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/README.md)
 
@@ -44,6 +46,7 @@ The fourth document is a full code documentation and walkthrough mapping the web
 
 [Document: Code Documentation and Walkthrough](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/Code%20Documentation%20and%20Walkthrough.md)
 
+[Document: User Journey Map](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/User%20Journey%20Map.docx)
 
 ## Business
 ### External Users' Goals
