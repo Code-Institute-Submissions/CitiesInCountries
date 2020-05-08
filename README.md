@@ -46,7 +46,7 @@ The User Journey Map to describe a possible User Journey from Awareness to Advoc
 
 [Document: Code Documentation and Walkthrough](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/Code%20Documentation%20and%20Walkthrough.md)
 
-[Document: User Journey Map](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/User%20Journey%20Map.docx)
+[Document: User Journey Map](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/User%20Journey%20Map.pdf)
 
 ## Business
 ### External Users' Goals
