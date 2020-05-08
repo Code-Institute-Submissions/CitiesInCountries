@@ -5,6 +5,9 @@ The "Why?", "What?", and "How?" of this code is fully documented here: https://g
 const weatherInfo = `<div class="weather" id="weather"></div>`;
 const toolTipButtons = `<br><div class="modalActions"><button class="button" id="buttonOver">Overview</button><button class="buttton" id="buttonStats">Statistics</button></div>`;
 
+/*
+The markersArray[] is an expansion of the one provided by the Code Institute mini-project walkthrough by Matt Rudge @ Code Institute.
+*/
 let markersArray = [
     {
         coords: { lat: 53.274346, lng: -6.348835 },
@@ -372,6 +375,10 @@ let markersArray = [
     }
 ];
 
+/*
+To finally resolve the occasional "Uncaught..." error common to loading Google Maps, I control the loading of the <script></script> before initMap().
+Courtesy of "Prof3ssorSt3v3": https://gist.github.com/prof3ssorSt3v3/e0e07e0fd0b293d043d4ff2504fc847b.
+*/
 let script = document.createElement("script");
 document.addEventListener("DOMContentLoaded", () => {
     document.head.appendChild(script);
@@ -381,6 +388,12 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyBDKoKXKgFfLTb9SNLk0QEq1FmnNJD3hSg`;
 
+/*
+The main Google Map initMap function, from the Google Map JavaScript API documentation.
+https://developers.google.com/maps/documentation/javascript/tutorial
+
+Based on walkthroughs of the Google Map API by Matt Rudge @ Code Institute and Bill Traversy @ Traversy Media.
+*/
 function initMap() {
     let home = { lat: 53.274346, lng: -6.348835 };
     let map = new google.maps.Map(document.getElementById("map"), {
@@ -395,7 +408,7 @@ function initMap() {
     for (let i = 0; i < markersArray.length; i++) {
         addMarker(markersArray[i]);
     }
-
+    
     function addMarker(props) {
         let marker = new google.maps.Marker({
             position: props.coords,
@@ -422,6 +435,10 @@ function initMap() {
                 markerString = markerString.replace(/[() ]/g, "");
                 markerStringArray = markerString.split(",");
 
+                /*
+                The fetch() calls the OpenWeather API for the current weather information.
+                Courtesy of Shanjah Raj: https://youtu.be/GXrDEA3SIOQ
+                */
                 fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${markerStringArray[0]}&lon=${markerStringArray[1]}&units=metric&appid=4788a47d724b35cf9cc4e281a1893b4c`)
                     .then(response => response.json())
                     .then(data => {
@@ -563,6 +580,9 @@ function initMap() {
         };
     }
 
+    /*
+    The 2 Google Map Navigational Control functions linked to the website buttons from the Google Map JavaScript API documentation.
+    */
     initZoomControl(map);
     initMapTypeControl(map);
 }
