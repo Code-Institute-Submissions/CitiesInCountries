@@ -72,7 +72,7 @@ The Footer provides information about how to navigate the site, and a descriptio
 Potential future improvements:
 
 * Additional dynamic and real-time data in the Overview and Statistics Modals.
-* Make the D3 Graphs (Statistics Modals) interactive ("clickable") and data-driven.
+* Make the D3 Graphs (Statistics Modals) interactive ("clickable") and include more data.
 * Internal: move static data (city and country array) to the Cloud Firestore.
 * Add Map Markers and dynamic data for all the Capital Cities and Countries in the World.
 * Nice-to-have: allow the user to change the theme, by selecting from a number of predefined themes (dark, light, funky...).
