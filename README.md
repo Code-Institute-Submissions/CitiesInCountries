@@ -16,7 +16,7 @@ The main document is this README.md, and contains the Business to Processes to S
 
 The second document is the User Experience and User Design MarkDown, describing the 5 Planes of the Elements of User Experience.
 
-The third document is the Accceptance Testing document describing the successful testing of the 3 General Cases and 12 Use Cases. The Acceptance Testing is automated using Selenium IDE. The Selenium IDE Test Script is attached to the documentation and referenced in the Testing.md and this README.md.
+The third document is the Acceptance Testing document describing the successful testing of the 3 General Cases and 12 Use Cases. The Acceptance Testing is automated using Selenium IDE. The Selenium IDE Test Script is attached to the documentation and referenced in the Testing.md and this README.md.
 
 The fourth document is a full code documentation and walkthrough mapping the website features & functions to the relevant code in HTML, CSS, and JavaScript.
 
@@ -56,7 +56,7 @@ Employers wanting to improve their on-line presence with Front-End design and de
 ### Site Owner's Goals
 The site has potential to become much more informative and interactive. It serves as a proof-of-concept of presenting dynamic data from disparate sources in a cohesive and simple display.
 
-It servers as a strong prototype and as an example for future collaborators, clients, and companies of what I'm capable of. It does what no CV, nor Diploma, nor LinkedIn Profile can do. It offers irrefutible evidence of my current knowledge and skill level, as well as a clear indication of my potential as a programmer.
+It servers as a strong prototype and as an example for future collaborators, clients, and companies of what I'm capable of. It does what no CV, nor Diploma, nor LinkedIn Profile can do. It offers irrefutable evidence of my current knowledge and skill level, as well as a clear indication of my potential as a programmer.
 
 ### Potential Features
 A "Dashboard" view of the World with European Map Markers that when clicked open a Google InfoView with city coordinates, country, current weather (temp, description, air pressure) as well as two buttons to provide further information.
@@ -73,10 +73,10 @@ Potential future improvements:
 
 * Additional dynamic and real-time data in the Overview and Statistics Modals.
 * Make the D3 Graphs (Statistics Modals) interactive ("clickable") and data-driven.
-* Internal: move static data (city and country array) to the Firebase Firestore.
+* Internal: move static data (city and country array) to the Cloud Firestore.
 * Add Map Markers and dynamic data for all the Capital Cities and Countries in the World.
 * Nice-to-have: allow the user to change the theme, by selecting from a number of predefined themes (dark, light, funky...).
-* Start with a destination form asking for permission to use the Broweser's geolocation function, or allow the User to enter a city to centre the map on, or use the default of Firhouse, Dublin, Ireland.
+* Start with a destination form asking for permission to use the Browser's geolocation function, or allow the User to enter a city to centre the map on, or use the default of Firhouse, Dublin, Ireland.
 
 ## Processes
 ### UX
@@ -109,11 +109,11 @@ The User Experience and Design MarkDown document covers the 5 planes in detail, 
 ## Solution
 ### Features
 
-The website enables Users, Collaborators and Employers the ability to view European city and country statistics in an informative and interactive way, all accessible via the single "Dashboard". "Navigation-less".
+The website enables Users, Collaborators and Employers the ability to view European City and country statistics in an informative and interactive way, all accessible via the single "Dashboard". "Navigation-less".
 
 The website provides the owner with a global on-line presence, and an ability to position and prove the value of the Front-End design and development skills acquired as a student at the Code Institute.
 
-The website displays data from a multitude of disparate sources, a noSQL Database (Firebase Firestore), and multiple API's (Google Maps, OpenWeather, D3, EmailJS, REST Countries), a static internal array, and links them to each European capital city.
+The website displays data from a multitude of disparate sources, a noSQL Database (Cloud Firestore), and multiple API's (Google Maps, OpenWeather, D3, EmailJS, REST Countries), a static internal array, and links them to each European capital city.
 
 This website uses a Dashboard Information Architecture. Everything is accessible from the one page in the form of "pop-ups" (InfoWindows, JS and CSS Modals). No navigation within the website is required. All external links in the Fixed Footer CSS Modals ("pop-ups") open up in new tabs.
 
@@ -124,11 +124,11 @@ This is a layered website making use of 3 dimensions (x, y, z). The background c
 #### Existing Features
 The features of the "Dashboard":
 
-* The website/webpage loads, creates a Google Map with Markers for each European capital city and centres the map on Firhouse, Dublin, Ireland. The browser requests access to the User's geolocation. If accepted, the map is recentred on the geolocation, otherwise it remains centred to the default location.
-* The background uses a linear gradient that is used for all key elements of the website adding to a common look-and-feel (background (html, body), footer, navigational controls, and JS/CSS Modals). With a slight transparancy and shadow it gives the JS/CSS Modals a curved look.
+* The website/webpage loads, creates a Google Map with Markers for each European capital city and centres the map on Firhouse, Dublin, Ireland. The browser requests access to the User's geolocation. If accepted, the map is centred on the geolocation, otherwise it remains centred to the default location.
+* The background uses a linear gradient that is used for all key elements of the website adding to a common look-and-feel (background (html, body), footer, navigational controls, and JS/CSS Modals). With a slight transparency and shadow it gives the JS/CSS Modals a curved look.
 * Each map marker is clickable, revealing a Google InfoWindow ("pop-up") with the Capital City, Country, Latitude and Longitude (static internal Array[]), the current weather (real-time from the OpenWeather API: temperature, description, and air pressure). The 2 buttons:
-	* Overview Buttton => displays the flag, native name, regional information, official languages, currencies, and calling code (real-time from the REST Countries API). Closed via the Close Button (JS EventListener and CSS).
-	* Statistics Button => displays a population graph (real-time and updated automaically upon DB change by the D3 API using data from the noSQL Firebase Firestore), and further information related to the country (real-time from the REST Countries API). Closed via the Close Button (JS EventListener and CSS).
+	* Overview Button => displays the flag, native name, regional information, official languages, currencies, and calling code (real-time from the REST Countries API). Closed via the Close Button (JS EventListener and CSS).
+	* Statistics Button => displays a population graph (real-time and updated automatically upon DB change by the D3 API using data from the noSQL Cloud Firestore), and further information related to the country (real-time from the REST Countries API). Closed via the Close Button (JS EventListener and CSS).
 
 * The Fixed Footer provides links to a CSS Modal. The Fixed footer FontAwesome icons zoom-in (`transform: scale (1.5)`) when hovered over (inviting the User to click on them):
 	* About => description of the website, and instructions on how to navigate it, while also describing the other CSS Modals. Closed via the Close Button (HTML and CSS).
@@ -140,7 +140,7 @@ The features of the "Dashboard":
 #### Features Left to Implement
 * Additional dynamic and real-time data in the Overview and Statistics Modals.
 * Make the D3 Graphs (Statistics Modals) interactive ("clickable") and include more data.
-* Internal: move static data (city and country array) to the Firebase Firestore or MongoDB.
+* Internal: move static data (city and country array) to the Cloud Firestore or MongoDB.
 * Add Map Markers and dynamic data for all the Capital Cities and Countries in the World.
 * Nice-to-have: allow the user to change the theme, by selecting from a number of predefined themes (dark, light, funky...).
 * Start with a destination form asking for permission to use the Browser's geolocation function, or allow the User to enter a city to centre the map on, or use the default of Firhouse, Dublin, Ireland.
@@ -175,7 +175,7 @@ A list of the languages, frameworks, libraries, and other tools used for this pr
 * [DropBox](https://www.dropbox.com/)
 	* Using DropBox as a staging area for Visual Studio Code, and synching this with GitHub.
 * [Visual Studio Code](https://code.visualstudio.com/)
-	* Code writing and staging. Use Visual Studio Code for Dev (Code Snippets), Test (fully-functioning), and Production (pushed to GitHub, and published on GitPages).
+	* Code writing and staging. Use Visual Studio Code for Dev (Code Snippets), Test (fully functioning), and Production (pushed to GitHub, and published on GitPages).
 * [LiveServer for Visual Code Studio](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
 	* This is the local Web Server used for development and testing, running as an add-on to Visual Studio Code.
 
@@ -225,7 +225,7 @@ A list of the languages, frameworks, libraries, and other tools used for this pr
 ### Technological Design Decision
 Opted for a Dashboard Information Architecture as it's the easiest for a User to use, though not always to design and develop for.
 
-Grid Layouts and Flexbox are used for the layout of the Dashboard. To further my understaning and skill development, I've opted for vanilla HTML 5 and CSS 3, as opposed to using one of many frameworks. I also opted for vanilla JavaScript as far as I can manage, however, I use D3 to create the real-time dynamic population graphs. I do this to ensure I understand the workings before embarking on simplification by using frameworks. jQuery is not necessary for this project as JavaScript has the same functions built-in, however, in future jQuery is good for more complex uses (not required for this simple design).
+Grid Layouts and Flexbox are used for the layout of the Dashboard. To further my understanding and skill development, I've opted for vanilla HTML 5 and CSS 3, as opposed to using one of many frameworks. I also opted for vanilla JavaScript as far as I can manage, however, I use D3 to create the real-time dynamic population graphs. I do this to ensure I understand the workings before embarking on simplification by using frameworks. jQuery is not necessary for this project as JavaScript has the same functions built-in, however, in future jQuery is good for more complex uses (not required for this simple design).
 
 Using GitHub as a repository and GitPages for publishing the website is an easy choice to make, as it works well and is easy to use.
 
@@ -399,13 +399,57 @@ Six undefined variables. (false positives):
 > 568	initMapTypeControl
 
 ## Deployment
-For this project I Visual Studio Code for coding, and using the Source Code Management provider with git to synch (stage, commit, synch) my updates to GitHub.
+For this project I use Visual Studio Code for coding, and using the Source Code Management provider with git to synch (stage, commit, synch) my updates to GitHub.
 
 Visual Studio Code is the development platform of choice from now on, together with GitHub for deployment and GitPages for publishing.
 
 I'm working off of the same main branch on GitHub, though I have a staging environment on DropBox for Visual Studio Code.
 
 Local deployment is performed in Visual Studio Code to the local LiveServer Web Server.
+
+The only difference between Production and Test, beside the directory structure and naming conventions, is that the Test code contains all changes as commented and continuous in-code commentary. Development is more of a sand-box, where I test to understand code snippets and API examples beore coding them to suit this Milestone Project.
+
+The directory structure for this Milestone Project:
+
+Production:
+
+* index.html - main and only HTML page.
+* assets/
+	* images/ - Favicon images and manifest.
+	* scripts/
+		* d3Stats.js - D3 API code for the JS Statistics Modal dynamic bar graph, and Cloud Firestore access.
+		* mapControls.js - Google Map JavaScript API code for the map type and zoom controls.
+		* maps.js - main JavaScript file driving the website features and functions.
+		* sendemail.js - EmailJS API for the Contact Form.
+	* styles/
+		* style.css - CSS file for the Milestone Project.
+* README.md - main Milestone Project document.
+* documentation/ - folder with the other 3 .md documents, all images and screenshots.
+
+Test:
+
+* test/
+	* CSS/
+		* gStyle.css - CSS file for the Milestone Project.
+	* HTML/
+		* gStyle.html - main and only HTML page.
+	* JavaScript/
+		* d3Stats.js - D3 API code for the JS Statistics Modal dynamic bar graph, and Cloud Firestore access.
+		* gMaps.js - Google Map JavaScript API code for the map type and zoom controls.
+		* gStyle.js - main JavaScript file driving the website features and functions.
+		* sendemail.js - EmailJS API for the Contact Form.
+
+Development:
+
+* test/
+	* Code Snippets/
+		* fetchEUStats.html
+		* fetchEUStats.js - understanding the REST Countries API, it's data, and fetch().then().then().catch().
+		* FireStoreTest.html
+		* FireStoreTest.js - understanding how to access the Cloud Firestore and how to use this in the Milestone Project.
+		* geoLocTest.html
+		* geoLocTest.js - understanding the Geo-Location function before coding it to suit the Milestone Project.
+		* gStyle copy.js - a copy of the Test environments gStyle.js (maps.js) main JavaScript file.
 
 When using Visual Studio Code with GitHub I perform the following steps:
 
@@ -455,7 +499,7 @@ Code Institute Mentor - [GitHub: 5pence - Spencer Barriball](https://github.com/
 	* Using FontAwesome font icons to add visual elements to key website features, making the website memorable and easier to navigate.
 
 ### Acknowledgements
-The inspiration for the project comes from my current role as a learner at the Code Institute. I wanted to broaden my programming horizons, challenge myself, and provide some idea of my potential as a prorammer.
+The inspiration for the project comes from my current role as a learner at the Code Institute. I wanted to broaden my programming horizons, challenge myself, and provide some idea of my potential as a programmer.
 
 This is my second milestone project for the Diploma in Full Stack Development at the Code Institute. I find that the milestone projects are excellent in getting me to understand the concepts covered during the course, while giving me an opportunity to fail, and fail fast, and in the process learn something new.
 

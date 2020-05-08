@@ -161,7 +161,7 @@ function initMap() {
 ```
 To finally resolve the occasional "Uncaught..." error common to loading Google Maps, I control the loading of the `<script></script>` before `initMap()`. Courtesy of ["Prof3ssorSt3v3"](https://gist.github.com/prof3ssorSt3v3/e0e07e0fd0b293d043d4ff2504fc847b).
 
-Removed the loading of the Google Map Script file from the HTML file, to dynamically create and load it before `initMap()` updating the HTML file dynamically. Removed the '&callback=initMap' from the URL, calling `initMap()` from maps.js instead. No need for the 'async', nor  'defer' attributes either.
+Removed the loading of the Google Map Script file from the HTML file, to dynamically create and load it before `initMap()` updating the HTML file dynamically. Removed the '&callback=initMap' from the URL, calling `initMap()` from maps.js instead. No need for the 'async', nor 'defer' attributes either.
 
 We create the `<script>` element in index.html. We listen to the DOM, to make sure it's fully loaded. We load the Google Map JS Script:
 `<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDKoKXKgFfLTb9SNLk0QEq1FmnNJD3hSg"></script>`. We then call `initMap()`.
@@ -237,17 +237,6 @@ These HTML elements and attributes are from the Google Map JavaScript API docume
                 <button class="maptype-control-map" title="Show road map">Map</button>
                 <button class="maptype-control-satellite" title="Show satellite imagery">Satellite</button>
             </div>
-            <div class="controls scale-control scale-control-is-map">
-                <button class="scale-control-map" title="Street View">Street View</button>
-            </div>
-            <div class="controls fullscreen-control">
-                <button title="Toggle Fullscreen">
-                    <span class="fullscreen-control-icon fullscreen-control-top-left"></span>
-                    <span class="fullscreen-control-icon fullscreen-control-top-right"></span>
-                    <span class="fullscreen-control-icon fullscreen-control-bottom-left"></span>
-                    <span class="fullscreen-control-icon fullscreen-control-bottom-right"></span>
-                </button>
-            </div>
         </div>
 ```
 
@@ -322,60 +311,6 @@ Google Map JavaScript API documentation for customised Navigational Controls. I'
     font-weight: 700;
 }
 
-.gm-style .controls.fullscreen-control button {
-    display: block;
-    font-size: 1em;
-    height: 100%;
-    width: 100%;
-}
-
-.gm-style .controls.fullscreen-control .fullscreen-control-icon {
-    border-style: solid;
-    height: 0.25em;
-    position: absolute;
-    width: 0.25em;
-}
-
-.gm-style .controls.fullscreen-control .fullscreen-control-icon.fullscreen-control-top-left {
-    border-width: 2px 0 0 2px;
-    left: 0.1em;
-    top: 0.1em;
-}
-
-.gm-style .controls.fullscreen-control.is-fullscreen .fullscreen-control-icon.fullscreen-control-top-left {
-    border-width: 0 2px 2px 0;
-}
-
-.gm-style .controls.fullscreen-control .fullscreen-control-icon.fullscreen-control-top-right {
-    border-width: 2px 2px 0 0;
-    right: 0.1em;
-    top: 0.1em;
-}
-
-.gm-style .controls.fullscreen-control.is-fullscreen .fullscreen-control-icon.fullscreen-control-top-right {
-    border-width: 0 0 2px 2px;
-}
-
-.gm-style .controls.fullscreen-control .fullscreen-control-icon.fullscreen-control-bottom-left {
-    border-width: 0 0 2px 2px;
-    left: 0.1em;
-    bottom: 0.1em;
-}
-
-.gm-style .controls.fullscreen-control.is-fullscreen .fullscreen-control-icon.fullscreen-control-bottom-left {
-    border-width: 2px 2px 0 0;
-}
-
-.gm-style .controls.fullscreen-control .fullscreen-control-icon.fullscreen-control-bottom-right {
-    border-width: 0 2px 2px 0;
-    right: 0.1em;
-    bottom: 0.1em;
-}
-
-.gm-style .controls.fullscreen-control.is-fullscreen .fullscreen-control-icon.fullscreen-control-bottom-right {
-    border-width: 2px 0 0 2px;
-}
-
 .gm-style-iw,
 .gm-style-iw-c {
     background: linear-gradient(0.25turn, rgba(63, 135, 166, 0.9), rgba(235, 248, 225, 0.9), rgba(246, 157, 60, 0.9));
@@ -440,6 +375,7 @@ function initMapTypeControl(map) {
 ### Fixed Footer and CSS Modals
 #### --- * --- * === { Fixed Footer } === * --- * ---
 ![Fixed Footer](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/4.%20Fixed%20Footer.png)
+
 Why? - Provide Users an unobtrusive fixed footer with a scrollable Google Map and CSS Modals to provide additional information regarding the use of the website (probably not required), links to the API's and Code Snippets used to the benefit of collaborating developers and employers, as well as a Contact Form to engage with me and a credibility modal ("Ego-page").
 
 Use Case cross-reference ([please see main README.md for details](https://github.com/NaoiseGaffney/CitiesInCountries#processes)):
@@ -585,7 +521,7 @@ Use Case cross-reference ([please see main README.md for details](https://github
 
 What? - The Footer links are: About which describes the use and navigation of the website, API's providing links to the descriptions of the API's used on this website to provide data and functionality, Code Snippets providing links to tutorials and courses with knowledge and skills used on this website, Contact Form to provide greatly appreciated feedback, and About Me to view my Resumé, GitHub, and GaffCo for professional communication competence!
 
-How? - Hovering over the FontAwesome icons scales it to 1.5 times the original size, clicking on it opens the About CSS Modal. A CSS backdrop lies behind the CSS Modal disabling clicking of any other links and buttons on the website. Only the Close button on the CSS Modal is clickable.
+How? - Hovering over the FontAwesome icons scales it to 1.5 times the original size, clicking on it opens the About CSS Modal. A CSS backdrop lies behind the CSS Modal disabling clicking any other links and buttons on the website. Only the Close button on the CSS Modal is clickable.
 
 Index.html contains the Fixed Footer FontAwesome links, and the CSS Modals and their content. Styling of the CSS Modals is specified in style.css. The only JavaScript component is the Contact Form sendemail.js script.
 
@@ -601,11 +537,11 @@ Use Case cross-reference ([please see main README.md for details](https://github
 * 002 - Features and Functions Overview - Fixed Footer and CSS Modals (geoLocation accepted)
 * User - UC 3 - CSS Modals (geoLocation already accepted)
 
-What? - About which describes the use and navigation of the website.
+What? - About, which describes the use and navigation of the website.
 
 How? - Index.html contains the FontAwesome exclamation-mark link icon that opens up the About CSS Modal with the content in index.html. The CSS Modal control and styling is defined in style.css.
 
-Hovering over the FontAwesome exclamation-point icon scales it to 1.5 times the original size, clicking on it opens the About CSS Modal. A CSS backdrop lies behind the CSS Modal disabling clicking of any other links and buttons on the website. Only the Close button on the CSS Modal is clickable.
+Hovering over the FontAwesome exclamation-point icon scales it to 1.5 times the original size, clicking on it opens the About CSS Modal. A CSS backdrop lies behind the CSS Modal disabling clicking any other links and buttons on the website. Only the Close button on the CSS Modal is clickable.
 
 [</> - Production Code: index.html](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/index.html)
 
@@ -694,6 +630,7 @@ The `.cssmodal...` elements and styling attributes style the CSS Modal according
     width: 100%;
     height: 100%;
     overflow: auto;
+    background: rgba(0, 0, 0, 0.20);
 }
 
 /* Display the modal when targeted */
@@ -785,7 +722,7 @@ What? - API's providing links to the descriptions of the API's used on this webs
 
 How? - Index.html contains the FontAwesome file-code-o link icon that opens up the API's CSS Modal with the content in index.html. The CSS Modal control and styling is defined in style.css.
 
-Hovering over the FontAwesome file-code-o icon scales it to 1.5 times the original size, clicking on it opens the API's CSS Modal. A CSS backdrop lies behind the CSS Modal disabling clicking of any other links and buttons on the website. Only the Close button on the CSS Modal is clickable.
+Hovering over the FontAwesome file-code-o icon scales it to 1.5 times the original size, clicking on it opens the API's CSS Modal. A CSS backdrop lies behind the CSS Modal disabling clicking any other links and buttons on the website. Only the Close button on the CSS Modal is clickable.
 
 Clicking on the links opens up the external websites in new tabs `target=_blank`.
 
@@ -870,6 +807,7 @@ The `.cssmodal...` elements and styling attributes style the CSS Modal according
     width: 100%;
     height: 100%;
     overflow: auto;
+    background: rgba(0, 0, 0, 0.20);
 }
 
 /* Display the modal when targeted */
@@ -961,7 +899,7 @@ What? - Code Snippets, Code Walkthroughs, and Udemy Courses providing both knowl
 
 How? - Index.html contains the FontAwesome fa-code link icon that opens up the API's CSS Modal with the content in index.html. The CSS Modal control and styling is defined in style.css.
 
-Hovering over the FontAwesome fa-code icon scales it to 1.5 times the original size, clicking on it opens the Code Snippet CSS Modal. A CSS backdrop lies behind the CSS Modal disabling clicking of any other links and buttons on the website. Only the Close button on the CSS Modal is clickable.
+Hovering over the FontAwesome fa-code icon scales it to 1.5 times the original size, clicking on it opens the Code Snippet CSS Modal. A CSS backdrop lies behind the CSS Modal disabling clicking any other links and buttons on the website. Only the Close button on the CSS Modal is clickable.
 
 Clicking on the links opens up the external websites in new tabs `target=_blank`.
 
@@ -1042,6 +980,7 @@ The `.cssmodal...` elements and styling attributes style the CSS Modal according
     width: 100%;
     height: 100%;
     overflow: auto;
+    background: rgba(0, 0, 0, 0.20);
 }
 
 /* Display the modal when targeted */
@@ -1142,7 +1081,7 @@ The EmailJS API is used and the HTML code and in-line JavaScript in index.html i
 
 How? - Index.html contains the FontAwesome fa-envelope link icon that opens up the Contact Form CSS Modal with the content in index.html. The CSS Modal control and styling is defined in style.css.
 
-Hovering over the FontAwesome fa-envelope icon scales it to 1.5 times the original size, clicking on it opens the Contact Form CSS Modal. A CSS backdrop lies behind the CSS Modal disabling clicking of any other links and buttons on the website. Only the Close button on the CSS Modal is clickable.
+Hovering over the FontAwesome fa-envelope icon scales it to 1.5 times the original size, clicking on it opens the Contact Form CSS Modal. A CSS backdrop lies behind the CSS Modal disabling clicking any other links and buttons on the website. Only the Close button on the CSS Modal is clickable.
 
 Clicking on the "Send Feedback" button without filling out the form fields will result in a message asking the User to "Please fill out this field." Filling out the form correctly and clicking the "Send Feedback" button sends the form details as an e-mail to me with the "Name, e-mail, and text." If the form submission is successful a message is displayed for 5 seconds below the form, "Thank you! Email sent successfully." and the form fields are cleared. If an error occurs, the message is "Apologies, something went wrong. Please try again."
 
@@ -1347,7 +1286,7 @@ textarea {
 
 [(Js) - Production Code: sendemail.js](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/scripts/sendemail.js)
 
-This code is a modified version of the EmailJS API documentation. It maps the HTML form to the EmailJS template defined on the EmailJS website, sends the form to the EmailJS website. On success ("Success OK 200") the script updates the Contact Form with the success message of "Thank you! Email sent successfully." for 5 seconds (long enough for the User to read and understand the message), and clears the form fields. If the sending of the form is unsuccessful the message on the Contact Form is "Apologies, something went wrong. Please try again." for 5 seconds, and retains the previously filled out form fields to allow the User to try again.
+This code is a modified version of the EmailJS API documentation. It maps the HTML form to the EmailJS template defined on the EmailJS website, sends the form to the EmailJS website. On success ("Success OK 200") the script updates the Contact Form with the success message of "Thank you! Email sent successfully." for 5 seconds (long enough for the User to read and understand the message), and clears the form fields. If the form is unsuccessful the message on the Contact Form is "Apologies, something went wrong. Please try again." for 5 seconds, and retains the previously filled out form fields to allow the User to try again.
 
 ```
 function sendMail(contactForm) {
@@ -1391,7 +1330,7 @@ What? - Link to my Resumé, my GitHub, this Milestone Project (HTML, CSS, and Ja
 
 How? - Index.html contains the FontAwesome fa-user link icon that opens up the Credibility CSS Modal with the content in index.html. The CSS Modal control and styling is defined in style.css.
 
-Hovering over the FontAwesome fa-user icon scales it to 1.5 times the original size, clicking on it opens the Credibility CSS Modal. A CSS backdrop lies behind the CSS Modal disabling clicking of any other links and buttons on the website. Only the Close button on the CSS Modal is clickable.
+Hovering over the FontAwesome fa-user icon scales it to 1.5 times the original size, clicking on it opens the Credibility CSS Modal. A CSS backdrop lies behind the CSS Modal disabling clicking any other links and buttons on the website. Only the Close button on the CSS Modal is clickable.
 
 Clicking on the links opens up the external websites in new tabs `target=_blank`.
 
@@ -1476,6 +1415,7 @@ The `.cssmodal...` elements and styling attributes style the CSS Modal according
     width: 100%;
     height: 100%;
     overflow: auto;
+    background: rgba(0, 0, 0, 0.20);
 }
 
 /* Display the modal when targeted */
@@ -1573,7 +1513,7 @@ How? - The Map Markers are positioned on the capital cities of Europe and are pl
 
 [(Js) - Production Code: maps.js](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/scripts/maps.js)
 
-The internal `markersArray[]` in maps.js. In future it will be moved to a noSQL database such as Firestore or MongoDB.
+The internal `markersArray[]` in maps.js. In future it will be moved to a noSQL database such as Cloud Firestore or MongoDB.
 
 Two constants are defined, one as a placeholder for the OpenWeather API, and the other for the InfoWindow (`toolTipButtons`) buttons for the JS Overview and Statistics Modals.
 
@@ -1985,7 +1925,7 @@ for (let i = 0; i < markersArray.length; i++) {
 ### Google Map Marker InfoWindows and Content
 ![Google Map Marker InfoWindow -  Paris, France](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/Google%20Map%20Marker%20InfoWindow.png)
 
-Why? - The Google Map Markers InfoWindows provide information about the city, country, city coordinates, real-time weather data, and two buttons to JS Modals with additional information of interest to the User. This dashboard approach means the Users navigate "in-place", with information provided in layers through InfoWindows and JS Modals.
+Why? - The Google Map Markers InfoWindows provide information about the city, country, city coordinates, real-time weather data, and two buttons to JS Modals with additional information of interest to the User. This dashboard approach means the Users navigate "in-place" with information provided in layers through InfoWindows and JS Modals.
 
 Use Case cross-reference ([please see main README.md for details](https://github.com/NaoiseGaffney/CitiesInCountries#processes)):
 
@@ -2061,7 +2001,7 @@ Styling of all CSS and JS Modal buttons (Close, Overview, Statistics). Using CSS
 
 [(Js) - Production Code: maps.js](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/assets/scripts/maps.js)
 
-The internal `markersArray[]` in maps.js. In future it will be moved to a noSQL database such as Firestore or MongoDB.
+The internal `markersArray[]` in maps.js. In future it will be moved to a noSQL database such as Cloud Firestore or MongoDB.
 
 Two constants are defined, one as a placeholder for the OpenWeather API, and the other for the InfoWindow (`toolTipButtons`) buttons for the JS Overview and Statistics Modals.
 
@@ -2841,7 +2781,7 @@ let findCountryObject = {};
                     .then(data => {
                         findCountryObject = data.find(data => data.name === country);
                         functionCall();
-                    });
+                    }).catch(err => console.log(err));
             } else {
                 functionCall();
             }
@@ -2882,9 +2822,9 @@ Use Case cross-reference ([please see main README.md for details](https://github
 * 009 - Collaborator - UC 6 - Overview and Statistics (geoLocation already accepted)
 * 012 - Employer - UC 9 - Overview and Statistics (geoLocation already accepted)
 
-What? - Provides a real-time dynamic D3 Graph (D3 API) of population data from a Firestore noSQL database, as well as statistics from the REST Countries API.
+What? - Provides a real-time dynamic D3 Graph (D3 API) of population data from a Cloud Firestore noSQL database, as well as statistics from the REST Countries API.
 
-How? - The data is created in real-time from data fetched from the Firestore noSQL database via the D3 API, a graph is created by D3, and the REST Countries API.
+How? - The data is created in real-time from data fetched from the Cloud Firestore noSQL database via the D3 API, a graph is created by D3, and the REST Countries API.
 
 [</> - Production Code: index.html](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/index.html)
 
@@ -3030,7 +2970,14 @@ The following code snippet splits the city and country into an array with two va
 
 `fetchCountry(cityArray[1], displayStats);` is called with two parameters, the country and the name of the `functionCall` to call (`displayCountry` for the JS Overview Modal or `displayStats` for the JS Statistics Modal). It checks if `findCountryObject` is populated (=== 0), if so `fetch()` from the REST Countries API is called to populate `findCountryObject` else the existing data is used (previously fetched).
 
-`displayCountry()` checks the languages and currencies arrays for multiple objects and creates the relevant object (for example, "Irish, English." and "Euro, Dollars.") to make it look good when displayed to the User.
+`displayStats()` checks the bordering countries array for multiple objects and creates the relevant object (for example, "FRA, DEU, LUX, NLD." for Brussels, Belgium) to make it look good when displayed to the User.
+
+The population and area numbers are separated by a space at every 1000 using a regular expression. It looks nicer (for example, from "1234567" to "1 234 567" ) and negates the need to support regional differences in using "," or "." as a separator.
+
+```
+	findCountryObject.population = findCountryObject.population.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ');
+	findCountryObject.area = findCountryObject.area.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ');
+```
 
 Using `document,querySelector("#...").innerHTML = ...;` the JS Overview Modal is populated with the flag, native name, regions, languages, currencies, and calling code.
 
@@ -3079,7 +3026,7 @@ const backdrop = document.getElementById("backdrop");
         };
 ```
 
-The `findCountryObject` is declared and populated with data from the REST Countries API using `fetch().then().then()`.
+The `findCountryObject` is declared and populated with data from the REST Countries API using `fetch().then().then().catch()`.
 
 ```
 let findCountryObject = {};
@@ -3117,7 +3064,7 @@ let findCountryObject = {};
                     .then(data => {
                         findCountryObject = data.find(data => data.name === country);
                         functionCall();
-                    });
+                    }).catch(err => console.log(err));
             } else {
                 functionCall();
             }
@@ -3148,7 +3095,7 @@ let findCountryObject = {};
 
 [(Js) - Production Code: d3Stats.js]()
 
-This is inspired by the Udemy course on D3 and Firestore by Shaun Pelling. The processes and pattern are the same for all D3 graphing. I've added the flexibility of supplying parameters so I won't have to modify this file every time I want to change colour or size.
+This is inspired by the Udemy course on D3 and Firestore by Shaun Pelling. The processes and pattern are the same for all D3 graphing. I've added the flexibility of supplying parameters so I won't have to modify this file every time I want to change colour or size or tickCounter, and call it using a city as an index to the Cloud Firestore.
 
 The D3 3-step Process:
 

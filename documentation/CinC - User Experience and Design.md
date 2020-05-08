@@ -14,9 +14,9 @@ This document covers the user experience and design of this website based on the
 5. Surface Plane: Visual Design.
 
 ## Strategy
-Users see the value in terms of satsfying their curiosity regarding European Capital Cities and Countries. Collaborators and Employers see the value provided in terms of Front-End design and development, and currently to a lesser degree Full Stack Development.
+Users see the value in terms of satisfying their curiosity regarding European Capital Cities and Countries. Collaborators and Employers see the value provided in terms of Front-End design and development, and currently to a lesser degree Full Stack Development.
 
-As a showpiece of what I've learned so far, and able to put to good use, it highlights my potential as a programmer to both Collaboratora and Employers.
+As a showpiece of what I've learned so far, and able to put to good use, it highlights my potential as a programmer to both Collaborators and Employers.
 
 ### Is the Content Culturally Appropriate?
 The website is aimed at both a corporate and personal audience, and has to satisfy the needs of both audiences. It has to appeal to both audiences without alienating one or the other.
@@ -34,10 +34,10 @@ The website uses a single Dashboard, intuitive navigation, structure and content
 ### Is the Technology Appropriate?
 A website using HTML 5, CSS 3, JavaScript, a noSQL Database, and 5 API's is an appropriate way to provide a single display of a lot of disparate information.
 
-It does what no CV, nor Diploma, nor LinkedIn Profile can do. It offers irrefutible evidence of my current knowledge and skill level, as well as a clear indication of my potential as a programmer.
+It does what no CV, nor Diploma, nor LinkedIn Profile can do. It offers irrefutable evidence of my current knowledge and skill level, as well as a clear indication of my potential as a programmer.
 
 ### Why are We So Special?
-Showcasing the use of multiple data sources, API's and displaying them in a coherent and clear manner on a intuitive and easy-to-use Dashboard shows I have potential as a programmer, even though I've a lot more to learn.
+Showcasing the use of multiple data sources, API's and displaying them in a coherent and clear manner on an intuitive and easy-to-use Dashboard shows I have potential as a programmer, even though I've a lot more to learn.
 
 In addition, beyond attending the Code Institute course I frequently attend additional on-line courses to further my knowledge, and putting this knowledge to good use on the milestone projects.
 
@@ -60,7 +60,7 @@ The clean and clutter-free interface, the clear, concise, and concrete course ov
 Importance: UXD driven by business goals and user needs
 Viability/Feasibility: Can we build a solution given limited time and resources:
 
-![Importane versus Feasibility Table](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/OppImpFeas.png)
+![Importance versus Feasibility Table](https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/OppImpFeas.png)
 
 For this initial sprint I'm concentrating on creating:
 
@@ -87,11 +87,11 @@ A single pane of information using the well-known Google Map to entice people to
 The website structure is a Dashboard, with a simple and predictable structure. No navigation is required, with the exception of the external links in the CSS Footer Modals.
 
 ### Interaction Design
-* The website enables Users, Collaborators and Employers the ability to view European city and country statistics in an informative and interactive way, all accessible via the single "Dashboard". "Navigation-less".
+* The website enables Users, Collaborators and Employers the ability to view European City and country statistics in an informative and interactive way, all accessible via the single "Dashboard". "Navigation-less".
 * This website uses a Dashboard Information Architecture. Everything is accessible from the one page in the form of "pop-ups" (InfoWindows, JS and CSS Modals). No navigation within the website is required. All external links in the Fixed Footer CSS Modals ("pop-ups") open up in new tabs.
-* A user clicks on a Map Marker --> Tool-Tip wtih city, country, latitude and longitude are displayed (from the internal markersArray[]). The real-time weather is displayed (temperature, description, and air pressure) for the location (from the OpenWeather API). The 2 buttons:
-	* Overview Buttton => displays the flag, native name, regional information, official languages, currencies, and calling code (real-time from the REST Countries API). Closed via the Close Button (JS EventListener and CSS).
-	* Statistics Button => displays a population graph (real-time and updated automaically upon DB change by the D3 API using data from the noSQL Firebase Firestore), and further information related to the country (real-time from the REST Countries API). Closed via the Close Button (JS EventListener and CSS).
+* A user clicks on a Map Marker --> Tool-Tip with city, country, latitude and longitude are displayed (from the internal markersArray[]). The real-time weather is displayed (temperature, description, and air pressure) for the location (from the OpenWeather API). The 2 buttons:
+	* Overview Button => displays the flag, native name, regional information, official languages, currencies, and calling code (real-time from the REST Countries API). Closed via the Close Button (JS EventListener and CSS).
+	* Statistics Button => displays a population graph (real-time and updated automatically upon DB change by the D3 API using data from the noSQL Cloud Firestore), and further information related to the country (real-time from the REST Countries API). Closed via the Close Button (JS EventListener and CSS).
 * The Fixed Footer provides links to a CSS Modal. The Fixed footer FontAwesome icons zoom-in (`transform: scale (1.5)`) when hovered over (inviting the User to click on them):
 	* About => description of the website, and instructions on how to navigate it, while also describing the other CSS Modals. Closed via the Close Button (HTML and CSS).
 	* API's => a list of links to the API's used for this website. Closed via the Close Button (HTML and CSS).
