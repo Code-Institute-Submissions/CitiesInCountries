@@ -374,32 +374,24 @@ A couple of things to note:
 No errors. A number of "false positives" on undefined variables. They are either JS functions and objects called in external JS files such as from Google or my own D3 for Graphs. `markerStringArray` is used to create the URL link for the OpenWeather API `fetch()`.
 
 Metrics:
-> There are 26 functions in this file.
+> There are 27 functions in this file.
 > 
-> Function with the largest signature take 2 arguments, while the median is 1.
+> Function with the largest signature take 2 arguments, while the median is 0.
 > 
 > Largest function has 17 statements in it, while the median is 2.
 > 
 > The most complex function has a cyclomatic complexity value of 5 while the median is 1.
 
-Six undefined variables. (false positives):
-> 388	google
-> 
-> 401	google
-> 
-> 416	google
-> 
-> 424	markerStringArray
-> 
-> 426	markerStringArray
-> 
-> 426	markerStringArray
-> 
-> 553	d3Stats
-> 
-> 567	initZoomControl
-> 
-> 568	initMapTypeControl
+Six undefined variables (false positives):
+> 386	google
+> 400	google
+> 415	google
+> 423	markerStringArray
+> 425	markerStringArray
+> 425	markerStringArray
+> 552	d3Stats
+> 566	initZoomControl
+> 567	initMapTypeControl
 
 ## Deployment
 For this project I use Visual Studio Code for coding, and using the Source Code Management provider with git to synch (stage, commit, synch) my updates to GitHub.
