@@ -383,15 +383,23 @@ Metrics:
 > The most complex function has a cyclomatic complexity value of 5 while the median is 1.
 
 Six undefined variables (false positives):
-> 386	google
-> 400	google
-> 415	google
-> 423	markerStringArray
-> 425	markerStringArray
-> 425	markerStringArray
-> 552	d3Stats
-> 566	initZoomControl
-> 567	initMapTypeControl
+> 399	google
+> 
+> 413	google
+> 
+> 428	google
+> 
+> 436	markerStringArray
+> 
+> 442	markerStringArray
+> 
+> 442	markerStringArray
+> 
+> 569	d3Stats
+> 
+> 586	initZoomControl
+> 
+> 587	initMapTypeControl
 
 ## Deployment
 For this project I use Visual Studio Code for coding, and using the Source Code Management provider with git to synch (stage, commit, synch) my updates to GitHub.
