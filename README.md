@@ -59,7 +59,7 @@ Employers wanting to improve their on-line presence with Front-End design and de
 ### Site Owner's Goals
 The site has potential to become much more informative and interactive. It serves as a proof-of-concept of presenting dynamic data from disparate sources in a cohesive and simple display.
 
-It servers as a strong prototype and as an example for future collaborators, clients, and companies of what I'm capable of. It does what no CV, nor Diploma, nor LinkedIn Profile can do. It offers irrefutable evidence of my current knowledge and skill level, as well as a clear indication of my potential as a programmer.
+It serves as a strong prototype and as an example for future collaborators, clients, and companies of what I'm capable of. It does what no CV, nor Diploma, nor LinkedIn Profile can do. It offers irrefutable evidence of my current knowledge and skill level, as well as a clear indication of my potential as a programmer.
 
 ### Potential Features
 A "Dashboard" view of the World with European Map Markers that when clicked open a Google InfoView with city coordinates, country, current weather (temp, description, air pressure) as well as two buttons to provide further information.

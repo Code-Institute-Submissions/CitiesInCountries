@@ -2063,7 +2063,7 @@ const backdrop = document.getElementById("backdrop");
         };
 ```
 
-The `findCountryObject` is declared and populated with data from the REST Countries API using `fetch().then().then()`.
+The `findCountryObject` is declared and populated with data from the REST Countries API using `fetch().then().then().catch()`.
 
 ```
 let findCountryObject = {};
