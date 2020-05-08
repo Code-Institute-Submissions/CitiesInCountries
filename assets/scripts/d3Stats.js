@@ -1,3 +1,7 @@
+/*
+The "Why?", "What?", and "How?" of this code is fully documented here: https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/Code%20Documentation%20and%20Walkthrough.md
+*/
+
 const d3Stats = (city, width, height, tickFormat, fillColour) => {
     const svg = d3.select(".canvas")
         .append("svg")

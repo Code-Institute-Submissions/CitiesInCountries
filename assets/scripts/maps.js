@@ -1,9 +1,7 @@
-/**
- * WHY?
- * WHAT?
- * HOW?
- * 
- */
+/*
+The "Why?", "What?", and "How?" of this code is fully documented here: https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/Code%20Documentation%20and%20Walkthrough.md
+*/
+
 const weatherInfo = `<div class="weather" id="weather"></div>`;
 const toolTipButtons = `<br><div class="modalActions"><button class="button" id="buttonOver">Overview</button><button class="buttton" id="buttonStats">Statistics</button></div>`;
 

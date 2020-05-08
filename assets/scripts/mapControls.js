@@ -1,16 +1,6 @@
-/* === WHY?
-    To control the style of the Google Map navigation elements we replace the default controls.
- 
-=== WHAT?
-    Google Maps API - Replacing Default Controls: https://developers.google.com/maps/documentation/javascript/examples/control-replacement
- 
-=== HOW?
-    HTML: Create the navigation elements with relevant classes and id's, to be referenced by CSS and modified via JS.
-    CSS: Style the Google Maps navigation elements, .gm-style... classes.
-    JS: Create and call custom functions, ZoomControl, and MapType Control.
+/*
+The "Why?", "What?", and "How?" of this code is fully documented here: https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/Code%20Documentation%20and%20Walkthrough.md
 */
-
-// Called from the main JS Script: maps.js in Prod, and gStyle.js in Dev/Test.
 
 function initZoomControl(map) {
     document.querySelector('.zoom-control-in').onclick = function () {

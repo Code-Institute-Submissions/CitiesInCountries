@@ -1,18 +1,22 @@
+/*
+The "Why?", "What?", and "How?" of this code is fully documented here: https://github.com/NaoiseGaffney/CitiesInCountries/blob/master/documentation/Code%20Documentation%20and%20Walkthrough.md
+*/
+
+/* Google Font Raleway: @import url('https://fonts.googleapis.com/css?family=Raleway|&display=swap'); used throughout the website as it's an easy font to read, and easy on the eyes. */
 @import url('https://fonts.googleapis.com/css?family=Raleway|&display=swap');
 
-/* --- "Reset!" and Set Basic Parameters  --- */
+/* Main section for setting basic parameters * {...}, and html, body {...} to set font and background to the linear-gradient used throughout the website. */
 * {
     margin: 0;
     padding: 0;
     border: 0;
 }
 
-/* Always set the map height explicitly to define the size of the <div> element that contains the Google Map. */
+/* Google Map height definition, from the Google Map JavaScript API documentation, #map. */
 #map {
     height: 100%;
 }
 
-/* Makes the Google Map page fill the window. */
 html,
 body {
     height: 100%;
@@ -22,19 +26,7 @@ body {
     background: linear-gradient(0.25turn, rgba(63, 135, 166, 0.9), rgba(235, 248, 225, 0.9), rgba(246, 157, 60, 0.9));
 }
 
-
-/* === WHY?
-To control the style of the Google Map navigation elements we replace the default controls.
-
-=== WHAT?
-Google Maps API - Replacing Default Controls: https://developers.google.com/maps/documentation/javascript/examples/control-replacement
-
-=== HOW?
-HTML: Create the navigation elements with relevant classes and id's, to be referenced by CSS and modified via JS.
-CSS: Style the Google Maps navigation elements, .gm-style... classes.
-JS: Create and call custom functions, ZoomControl, MapType Control, and FullScreenControl.
-*/
-
+/* Google Map Navigational Control styles from the Google Map JavaScript API with modifications to suit the overall design of the website, .gm-style...{...}. */
 .gm-style .controls {
     font-size: 36px;
     background-color: rgb(255, 255, 255);
@@ -116,20 +108,9 @@ p {
     margin-bottom: 10px;
 }
 
-
-/* === WHY?
-To create an appealing look-and-feel for the viewing of cities across the World on Google Maps,
-and provide easy-access to city overview, weather, and details (D3) while staying on the same page.
-
-=== WHAT?
-Create a Grid with responsive elements to suit mobiles, tablets, and desktops.
-
-=== HOW?
-HTML: Create the <div> elements for the map, markers, modals, and footer elements.
-CSS: Create  the layout for Google Maps, the Footer, and Modals.
-JS: Control Marker Tool-Tips, and Modals.
+/*
+Grid Layout for the map and footer, using grid-template-areas. 3 columns x 20 rows, of which the Fixed Footer use one row of 3 columns, and the rest is real estate for Google Maps.
 */
-
 .parent {
     height: 100%;
     display: grid;
@@ -182,21 +163,9 @@ JS: Control Marker Tool-Tips, and Modals.
     box-shadow: 0px -6px 20px 0px rgba(0, 0, 0, 0.19);
 }
 
-
-
-/* === FOOTER === */
-/* === WHY?
-Section Styling: to create a consistent contact experience, and look-and-feel throughout the website. Create a clean look, that's easy to comprehend and use.
-
-=== WHAT?
-Style the Fixed Footer in the same style as the rest of the website.
-
-=== HOW?
-HTML: Create the CSS Modal content for the footer footer elements.
-CSS: Style the links (<a href...>) for the whole website.
-JS: n/a.
+/*
+Fixed Footer styling of FontAwesome icon links.
 */
-
 a {
     color: rgb(0, 0, 0);
     font-size: 110%;
@@ -213,8 +182,9 @@ a i:hover {
     font-size: 100%;
 }
 
-
-/* === BACKDROP === */
+/*
+CSS Modal backdrop styling and toggling.
+*/
 #backdrop {
     position: fixed;
     width: 100%;
@@ -232,11 +202,9 @@ a i:hover {
     pointer-events: all;
 }
 
-
-/* === JS MODAL === */
-/* === WHY?
-Displays details without leaving the page, providing a clear and clean navigation option.
-=== */
+/*
+JavaScript Modal, backdrop, modals, and SVG flag.
+*/
 .card {
     background: rgb(255, 255, 255);
     border-radius: 10px;
@@ -303,11 +271,9 @@ svg {
     margin-top: 5px;
 }
 
-
-/* === CSS Modal ===  */
-/* === WHY?
-Displays details without leaving the page, providing a clear and clean navigation option.
-=== */
+/*
+CSS Modal styling for the Fixed Footer FontAwesome icon links.
+*/
 @-webkit-keyframes example {
     from {
         top: -100px;
@@ -385,10 +351,8 @@ Displays details without leaving the page, providing a clear and clean navigatio
     color: rgb(255, 255, 255);
 }
 
-
-/* === BUTTONS ===
-Using CSS Button Creator: https://cssbuttoncreator.com/ and some additional modification to get it "just right".
-Added 'outline: none' to remove ugly click outline.
+/*
+Buttons, all Close buttons, JS Modal Overview and Statistics buttons.
 */
 .button {
     background: rgba(63, 135, 166, 1);
@@ -439,9 +403,9 @@ textarea {
 
 
 
-/* === Responsive Web Design - Mobile Devices First and Foremost === */
-/* --- Make sure that the JS Modal doesn't "hog the limelight, too much..." on displays with plenty of "Real Estate".
-Using a Modal CSS trick for the JS Modal to center the modal; .modal {} --- */
+/*
+Responsive Web Design, for laptops and desktops with plenty of "real estate".
+*/
 @media screen and (min-width: 600px) and (min-height: 600px) {
     .modal {
         position: fixed;
