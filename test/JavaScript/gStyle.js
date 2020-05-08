@@ -514,7 +514,7 @@ function initMap() {
 
             document.querySelector("#flag").innerHTML = `<img src="${findCountryObject.flag}" width="150" style="border:2px solid black"></a>`;
             document.querySelector("#overview").innerHTML = `<p>Native Name: "${findCountryObject.nativeName}" => ${findCountryObject.name} --> ${findCountryObject.subregion} --> ${findCountryObject.region}</p>
-                <p>Language(s): ${languages} - Currencie(s): ${currencies} - Calling Code: +${findCountryObject.callingCodes[0]}</p>`;
+                <p>Language(s): ${languages} - Currency/Currencies: ${currencies} - Calling Code: +${findCountryObject.callingCodes[0]}</p>`;
         };
 
         let fetchCountry = (country, functionCall) => {
@@ -549,7 +549,7 @@ function initMap() {
             findCountryObject.area = findCountryObject.area.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ');
 
             document.querySelector("#d3").innerHTML = `<p>Population: "${findCountryObject.population}", Area: ${findCountryObject.area} km<sup>2</sup></p>
-                <p>Bordering Countrie(s): ${borders}</p><p>Gini Coefficient: ${findCountryObject.gini}, this is a measurement of inequality. The lower the better (< 35).</p>`;
+                <p>Bordering Country/Countries: ${borders}</p><p>Gini Coefficient: ${findCountryObject.gini}, this is a measurement of inequality. The lower the better (< 35).</p>`;
         };
 
 
